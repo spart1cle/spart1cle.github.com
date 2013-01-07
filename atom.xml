@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[My Octopress Site]]></title>
   <link href="http://spart1cle.github.com/atom.xml" rel="self"/>
   <link href="http://spart1cle.github.com/"/>
-  <updated>2013-01-06T18:54:51-05:00</updated>
+  <updated>2013-01-06T21:53:19-05:00</updated>
   <id>http://spart1cle.github.com/</id>
   <author>
     <name><![CDATA[Brandon B. May]]></name>
