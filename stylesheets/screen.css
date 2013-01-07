@@ -2403,7 +2403,8 @@ body
 .container .left-col #header
 {
     width:100%;
-    padding:20% 0% 0% 15%
+    /*float:center;*/
+    padding:40px 0% 0% 40px
 }
 
 .container .left-col #header #main-nav
@@ -2526,8 +2527,8 @@ a:hover
     .container .mid-col
     {
         position:absolute;
-        left:10px;
-        right:10px;
+        left:0px;
+        right:0px;
         top:512px
     }
 
