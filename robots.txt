@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://spart1cle.github.com/sitemap.xml 
+Sitemap: http://brandonbmay.com//sitemap.xml 
