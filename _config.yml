@@ -2,9 +2,9 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://spart1cle.github.com
-title: My Octopress Site
-subtitle: A blogging framework for hackers.
+url: http://brandonbmay.com/
+title: Brandon B. May
+subtitle: A snazzy description of myself.
 author: Brandon B. May
 simple_search: http://google.com/search
 description:
@@ -65,7 +65,7 @@ github_skip_forks: true
 
 # Twitter
 twitter_user: spart1cle
-twitter_tweet_count: 4
+twitter_tweet_count: 0
 twitter_show_replies: false
 twitter_follow_button: true
 twitter_show_follower_count: false
