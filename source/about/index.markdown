@@ -2,7 +2,8 @@
 layout: page
 title: "About"
 <!-- date: 2013-01-06 20:10 -->
+sidebar: false
 comments: false
-sharing: true
+sharing: false
 footer: true
 ---
