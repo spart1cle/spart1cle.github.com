@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using kramdown to enable LaTeX equations on Octopress"
+title: "Using Kramdown to Enable LaTeX Equations on Octopress"
 date: 2013-01-07 19:23
 comments: true
 categories:
