@@ -38,12 +38,13 @@ body {
 
 	#main-nav {
 		float: none;
-		margin-left: 0px;
+		margin-left: -15px;
 
 		ul {
 			li {
 				margin-left: 0px;
-				display: block;
+				margin-right: 0px;
+				display: inline;
 				a {
 					padding: 0px 0px;
 				}
@@ -240,13 +241,14 @@ body {
 			display: none;
 		}
 		.left-col {
-			position: relative;
+			position: absolute;
 			width: 100%;
 			opacity: 1;
 			.intrude-less {
-				margin: auto auto;
+				width: 100%;
 			}
 			#header {
+				width: 100%;
 				padding: 15px 0px;
 				text-align: center;
 				#sub-nav{
@@ -255,11 +257,26 @@ body {
 				#main-nav {
 						ul {
 							display: block;
+							margin-left: 30px;
+							margin-right: auto;
 							li {
 								display: inline;
-								margin-right: 10px;
+								margin-right: 0px;
+								top: -33px;
 							}
 						}
+				}
+				#sub-nav {
+					margin-top: 10px;
+					.search::before {
+						left: 10px;
+					}
+					.social {
+						position: relative;
+						margin-bottom: 0px;
+						margin-left: 35px;
+        				margin-right: auto;
+					}
 				}
 			}
 		}
@@ -268,7 +285,7 @@ body {
 	        left: 0px;
 	        right: 0px;
 	        min-height: 100%;
-	        top: 400px;
+	        top: 390px;
 			.mid-col-container {
 				padding: 15px 15px;
 				#content {
