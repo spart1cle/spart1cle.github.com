@@ -8,6 +8,7 @@ categories: LaTeX Kramdown MathJax Octopress Mathematics
 Following [these](http://www.idryman.org/blog/2012/03/10/writing-math-equations-on-octopress/) instructions I was able to get $\LaTeX$ equations interpreted and rendered correctly when posting to Octopress. It consists of installing the kramdown Markdown interpreter, updating the `_config.yml` and `Gemfile`, and putting the MathJax CDN and configs in `source/_layouts/default.html`.
 
 For example, this block of code (taken from the aforementioned site):
+
 {% codeblock lang:latex %}
 $$
 \begin{align}
