@@ -14,7 +14,7 @@ body {
 	height: auto;
 	border-bottom: none;
 	.subtitle {
-		margin-left:40px;
+		margin-left: 0px;
 		color: #999;
 		font-style: italic;
 	}
@@ -65,13 +65,16 @@ body {
 		}
 	}
 	.mid-col {
-		float: right;
-		width: 77%;
+		right: 0px;
+		left: 270px;
+		position:absolute;
+		min-height:100%;
 		background: whitesmoke;
 		.mid-col-container {
-			padding: 0px 70px 0px 40px;
+			padding: 0px 40px 0px 40px;
 			#content {
 				width: 100%;
+				height: 100%;
 				article {
 					border-top: none;
 					.title {
@@ -151,9 +154,9 @@ body {
 		opacity: 1;
 	}
 	.left-col {
-		width: 23%;
+		width: 250px;
 		position: fixed;
-		opacity: .3;
+		opacity: 1.0;
 		-webkit-transition: all .2s ease-in;
 		-moz-transition: all .2s ease-in;
 		-o-transition: all .2s ease-in;
@@ -161,13 +164,12 @@ body {
 		transition: all .2s ease-in;
 		height: 100%;
 		.intrude-less {
-			width: 80%;
+			width: 250px;
 		}
 		#header {
-			width: 100%;
-			padding: 20% 0% 0% 15%;
+			width: 250px;
 			#main-nav {
-				margin-top: 10px;
+				margin-top: 0px;
 			}
 			.profilepic {
 				img {
@@ -186,7 +188,7 @@ body {
 			#sub-nav {
 				margin-top: 10px;
 				.search::before {
-				left: 10px;
+					left: 10px;
 				}
 				.social {
 					margin-bottom: 10px;
@@ -225,6 +227,14 @@ body {
 	}
 }
 @media screen and (max-width: 700px){
+	#header {
+		.subtitle {
+			margin-left: auto;
+        	margin-right: auto;
+        	color: #999;
+        	font-style: italic
+        }
+    }
 	.container {
 		.credit-box {
 			display: none;
@@ -237,7 +247,7 @@ body {
 				margin: auto auto;
 			}
 			#header {
-				padding: 40px 0px;
+				padding: 15px 0px;
 				text-align: center;
 				#sub-nav{
 					display: block;
@@ -254,8 +264,11 @@ body {
 			}
 		}
 		.mid-col {
-			float: none;
-			width: 100%;
+			position: absolute;
+	        left: 0px;
+	        right: 0px;
+	        min-height: 100%;
+	        top: 375px;
 			.mid-col-container {
 				padding: 15px 15px;
 				#content {
