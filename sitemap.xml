@@ -2,23 +2,29 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://brandonbmay.com//blog/2013/01/07/hello/</loc>
-        <lastmod>2013-01-07T18:23:52-05:00</lastmod>
+        <lastmod>2013-01-07T19:44:00-05:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://brandonbmay.com//blog/2013/01/07/using-kramdown-to-enable-latex-equations-on-octopress/
+        </loc>
+        <lastmod>2013-01-07T19:42:26-05:00</lastmod>
     </url>
     <url>
         <loc>http://brandonbmay.com//about/</loc>
-        <lastmod>2013-01-07T13:17:26-05:00</lastmod>
+        <lastmod>2013-01-07T19:16:33-05:00</lastmod>
     </url>
     <url>
         <loc>http://brandonbmay.com//blog/archives/</loc>
-        <lastmod>2013-01-07T18:23:52-05:00</lastmod>
+        <lastmod>2013-01-07T19:44:00-05:00</lastmod>
     </url>
     <url>
         <loc>http://brandonbmay.com//blog/</loc>
-        <lastmod>2013-01-07T18:23:52-05:00</lastmod>
+        <lastmod>2013-01-07T19:44:00-05:00</lastmod>
     </url>
     <url>
         <loc>http://brandonbmay.com//</loc>
-        <lastmod>2013-01-07T18:23:52-05:00</lastmod>
+        <lastmod>2013-01-07T19:44:00-05:00</lastmod>
     </url>
     <url>
         <loc>http://brandonbmay.com//robots.txt</loc>

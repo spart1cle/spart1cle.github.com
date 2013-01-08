@@ -4,7 +4,7 @@
   <title><![CDATA[Category: test | Brandon B. May]]></title>
   <link href="http://brandonbmay.com//blog/categories/test/atom.xml" rel="self"/>
   <link href="http://brandonbmay.com//"/>
-  <updated>2013-01-07T18:31:35-05:00</updated>
+  <updated>2013-01-07T19:44:57-05:00</updated>
   <id>http://brandonbmay.com//</id>
   <author>
     <name><![CDATA[Brandon B. May]]></name>
@@ -18,9 +18,9 @@
     <link href="http://brandonbmay.com//blog/2013/01/07/hello/"/>
     <updated>2013-01-07T17:50:00-05:00</updated>
     <id>http://brandonbmay.com//blog/2013/01/07/hello</id>
-    <content type="html"><![CDATA[<p><code>python
-print('Hello, world!')
-</code></p>
+    <content type="html"><![CDATA[<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">print</span><span class="p">(</span><span class="err">‘</span><span class="n">Hello</span><span class="p">,</span> <span class="n">world</span><span class="err">!’</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 ]]></content>
   </entry>
   
