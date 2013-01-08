@@ -2,7 +2,7 @@ $header-height: 30px;
 
 #header{
 	height: $header-height;
-	padding: 15px 25px;
+	padding: 15px 45px;
 	border-bottom: 1px solid $color-gray04;
 	line-height: $header-height;
 	@media screen and (max-width: 1040px){
@@ -301,7 +301,7 @@ $header-height: 30px;
 	}
 	.social{
 		float: left;
-		margin-right: 15px;
+		margin-right: 10px;
 		a{
 			@include border-radius(50%);
 			@include inline-block;
