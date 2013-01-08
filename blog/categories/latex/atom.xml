@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: LaTeX | Brandon B. May]]></title>
+  <link href="http://brandonbmay.com//blog/categories/latex/atom.xml" rel="self"/>
+  <link href="http://brandonbmay.com//"/>
+  <updated>2013-01-07T20:53:20-05:00</updated>
+  <id>http://brandonbmay.com//</id>
+  <author>
+    <name><![CDATA[Brandon B. May]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Using Kramdown to Enable LaTeX Equations on Octopress]]></title>
+    <link href="http://brandonbmay.com//blog/2013/01/07/using-kramdown-to-enable-latex-equations-on-octopress/"/>
+    <updated>2013-01-07T19:23:00-05:00</updated>
+    <id>http://brandonbmay.com//blog/2013/01/07/using-kramdown-to-enable-latex-equations-on-octopress</id>
+    <content type="html"><![CDATA[<p>Following <a href="http://www.idryman.org/blog/2012/03/10/writing-math-equations-on-octopress/">these</a> instructions I was able to get $\LaTeX$ equations interpreted and rendered correctly when posting to Octopress. It consists of installing the kramdown Markdown interpreter, updating the <code>_config.yml</code> and <code>Gemfile</code>, and putting the MathJax CDN and configs in <code>source/_layouts/default.html</code>.</p>
+
+<p>For example, this block of code (taken from the aforementioned site):
+<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='latex'><span class='line'><span class="sb">$$</span><span class="nb"></span>
+</span><span class='line'><span class="nv">\begin</span><span class="nb">{align}</span>
+</span><span class='line'><span class="nv">\mbox</span><span class="nb">{Union: } &amp;amp; A</span><span class="nv">\cup</span><span class="nb"> B </span><span class="o">=</span><span class="nb"> {x</span><span class="nv">\mid</span><span class="nb"> x</span><span class="nv">\in</span><span class="nb"> A </span><span class="nv">\mbox</span><span class="nb">{ or } x</span><span class="nv">\in</span><span class="nb"> B} &lt;br </span><span class="o">/</span><span class="nb">&gt;</span>
+</span><span class='line'><span class="nv">\mbox</span><span class="nb">{Concatenation: } &amp;amp; A</span><span class="nv">\circ</span><span class="nb"> B  </span><span class="o">=</span><span class="nb"> {xy</span><span class="nv">\mid</span><span class="nb"> x</span><span class="nv">\in</span><span class="nb"> A </span><span class="nv">\mbox</span><span class="nb">{ and } y</span><span class="nv">\in</span><span class="nb"> B} &lt;br </span><span class="o">/</span><span class="nb">&gt;</span>
+</span><span class='line'><span class="nv">\mbox</span><span class="nb">{Star: } &amp;amp; A^</span><span class="nv">\star</span><span class="nb">  </span><span class="o">=</span><span class="nb"> {x&lt;em&gt;</span><span class="m">1</span><span class="nb">x&lt;</span><span class="o">/</span><span class="nb">em&gt;</span><span class="m">2</span><span class="nv">\ldots</span><span class="nb"> x_k </span><span class="nv">\mid</span><span class="nb">  k</span><span class="nv">\geq</span><span class="nb"> </span><span class="m">0</span><span class="nb"> </span><span class="nv">\mbox</span><span class="nb">{ and each } x_i</span><span class="nv">\in</span><span class="nb"> A} &lt;br </span><span class="o">/</span><span class="nb">&gt;</span>
+</span><span class='line'><span class="nv">\end</span><span class="nb">{align}</span>
+</span><span class='line'><span class="s">$$</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>is translated into this:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+
+\begin{align}
+\mbox{Union: } & A\cup B = \{x\mid x\in A \mbox{ or } x\in B\} \\
+\mbox{Concatenation: } & A\circ B  = \{xy\mid x\in A \mbox{ and } y\in B\} \\
+\mbox{Star: } & A^\star  = \{x_1x_2\ldots x_k \mid  k\geq 0 \mbox{ and each } x_i\in A\} \\
+\end{align}.
+ %]]&gt;</script>
+
+<p><strong><em>QAPLA’!</em></strong></p>
+]]></content>
+  </entry>
+  
+</feed>

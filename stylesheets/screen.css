@@ -611,7 +611,7 @@ ul
     border-radius:5px 0 0 5px
 }
 
-@media screen and (max-width: 1040px)
+/*@media screen and (max-width: 1040px)
 {
     #sub-nav
     {
@@ -621,7 +621,7 @@ ul
     }
 
 
-}
+}*/
 
 @media screen and (max-width: 600px)
 {
@@ -695,7 +695,7 @@ ul
     margin-right:0px
 }
 
-@media screen and (max-width: 1040px)
+/*@media screen and (max-width: 1040px)
 {
     #sub-nav .social
     {
@@ -710,7 +710,7 @@ ul
 
 
 }
-
+*/
 #sub-nav .social a
 {
     -webkit-border-radius:50%;
@@ -2265,7 +2265,7 @@ body
     left:300px;
     right:0px;
     top:0px;
-    /*bottom:0px;*/
+    min-height:100%;
     background:whitesmoke
 }
 
@@ -2539,7 +2539,9 @@ a:hover
         position:absolute;
         left:0px;
         right:0px;
-        top:512px
+        height:auto;
+        /*min-height:0%;*/
+        top:485px
     }
 
     .container .mid-col .mid-col-container
