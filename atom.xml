@@ -4,7 +4,7 @@
   <title><![CDATA[Brandon B. May]]></title>
   <link href="http://brandonbmay.com//atom.xml" rel="self"/>
   <link href="http://brandonbmay.com//"/>
-  <updated>2013-01-07T19:44:57-05:00</updated>
+  <updated>2013-01-07T19:47:09-05:00</updated>
   <id>http://brandonbmay.com//</id>
   <author>
     <name><![CDATA[Brandon B. May]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Using kramdown to enable LaTeX equations on Octopress]]></title>
+    <title type="html"><![CDATA[Using Kramdown to Enable LaTeX Equations on Octopress]]></title>
     <link href="http://brandonbmay.com//blog/2013/01/07/using-kramdown-to-enable-latex-equations-on-octopress/"/>
     <updated>2013-01-07T19:23:00-05:00</updated>
     <id>http://brandonbmay.com//blog/2013/01/07/using-kramdown-to-enable-latex-equations-on-octopress</id>
