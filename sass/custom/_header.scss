@@ -259,7 +259,7 @@ $header-height: 30px;
 #sub-nav{
 	@media screen and (max-width: 1040px){
 		position: absolute;
-		top: 30px;
+		top: 0px;
 		right: 0;
 	}
 	@media screen and (max-width: 600px){
@@ -302,13 +302,6 @@ $header-height: 30px;
 	.social{
 		float: left;
 		margin-right: 15px;
-		@media screen and (max-width: 1040px){
-			float: none;
-			margin-right: 0;
-			a:last-of-type{
-				margin-right: 0;
-			}
-		}
 		a{
 			@include border-radius(50%);
 			@include inline-block;
