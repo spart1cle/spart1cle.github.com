@@ -6,6 +6,6 @@ comments: true
 categories: test
 ---
 
-``` python
+{% codeblock lang:python %}
 print('Hello, world!')
-```
+{% endcodeblock %}
