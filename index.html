@@ -74,7 +74,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/01/07/using-kramdown-to-enable-latex-equations-on-octopress/">• Using Kramdown to Enable LaTeX Equations on Octopress</a>
+        <a href="/blog/2013/01/07/kramdown-latex/">• Using Kramdown to Enable LaTeX Equations on Octopress</a>
       </li>
     
       <li class="post">
@@ -122,7 +122,7 @@
 </div>
 		
 	</div>
-	<h1 class="title"><a href="/blog/2013/01/07/using-kramdown-to-enable-latex-equations-on-octopress/">Using Kramdown to Enable LaTeX Equations on Octopress</a></h1>
+	<h1 class="title"><a href="/blog/2013/01/07/kramdown-latex/">Using Kramdown to Enable LaTeX Equations on Octopress</a></h1>
 	<div class="entry-content">
 		<p>Following <a href="http://www.idryman.org/blog/2012/03/10/writing-math-equations-on-octopress/">these</a> instructions I was able to get $\LaTeX$ equations interpreted and rendered correctly when posting to Octopress. It consists of installing the kramdown Markdown interpreter, updating the <code>_config.yml</code> and <code>Gemfile</code>, and putting the MathJax CDN and configs in <code>source/_layouts/default.html</code>.</p>
 
@@ -156,6 +156,45 @@
  %]]></script>
 
 <p><strong><em>QAPLA’!</em></strong></p>
+
+<p><strong>EDIT:</strong> I forgot to metion something that causes a little trouble when editing the <code>Gemfile</code>. When replacing <code>gem 'rdiscount'</code> with <code>gem 'kramdown'</code>, the version number after the <code>'~&gt;'</code> needs to be replaced as well. At the time of writing putting the current version number (0.14.1) for kramdown causes an error when running <code>rake generate</code>:
+<!--  --></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nv">$ </span>rake generate
+</span><span class="line">You have requested:
+</span><span class="line">  kramdown ~&gt; 0.14.1
+</span><span class="line">
+</span><span class="line">The bundle currently has kramdown locked at 0.13.8.
+</span><span class="line">Try running <span class="sb">`</span>bundle update kramdown<span class="sb">`</span>
+</span><span class="line">Run <span class="sb">`</span>bundle install<span class="sb">`</span> to install missing gems.
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<!--  -->
+<p>To fix this, replace <code class="language-ruby">gem 'kramdown', '~&gt; 0.14.1'</code> with <code>gem 'kramdown', '~&gt; 0.13.8'</code> in the <code>Gemfile</code>. Running <code>rake generate</code> is now successful:
+<!--  --></p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+</pre></td><td class="code"><pre><code class="bash"><span class="line"><span class="nv">$ </span>rake generate
+</span><span class="line"><span class="c">## Generating Site with Jekyll</span>
+</span><span class="line">unchanged sass/screen.scss
+</span><span class="line">Configuration from /path/to/Octopress/_config.yml
+</span><span class="line">Building site: <span class="nb">source</span> -&gt; public
+</span><span class="line">Successfully generated site: <span class="nb">source</span> -&gt; public
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<!--  -->
 
 		
 		
