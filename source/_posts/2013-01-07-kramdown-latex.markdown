@@ -30,3 +30,27 @@ $$
 $$
 
 ***QAPLA'!***
+
+**EDIT:** I forgot to metion something that causes a little trouble when editing the `Gemfile`. When replacing `gem 'rdiscount'` with `gem 'kramdown'`, the version number after the `'~>'` needs to be replaced as well. At the time of writing putting the current version number (0.14.1) for kramdown causes an error when running `rake generate`:
+<!--  -->
+{% codeblock lang:bash %}
+$ rake generate
+You have requested:
+  kramdown ~> 0.14.1
+
+The bundle currently has kramdown locked at 0.13.8.
+Try running `bundle update kramdown`
+Run `bundle install` to install missing gems.
+{% endcodeblock %}
+<!--  -->
+To fix this, replace `gem 'kramdown', '~> 0.14.1'`{:.language-ruby} with `gem 'kramdown', '~> 0.13.8'` in the `Gemfile`. Running `rake generate` is now successful:
+<!--  -->
+{% codeblock lang:bash %}
+$ rake generate
+## Generating Site with Jekyll
+unchanged sass/screen.scss
+Configuration from /path/to/Octopress/_config.yml
+Building site: source -> public
+Successfully generated site: source -> public
+{% endcodeblock %}
+<!--  -->
