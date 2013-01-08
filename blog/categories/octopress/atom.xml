@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Brandon B. May]]></title>
   <link href="http://brandonbmay.com//blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://brandonbmay.com//"/>
-  <updated>2013-01-07T20:53:20-05:00</updated>
+  <updated>2013-01-07T21:26:49-05:00</updated>
   <id>http://brandonbmay.com//</id>
   <author>
     <name><![CDATA[Brandon B. May]]></name>
@@ -20,8 +20,9 @@
     <id>http://brandonbmay.com//blog/2013/01/07/using-kramdown-to-enable-latex-equations-on-octopress</id>
     <content type="html"><![CDATA[<p>Following <a href="http://www.idryman.org/blog/2012/03/10/writing-math-equations-on-octopress/">these</a> instructions I was able to get $\LaTeX$ equations interpreted and rendered correctly when posting to Octopress. It consists of installing the kramdown Markdown interpreter, updating the <code>_config.yml</code> and <code>Gemfile</code>, and putting the MathJax CDN and configs in <code>source/_layouts/default.html</code>.</p>
 
-<p>For example, this block of code (taken from the aforementioned site):
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>For example, this block of code (taken from the aforementioned site):</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
