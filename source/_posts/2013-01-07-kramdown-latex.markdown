@@ -43,7 +43,7 @@ Try running `bundle update kramdown`
 Run `bundle install` to install missing gems.
 {% endcodeblock %}
 <!--  -->
-To fix this, replace `gem 'kramdown', '~> 0.14.1'`{:.language-ruby} with `gem 'kramdown', '~> 0.13.8'` in the `Gemfile`. Running `rake generate` is now successful:
+To fix this, replace `gem 'kramdown', '~> 0.14.1'` with `gem 'kramdown', '~> 0.13.8'` in the `Gemfile`. Running `rake generate` is now successful:
 <!--  -->
 {% codeblock lang:bash %}
 $ rake generate
