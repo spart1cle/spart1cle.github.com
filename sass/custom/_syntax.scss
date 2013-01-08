@@ -1,22 +1,23 @@
 article{
 	code, pre{
-		background: $pre-bg;
-		border: 1px solid $pre-border;
+		background: $color-gray04;
+		border: 1px solid $color-gray03;
 		font-family: $font-mono;
 	}
 	code{
 		font-size: 0.9em;
 		padding: 1px 3px;
 		margin: 0 3px;
-		@include border-radius(5px);
+		@include border-radius(0px);
 	}
 	pre{
 		font-size: 1 / 0.9em;
+		color: $base1;
 		line-height: 1.5;
 		margin-top: 10px;
 		padding: 5px 15px;
 		overflow-x: auto;
-		@include border-radius(5px);
+		@include border-radius(0px);
 		code{
 			background: none;
 			border: none;
@@ -29,10 +30,10 @@ article{
 
 figure.code{
 	background: $pre-bg;
-	border: 1px solid $pre-border;
+	border: 3px solid $pre-border;
 	margin-top: 10px;
 	padding: 5px 15px;
-	@include border-radius(5px);
+	@include border-radius(0px);
 	figcaption{
 		font-size: 0.9em;
 		position: relative;
@@ -52,8 +53,8 @@ figure.code{
 		}
 	}
 	code, pre{
-		background: none;
-		border: none;
+		background: $pre-bg;
+		border: $pre-border;
 		padding: 0;
 		margin: 0;
 		@include border-radius(0);
@@ -64,6 +65,7 @@ figure.code{
 	.line-numbers{
 		border-right: 1px solid $pre-border;
 		font-family: $font-mono;
+		color: $base01;
 		padding-right: 15px;
 		text-align: right;
 	}
@@ -78,6 +80,7 @@ figure.code{
 	td.code{
 		width: 100%;
 		padding-left: 15px;
+		background: $pre-bg;
 	}
 }
 .entry-content .gist{
@@ -85,10 +88,10 @@ figure.code{
 	color: $color-gray01;
 	padding: 30px 15px 5px;
 	margin-top: 10px;
-	border: 1px solid $pre-border;
+	border: 3px solid $pre-border;
 	position: relative;
 	overflow: hidden;
-	@include border-radius(5px);
+	@include border-radius(0px);
 	.gist-file{
 		margin: 0;
 		.gist-data{
