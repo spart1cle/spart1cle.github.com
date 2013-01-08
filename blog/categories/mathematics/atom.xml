@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mathematics | Brandon B. May]]></title>
   <link href="http://brandonbmay.com//blog/categories/mathematics/atom.xml" rel="self"/>
   <link href="http://brandonbmay.com//"/>
-  <updated>2013-01-08T08:16:00-05:00</updated>
+  <updated>2013-01-08T11:30:17-05:00</updated>
   <id>http://brandonbmay.com//</id>
   <author>
     <name><![CDATA[Brandon B. May]]></name>
@@ -69,7 +69,7 @@
 </span><span class='line'>Run &lt;code&gt;bundle install&lt;/code&gt; to install missing gems.
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 <!--  -->
-To fix this, replace <code class="language-ruby">gem 'kramdown', '~&gt; 0.14.1'</code> with <code>gem 'kramdown', '~&gt; 0.13.8'</code> in the <code>Gemfile</code>. Running <code>rake generate</code> is now successful:
+To fix this, replace <code>gem 'kramdown', '~&gt; 0.14.1'</code> with <code>gem 'kramdown', '~&gt; 0.13.8'</code> in the <code>Gemfile</code>. Running <code>rake generate</code> is now successful:
 <!--  -->
 <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>

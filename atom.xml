@@ -4,7 +4,7 @@
   <title><![CDATA[Brandon B. May]]></title>
   <link href="http://brandonbmay.com//atom.xml" rel="self"/>
   <link href="http://brandonbmay.com//"/>
-  <updated>2013-01-08T08:16:00-05:00</updated>
+  <updated>2013-01-08T11:30:17-05:00</updated>
   <id>http://brandonbmay.com//</id>
   <author>
     <name><![CDATA[Brandon B. May]]></name>
@@ -71,7 +71,7 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <!--  -->
-<p>To fix this, replace <code class="language-ruby">gem 'kramdown', '~&gt; 0.14.1'</code> with <code>gem 'kramdown', '~&gt; 0.13.8'</code> in the <code>Gemfile</code>. Running <code>rake generate</code> is now successful:
+<p>To fix this, replace <code>gem 'kramdown', '~&gt; 0.14.1'</code> with <code>gem 'kramdown', '~&gt; 0.13.8'</code> in the <code>Gemfile</code>. Running <code>rake generate</code> is now successful:
 <!--  --></p>
 
 <div class="bogus-wrapper"><notextile><figure class="code"> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
