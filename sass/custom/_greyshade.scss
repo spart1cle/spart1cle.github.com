@@ -70,6 +70,7 @@ body {
 		left: 310px;
 		position:absolute;
 		min-height:100%;
+		min-width: 600px;
 		background: whitesmoke;
 		.mid-col-container {
 			padding: 0px 40px 0px 40px;
@@ -286,6 +287,7 @@ body {
 	        left: 0px;
 	        right: 0px;
 	        min-height: 100%;
+	        min-width: 0px;
 	        top: 350px;
 			.mid-col-container {
 				padding: 15px 15px;
