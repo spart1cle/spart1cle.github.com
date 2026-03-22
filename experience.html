@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience — Brandon B. May</title>
+  <meta name="description" content="Professional experience of Brandon B. May — from computational imaging at MITRE to building Large Driving Models at Motional.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="index.html">Brandon B. May</a>
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#publications">Publications</a>
+        <a href="experience.html">Experience</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="section" style="border-bottom: none;">
+      <h2>Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-entry current">
+          <div class="timeline-icon motional"><img src="https://www.google.com/s2/favicons?domain=motional.com&sz=128" alt="Motional"></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <span class="timeline-company"><a href="https://motional.com" target="_blank" rel="noopener">Motional</a></span>
+              <span class="timeline-dates">Feb 2026 &ndash; Present</span>
+            </div>
+            <div class="timeline-role">Staff Engineer &mdash; Large Driving Models</div>
+            <div class="timeline-location">Boston, MA</div>
+            <p class="timeline-desc">Post-training and distilling VLAs for autonomous driving on NVIDIA Cosmos backbones. Building the eval infrastructure for long-tail scenario mining and closed-loop benchmarking.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">VLAs</span>
+              <span class="timeline-tag">Post-Training</span>
+              <span class="timeline-tag">Knowledge Distillation</span>
+              <span class="timeline-tag">Autonomous Driving</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="timeline-icon rai"><img src="https://www.google.com/s2/favicons?domain=theaiinstitute.com&sz=128" alt="RAI"></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <span class="timeline-company"><a href="https://theaiinstitute.com" target="_blank" rel="noopener">Robotics &amp; AI Institute</a></span>
+              <span class="timeline-dates">May 2023 &ndash; Feb 2026</span>
+            </div>
+            <div class="timeline-location">Cambridge, MA</div>
+
+            <div class="timeline-subrole">
+              <div class="timeline-role">Staff Applied Scientist &mdash; Perception Group</div>
+              <div class="timeline-dates">Jul 2025 &ndash; Feb 2026</div>
+              <p class="timeline-desc">Set technical vision for the PRISM subteam: world models and differentiable simulation for physics-aware manipulation. Best Paper, RINO Workshop.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">World Models</span>
+                <span class="timeline-tag">Differentiable Sim</span>
+                <span class="timeline-tag">Technical Leadership</span>
+              </div>
+            </div>
+
+            <div class="timeline-subrole">
+              <div class="timeline-role">Senior Applied Scientist &mdash; Foundation Models</div>
+              <div class="timeline-dates">May 2023 &ndash; Jul 2025</div>
+              <p class="timeline-desc">Trained 3B-parameter VLAs and generative video models for robotic planning. Key contributor to Theia (CoRL &rsquo;24) and Real-is-Sim (ICRA &rsquo;26). Institute-wide SME for 3D reconstruction.</p>
+              <div class="timeline-tags">
+                <span class="timeline-tag">VLAs</span>
+                <span class="timeline-tag">Video Generation</span>
+                <span class="timeline-tag">3D Reconstruction</span>
+                <span class="timeline-tag">Sim-to-Real</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="timeline-icon str"><img src="https://www.google.com/s2/favicons?domain=str.us&sz=128" alt="STR"></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <span class="timeline-company">Systems &amp; Technology Research (STR)</span>
+              <span class="timeline-dates">Sep 2018 &ndash; May 2023</span>
+            </div>
+            <div class="timeline-role">Senior Scientist &mdash; Video &amp; Image Understanding</div>
+            <div class="timeline-location">Woburn, MA</div>
+            <p class="timeline-desc">Led R&amp;D on multiple DARPA programs. Published Sancdifi (ICLR &rsquo;23) and shipped real-time multi-sensor perception stacks for defense applications.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">DARPA</span>
+              <span class="timeline-tag">Generative AI</span>
+              <span class="timeline-tag">Adversarial ML</span>
+              <span class="timeline-tag">Real-time Perception</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="timeline-icon mitre"><img src="https://www.google.com/s2/favicons?domain=mitre.org&sz=128" alt="MITRE"></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <span class="timeline-company">The MITRE Corporation</span>
+              <span class="timeline-dates">Oct 2013 &ndash; Sep 2018</span>
+            </div>
+            <div class="timeline-role">Lead Software Systems Engineer &mdash; Computational Imaging</div>
+            <div class="timeline-location">Bedford, MA</div>
+            <p class="timeline-desc">PI for hyperspectral image registration. Architected C++ libraries for projective geometry and visual SLAM.</p>
+            <div class="timeline-tags">
+              <span class="timeline-tag">SLAM</span>
+              <span class="timeline-tag">3D Reconstruction</span>
+              <span class="timeline-tag">Hyperspectral</span>
+              <span class="timeline-tag">C++</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Education</h2>
+      <div class="timeline">
+
+        <div class="timeline-entry">
+          <div class="timeline-icon rit"><img src="https://www.google.com/s2/favicons?domain=rit.edu&sz=128" alt="RIT"></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <span class="timeline-company">Rochester Institute of Technology</span>
+              <span class="timeline-dates">Rochester, NY</span>
+            </div>
+            <div class="timeline-role">M.S. in Imaging Science</div>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="timeline-icon skidmore"><img src="assets/skidmore.jpg" alt="Skidmore"></div>
+          <div class="timeline-body">
+            <div class="timeline-header">
+              <span class="timeline-company">Skidmore College</span>
+              <span class="timeline-dates">Saratoga Springs, NY</span>
+            </div>
+            <div class="timeline-role">B.A. in Mathematics &amp; Physics, Computer Science minor</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+</body>
+</html>
