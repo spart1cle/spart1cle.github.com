@@ -142,9 +142,20 @@
 
   // --- Active nav indicator ---
   function initActiveNav() {
+    var currentPage = location.pathname.split('/').pop() || 'index.html';
+
+    // Page-level active state for non-hash links (e.g. experience.html)
+    document.querySelectorAll('.nav-links a').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href && href.indexOf('#') === -1 && href === currentPage) {
+        link.classList.add('active');
+      }
+    });
+
+    // Scroll-based active state for hash-only links (index.html sections)
     var sections = document.querySelectorAll('section[id]');
-    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-    if (!sections.length || !navLinks.length) return;
+    var hashLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    if (!sections.length || !hashLinks.length) return;
 
     function update() {
       var scrollPos = window.scrollY + 120;
@@ -154,7 +165,7 @@
           current = section.id;
         }
       });
-      navLinks.forEach(function (link) {
+      hashLinks.forEach(function (link) {
         link.classList.toggle('active', link.getAttribute('href') === '#' + current);
       });
     }
@@ -346,16 +357,29 @@
       var details = card.querySelector('.pub-details');
       if (!summary || !details) return;
 
-      summary.addEventListener('click', function (e) {
+      summary.setAttribute('role', 'button');
+      summary.setAttribute('tabindex', '0');
+      summary.setAttribute('aria-expanded', 'false');
+
+      function toggle(e) {
         // Don't toggle when clicking links
         if (e.target.closest('a')) return;
 
-        card.classList.toggle('expanded');
+        var expanded = card.classList.toggle('expanded');
+        summary.setAttribute('aria-expanded', String(expanded));
 
-        if (card.classList.contains('expanded')) {
+        if (expanded) {
           details.style.maxHeight = details.scrollHeight + 'px';
         } else {
           details.style.maxHeight = '0px';
+        }
+      }
+
+      summary.addEventListener('click', toggle);
+      summary.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle(e);
         }
       });
     });
