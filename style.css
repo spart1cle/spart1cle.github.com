@@ -20,7 +20,8 @@
   --color-tag-bg: #eff3ff;
   --color-tag-text: #2563eb;
   --color-footer-bg: #f0f2f5;
-  --color-patent-bg: rgba(37, 99, 235, 0.04);
+  --color-award-bg: #fef3c7;
+  --color-award-text: #92400e;
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -71,7 +72,8 @@
   --color-tag-bg: #1e2a45;
   --color-tag-text: #60a5fa;
   --color-footer-bg: #0a0a15;
-  --color-patent-bg: rgba(96, 165, 250, 0.06);
+  --color-award-bg: #422006;
+  --color-award-text: #fbbf24;
 }
 
 /* --- Reset --- */
@@ -139,6 +141,8 @@ ul { list-style: none; }
   font-size: var(--font-size-lg);
   color: var(--color-text);
   text-decoration: none;
+  display: flex;
+  align-items: center;
   transition: color var(--transition-slow);
 }
 
@@ -193,7 +197,7 @@ ul { list-style: none; }
 }
 
 .section {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-xl) 0;
 }
 
 
@@ -232,7 +236,7 @@ ul { list-style: none; }
 }
 
 .hero-org {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
   color: var(--color-accent);
   font-weight: 600;
   margin-bottom: var(--space-md);
@@ -308,6 +312,7 @@ ul { list-style: none; }
 .card p {
   margin-bottom: var(--space-md);
   color: var(--color-text-secondary);
+
   transition: color var(--transition-slow);
 }
 
@@ -330,34 +335,6 @@ ul { list-style: none; }
 .card li {
   color: var(--color-text-secondary);
   margin-bottom: var(--space-xs);
-  transition: color var(--transition-slow);
-}
-
-.about-highlights {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
-  padding-top: var(--space-lg);
-  border-top: 1px solid var(--color-border);
-  transition: border-color var(--transition-slow);
-}
-
-.about-highlight {
-  text-align: center;
-}
-
-.about-highlight .highlight-value {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  color: var(--color-accent);
-  display: block;
-  transition: color var(--transition-slow);
-}
-
-.about-highlight .highlight-label {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
   transition: color var(--transition-slow);
 }
 
@@ -385,6 +362,16 @@ ul { list-style: none; }
   padding: var(--space-lg);
   cursor: pointer;
   user-select: none;
+  transition: background-color var(--transition-fast);
+}
+
+.pub-summary:hover {
+  background: var(--color-accent-subtle);
+}
+
+.pub-summary:hover .pub-expand-icon {
+  color: var(--color-accent);
+  transform: scale(1.15);
 }
 
 .pub-thumb {
@@ -482,6 +469,11 @@ ul { list-style: none; }
               color var(--transition-slow);
 }
 
+.venue-badge-award {
+  background: var(--color-award-bg);
+  color: var(--color-award-text);
+}
+
 .pub-links {
   display: flex;
   gap: var(--space-sm);
@@ -544,28 +536,6 @@ ul { list-style: none; }
   transition: color var(--transition-slow);
 }
 
-/* Patent */
-.pub-card.patent {
-  border-left: 3px solid var(--color-accent);
-  background: var(--color-patent-bg);
-}
-
-.pub-card.patent .pub-summary {
-  cursor: default;
-}
-
-.pub-meta {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  transition: color var(--transition-slow);
-}
-
-.patent-icon {
-  color: var(--color-accent);
-  flex-shrink: 0;
-  transition: color var(--transition-slow);
-}
-
 /* --- Experience Timeline --- */
 .timeline {
   position: relative;
@@ -608,14 +578,12 @@ ul { list-style: none; }
   object-fit: cover;
 }
 
-.timeline-icon.motional { background: #1a1a2e; }
-.timeline-icon.rai { background: #0066cc; }
-.timeline-icon.str { background: #2d5016; }
-.timeline-icon.mitre { background: #00467f; }
-.timeline-icon.rit { background: #f76902; }
+.timeline-icon.motional { background: var(--color-bg-elevated); }
+.timeline-icon.rai { background: var(--color-bg-elevated); }
+.timeline-icon.str { background: var(--color-bg-elevated); }
+.timeline-icon.mitre { background: var(--color-bg-elevated); }
+.timeline-icon.rit { background: var(--color-bg-elevated); }
 .timeline-icon.skidmore { background: #006341; }
-
-[data-theme="dark"] .timeline-icon.motional { background: #3a3a5e; }
 
 .timeline-entry.current .timeline-icon {
   box-shadow: 0 2px 8px var(--color-card-shadow), 0 0 0 3px var(--color-accent-subtle);
@@ -725,16 +693,15 @@ ul { list-style: none; }
               color var(--transition-slow);
 }
 
-/* --- Placeholder Card --- */
-.placeholder-card {
+/* --- Contact Section --- */
+.contact-section {
   text-align: center;
-  padding: var(--space-3xl);
-  border-style: dashed;
-  color: var(--color-text-muted);
 }
 
-.placeholder-card p {
-  color: var(--color-text-muted);
+.contact-section p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-slow);
 }
 
 /* --- Footer --- */
@@ -779,10 +746,6 @@ ul { list-style: none; }
     height: 140px;
   }
 
-  .about-highlights {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .timeline-header {
     flex-direction: column;
     gap: 0;
@@ -807,9 +770,4 @@ ul { list-style: none; }
   .pub-thumb { height: 110px; }
 
   .pub-links { flex-wrap: wrap; }
-
-  .about-highlights {
-    grid-template-columns: 1fr;
-    gap: var(--space-sm);
-  }
 }

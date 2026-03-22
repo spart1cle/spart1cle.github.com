@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
   <script>
     (function(){
       var t = localStorage.getItem('theme-preference');
@@ -22,7 +22,9 @@
 
   <header class="site-header">
     <nav class="nav-container">
-      <a class="nav-logo" href="index.html">Brandon B. May</a>
+      <a class="nav-logo" href="index.html" aria-label="Home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
       <div class="nav-links">
         <a href="index.html#about">About</a>
         <a href="index.html#publications">Publications</a>
@@ -37,12 +39,12 @@
 
   <main class="container">
 
-    <section class="section" style="border-bottom: none;">
+    <section class="section">
       <h2>Experience</h2>
       <div class="timeline">
 
         <div class="timeline-entry current">
-          <div class="timeline-icon motional"><img src="https://www.google.com/s2/favicons?domain=motional.com&sz=128" alt="Motional"></div>
+          <div class="timeline-icon motional"><img src="assets/motional.png" alt="Motional"></div>
           <div class="timeline-body">
             <div class="timeline-header">
               <span class="timeline-company"><a href="https://motional.com" target="_blank" rel="noopener">Motional</a></span>
@@ -61,10 +63,10 @@
         </div>
 
         <div class="timeline-entry">
-          <div class="timeline-icon rai"><img src="https://www.google.com/s2/favicons?domain=theaiinstitute.com&sz=128" alt="RAI"></div>
+          <div class="timeline-icon rai"><img src="https://www.google.com/s2/favicons?domain=rai-inst.com&sz=128" alt="RAI"></div>
           <div class="timeline-body">
             <div class="timeline-header">
-              <span class="timeline-company"><a href="https://theaiinstitute.com" target="_blank" rel="noopener">Robotics &amp; AI Institute</a></span>
+              <span class="timeline-company"><a href="https://rai-inst.com" target="_blank" rel="noopener">Robotics &amp; AI Institute</a></span>
               <span class="timeline-dates">May 2023 &ndash; Feb 2026</span>
             </div>
             <div class="timeline-location">Cambridge, MA</div>
@@ -98,7 +100,7 @@
           <div class="timeline-icon str"><img src="https://www.google.com/s2/favicons?domain=str.us&sz=128" alt="STR"></div>
           <div class="timeline-body">
             <div class="timeline-header">
-              <span class="timeline-company">Systems &amp; Technology Research (STR)</span>
+              <span class="timeline-company"><a href="https://www.str.us" target="_blank" rel="noopener">Systems &amp; Technology Research (STR)</a></span>
               <span class="timeline-dates">Sep 2018 &ndash; May 2023</span>
             </div>
             <div class="timeline-role">Senior Scientist &mdash; Video &amp; Image Understanding</div>
@@ -117,7 +119,7 @@
           <div class="timeline-icon mitre"><img src="https://www.google.com/s2/favicons?domain=mitre.org&sz=128" alt="MITRE"></div>
           <div class="timeline-body">
             <div class="timeline-header">
-              <span class="timeline-company">The MITRE Corporation</span>
+              <span class="timeline-company"><a href="https://www.mitre.org" target="_blank" rel="noopener">The MITRE Corporation</a></span>
               <span class="timeline-dates">Oct 2013 &ndash; Sep 2018</span>
             </div>
             <div class="timeline-role">Lead Software Systems Engineer &mdash; Computational Imaging</div>
@@ -143,7 +145,7 @@
           <div class="timeline-icon rit"><img src="https://www.google.com/s2/favicons?domain=rit.edu&sz=128" alt="RIT"></div>
           <div class="timeline-body">
             <div class="timeline-header">
-              <span class="timeline-company">Rochester Institute of Technology</span>
+              <span class="timeline-company"><a href="https://www.rit.edu" target="_blank" rel="noopener">Rochester Institute of Technology</a></span>
               <span class="timeline-dates">Rochester, NY</span>
             </div>
             <div class="timeline-role">M.S. in Imaging Science</div>
@@ -154,7 +156,7 @@
           <div class="timeline-icon skidmore"><img src="assets/skidmore.jpg" alt="Skidmore"></div>
           <div class="timeline-body">
             <div class="timeline-header">
-              <span class="timeline-company">Skidmore College</span>
+              <span class="timeline-company"><a href="https://www.skidmore.edu" target="_blank" rel="noopener">Skidmore College</a></span>
               <span class="timeline-dates">Saratoga Springs, NY</span>
             </div>
             <div class="timeline-role">B.A. in Mathematics &amp; Physics, Computer Science minor</div>
