@@ -210,12 +210,25 @@ ul { list-style: none; }
 }
 
 /* --- Hero --- */
-.hero { padding: var(--space-xl) 0 0; }
+.hero {
+  padding: var(--space-xl) 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
 
 .hero-content {
   display: flex;
   align-items: center;
   gap: var(--space-2xl);
+  position: relative;
+  z-index: 1;
 }
 
 .hero-text { flex: 1; }
@@ -240,7 +253,20 @@ ul { list-style: none; }
   color: var(--color-accent);
   font-weight: 600;
   margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   transition: color var(--transition-slow);
+}
+
+.hero-org-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  transition: border-color var(--transition-slow);
 }
 
 .hero-focus {
