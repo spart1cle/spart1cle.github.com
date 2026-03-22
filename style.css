@@ -220,7 +220,7 @@ ul { list-style: none; }
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .hero-content {
@@ -743,6 +743,42 @@ ul { list-style: none; }
               color var(--transition-slow);
 }
 
+/* --- Reading Progress Bar --- */
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-accent);
+  transition: background-color var(--transition-slow);
+}
+
+/* --- Active Nav Link --- */
+.nav-links a.active {
+  color: var(--color-accent);
+}
+
+/* --- Scroll Reveal --- */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* --- Responsive: Tablet --- */
 @media (max-width: 768px) {
   :root {
@@ -753,6 +789,8 @@ ul { list-style: none; }
     flex-direction: column-reverse;
     text-align: center;
   }
+
+  .hero-org { justify-content: center; }
 
   .hero-links { justify-content: center; }
 
