@@ -37,7 +37,7 @@ def main():
     parser.add_argument("--cookie", required=True, help='Session cookie as "name=value" (from browser DevTools)')
     parser.add_argument("--output", default="papers.json", help="Output JSON file")
     parser.add_argument("--pages", type=int, default=3, help="Number of pages to fetch")
-    parser.add_argument("--limit", type=int, default=30, help="Max number of papers to include")
+    parser.add_argument("--limit", type=int, default=50, help="Max number of papers to include")
     args = parser.parse_args()
 
     name, _, value = args.cookie.partition("=")
