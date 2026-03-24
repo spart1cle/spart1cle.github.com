@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading List — Brandon B. May</title>
+  <meta name="description" content="Papers I've found interesting, sourced from my Scholar Inbox.">
+  <meta property="og:title" content="Reading List — Brandon B. May">
+  <meta property="og:description" content="Papers I've found interesting, sourced from my Scholar Inbox.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://spart1cle.github.io/reading.html">
+  <meta property="og:image" content="https://spart1cle.github.io/assets/profile.jpg">
+  <link rel="canonical" href="https://spart1cle.github.io/reading.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Reading List — Brandon B. May">
+  <meta name="twitter:description" content="Papers I've found interesting, sourced from my Scholar Inbox.">
+  <meta name="twitter:image" content="https://spart1cle.github.io/assets/profile.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#publications">Publications</a>
+        <a href="experience.html">Experience</a>
+        <a href="reading.html">Reading</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section reading-section">
+      <h2 class="section-title">Reading List</h2>
+      <p class="reading-subtitle">Papers I've found interesting, sourced from my <a href="https://scholar-inbox.com" target="_blank" rel="noopener">Scholar Inbox</a>.</p>
+
+      <div class="reading-controls">
+        <input type="text" id="reading-search" class="reading-search" placeholder="Search papers...">
+        <div class="reading-sort" id="reading-sort">
+          <button class="sort-btn" data-sort="relevance">Relevance</button>
+          <button class="sort-btn active" data-sort="published">Date Published</button>
+        </div>
+      </div>
+      <div class="reading-filter-group">
+        <span class="reading-filter-label">Category</span>
+        <div class="reading-filters" id="reading-filters"></div>
+      </div>
+
+      <div class="reading-layout">
+        <aside class="reading-sidebar">
+          <span class="reading-filter-label">Tags</span>
+          <div class="reading-tag-list" id="reading-tag-filters"></div>
+        </aside>
+        <div class="reading-main" id="reading-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Brandon B. May</p>
+  </footer>
+
+  <script>
+    (function () {
+      const listEl = document.getElementById('reading-list');
+      const searchEl = document.getElementById('reading-search');
+      const filtersEl = document.getElementById('reading-filters');
+      const tagFiltersEl = document.getElementById('reading-tag-filters');
+      const sortEl = document.getElementById('reading-sort');
+      let papers = [];
+      let activeCategory = null;
+      let activeTags = new Set();
+      let activeSort = 'published';
+
+      fetch('papers.json')
+        .then(r => r.json())
+        .then(data => {
+          papers = data;
+          renderCategoryFilters();
+          renderTagFilters();
+          initSort();
+          renderPapers();
+        })
+        .catch(() => {
+          listEl.innerHTML = '<p style="text-align:center;color:var(--color-text-secondary)">Could not load papers.</p>';
+        });
+
+      function renderCategoryFilters() {
+        const categories = [...new Set(papers.map(p => p.category).filter(Boolean))].sort();
+        filtersEl.innerHTML = '<button class="filter-btn active" data-cat="">All</button>' +
+          categories.map(c => `<button class="filter-btn" data-cat="${c}">${c}</button>`).join('');
+        filtersEl.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            filtersEl.querySelector('.active').classList.remove('active');
+            btn.classList.add('active');
+            activeCategory = btn.dataset.cat || null;
+            renderPapers();
+          });
+        });
+      }
+
+      function renderTagFilters() {
+        const tagMap = {};
+        papers.forEach(p => {
+          (p.user_paper_collections || []).forEach(c => {
+            if (!tagMap[c.name]) tagMap[c.name] = { color: c.color, count: 0 };
+            tagMap[c.name].count++;
+          });
+        });
+        const likedCount = papers.filter(p => !(p.user_paper_collections || []).length).length;
+        const sorted = Object.entries(tagMap).sort((a, b) => a[0].localeCompare(b[0]));
+        tagFiltersEl.innerHTML =
+          (likedCount ? `<button class="filter-btn tag-filter-btn" data-tag="__liked__" style="--tag-color:var(--color-accent)">&#x1F44D; Liked</button>` : '') +
+          sorted.map(([name, info]) =>
+            `<button class="filter-btn tag-filter-btn" data-tag="${name}" style="--tag-color:${info.color}">${name}</button>`
+          ).join('');
+        tagFiltersEl.querySelectorAll('.tag-filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const tag = btn.dataset.tag;
+            if (activeTags.has(tag)) {
+              activeTags.delete(tag);
+              btn.classList.remove('active');
+            } else {
+              activeTags.add(tag);
+              btn.classList.add('active');
+            }
+            renderPapers();
+          });
+        });
+      }
+
+      function initSort() {
+        sortEl.querySelectorAll('.sort-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            sortEl.querySelector('.active').classList.remove('active');
+            btn.classList.add('active');
+            activeSort = btn.dataset.sort;
+            renderPapers();
+          });
+        });
+      }
+
+      function renderPapers() {
+        const query = searchEl.value.toLowerCase();
+        const filtered = papers.filter(p => {
+          if (activeCategory && p.category !== activeCategory) return false;
+          if (activeTags.size > 0) {
+            const colls = p.user_paper_collections || [];
+            const paperTags = new Set(colls.map(c => c.name));
+            if (activeTags.has('__liked__') && colls.length > 0) return false;
+            for (const t of activeTags) {
+              if (t === '__liked__') continue;
+              if (!paperTags.has(t)) return false;
+            }
+          }
+          if (query) {
+            const hay = (p.title + ' ' + p.authors + ' ' + (p.abstract || '')).toLowerCase();
+            if (!hay.includes(query)) return false;
+          }
+          return true;
+        });
+
+        if (activeSort === 'published') {
+          filtered.sort((a, b) => (b.publication_date || '').localeCompare(a.publication_date || ''));
+        }
+        // 'relevance' keeps the original API order (ranking_score)
+
+        if (!filtered.length) {
+          listEl.innerHTML = '<p style="text-align:center;color:var(--color-text-secondary);padding:var(--space-xl) 0">No papers match your search.</p>';
+          return;
+        }
+
+        listEl.innerHTML = filtered.map(p => {
+          const date = p.publication_date || '';
+          const authors = truncateAuthors(p.authors, 5);
+          const colls = p.user_paper_collections || [];
+          const collections = colls.length
+            ? colls.map(c => `<span class="reading-tag" style="--tag-color:${c.color}">${c.name}</span>`).join('')
+            : '<span class="reading-tag reading-tag-liked" style="--tag-color:var(--color-accent)">&#x1F44D; Liked</span>';
+          const arxivUrl = p.arxiv_id ? `https://arxiv.org/abs/${p.arxiv_id}` : p.url;
+          const abstract = p.abstract ? cleanAbstract(p.abstract) : '';
+
+          return `
+            <article class="reading-card" data-id="${p.paper_id}">
+              <div class="reading-card-header" onclick="this.parentElement.classList.toggle('expanded')">
+                <div class="reading-card-meta">
+                  <span class="reading-date">${date}</span>
+                  ${p.category ? `<span class="reading-category">${p.category}</span>` : ''}
+                </div>
+                <h3 class="reading-card-title">${p.title}</h3>
+                <p class="reading-card-authors">${authors}</p>
+                <div class="reading-card-bottom">
+                  <div class="reading-card-tags">${collections}</div>
+                  <div class="reading-card-links" onclick="event.stopPropagation()">
+                    ${arxivUrl ? `<a href="${arxivUrl}" target="_blank" rel="noopener">arXiv</a>` : ''}
+                    ${p.url ? `<a href="${p.url}" target="_blank" rel="noopener">PDF</a>` : ''}
+                    ${p.project_link && !p.project_link.includes('}{') ? `<a href="${p.project_link}" target="_blank" rel="noopener">Project</a>` : ''}
+                  </div>
+                </div>
+                <svg class="reading-expand-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+              <div class="reading-card-details">
+                ${abstract ? `<p class="reading-abstract">${abstract}</p>` : ''}
+              </div>
+            </article>`;
+        }).join('');
+      }
+
+      function truncateAuthors(str, max) {
+        if (!str) return '';
+        const parts = str.split(', ');
+        if (parts.length <= max) return str;
+        return parts.slice(0, max).join(', ') + ', et al.';
+      }
+
+      function cleanAbstract(text) {
+        return text.replace(/<[^>]+>/g, '').replace(/\\href\{[^}]*\}\{([^}]*)\}/g, '$1');
+      }
+
+      searchEl.addEventListener('input', renderPapers);
+    })();
+  </script>
+
+</body>
+</html>
