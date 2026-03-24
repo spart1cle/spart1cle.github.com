@@ -2582,12 +2582,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166543,
-        "name": "VLM",
-        "readonly": false,
-        "color": "#42d692"
-      },
-      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
@@ -2598,6 +2592,12 @@
         "name": "Distillation",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166543,
+        "name": "VLM",
+        "readonly": false,
+        "color": "#42d692"
       }
     ],
     "total_read": 51,
@@ -2975,10 +2975,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166542,
-        "name": "3DFM",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
-        "color": "#cca6ac"
+        "color": "#b99aff"
       },
       {
         "id": 166537,
@@ -2987,10 +2987,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166542,
+        "name": "3DFM",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#cca6ac"
       }
     ],
     "total_read": 23,
@@ -3232,16 +3232,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "total_read": 71,
@@ -3517,16 +3517,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166541,
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
       }
     ],
     "total_read": 263,
@@ -3713,28 +3713,28 @@
         "color": "#4986e7"
       },
       {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
-      },
-      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166544,
+        "name": "Reasoning",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#b6cff5"
       },
       {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 67,
@@ -3796,5 +3796,2506 @@
     "shortened_authors": "Zewei Zhou, Tianhui Cai, Seth Z. Zhao, Yun Zhang, Zhiyu Huang, Bolei Zhou, Jiaqi Ma",
     "display_venue": "NeurIPS 2025",
     "is_cached_filename": null
+  },
+  {
+    "paper_id": 4531835,
+    "title": "InternVLA-A1: Unifying Understanding, Generation and Action for Robotic Manipulation",
+    "authors": "Junhao Cai, Zetao Cai, Jiafei Cao, Yilun Chen, Zeyu He, Lei Jiang, Hang Li, Hengjie Li, Yang Li, Yufei Liu, Yanan Lu, Qi Lv, Haoxiang Ma, Jiangmiao Pang, Yu Qiao, Zherui Qiu, Yanqing Shen, Xu Shi, Yang Tian, Bolun Wang, Hanqing Wang, Jiaheng Wang, Tai Wang, Xueyuan Wei, Chao Wu, Yiman Xie, Boyang Xing, Yuqiang Yang, Yuyin Yang, Qiaojun Yu, Feng Yuan, Jia Zeng, Jingjing Zhang, Shenghan Zhang, Shi Zhang, Zhuoma Zhaxi, Bowen Zhou, Yuanzhen Zhou, Yunsong Zhou, Hongrui Zhu, Yangkun Zhu, Yuchen Zhu",
+    "url": "https://arxiv.org/pdf/2601.02456",
+    "abstract": "Prevalent Vision-Language-Action (VLA) models are typically built upon Multimodal Large Language Models (MLLMs) and demonstrate exceptional proficiency in semantic understanding, but they inherently lack the capability to deduce physical world dynamics. Consequently, recent approaches have shifted toward World Models, typically formulated via video prediction; however, these methods often suffer from a lack of semantic grounding and exhibit brittleness when handling prediction errors. To synergize semantic understanding with dynamic predictive capabilities, we present InternVLA-A1. This model employs a unified Mixture-of-Transformers architecture, coordinating three experts for scene understanding, visual foresight generation, and action execution. These components interact seamlessly through a unified masked self-attention mechanism. Building upon InternVL3 and Qwen3-VL, we instantiate InternVLA-A1 at 2B and 3B parameter scales. We pre-train these models on hybrid synthetic-real datasets spanning InternData-A1 and Agibot-World, covering over 533M frames. This hybrid training strategy effectively harnesses the diversity of synthetic simulation data while minimizing the sim-to-real gap. We evaluated InternVLA-A1 across 12 real-world robotic tasks and simulation benchmark. It significantly outperforms leading models like pi0 and GR00T N1.5, achieving a 14.5\\% improvement in daily tasks and a 40\\%-73.3\\% boost in dynamic settings, such as conveyor belt sorting.",
+    "publication_date": "2026-01-05",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2601.02456",
+    "digest_date": 1767744000000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "14a08f3dc790992872957a2fe71d56e3a58b996e",
+    "cache_file_name": "Cai2026ARXIV_InternVLA_A1_Unifying_Understanding.pdf",
+    "ngt_id": 4126248,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": null,
+    "total_read": 229,
+    "total_likes": 53,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 490,
+        "endIndex": 587,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 589,
+        "endIndex": 757,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2601.02456",
+    "teaser_figures": null,
+    "first_page_image": null,
+    "ranking_score": 0.9146643196,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2601.02456.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2601.02456",
+    "shortened_authors": "Junhao Cai, Zetao Cai, Jiafei Cao, Yilun Chen, Zeyu He, Lei Jiang, Hang Li, Hengjie Li, Yang Li, ..., Yuchen Zhu",
+    "display_venue": "ArXiv 2026 (January 5)",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 4596311,
+    "title": "VGGDrive: Empowering Vision-Language Models with Cross-View Geometric Grounding for Autonomous Driving",
+    "authors": "Jie Wang, Guang Li, Zhijian Huang, Chenxu Dang, Hangjun Ye, Yahong Han, Long Chen",
+    "url": "https://arxiv.org/pdf/2602.20794",
+    "abstract": "The significance of cross-view 3D geometric modeling capabilities for autonomous driving is self-evident, yet existing Vision-Language Models (VLMs) inherently lack this capability, resulting in their mediocre performance. While some promising approaches attempt to mitigate this by constructing Q&A data for auxiliary training, they still fail to fundamentally equip VLMs with the ability to comprehensively handle diverse evaluation protocols. We thus chart a new course, advocating for the infusion of VLMs with the cross-view geometric grounding of mature 3D foundation models, closing this critical capability gap in autonomous driving. In this spirit, we propose a novel architecture, VGGDrive, which empowers Vision-language models with cross-view Geometric Grounding for autonomous Driving. Concretely, to bridge the cross-view 3D geometric features from the frozen visual 3D model with the VLM's 2D visual features, we introduce a plug-and-play Cross-View 3D Geometric Enabler (CVGE). The CVGE decouples the base VLM architecture and effectively empowers the VLM with 3D features through a hierarchical adaptive injection mechanism. Extensive experiments show that VGGDrive enhances base VLM performance across five autonomous driving benchmarks, including tasks like cross-view risk perception, motion prediction, and trajectory planning. It's our belief that mature 3D foundation models can empower autonomous driving tasks through effective integration, and we hope our initial exploration demonstrates the potential of this paradigm to the autonomous driving community.",
+    "publication_date": "2026-02-24",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2602.20794",
+    "digest_date": 1771977600000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "3f1615cce110d303ac2c1139b9054f1fd61fd586",
+    "cache_file_name": "Wang2026ARXIV_VGGDrive_Empowering_Vision_Language.pdf",
+    "ngt_id": 4191155,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166543,
+        "name": "VLM",
+        "readonly": false,
+        "color": "#42d692"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
+      }
+    ],
+    "total_read": 45,
+    "total_likes": 5,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 446,
+        "endIndex": 640,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 642,
+        "endIndex": 797,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Pioneers the integration of mature visual 3D foundation models into VLM-driven autonomous driving frameworks, effectively bridging the critical gap in cross-view geometric perception.\n- Proposes a plug-and-play Cross-View 3D Geometric Enabler (CVGE) that facilitates deep coupling between 3D geometric features and VLMs through a hierarchical adaptive injection mechanism, establishing solid geometric grounding for the model.\n- Extensive experiments across five mainstream benchmarks thoroughly demonstrate the performance advantages of VGGDrive, affirming the feasibility and promising potential of this novel technical paradigm of empowering VLMs with 3D models for autonomous driving.",
+      "evaluation_question": "- On *NAVSIM*, achieves **98.55 NC** vs. Baseline (**97.83**), **+0.72**.\n- On *NuInstruct*, achieves **88.76 Avg** vs. Baseline (**86.04**), **+2.72**.\n- On *DriveLM*, achieves **77.50 Accuracy** vs. Baseline (**73.39**), **+4.11**.\n- On *OmniDrive*, achieves **86.57 CIDEr** vs. Baseline (**86.29**), **+0.28**.\n- On *NuScenes*, achieves **88.76 PDMS** vs. Baseline (**86.04**), **+2.72**.",
+      "method_explanation_question": "- Processes multi-view images using a frozen 3D foundational model (VGGT [39]) to extract geometrically consistent 3D features.\n- Injects 3D features into the LLM\u2019s 2D visual embeddings via a hierarchical adaptive injection mechanism, enabling deep geometric grounding.\n- Employs a cross-modal geometric attention fusion module to autonomously uncover long-range correlations between 2D visual features and 3D geometric representations.\n- Optimizes end-to-end with standard cross-entropy loss, ensuring alignment between visual and geometric modalities.\n- Enhances trajectory planning and scene understanding by leveraging cross-view geometric information for robust decision-making.",
+      "problem_definition_question": "- Traditional VLMs lack the ability to model cross-view geometry in the 3D physical world, hampering performance in real-world autonomous driving tasks.\n- Current methods fail to balance expressiveness and efficiency, degrading accuracy or inflating computational costs in complex environments.\n- There is a critical gap in integrating 3D geometric modeling capabilities into VLMs for reliable, high-precision autonomous driving applications."
+    },
+    "affiliations": [
+      "College of Intelligence and Computing, Tianjin University",
+      "Xiaomi EV"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Autonomous Driving",
+      "keywords": "Autonomous Driving,  Vision-Language Models,  Cross-View Geometry,  3D Foundation Models,  VGGT,  CVGE",
+      "method_shortname": "VGGDrive",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": "https://github.com/WJ-CV/VGGDrive",
+    "paper_source_id": "2602.20794",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4596311.0.jpeg",
+        "caption": "Figure 1. Existing relevant paradigms vs. our VGGDrive. (a) The VLA paradigm for trajectory planning. (b) Two existing paradigms for integrating 3D foundation models (VGGT [39]) with VLMs: VGGT-Dist [11] and VGGT-Add [48]. (c) Our VG-GDrive, which leverages the VGGT model to profoundly empower the basic VLM with cross-view geometric grounding capabilities, thereby handling diverse autonomous driving tasks.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.1.jpeg",
+        "caption": "Figure 2. Quantitative comparison of VGGDrive with specific sota methods across four autonomous driving benchmarks, covering evaluations of attributes such as cross-view risk perception , motion prediction and trajectory planning .",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.2.jpeg",
+        "caption": "Figure 3. Overview of VGGDrive . Specifically, the frozen visual 3D foundation model (VGGT [39]) extracts geometrically consistent 3D features V 3 d through cross-view analysis, while the base VLM is decomposed into multiple decoder layers. The proposed CVGE sequentially integrates the shared 3D features V 3 d with the 2D visual representations V 2 d i , injecting them V 3 d i through a hierarchical adaptive mechanism, thereby establishing geometric grounding and enabling deep enhancement of the VLM architecture.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.3.jpeg",
+        "caption": "Table 2. The performance comparison on the NuInstruct dataset [6] is conducted against existing SOTA methods. This experiment is crucial for evaluating the performance gains of VGGDrive in cross-view risk object perception ( MAP ), state predictio n, and ego-motion forecasting within autonomous driving scenarios. The symbol * indicates max (cid:0) Accuracy + MAP + BLEU",
+        "figureNumber": 3,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.4.jpeg",
+        "caption": "Table 1. The performance comparison on the NAVSIM navtest [5] benchmark, evaluated using closed-loop metrics, involves both SOTA E2E approaches and existing VLA models under supervised fine-tuning. This evaluation aims to reflect the performance gains achieved by VGGDrive in enhancing the closed-loop trajectory planning capability of the base VLM.",
+        "figureNumber": 4,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.5.jpeg",
+        "caption": "Table 3. The performance comparison on the DriveLM dataset [38] is conducted against existing SOTA methods. This experiment is crucial for evaluating the performance gains of VGGDrive in cross-view risk object perception ( Match ), action prediction and planning.",
+        "figureNumber": 5,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.6.jpeg",
+        "caption": "Table 4. The performance comparison on the OmniDrive dataset [42] focuses on caption-related tasks in which base VLMs excel. Dataset",
+        "figureNumber": 6,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.7.jpeg",
+        "caption": "Table 5. Performance comparison on nuScenes open-loop planning, with metrics from BEV-Planner\u2019s reproduced results [30].",
+        "figureNumber": 7,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.8.jpeg",
+        "caption": "Figure 4. Visualization of VGGDrive\u2019s performance across various autonomous driving attribute evaluation tasks.",
+        "figureNumber": 8,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.9.jpeg",
+        "caption": "dis-Table 7. Ablation Study of the Main Components of VGGDrive.",
+        "figureNumber": 9,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.10.jpeg",
+        "caption": "per-Table 6. Ablation study of various integration schemes between VGGT and VLM on the NAVSIM [5] and NuInstruct Datasets [6]. Inference speed is evaluated on the NuInstruct MAP task.",
+        "figureNumber": 10,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.11.jpeg",
+        "caption": "Table 8. Ablation Study of the 3D Expert Model.",
+        "figureNumber": 11,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4596311.12.jpeg",
+        "caption": "Table 9. Further Ablation Analysis on the Navsim Benchmark.",
+        "figureNumber": 12,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4596311.jpeg"
+    },
+    "ranking_score": 0.9103650213,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2602.20794.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2602.20794",
+    "shortened_authors": "Jie Wang, Guang Li, Zhijian Huang, Chenxu Dang, Hangjun Ye, Yahong Han, Long Chen",
+    "display_venue": "ArXiv 2026 (February 24)",
+    "is_cached_filename": "Wang2026ARXIV_VGGDrive_Empowering_Vision_Language.pdf"
+  },
+  {
+    "paper_id": 4314246,
+    "title": "Back to the Features: DINO as a Foundation for Video World Models",
+    "authors": "Federico Baldassarre, Marc Szafraniec, Basile Terver, Vasil Khalidov, Francisco Massa, Yann LeCun, Patrick Labatut, Maximilian Seitzer, Piotr Bojanowski",
+    "url": "https://arxiv.org/pdf/2507.19468",
+    "abstract": "We present DINO-world, a powerful generalist video world model trained to predict future frames in the latent space of DINOv2. By leveraging a pre-trained image encoder and training a future predictor on a large-scale uncurated video dataset, DINO-world learns the temporal dynamics of diverse scenes, from driving and indoor scenes to simulated environments. We show that DINO-world outperforms previous models on a variety of video prediction benchmarks, e.g. segmentation and depth forecasting, and demonstrates strong understanding of intuitive physics. Furthermore, we show that it is possible to fine-tune the predictor on observation-action trajectories. The resulting action-conditioned world model can be used for planning by simulating candidate trajectories in latent space.",
+    "publication_date": "2025-07-25",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2507.19468",
+    "digest_date": 1753660800000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "6eab7b59bac9246b577dcbbadd0ab0a230bf5432",
+    "cache_file_name": "Baldassarre2025ARXIV_Back_to_the_Features.pdf",
+    "ngt_id": 3918418,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": null,
+    "total_read": 261,
+    "total_likes": 72,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 0,
+        "endIndex": 125,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 127,
+        "endIndex": 358,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2507.19468",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4314246.0.jpeg",
+        "caption": "Figure 1: Latent video world model architecture. A frozen DINOv2 encoder maps video frames to patch tokens in latent space. The predictor is a stack of cross-attention blocks trained to predict the patch token \u02c6 x t +1 ,i \u2032 ,j \u2032 at a future timestamp \u03c4 t +1 and location ( i \u2032 , j \u2032 ) from all past tokens x 1: t, \u00b7 , \u00b7 and timestamps T 1: t . Spatiotemporal coordinates are injected into each token via a 3-axial RoPE. The block-triangular attention mask allows to train the model in parallel for all patches of all frames, respecting temporal causality. For conditional fine-tuning, we add zero-initialized action blocks that update each query with the corresponding action a t .",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4314246.1.jpeg",
+        "caption": "Table 1: Dense forecasting. For each method, we train a \u201cpresent-time\u201d linear head for segmentation or depth estimation, which we then apply to the output of the world model at a prediction distance of \u223c 200 ms (short) or \u223c 0 . 5 seconds (mid). A small gap between present and forecasting performance indicates a strong world model.",
+        "figureNumber": 1,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": null,
+    "ranking_score": 0.9060406598,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2507.19468.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2507.19468",
+    "shortened_authors": "Federico Baldassarre, Marc Szafraniec, Basile Terver, Vasil Khalidov, Francisco Massa, Yann LeCun, Patrick Labatut, Maximilian Seitzer, Piotr Bojanowski",
+    "display_venue": "ArXiv 2025 (July 25)",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 4431340,
+    "title": "Semantic World Models",
+    "authors": "Jacob Berg, Chuning Zhu, Yanda Bao, Ishan Durugkar, Abhishek Gupta",
+    "url": "https://arxiv.org/pdf/2510.19818",
+    "abstract": "Planning with world models offers a powerful paradigm for robotic control. Conventional approaches train a model to predict future frames conditioned on current frames and actions, which can then be used for planning. However, the objective of predicting future pixels is often at odds with the actual planning objective; strong pixel reconstruction does not always correlate with good planning decisions. This paper posits that instead of reconstructing future frames as pixels, world models only need to predict task-relevant semantic information about the future. For such prediction the paper poses world modeling as a visual question answering problem about semantic information in future frames. This perspective allows world modeling to be approached with the same tools underlying vision language models. Thus vision language models can be trained as \"semantic\" world models through a supervised finetuning process on image-action-text data, enabling planning for decision-making while inheriting many of the generalization and robustness properties from the pretrained vision-language models. The paper demonstrates how such a semantic world model can be used for policy improvement on open-ended robotics tasks, leading to significant generalization improvements over typical paradigms of reconstruction-based action-conditional world modeling. Website available at <a href='https://weirdlabuw.github.io/swm' target='_blank'>https://weirdlabuw.github.io/swm</a>.",
+    "publication_date": "2025-10-22",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2510.19818",
+    "digest_date": 1761177600000,
+    "project_link": "https://weirdlabuw.github.io/swm",
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "8f204b4d74cfa33a31b79183b68e6b199eb24e65",
+    "cache_file_name": "Berg2025ARXIV_Semantic_World_Models.pdf",
+    "ngt_id": 4035435,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": null,
+    "total_read": 190,
+    "total_likes": 37,
+    "category": "Machine Learning",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 406,
+        "endIndex": 565,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 567,
+        "endIndex": 700,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **Semantic World Models (SWM)**, which predict task-relevant semantic information instead of raw pixels for planning.\n- **SWM** enables flexible open-world multi-task planning by answering questions about future outcomes using natural language.\n- Demonstrates that **SWM** achieves significant policy improvements over traditional reconstruction-based world models on LangTable and OGBench tasks.\n- **SWM** leverages pre-trained vision-language models to inherit generalization and robustness properties for robotic control.",
+      "evaluation_question": "- On *LangTable*, SWM improves success rates from **14.4%** (base policy) to **81.6%**.\n- On *OGBench*, SWM increases success rates from **45.33%** (base policy) to **76.0%**.\n- Multi-step tasks show **52.0% average policy improvement** over AVD baseline.\n- SWM outperforms IDQL and AVD baselines across all evaluated tasks and environments.",
+      "method_explanation_question": "- Trains a **vision-language model (VLM)** as a Semantic World Model (SWM) using supervised fine-tuning on image-action-text data.\n- Inputs include current observations (images), action sequences, and natural language queries about future outcomes.\n- **SWM** generates textual answers by reasoning about the consequences of taking actions in the environment.\n- Uses a **cross-entropy loss** to optimize predictions of desired answers for each question.\n- Combines **action embeddings** with image embeddings and question tokens in the input sequence for prediction.",
+      "problem_definition_question": "- Traditional world models focus on pixel-level reconstruction, which may not align with planning objectives and miss critical semantic details necessary for decision-making.\n- **Pixel-level accuracy** does not guarantee effective planning decisions, especially for precise dexterous contact or object interactions.\n- **Task-specific semantic understanding** is essential but challenging to achieve without explicit supervision or assumptions about rewards."
+    },
+    "affiliations": [
+      "University of Washington",
+      "Sony AI"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Robotics",
+      "keywords": "Semantic World Models,  Vision-Language Models,  Action-Conditioned Prediction,  Multi-Task Planning,  VQA",
+      "method_shortname": "Semantic World Model (SWM)",
+      "color": "#fe7878"
+    },
+    "project_url": "https://weirdlabuw.github.io/swm",
+    "github_url": null,
+    "paper_source_id": "2510.19818",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4431340.0.jpeg",
+        "caption": "Figure 1: Comparison between Vision-Language Models, Video World Models, and Semantic World Models . While Vision-Language Models answer questions about static observations and Video World Models predict future observations given actions, Semantic World Models take observations and actions as input to directly answer questions about the future outcomes of those actions.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4431340.1.jpeg",
+        "caption": "Figure 2: Overview of Semantic World Models. SWM is a VLM adapted to answer questions about the future realized by the actions used to condition the model. Using a set of questions and desired answers, its predictions can be converted into a planning signal and iteratively refine the action sequence.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4431340.2.jpeg",
+        "caption": "Figure 3: Example state entry in the SAQA dataset with two action horizons and six QA pairs.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4431340.3.jpeg",
+        "caption": "Figure 4: Examples of each evaluation task. The top frame represents the initialization, and the bottom frame represents task completion. The first three tasks are for LangTable and the last two are for OGBench.",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4431340.4.jpeg",
+        "caption": "Figure 5: Policy Improvement across LangTable and OGBench across multiple tasks. The average success rates of the base policies ( 14 . 4% on LangTable and 45 . 33% on OGBench) increase to 81 . 6% and 76 . 0% , respectively. SWM further outperforms the IDQL and AVD baselines across all evaluated tasks and environments. Reported success rates over n = 50 seeds with 95% confidence intervals (normal approximation).",
+        "figureNumber": 4,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4431340.5.jpeg",
+        "caption": "Table 1: Multi-Step Results. SWM model improvement results on four different multi-step compositional tasks. The tasks are as follows: MS1 - red pentagon to blue moon, yellow pentagon to red moon. MS2 - yellow star to blue cube, yellow pentagon to red moon. MS3 - yellow star to blue cube, red pentagon to blue moon. MS4 - green cube to blue moon, yellow pentagon to red moon. Reported success rates over n = 50 seeds with 95% confidence intervals (normal approximation).",
+        "figureNumber": 5,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4431340.6.jpeg",
+        "caption": "Table 2: Planning Results MPPI planning success rates over 100 seeds.",
+        "figureNumber": 6,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4431340.7.jpeg",
+        "caption": "Table 3: Future QA Performance. Accuracy of answers on future QA evaluated on expert SAQA datasets generated by experts on test time seeds in both in-domain and out-of-domain block combinations. Reported standard deviation across 3 model training seeds.",
+        "figureNumber": 7,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": null,
+    "ranking_score": 0.9051075442,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2510.19818.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2510.19818",
+    "shortened_authors": "Jacob Berg, Chuning Zhu, Yanda Bao, Ishan Durugkar, Abhishek Gupta",
+    "display_venue": "ArXiv 2025 (October 22)",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 4599576,
+    "title": "VGG-T$^3$: Offline Feed-Forward 3D Reconstruction at Scale",
+    "authors": "Sven Elflein, Ruilong Li, S\u00e9rgio Agostinho, Zan Gojcic, Laura Leal-Taix\u00e9, Qunjie Zhou, Aljosa Osep",
+    "url": "https://arxiv.org/pdf/2602.23361",
+    "abstract": "We present a scalable 3D reconstruction model that addresses a critical limitation in offline feed-forward methods: their computational and memory requirements grow quadratically w.r.t. the number of input images. Our approach is built on the key insight that this bottleneck stems from the varying-length Key-Value (KV) space representation of scene geometry, which we distill into a fixed-size Multi-Layer Perceptron (MLP) via test-time training. VGG-T$^3$ (Visual Geometry Grounded Test Time Training) scales linearly w.r.t. the number of input views, similar to online models, and reconstructs a $1k$ image collection in just $54$ seconds, achieving a $11.6\\times$ speed-up over baselines that rely on softmax attention. Since our method retains global scene aggregation capability, our point map reconstruction error outperforming other linear-time methods by large margins. Finally, we demonstrate visual localization capabilities of our model by querying the scene representation with unseen images.",
+    "publication_date": "2026-02-26",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2602.23361",
+    "digest_date": 1772150400000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "74a5e2d3abd3d823c34476bab0c4c9ef015806c7",
+    "cache_file_name": "Elflein2026ARXIV_VGG_T_3_Offline.pdf",
+    "ngt_id": 4194238,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": null,
+    "total_read": 286,
+    "total_likes": 74,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 0,
+        "endIndex": 212,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 214,
+        "endIndex": 447,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2602.23361",
+    "teaser_figures": null,
+    "first_page_image": null,
+    "ranking_score": 0.9042681269,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2602.23361.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2602.23361",
+    "shortened_authors": "Sven Elflein, Ruilong Li, S\u00e9rgio Agostinho, Zan Gojcic, Laura Leal-Taix\u00e9, Qunjie Zhou, Aljosa Osep",
+    "display_venue": "ArXiv 2026 (February 26)",
+    "is_cached_filename": "Elflein2026ARXIV_VGG_T_3_Offline.pdf"
+  },
+  {
+    "paper_id": 4609051,
+    "title": "AnyCamVLA: Zero-Shot Camera Adaptation for Viewpoint Robust Vision-Language-Action Models",
+    "authors": "Hyeongjun Heo, Seungyeon Woo, Sang Min Kim, Junho Kim, Junho Lee, Yonghyeon Lee, Young Min Kim",
+    "url": "https://arxiv.org/pdf/2603.05868",
+    "abstract": "Despite remarkable progress in Vision-Language-Action models (VLAs) for robot manipulation, these large pre-trained models require fine-tuning to be deployed in specific environments. These fine-tuned models are highly sensitive to camera viewpoint changes that frequently occur in unstructured environments. In this paper, we propose a zero-shot camera adaptation framework without additional demonstration data, policy fine-tuning, or architectural modification. Our key idea is to virtually adjust test-time camera observations to match the training camera configuration in real-time. For that, we use a recent feed-forward novel view synthesis model which outputs high-quality target view images, handling both extrinsic and intrinsic parameters. This plug-and-play approach preserves the pre-trained capabilities of VLAs and applies to any RGB-based policy. Through extensive experiments on the LIBERO benchmark, our method consistently outperforms baselines that use data augmentation for policy fine-tuning or additional 3D-aware features for visual input. We further validate that our approach constantly enhances viewpoint robustness in real-world robotic manipulation scenarios, including settings with varying camera extrinsics, intrinsics, and freely moving handheld cameras.",
+    "publication_date": "2026-03-06",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.05868",
+    "digest_date": 1773014400000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "bb14c9ab780bf77bd587c706d3629a9ff65ccc5f",
+    "cache_file_name": "Heo2026ARXIV_AnyCamVLA_Zero_Shot_Camera.pdf",
+    "ngt_id": 4203094,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      }
+    ],
+    "total_read": 50,
+    "total_likes": 6,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 309,
+        "endIndex": 463,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 465,
+        "endIndex": 586,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **zero-shot camera adaptation** for robust visual-language-action models under viewpoint changes.\n- Proposes a **feed-forward novel view synthesis** approach to virtualize test-time camera observations.\n- Achieves **state-of-the-art performance** on LIBERO benchmark without additional training or policy fine-tuning.\n- Preserves pre-trained VLA capabilities while adapting to diverse camera configurations.\n- **Enhances viewpoint robustness** in real-world robotic manipulation with handheld cameras.",
+      "evaluation_question": "- On *LIBERO-Spatial*, achieves **98.3%** success rate vs. OpenVLA-OFT (**93.9%**) and \u03c0 0.5 (**92.4%**).\n- On *LIBERO-Long*, reaches **88.6%** average success rate, surpassing GeoAwareVLA (**5.2%**) and \u03c0 0.5 (**28.6%**).\n- Ablation studies show **feed-forward synthesis** contributes **+17.5%** improvement over no adaptation.\n- Maintains **near-original performance** (88.6% vs. 92.4%) on training viewpoints despite large viewpoint shifts.",
+      "method_explanation_question": "- Processes input images from test-time cameras and synthesizes them to match training camera configurations using a **feed-forward novel view synthesis model**.\n- Transforms input views into the canonical training viewpoint via **virtual camera adaptation** to align with pre-trained VLA policies.\n- Feeds synthesized images into a frozen VLA policy to generate actions at 10 Hz, while the synthesis runs at 30 Hz for real-time processing.\n- Operates without policy fine-tuning or architectural changes, preserving the original VLA's capabilities.\n- Leverages **photorealistic image synthesis** to handle both extrinsic and intrinsic camera parameters across diverse setups.",
+      "problem_definition_question": "- Existing VLAs suffer from **viewpoint sensitivity**, breaking down under minor camera configuration changes in real-world settings.\n- Current methods require **additional demonstrations or fine-tuning** to adapt to new viewpoints, increasing computational costs.\n- **Robustness to viewpoint variations** is critical for reliable deployment in unstructured environments.\n- There is a gap in **zero-shot adaptation techniques** that enable VLAs to generalize without retraining.\n- The paper addresses **camera configuration shifts** in real-time, ensuring consistent performance across varying camera setups."
+    },
+    "affiliations": [
+      "Department of Mechanical Engineering, Massachusetts Institute of Technology",
+      "Department of Electrical and Computer Engineering, Seoul National University"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Robotics",
+      "keywords": "Vision-Language-Action Models,  Feed-Forward Novel View Synthesis,  Camera Adaptation,  LIBERO Benchmark,  Zero-Shot Adaptation",
+      "method_shortname": "AnyCamVLA",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2603.05868",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4609051.0.jpeg",
+        "caption": "Fig. 1. We present a zero-shot camera adaptation framework for VLAs that operates in real-time under various camera configuration changes from those used during training. At each control step, images from a test-time camera are synthesized into the training camera viewpoint at 30Hz, while the frozen VLA policy runs at 10Hz. Without any policy fine-tuning, our framework enables robust task execution across diverse setups\u2014including different extrinsics, intrinsics, and freely moving handheld cameras such as an iPhone, ZED, and RealSense.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4609051.1.jpeg",
+        "caption": "Fig. 2. (a) Three perturbation levels on the agent and wrist camera. For the agent camera, we set the intersection point of the workspace surface and the camera z -axis as the center of spherical coordinates and apply perturbations to ( r,\u03b8,\u03d5 ) on camera poses. For the wrist camera, we perturb the x , y coordinates and the pitch of the camera poses on the wrist camera frame. (b) Visualization of agent and wrist cameras in the viewpoint augmented LIBERO dataset.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4609051.2.jpeg",
+        "caption": "TABLE I S UCCESS RATE (%) ON UNSEEN AGENT CAMERA VIEWPOINT ACROSS LIBERO SUITES .",
+        "figureNumber": 2,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4609051.3.jpeg",
+        "caption": "TABLE II S UCCESS RATE (%) ON UNSEEN WRIST CAMERA VIEWPOINT ON LIBERO-L ONG .",
+        "figureNumber": 3,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4609051.4.jpeg",
+        "caption": "Fig. 3. Success rate on LIBERO-Long with agent view variations by fine-tuning steps: (Left) Average task success rate on all three unseen views (Right) Average task success rate on original view.",
+        "figureNumber": 4,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4609051.5.jpeg",
+        "caption": "Fig. 4. Qualitative results of LVSM on simulation and real images. Fine-tuning reduces the domain gap for input views on simulation.",
+        "figureNumber": 5,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4609051.6.jpeg",
+        "caption": "TABLE IIIS UCCESS RATE (%) AND IMAGE QUALITY ON VIEWPOINT ADAPTATION ABLATION .",
+        "figureNumber": 6,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4609051.7.jpeg",
+        "caption": "Fig. 5. Experimental setup for real-world experiments.",
+        "figureNumber": 7,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4609051.8.jpeg",
+        "caption": "Fig. 6. Results of performance improvement on novel viewpoint in real world. (a) Task success rate on novel viewpoints. Bar and marker each indicate progress and binary task success rate. (b) Real-world execution snapshots. Each column illustrates the sequential progression of a task from the initial state to the final state.",
+        "figureNumber": 8,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4609051.jpeg"
+    },
+    "ranking_score": 0.9013367386,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.05868.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.05868",
+    "shortened_authors": "Hyeongjun Heo, Seungyeon Woo, Sang Min Kim, Junho Kim, Junho Lee, Yonghyeon Lee, Young Min Kim",
+    "display_venue": "ArXiv 2026 (March 6)",
+    "is_cached_filename": "Heo2026ARXIV_AnyCamVLA_Zero_Shot_Camera.pdf"
+  },
+  {
+    "paper_id": 453630,
+    "title": "DINOv2: Learning Robust Visual Features without Supervision",
+    "authors": "Pierre Fernandez, Piotr Bojanowski, Gabriel Synnaeve, Marc Szafraniec, Maxime Oquab, Armand Joulin, Hu Xu, Wojciech Galuba, Vasu Sharma, Timoth\u00e9e Darcet, Michael Rabbat, Russell Howes, Ishan Misra, Shang-Wen Li, Mahmoud Assran, Alaaeldin Ali, Herve Jegou, Po-Yao Huang, Nicolas Ballas, Th\u00e9o Moutakanni, Huy Vo, Vasil Khalidov, Daniel HAZIZA, Francisco Massa, Patrick Labatut, Julien Mairal",
+    "url": "https://arxiv.org/pdf/2304.07193",
+    "abstract": "The recent breakthroughs in natural language processing for model pretraining on large quantities of data have opened the way for similar foundation models in computer vision. These models could greatly simplify the use of images in any system by producing all-purpose visual features, i.e., features that work across image distributions and tasks without finetuning. This work shows that existing pretraining methods, especially self-supervised methods, can produce such features if trained on enough curated data from diverse sources. We revisit existing approaches and combine different techniques to scale our pretraining in terms of data and model size. Most of the technical contributions aim at accelerating and stabilizing the training at scale. In terms of data, we propose an automatic pipeline to build a dedicated, diverse, and curated image dataset instead of uncurated data, as typically done in the self-supervised literature. In terms of models, we train a ViT model with 1B parameters and distill it into a series of smaller models that surpass the best available all-purpose features, OpenCLIP on most of the benchmarks at image and pixel levels.",
+    "publication_date": "2024-02-02",
+    "pdf_download_success": true,
+    "citations": 2359.0,
+    "arxiv_id": "2304.07193",
+    "digest_date": 1681689600000,
+    "project_link": null,
+    "conference": "International Conference on Learning Representations (ICLR)",
+    "conference_url": null,
+    "abbreviation": "ICLR",
+    "conference_year": 2025.0,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "conference_planner",
+    "semantic_scholar_id": "5a9cb1b3dc4655218b3deeaf4a2417a9a8cd0891",
+    "cache_file_name": "Oquab2023ARXIV_DINOv2_Learning_Robust_Visual.pdf",
+    "ngt_id": 188724,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": null,
+    "total_read": 240,
+    "total_likes": 217,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": null,
+    "author_details": [
+      {
+        "author_id": 29021,
+        "author_name": "H. J\u00e9gou"
+      },
+      {
+        "author_id": 431647,
+        "author_name": "Patrick Labatut"
+      },
+      {
+        "author_id": 285687,
+        "author_name": "Ishan Misra"
+      },
+      {
+        "author_id": 1077561,
+        "author_name": "M. Oquab"
+      },
+      {
+        "author_id": 764914,
+        "author_name": "Vasil Khalidov"
+      },
+      {
+        "author_id": 93503,
+        "author_name": "Gabriel Synnaeve"
+      },
+      {
+        "author_id": 403026,
+        "author_name": "Armand Joulin"
+      },
+      {
+        "author_id": 15002,
+        "author_name": "Po-Yao (Bernie) Huang"
+      },
+      {
+        "author_id": 403027,
+        "author_name": "Piotr Bojanowski"
+      },
+      {
+        "author_id": 35634,
+        "author_name": "Nicolas Ballas"
+      },
+      {
+        "author_id": 72279,
+        "author_name": "Shang-Wen Li"
+      },
+      {
+        "author_id": 20066,
+        "author_name": "J. Mairal"
+      },
+      {
+        "author_id": 219702,
+        "author_name": "Marc Szafraniec"
+      },
+      {
+        "author_id": 1455245,
+        "author_name": "Mahmoud Assran"
+      },
+      {
+        "author_id": 62206,
+        "author_name": "Daniel Haziza"
+      },
+      {
+        "author_id": 58631,
+        "author_name": "Vasu Sharma"
+      },
+      {
+        "author_id": 18248,
+        "author_name": "Alaaeldin El-Nouby"
+      },
+      {
+        "author_id": 2515971,
+        "author_name": "Francisco Massa"
+      },
+      {
+        "author_id": 35406,
+        "author_name": "Russ Howes"
+      },
+      {
+        "author_id": 1309612,
+        "author_name": "T. Moutakanni"
+      },
+      {
+        "author_id": 752676,
+        "author_name": "Huy Q. Vo"
+      },
+      {
+        "author_id": 150808,
+        "author_name": "Michael G. Rabbat"
+      },
+      {
+        "author_id": 2433638,
+        "author_name": "Pierre Fernandez"
+      },
+      {
+        "author_id": 4539930,
+        "author_name": "Huijiao Xu"
+      },
+      {
+        "author_id": 4272860,
+        "author_name": "Timoth'ee Darcet"
+      },
+      {
+        "author_id": 4539932,
+        "author_name": "Wojciech Galuba"
+      }
+    ],
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": null,
+    "teaser_figures": null,
+    "first_page_image": null,
+    "ranking_score": 0.8938129996,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2304.07193.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": null,
+    "shortened_authors": "Pierre Fernandez, Piotr Bojanowski, Gabriel Synnaeve, Marc Szafraniec, Maxime Oquab, Armand Joulin, Hu Xu, Wojciech Galuba, Vasu Sharma, ..., Julien Mairal",
+    "display_venue": "ICLR 2025",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 4115357,
+    "title": "GR00T N1: An Open Foundation Model for Generalist Humanoid Robots",
+    "authors": "NVIDIA, :, Johan Bjorck, Fernando Casta\u00f1eda, Nikita Cherniadev, Xingye Da, Runyu Ding, Linxi \"Jim\" Fan, Yu Fang, Dieter Fox, Fengyuan Hu, Spencer Huang, Joel Jang, Zhenyu Jiang, Jan Kautz, Kaushil Kundalia, Lawrence Lao, Zhiqi Li, Zongyu Lin, Kevin Lin, Guilin Liu, Edith Llontop, Loic Magne, Ajay Mandlekar, Avnish Narayan, Soroush Nasiriany, Scott Reed, You Liang Tan, Guanzhi Wang, Zu Wang, Jing Wang, Qi Wang, Jiannan Xiang, Yuqi Xie, Yinzhen Xu, Zhenjia Xu, Seonghyeon Ye, Zhiding Yu, Ao Zhang, Hao Zhang, Yizhou Zhao, Ruijie Zheng, Yuke Zhu",
+    "url": "https://arxiv.org/pdf/2503.14734",
+    "abstract": "General-purpose robots need a versatile body and an intelligent mind. Recent advancements in humanoid robots have shown great promise as a hardware platform for building generalist autonomy in the human world. A robot foundation model, trained on massive and diverse data sources, is essential for enabling the robots to reason about novel situations, robustly handle real-world variability, and rapidly learn new tasks. To this end, we introduce GR00T N1, an open foundation model for humanoid robots. GR00T N1 is a Vision-Language-Action (VLA) model with a dual-system architecture. The vision-language module (System 2) interprets the environment through vision and language instructions. The subsequent diffusion transformer module (System 1) generates fluid motor actions in real time. Both modules are tightly coupled and jointly trained end-to-end. We train GR00T N1 with a heterogeneous mixture of real-robot trajectories, human videos, and synthetically generated datasets. We show that our generalist robot model GR00T N1 outperforms the state-of-the-art imitation learning baselines on standard simulation benchmarks across multiple robot embodiments. Furthermore, we deploy our model on the Fourier GR-1 humanoid robot for language-conditioned bimanual manipulation tasks, achieving strong performance with high data efficiency.",
+    "publication_date": "2025-03-27",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2503.14734",
+    "digest_date": 1742428800000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "731c50b0d6af4c1cb8d95f506541681ea487973b",
+    "cache_file_name": "NVIDIA2025ARXIV_GR00T_N1_An_Open.pdf",
+    "ngt_id": 3733288,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      }
+    ],
+    "total_read": 226,
+    "total_likes": 132,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 421,
+        "endIndex": 501,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 503,
+        "endIndex": 583,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2503.14734",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4115357.0.jpeg",
+        "caption": "Figure 1: Data Pyramid for Robot Foundation Model Training. GR00T N1\u2019s heterogeneous training corpora can be represented as a pyramid: data quantity decreases, and embodiment-specificity increases, moving from the bottom to the top.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4115357.1.jpeg",
+        "caption": "Figure 2: GR00T N1 Model Overview. Our model is a Vision-Language-Action (VLA) model that adopts a dual-system design. We convert the image observation and language instruction into a sequence of tokens to be processed by the Vision-Language Model (VLM) backbone. The VLM outputs, together with robot state and action encodings, are passed to the Diffusion Transformer module to generate motor actions.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4115357.2.jpeg",
+        "caption": "Figure 3: GR00T N1 Model Architecture. GR00T N1 is trained on a diverse set of embodiments ranging from single-arm robot arms to bimanual humanoid dexterous hands. To deal with different robot embodiment\u2019s state observation and action, we use DiT blocks with an embodiment-aware state and action encoder to embed the robot\u2019s state and action inputs. GR00T N1 model leverages latent embeddings of the Eagle-2 model to incorporate the robot\u2019s visual observation and language instructions. The vision language tokens will then be fed into the DiT blocks through cross-attention layers.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4115357.3.jpeg",
+        "caption": "Latent action 1 : Move the right arm to the left Latent action 2 : Move the right arm to the right Figure 4: Latent Actions. We retrieve similar latent embeddings across various embodiments. The left images illustrate the latent action that corresponds to moving the right arm (or hand) to the left, while the right images illustrate the latent action that corresponds to moving the right arm (or hand) to the right. Note that this general latent action is not only consistent in different robot embodiments, but also in human embodiment.",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": null,
+    "ranking_score": 0.8862929124,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2503.14734.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2503.14734",
+    "shortened_authors": "NVIDIA, :, Johan Bjorck, Fernando Casta\u00f1eda, Nikita Cherniadev, Xingye Da, Runyu Ding, Linxi \"Jim\" Fan, Yu Fang, ..., Yuke Zhu",
+    "display_venue": "ArXiv 2025 (March 27)",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 4615794,
+    "title": "$\u03a8_0$: An Open Foundation Model Towards Universal Humanoid Loco-Manipulation",
+    "authors": "Songlin Wei, Hongyi Jing, Boqian Li, Zhenyu Zhao, Jiageng Mao, Zhenhao Ni, Sicheng He, Jie Liu, Xiawei Liu, Kaidi Kang, Sheng Zang, Weiduo Yuan, Marco Pavone, Di Huang, Yue Wang",
+    "url": "https://arxiv.org/pdf/2603.12263",
+    "abstract": "We introduce $\u03a8_0$ (Psi-Zero), an open foundation model to address challenging humanoid loco-manipulation tasks. While existing approaches often attempt to address this fundamental problem by co-training on large and diverse human and humanoid data, we argue that this strategy is suboptimal due to the fundamental kinematic and motion disparities between humans and humanoid robots. Therefore, data efficiency and model performance remain unsatisfactory despite the considerable data volume. To address this challenge, \\ours\\;decouples the learning process to maximize the utility of heterogeneous data sources. Specifically, we propose a staged training paradigm with different learning objectives: First, we autoregressively pre-train a VLM backbone on large-scale egocentric human videos to acquire generalizable visual-action representations. Then, we post-train a flow-based action expert on high-quality humanoid robot data to learn precise robot joint control. Our research further identifies a critical yet often overlooked data recipe: in contrast to approaches that scale with noisy Internet clips or heterogeneous cross-embodiment robot datasets, we demonstrate that pre-training on high-quality egocentric human manipulation data followed by post-training on domain-specific real-world humanoid trajectories yields superior performance. Extensive real-world experiments demonstrate that \\ours\\ achieves the best performance using only about 800 hours of human video data and 30 hours of real-world robot data, outperforming baselines pre-trained on more than 10$\\times$ as much data by over 40\\% in overall success rate across multiple tasks. We will open-source the entire ecosystem to the community, including a data processing and training pipeline, a humanoid foundation model, and a real-time action inference engine.",
+    "publication_date": "2026-03-12",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.12263",
+    "digest_date": 1773360000000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "ccc7bb29e052b098005acac17ba5dd7956c085c9",
+    "cache_file_name": "Wei2026ARXIV_Ps_0_An_Open.pdf",
+    "ngt_id": 4210635,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      }
+    ],
+    "total_read": 78,
+    "total_likes": 17,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 493,
+        "endIndex": 611,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 613,
+        "endIndex": 846,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **\u03a8 0** as a novel foundation model for **humanoid loco-manipulation** with a staged training paradigm.\n- Proposes a **multi-stage training approach** combining **VLM pre-training** and **flow-based action expert post-training**.\n- Demonstrates superior performance using minimal data, achieving **40% higher success rates** than baselines with 10\u00d7 more data.\n- Develops a **real-time chunking mechanism** to enhance policy rollout stability during inference.\n- Opensource the entire ecosystem including a **data pipeline**, **foundation model**, and **action inference engine**.",
+      "evaluation_question": "- Achieves **overall success rate** of **9/10** on long-horizon tasks, outperforming GR00T-N1.6 by **40%**.\n- Shows **task-wise success rates** of **8-9/10** across diverse manipulation scenarios.\n- Outperforms baselines in **dexterous manipulation** and **whole-body control**.\n- Demonstrates robustness in **complex, real-world environments** with high task diversity.",
+      "method_explanation_question": "- Pre-trains a **VLM backbone** on large-scale human egocentric videos to learn visual-action representations.\n- Post-trains a **flow-based action expert** on real-world humanoid robot data to predict joint-space actions.\n- Implements **real-time chunking** to mitigate inference latency and ensure smooth policy execution.\n- Uses a **triple-system architecture** with a **vision-language backbone**, **MM-DiT action expert**, and **RL-based lower-body controller**.\n- Fine-tunes the action expert on domain-specific teleoperation data for rapid adaptation to new tasks.",
+      "problem_definition_question": "- Existing methods struggle with **embodiment gaps** between humans and robots, leading to poor generalization.\n- Current approaches often require **large amounts of teleoperation data**, which is costly and inefficient to collect.\n- Most models fail to handle **long-horizon, dexterous manipulation tasks** due to inadequate training data and poor policy design.\n- There is a critical need for **efficient scaling strategies** that prioritize quality over quantity in data selection.\n- Robust whole-body control remains a significant challenge due to the complexity of **humanoid motion and interaction**."
+    },
+    "affiliations": [
+      "NVIDIA",
+      "USC Physical Superintelligence (PSI) Lab",
+      "WorldEngine"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Robotics",
+      "keywords": "Humanoid Robots,  Vision-Language Models,  Flow-Based Action Experts,  Real-Time Chunking,  Teleoperation,  Long-Horizon Tasks",
+      "method_shortname": "\u03a8 0",
+      "color": "#fe7878"
+    },
+    "project_url": "https://psi-lab.ai/Psi0",
+    "github_url": null,
+    "paper_source_id": "2603.12263",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4615794.0.jpeg",
+        "caption": "Fig. 1: Humanoid Loco-Manipulation. \u03a8 0 performs diverse loco-manipulation tasks in a pantry, including taking a cup from the coffee machine, pushing a cart, wiping the table, grasping a bottle and placing it in the sink, and pushing the fridge door.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615794.1.jpeg",
+        "caption": "Fig. 2: Model Training and Deployment : First, we pre-train the VLM on the EgoDex [20] dataset to autoregressively predict the next-action tokens in the task space. Then, we post-train the flow-based action expert using robotic data to predict action chunks in the joint space. Finally, we implement a real-time chunking mechanism that leverages the lower-body controller to achieve smooth whole-body control.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615794.2.jpeg",
+        "caption": "Fig. 3: MM-DiT for VLA: Comparison of MM-DiT architecture with naive DiT. \u03c4 is the flow timestep and VL and A denotes hidden states of the vision-language and action respectively.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615794.3.jpeg",
+        "caption": "Fig. 4: Real-Time Chunking: Given that the previous action is being executed (yellow line), the next action can diverge significantly (cyan line) without RTC, which leads to control jitter. With RTC (red line), the divergence between two consecutive actions is strongly suppressed, resulting in smoother and more stable behavior.",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615794.4.jpeg",
+        "caption": "Fig. 5: Real-Robot Teleoperation Setup: We use MANUS gloves for dexterous hand retargeting; a VR headset and wrist trackers capture upper-body poses for inverse kinematics, while waist and foot trackers provide high-level locomotion commands.",
+        "figureNumber": 4,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615794.5.jpeg",
+        "caption": "Fig. 6: Real-World Task Setup: We evaluate \u03a8 0 on eight diverse long-horizon dexterous loco-manipulation tasks involving manipulation, whole-body motion, and locomotion. The task instruction is overlayed on the task images and each sub-task is denoted with marker for better visualization. Our policy rollout videos are included in the Supplementary Materials.",
+        "figureNumber": 5,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615794.6.jpeg",
+        "caption": "Fig. 7: Real-World Benchmark: Evaluation results of policies across our eight tasks, showing task-wise success rates (%) (left) and aggregated skill-level success rates (%) (right). The task descriptions are shown in Fig. 6. Detailed results for each task including all sub-task progress are included in the Supplementary Materials .",
+        "figureNumber": 6,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615794.7.jpeg",
+        "caption": "TABLE I: Ablation Studies . We study the effects of pre-training, post-training, and real-time chunking on a dual-arm long-horizon task which consists of three steps: right-arm pick and place, left-arm pick-and-place and dual-arm lift.",
+        "figureNumber": 7,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4615794.jpeg"
+    },
+    "ranking_score": 0.8772951296,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.12263.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.12263",
+    "shortened_authors": "Songlin Wei, Hongyi Jing, Boqian Li, Zhenyu Zhao, Jiageng Mao, Zhenhao Ni, Sicheng He, Jie Liu, Xiawei Liu, ..., Yue Wang",
+    "display_venue": "ArXiv 2026 (March 12)",
+    "is_cached_filename": "Wei2026ARXIV_Ps_0_An_Open.pdf"
+  },
+  {
+    "paper_id": 4611321,
+    "title": "ReconDrive: Fast Feed-Forward 4D Gaussian Splatting for Autonomous Driving Scene Reconstruction",
+    "authors": "Haibao Yu, Kuntao Xiao, Jiahang Wang, Ruiyang Hao, Yuxin Huang, Guoran Hu, Haifang Qin, Bowen Jing, Yuntian Bo, Ping Luo",
+    "url": "https://arxiv.org/pdf/2603.07552",
+    "abstract": "High-fidelity visual reconstruction and novel-view synthesis are essential for realistic closed-loop evaluation in autonomous driving. While 4D Gaussian Splatting (4DGS) offers a promising balance of accuracy and efficiency, existing per-scene optimization methods require costly iterative refinement, rendering them unscalable for extensive urban environments. Conversely, current feed-forward approaches often suffer from degraded photometric quality. To address these limitations, we propose ReconDrive, a feed-forward framework that leverages and extends the 3D foundation model VGGT for rapid, high-fidelity 4DGS generation. Our architecture introduces two core adaptations to tailor the foundation model to dynamic driving scenes: (1) Hybrid Gaussian Prediction Heads, which decouple the regression of spatial coordinates and appearance attributes to overcome the photometric deficiencies inherent in generalized foundation features; and (2) a Static-Dynamic 4D Composition strategy that explicitly captures temporal motion via velocity modeling to represent complex dynamic environments. Benchmarked on nuScenes, ReconDrive significantly outperforms existing feed-forward baselines in reconstruction, novel-view synthesis, and 3D perception. It achieves performance competitive with per-scene optimization while being orders of magnitude faster, providing a scalable and practical solution for realistic driving simulation.",
+    "publication_date": "2026-03-08",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.07552",
+    "digest_date": 1773100800000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "2672295415b052d074227fbac8878dddbd1562cc",
+    "cache_file_name": "Yu2026ARXIV_ReconDrive_Fast_Feed_Forward.pdf",
+    "ngt_id": 4206164,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166549,
+        "name": "GSplat",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
+      }
+    ],
+    "total_read": 76,
+    "total_likes": 16,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 454,
+        "endIndex": 628,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **ReconDrive**, a feed-forward framework that generates 4D Gaussian splatting without per-scene optimization for urban scene reconstruction.\n- Develops **hybrid Gaussian prediction heads** and a **static-dynamic 4D composition strategy** to enhance dynamic scene representation.\n- Proposes **segment-wise temporal fusion** to handle view sparsity in long driving sequences.\n- Achieves state-of-the-art performance on **nuScenes** across multiple evaluation protocols.\n- **High-quality novel-view synthesis** with significantly reduced computational resources.",
+      "evaluation_question": "- Outperforms all existing feed-forward baselines and surpasses per-scene optimization methods in eight out of nine evaluation metrics.\n- Significantly improves **PSNR, SSIM, and LPIPS** scores compared to feed-forward methods like DrivingForward.\n- Maintains high visual fidelity in both scene reconstruction and novel-view synthesis tasks.\n- Demonstrates superior geometric consistency and reduced image distortion in dynamic environments.",
+      "method_explanation_question": "- Processes multi-view inputs using a **VGGT-style backbone** to directly regress spatio-temporal Gaussian parameters.\n- Employs **hybrid Gaussian prediction heads** to separate spatial coordinate and appearance attribute regression.\n- Utilizes **static-dynamic 4D composition** to model motion via velocity estimation and temporal alignment.\n- Implements **segment-wise temporal fusion** to aggregate localized Gaussian clusters into a unified 4D representation.\n- Optimizes with a combination of **perceptual loss, L2 loss, projection loss, and normalization loss** for high-fidelity rendering.",
+      "problem_definition_question": "- Traditional 4D Gaussian Splatting methods require costly per-scene optimization, limiting scalability for large urban environments.\n- **Feed-forward approaches** often suffer from degraded photometric quality and inability to capture dynamic motion.\n- Existing methods struggle with **temporal consistency** and **geometric-photometric alignment** in real-world driving scenarios.\n- There is a need for **efficient, scalable frameworks** that can generate high-fidelity 4D representations without iterative refinement.\n- **Dynamic scene representation** remains a challenge due to the complexity of traffic participants and environmental variations."
+    },
+    "affiliations": [
+      "King\u2019s College London",
+      "The University of Hong Kong",
+      "The University of Sydney",
+      "Mohamed bin Zayed University of Artificial Intelligence",
+      "Tuojing Intelligence"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Autonomous Driving",
+      "keywords": "Scene Reconstruction,  4D Gaussian Splatting,  Feed-Forward Models,  nuScenes Benchmark,  ReconDrive",
+      "method_shortname": "ReconDrive",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": "https://github.com/TuojingAI/ReconDrive",
+    "paper_source_id": "2603.07552",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4611321.0.jpeg",
+        "caption": "Figure 1 ReconDrive Inference Framework. ReconDrive is a powerful feed-forward 4D Gaussian splatting generation framework tailored for urban scene reconstruction and novel-view synthesis. In this framework, we select two context frames from each segment of an urban scene as input, and adopt a static-dynamic composition strategy to represent 4D Gaussians. To further enhance geometric precision, we design a dedicated Gaussian prediction head, consisting of a Gaussian Parameter Prediction Head (GPPH) and a Gaussian Center Prediction Head (GCPH), which enables the generation of Gaussians with more accurate geometric attributes.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4611321.1.jpeg",
+        "caption": "Figure 2 Mapping Among Images, Masks, Dense Features, and Gaussian Indices. (a) Input image. (b) Dynamic object mask. (c) Dense features. (d) Gaussian kernels. Each pixel in the dense feature map generates a corresponding Gaussian kernel, enabling consistent pixel-wise mapping across all these components.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4611321.2.jpeg",
+        "caption": "Figure 3 Visual Comparisons of Scene Reconstruction and Novel-View Synthesis. Compared with per-scene optimization methods (Street Gaussians, PVG, DeformableGS, OminiRe), our ReconDrive maintains high-quality visual rendering in both scene reconstruction (Original View) and novel-view synthesis (1\u20133 meters of lateral movement leftward and rightward). Compared with the feed-forward method DrivingForward, ReconDrive preserves accurate geometric consistency\u2014evident in the tree and the surroundings\u2014and the performance improvement becomes more pronounced as the moving distance increases. Additionally, it exhibits less image distortion and blurriness, particularly in image boundary regions. Extended visual comparisons are provided in the Appendix.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4611321.3.jpeg",
+        "caption": "Table 1 Scene Reconstruction and Novel-View Synthesis Evaluation Results on the nuScenes Dataset.",
+        "figureNumber": 3,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4611321.jpeg"
+    },
+    "ranking_score": 0.874027966,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.07552.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.07552",
+    "shortened_authors": "Haibao Yu, Kuntao Xiao, Jiahang Wang, Ruiyang Hao, Yuxin Huang, Guoran Hu, Haifang Qin, Bowen Jing, Yuntian Bo, Ping Luo",
+    "display_venue": "ArXiv 2026 (March 8)",
+    "is_cached_filename": "Yu2026ARXIV_ReconDrive_Fast_Feed_Forward.pdf"
+  },
+  {
+    "paper_id": 4605892,
+    "title": "Helios: Real Real-Time Long Video Generation Model",
+    "authors": "Shenghai Yuan, Yuanyang Yin, Zongjian Li, Xinwei Huang, Xiao Yang, Li Yuan",
+    "url": "https://arxiv.org/pdf/2603.04379",
+    "abstract": "We introduce Helios, the first 14B video generation model that runs at 19.5 FPS on a single NVIDIA H100 GPU and supports minute-scale generation while matching the quality of a strong baseline. We make breakthroughs along three key dimensions: (1) robustness to long-video drifting without commonly used anti-drifting heuristics such as self-forcing, error-banks, or keyframe sampling; (2) real-time generation without standard acceleration techniques such as KV-cache, sparse/linear attention, or quantization; and (3) training without parallelism or sharding frameworks, enabling image-diffusion-scale batch sizes while fitting up to four 14B models within 80 GB of GPU memory. Specifically, Helios is a 14B autoregressive diffusion model with a unified input representation that natively supports T2V, I2V, and V2V tasks. To mitigate drifting in long-video generation, we characterize typical failure modes and propose simple yet effective training strategies that explicitly simulate drifting during training, while eliminating repetitive motion at its source. For efficiency, we heavily compress the historical and noisy context and reduce the number of sampling steps, yielding computational costs comparable to -- or lower than -- those of 1.3B video generative models. Moreover, we introduce infrastructure-level optimizations that accelerate both inference and training while reducing memory consumption. Extensive experiments demonstrate that Helios consistently outperforms prior methods on both short- and long-video generation. We plan to release the code, base model, and distilled model to support further development by the community.",
+    "publication_date": "2026-03-04",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.04379",
+    "digest_date": 1772668800000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "4e7b7508ac30aed492f667cfc6e34b05872e8891",
+    "cache_file_name": "Yuan2026ARXIV_Helios_Real_Real_Time.pdf",
+    "ngt_id": 4199810,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
+      }
+    ],
+    "total_read": 115,
+    "total_likes": 40,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 194,
+        "endIndex": 678,
+        "highlightClass": "primary-highlight"
+      },
+      {
+        "startIndex": 680,
+        "endIndex": 823,
+        "highlightClass": "secondary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **Helios**, a 14B video generation model that runs at **19.5 FPS** on a single NVIDIA H100 GPU.\n- Supports minute-scale generation while matching the quality of a strong baseline.\n- Achieves real-time generation without standard acceleration techniques such as KV-cache, sparse/linear attention, or quantization.\n- Eliminates reliance on commonly used anti-drifting heuristics such as self-forcing, error-banks, or keyframe sampling.\n- Enables training without parallelism or sharding frameworks, fitting up to four 14B models within 80 GB of GPU memory.",
+      "evaluation_question": "- Helios consistently outperforms prior methods on both short- and long-video generation.\n- Achieves performance comparable to that of base models while using fewer resources.\n- Delivers a **128\u00d7 speedup** over existing methods while maintaining comparable quality.",
+      "method_explanation_question": "- Processes video data using a **transformer backbone** with unified input representation for T2V, I2V, and V2V tasks.\n- Implements **Unified History Injection** to convert bidirectional models into autoregressive generators.\n- Utilizes **Multi-Term Memory Patchification** to reduce redundancy in historical and noisy contexts.\n- Applies **Pyramid Unified Predictor Corrector** to optimize sampling steps and reduce computational costs.\n- Employs **Adversarial Hierarchical Distillation** to minimize sampling steps and enhance inference efficiency.",
+      "problem_definition_question": "- Existing models struggle with **long-video drifting** and require costly anti-drifting strategies.\n- Current methods often rely on **parallelism or sharding frameworks** to achieve real-time generation.\n- They lack robustness to drifting and fail to maintain quality over extended durations.\n- There is a need for **efficient, scalable architectures** that can handle real-time infinite video generation.\n- The field lacks standardized benchmarks for evaluating real-time long-video generation systems."
+    },
+    "affiliations": [
+      "Peking University",
+      "ByteDance China",
+      "Canva",
+      "Chengdu Anu Intelligence"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Video Generation",
+      "keywords": "Video Generation,  Transformer,  Autoregressive Models,  Long Video Generation,  Helios",
+      "method_shortname": "Helios",
+      "color": "#fe7878"
+    },
+    "project_url": "https://pku-yuangroup.github.io/Helios-Page",
+    "github_url": null,
+    "paper_source_id": "2603.04379",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4605892.0.jpeg",
+        "caption": "Figure 1End-to-end throughput (FPS) of various video generation models on a single H100. The results are obtained at the same resolution with all official acceleration techniques, including FlashAttention, torch compile, and KV-cache. Helios is substantially faster than models at the same scale and matches the speed of smaller distilled ones.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4605892.1.jpeg",
+        "caption": "Figure 2Benchmark performance of Helios and its counterparts. For both short-and long-video generation, Helios consistently outperforms existing distilled models while achieving performance comparable to that of base models.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4605892.2.jpeg",
+        "caption": "Figure 3 Showcases of infinite videos generated by Helios. Despite overhead comparable to that of the 1.3B models [59, 60, 90, 100, 126], Helios still excels in visual quality, text alignment, and motion dynamics.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4605892.3.jpeg",
+        "caption": "Figure 4 Architecture of Helios. Helios is an autoregressive video diffusion transformer built with Guidance Attention blocks. It reduces overhead by compressing historical and noisy context through Multi-Term Memory Patchification and Pyramid Unified Predictor Corrector, while unifying T2V, I2V, and V2V tasks via Representation Control.",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4605892.4.jpeg",
+        "caption": "Figure 5 Visualization of three representative drifting patterns in long-video generation.",
+        "figureNumber": 4,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4605892.5.jpeg",
+        "caption": "Figure 6 Temporal trends of saturation, aesthetic, and RGB statistics for normal videos versus drifting videos. Normal videos are stable, while drifting videos initially follow a similar trajectory but shift abruptly and remain unstable.",
+        "figureNumber": 5,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4605892.6.jpeg",
+        "caption": "Figure 7 Overhead reduction with Multi-Term Memory Patchification. A hierarchical history window uses progressively larger kernels, keeping the token budget constant while extending the context length.",
+        "figureNumber": 6,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4605892.jpeg"
+    },
+    "ranking_score": 0.8739705113,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.04379.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.04379",
+    "shortened_authors": "Shenghai Yuan, Yuanyang Yin, Zongjian Li, Xinwei Huang, Xiao Yang, Li Yuan",
+    "display_venue": "ArXiv 2026 (March 4)",
+    "is_cached_filename": "Yuan2026ARXIV_Helios_Real_Real_Time.pdf"
+  },
+  {
+    "paper_id": 4367008,
+    "title": "3D and 4D World Modeling: A Survey",
+    "authors": "Lingdong Kong, Wesley Yang, Jianbiao Mei, Youquan Liu, Ao Liang, Dekai Zhu, Dongyue Lu, Wei Yin, Xiaotao Hu, Mingkai Jia, Junyuan Deng, Kaiwen Zhang, Yang Wu, Tianyi Yan, Shenyuan Gao, Song Wang, Linfeng Li, Liang Pan, Yong Liu, Jianke Zhu, Wei Tsang Ooi, Steven C. H. Hoi, Ziwei Liu",
+    "url": "https://arxiv.org/pdf/2509.07996",
+    "abstract": "World modeling has become a cornerstone in AI research, enabling agents to understand, represent, and predict the dynamic environments they inhabit. While prior work largely emphasizes generative methods for 2D image and video data, they overlook the rapidly growing body of work that leverages native 3D and 4D representations such as RGB-D imagery, occupancy grids, and LiDAR point clouds for large-scale scene modeling. At the same time, the absence of a standardized definition and taxonomy for ``world models'' has led to fragmented and sometimes inconsistent claims in the literature. This survey addresses these gaps by presenting the first comprehensive review explicitly dedicated to 3D and 4D world modeling and generation. We establish precise definitions, introduce a structured taxonomy spanning video-based (VideoGen), occupancy-based (OccGen), and LiDAR-based (LiDARGen) approaches, and systematically summarize datasets and evaluation metrics tailored to 3D/4D settings. We further discuss practical applications, identify open challenges, and highlight promising research directions, aiming to provide a coherent and foundational reference for advancing the field. A systematic summary of existing literature is available at <a href='https://github.com/worldbench/awesome-3d-4d-world-models' target='_blank'>https://github.com/worldbench/awesome-3d-4d-world-models</a>",
+    "publication_date": "2025-12-03",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2509.07996",
+    "digest_date": 1757548800000,
+    "project_link": "https://github.com/worldbench/awesome-3d-4d-world-models",
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "d0955b6d3f8ca8d0e95354ed5fc40b165dc18a02",
+    "cache_file_name": "Kong2025ARXIV_3D_and_4D_World.pdf",
+    "ngt_id": 3971145,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": null,
+    "total_read": 276,
+    "total_likes": 61,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 591,
+        "endIndex": 732,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- **Establish precise definitions** for 'world models' and '3D/4D world modeling', providing consistent terminology and conceptual clarity.\n- **Propose a hierarchical taxonomy** of methodologies, categorizing current approaches based on their representation modalities \u2013 namely, VideoGen, OccGen, and LiDARGen.\n- **Provide extensive coverage** of datasets and evaluation protocols specifically tailored for 3D and 4D scenarios, enabling thorough benchmarking of existing and future world modeling and generation approaches.",
+      "evaluation_question": "- The survey systematically summarizes and categorizes widely used datasets and evaluation metrics critical for world modeling tasks, as well as benchmarking recent methods in this related area.\n- It highlights the importance of native 3D/4D representations such as RGB-D imagery, occupancy grids, and LiDAR point clouds for large-scale scene modeling.\n- It identifies open challenges and highlights promising research directions, aiming to provide a coherent and foundational reference for advancing the field.",
+      "insights_takeaways_question": "- The paper presents the first comprehensive review explicitly dedicated to 3D and 4D world modeling and generation.\n- It fills a critical knowledge gap by focusing on methodologies that utilize native 3D and 4D representations, serving as a foundational reference for researchers.\n- It highlights the importance of geometric, action-based, and semantic conditions in shaping the realism, controllability, and diversity of generated or forecasted scenes in 3D and 4D.",
+      "method_explanation_question": "- The paper establishes precise definitions for 'world models' and '3D/4D world modeling', providing consistent terminology and conceptual clarity.\n- It proposes a hierarchical taxonomy of methodologies, categorizing current approaches based on their representation modalities \u2013 namely, VideoGen, OccGen, and LiDARGen.\n- It provides extensive coverage of datasets and evaluation protocols specifically tailored for 3D and 4D scenarios, enabling thorough benchmarking of existing and future world modeling and generation approaches.",
+      "problem_definition_question": "- **World modeling** has become a cornerstone in AI research, enabling agents to understand, represent, and predict the dynamic environments they inhabit.\n- Prior work largely emphasizes generative methods for 2D image and video data, but overlooks the rapidly growing body of work that leverages native 3D and 4D representations such as RGB-D imagery, occupancy grids, and LiDAR point clouds for large-scale scene modeling.\n- The absence of a standardized definition and taxonomy for 'world models' has led to fragmented and sometimes inconsistent claims in the literature."
+    },
+    "affiliations": [
+      "Tsinghua University",
+      "National University of Singapore",
+      "Nanjing University of Science and Technology",
+      "University of Macau",
+      "Technical University of Munich",
+      "Zhejiang University",
+      "Nanyang Technological University, Singapore",
+      "HKUST",
+      "Shanghai AI Laboratory",
+      "Horizon Robotics",
+      "HyperGAI"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "World Modeling",
+      "keywords": "Video Generation,  3D Generation,  4D Generation,  3D Scene Understanding,  Spatial Intelligence",
+      "method_shortname": "null",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": "https://github.com/worldbench/survey",
+    "paper_source_id": "2509.07996",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4367008.0.jpeg",
+        "caption": "Fig. 1: Outline of the survey. This work focuses on native 3D and 4D representations : video streams, occupancy grids, and LiDAR point clouds, guided by geometric ( C geo ), action-based ( C act ), and semantic ( C sem ) conditions (Sec. 2). Methods are framed under two paradigms, generative (synthesis from observations and conditions) and predictive (forecasting from history and actions)",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4367008.1.jpeg",
+        "caption": "Fig. 2: Summary of representative video-based generation (VideoGen) , occupancy-based generation (OccGen) , and LiDAR-based generation (LiDARGen) models from existing literature. For the complete list of related methods and discussions on their specifications, configurations, and technical details, kindly refer to Sec. 3.1, Sec. 3.2, and Sec. 3.3, respectively.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4367008.2.jpeg",
+        "caption": "Fig. 3: Summary of existing datasets and benchmarks used for training and evaluating VideoGen , OccGen , and LiDARGen models. For detailed dataset configurations and statistics, kindly refer to Table 5. Images adopted from the original papers.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4367008.3.jpeg",
+        "caption": "TABLE 1: Summary of the rich collection of conditions used by existing VideoGen , OccGen , and LiDARGen models. The conditions are categorized into three main groups: geometric conditions, action-based conditions, and semantic conditions.",
+        "figureNumber": 3,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4367008.4.jpeg",
+        "caption": "Fig. 4: The categorization of VideoGen models based on functionalities, including data engines (Sec. 3.1.1), action interpreters (Sec. 3.1.2), and neural simulators (Sec. 3.1.3).",
+        "figureNumber": 4,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4367008.5.jpeg",
+        "caption": "TABLE 2: Summary of video-based generation ( VideoGen ) models.",
+        "figureNumber": 5,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": null,
+    "ranking_score": 0.8704944937,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2509.07996.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2509.07996",
+    "shortened_authors": "Lingdong Kong, Wesley Yang, Jianbiao Mei, Youquan Liu, Ao Liang, Dekai Zhu, Dongyue Lu, Wei Yin, Xiaotao Hu, ..., Ziwei Liu",
+    "display_venue": "ArXiv 2025 (December 3)",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 4615344,
+    "title": "AR-VLA: True Autoregressive Action Expert for Vision-Language-Action Models",
+    "authors": "Yutong Hu, Jan-Nico Zaech, Nikolay Nikolov, Yuanqi Yao, Sombit Dey, Giuliano Albanese, Renaud Detry, Luc Van Gool, Danda Paudel",
+    "url": "https://arxiv.org/pdf/2603.10126",
+    "abstract": "We propose a standalone autoregressive (AR) Action Expert that generates actions as a continuous causal sequence while conditioning on refreshable vision-language prefixes. In contrast to existing Vision-Language-Action (VLA) models and diffusion policies that reset temporal context with each new observation and predict actions reactively, our Action Expert maintains its own history through a long-lived memory and is inherently context-aware. This structure addresses the frequency mismatch between fast control and slow reasoning, enabling efficient independent pretraining of kinematic syntax and modular integration with heavy perception backbones, naturally ensuring spatio-temporally consistent action generation across frames. To synchronize these asynchronous hybrid V-L-A modalities, we utilize a re-anchoring mechanism that mathematically accounts for perception staleness during both training and inference. Experiments on simulated and real-robot manipulation tasks demonstrate that the proposed method can effectively replace traditional chunk-based action heads for both specialist and generalist policies. AR-VLA exhibits superior history awareness and substantially smoother action trajectories while maintaining or exceeding the task success rates of state-of-the-art reactive VLAs. Overall, our work introduces a scalable, context-aware action generation schema that provides a robust structural foundation for training effective robotic policies.",
+    "publication_date": "2026-03-10",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.10126",
+    "digest_date": 1773273600000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "a9de4f59cd543a09d727a7e6b4c09b2d90b0e19d",
+    "cache_file_name": "Hu2026ARXIV_AR_VLA_True_Autoregressive.pdf",
+    "ngt_id": 4210023,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      }
+    ],
+    "total_read": 29,
+    "total_likes": 3,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 0,
+        "endIndex": 171,
+        "highlightClass": "primary-highlight"
+      },
+      {
+        "startIndex": 173,
+        "endIndex": 445,
+        "highlightClass": "secondary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **AR-VLA** as a standalone autoregressive action expert that maintains long-lived memory for spatio-temporal consistency.\n- Proposes **Hybrid Key-Value (HKV) Cache** and **Dynamic Temporal Re-anchoring (DTR)** to synchronize asynchronous streams.\n- Enables **independent pretraining** of kinematic syntax and modular integration with perception backbones.\n- Achieves superior **history awareness** and smoother action trajectories compared to reactive baselines.\n- **Context-aware action generation** ensures robustness in long-horizon tasks where traditional methods fail.",
+      "evaluation_question": "- On *BridgeV2* to *SIMPLER* benchmarks, achieves **61.5%** success rate vs. CogACT (**52.1%**) and Pi-0-Fast (**49.0%**).\n- Reaches **89%** average success rate on real-world WidowX tasks, outperforming OpenVLA and Pi-family models.\n- Demonstrates **+9.4%** improvement over the second-best policy in generalist settings.\n- Maintains **high performance** across diverse task types, including 2D pushing and bimanual insertion.\n- **Long-horizon capability** enables completion of tasks requiring memory of past states, such as PushT2 and Stack3.",
+      "method_explanation_question": "- Processes continuous proprioceptive data and high-dimensional visual-language embeddings via a unified Transformer decoder.\n- Utilizes **Hybrid Key-Value (HKV) Cache** to manage two distinct memory streams: rolling action history and refreshable visual-language context.\n- Applies **Dynamic Temporal Re-anchoring (DTR)** to align asynchronous streams by encoding relative temporal distances.\n- Generates future actions through autoregressive prediction conditioned on historical state and latest visual-language inputs.\n- Maintains **spatio-temporal consistency** through persistent internal state while allowing asynchronous updates from perception modules.",
+      "problem_definition_question": "- Current VLA models suffer from **reactive control** and **temporal amnesia**, discarding historical context during action execution.\n- **Short-term memory limitations** hinder performance in long-horizon tasks requiring recall of past states.\n- Traditional chunk-based approaches lack **continuous contextual awareness**, leading to jittery and inconsistent motion.\n- **Inefficient synchronization** between perception and control modules causes delays and instability.\n- Robotic policies need **autoregressive action generation** to maintain smooth, context-aware control over extended periods."
+    },
+    "affiliations": [
+      "INSAIT, Sofia University \"St. Kliment Ohridski\", Bulgaria",
+      "KU Leuven, Belgium"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Robotics",
+      "keywords": "Autoregressive Action Expert,  Hybrid Key-Value Cache,  Dynamic Temporal Re-anchoring,  Long-Horizon Tasks,  Vision-Language-Action Models",
+      "method_shortname": "AR-VLA",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2603.10126",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4615344.0.jpeg",
+        "caption": "Fig. 1: (a) The prevalent approach in Vision-Language-Action models predicts action chunks based only on the current snapshot of information. It discards the temporal context and drops the state update within an action chunk execution, leading to reactive, memoryless prediction. (b) In contrast, we propose AR-VLA that leverages an autoregressive action expert that maintains its own history through a long-lived memory with inherent context-awareness. Visual-language conditions are updated asynchronously without interrupting the action stream.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.1.jpeg",
+        "caption": "Fig. 2: Performance Overview. (a) Quantitative Results: In both generalist (left) and specialist (right) benchmarks, AR-VLA achieves competitive or superior performance compared to state-of-the-art policies, including OpenVLA, Flow-Matching (FM), ACT, and Diffusion Policy (DP), details in Sec.IV-A. (b) Trajectory Quality: Qualitative visualization of joint trajectories over time reveals that AR-VLA produces significantly smoother and more kinematically consistent motion compared to reactive baselines that reset context at each step (analysis in Sec.IV-B). (c) Long-Horizon Capability: AR-VLA successfully completes long-horizon tasks where baselines like DP and FM fail due to a lack of temporal context awareness. Detailed task defination and explanation in Sec. IV-C.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.2.jpeg",
+        "caption": "Fig. 3: The AR-VLA Framework . The system bridges an VLM backbone with a autoregressive Action Expert asynchronously. Atem-poral features from the VLM are explicitly injected with temporal context via Dynamic Temporal Re-anchoring (DTR). Within the Hybrid KV Cache, re-anchored VL tokens (green) serve as a semantic prefix to the rolling kinematic history (orange). The Action Expert generates future action sequences by querying this shared cache using incrementally advancing step embeddings.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.3.jpeg",
+        "caption": "outper-TABLE I: BridgeV2 Pretraining to SIMPLER Simulation Success Rate (%)",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.4.jpeg",
+        "caption": "Fig. 5: Simulation benchmarks setups. We do simulation evaluation spanning generalist and specialist policies, with diverse embodiment, action space, and task.",
+        "figureNumber": 4,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.5.jpeg",
+        "caption": "TABLE II: Specialist",
+        "figureNumber": 5,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.6.jpeg",
+        "caption": "Fig. 6: BridgeV2 pretraining to real-world WidowX Zero-Shot Performance Comparison. As a property of VLA models, the released weights work out-of-the-box without an accurate requirement for the camera pose. We set the camera pose so that all methods reach a 100% success rate on an easy in-distribution task, then test them zero-shot on challenging tasks. Details of experiment protocol in Appendix.",
+        "figureNumber": 6,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.7.jpeg",
+        "caption": "Fig. 7: Smoothness Visualization. Joint states captured from success execution for the same task.",
+        "figureNumber": 7,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.8.jpeg",
+        "caption": "TABLE III: Inference Smoothness Metrics. Jerk in 1e2 rad/s 3 . VLM and Action Expert latencies in ms / chunk size.",
+        "figureNumber": 8,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.9.jpeg",
+        "caption": "Fig. 8: History-Awareness Evaluation. PushT2 requires visiting both goals, but which goal has been visited is unobservable midway. Stack3 requires stacking cups over a battery that becomes occluded. Both task require memory of unobservable past states. H donates the context window length of AR-VLA. Details about task defination, data collection, training and execution in Appendix.",
+        "figureNumber": 9,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4615344.10.jpeg",
+        "caption": "TABLE IV: Ablation Study of AR-VLA Design Choice. Validate Error calculate from the model output and ground truth when taking dataset trajectory as inout. Success rates are percentages in total 96 SIMPLER trials after training. Bold indicates the full AR-VLA configuration.",
+        "figureNumber": 10,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4615344.jpeg"
+    },
+    "ranking_score": 0.8690825481,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.10126.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.10126",
+    "shortened_authors": "Yutong Hu, Jan-Nico Zaech, Nikolay Nikolov, Yuanqi Yao, Sombit Dey, Giuliano Albanese, Renaud Detry, Luc Van Gool, Danda Paudel",
+    "display_venue": "ArXiv 2026 (March 10)",
+    "is_cached_filename": "Hu2026ARXIV_AR_VLA_True_Autoregressive.pdf"
+  },
+  {
+    "paper_id": 4178089,
+    "title": "LightEMMA: Lightweight End-to-End Multimodal Model for Autonomous Driving",
+    "authors": "Zhijie Qiao, Haowei Li, Zhong Cao, Henry X. Liu",
+    "url": "https://arxiv.org/pdf/2505.00284",
+    "abstract": "Vision-Language Models (VLMs) have demonstrated significant potential for end-to-end autonomous driving. However, the field still lacks a practical platform that enables dynamic model updates, rapid validation, fair comparison, and intuitive performance assessment. To that end, we introduce LightEMMA, a Lightweight End-to-End Multimodal Model for Autonomous driving. LightEMMA provides a unified, VLM-based autonomous driving framework without ad hoc customizations, enabling easy integration with evolving state-of-the-art commercial and open-source models. We construct twelve autonomous driving agents using various VLMs and evaluate their performance on the challenging nuScenes prediction task, comprehensively assessing computational metrics and providing critical insights. Illustrative examples show that, although VLMs exhibit strong scenario interpretation capabilities, their practical performance in autonomous driving tasks remains a concern. Additionally, increased model complexity and extended reasoning do not necessarily lead to better performance, emphasizing the need for further improvements and task-specific designs. The code is available at <a href='https://github.com/michigan-traffic-lab/LightEMMA' target='_blank'>https://github.com/michigan-traffic-lab/LightEMMA</a>.",
+    "publication_date": "2025-09-13",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2505.00284",
+    "digest_date": 1746144000000,
+    "project_link": "https://github.com/michigan-traffic-lab/LightEMMA",
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "89a5b96198ba6e5574d12f6357edfaac5366f7aa",
+    "cache_file_name": "Qiao2025ARXIV_LightEMMA_Lightweight_End_to.pdf",
+    "ngt_id": 3820124,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166543,
+        "name": "VLM",
+        "readonly": false,
+        "color": "#42d692"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
+      }
+    ],
+    "total_read": 48,
+    "total_likes": 13,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 224,
+        "endIndex": 389,
+        "highlightClass": "primary-highlight"
+      },
+      {
+        "startIndex": 391,
+        "endIndex": 594,
+        "highlightClass": "secondary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2505.00284",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4178089.0.jpeg",
+        "caption": "Fig. 1. LightEMMA Architecture.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4178089.1.jpeg",
+        "caption": "TABLE I C OMPARISON OF M ODEL E FFICIENCY AND C OMPUTATIONAL C OST",
+        "figureNumber": 1,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4178089.2.jpeg",
+        "caption": "TABLE II P ERFORMANCE C OMPARISON ON NU S CENES P REDICTION T ASK",
+        "figureNumber": 2,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4178089.3.jpeg",
+        "caption": "Fig. 2. LightEMMA nuScenes prediction task examples.",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": null,
+    "ranking_score": 0.8646280717,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2505.00284.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2505.00284",
+    "shortened_authors": "Zhijie Qiao, Haowei Li, Zhong Cao, Henry X. Liu",
+    "display_venue": "ArXiv 2025 (September 13)",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 4608874,
+    "title": "Devil is in Narrow Policy: Unleashing Exploration in Driving VLA Models",
+    "authors": "Canyu Chen, Yuguang Yang, Zhewen Tan, Yizhi Wang, Ruiyi Zhan, Haiyan Liu, Xuanyao Mao, Jason Bao, Xinyue Tang, Linlin Yang, Bingchuan Sun, Yan Wang, Baochang Zhang",
+    "url": "https://arxiv.org/pdf/2603.06049",
+    "abstract": "We identify a fundamental Narrow Policy limitation undermining the performance of autonomous VLA models, where driving Imitation Learning (IL) tends to collapse exploration and limit the potential of subsequent Reinforcement Learning (RL) stages, which often saturate prematurely due to insufficient feedback diversity. Thereby, we propose Curious-VLA, a framework that alleviates the exploit-explore dilemma through a two-stage design. During IL, we introduce a Feasible Trajectory Expansion (FTE) strategy to generate multiple physically valid trajectories and a step-wise normalized trajectory representation to adapt this diverse data. In the RL stage, we present Adaptive Diversity-Aware Sampling (ADAS) that prioritizes high-diversity samples and introduce Spanning Driving Reward (SDR) with a focal style weighting to amplify reward's value span for improving sensitivity to driving quality. On the Navsim benchmark, Curious-VLA achieves SoTA results (PDMS 90.3, EPDMS 85.4) and a Best-of-N PDMS of 94.8, demonstrating its effectiveness in unlocking the exploratory potential of VLA models. Code: <a href='https://github.com/Mashiroln/curious_vla.git' target='_blank'>https://github.com/Mashiroln/curious_vla.git</a>.",
+    "publication_date": "2026-03-06",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.06049",
+    "digest_date": 1773014400000,
+    "project_link": "https://github.com/Mashiroln/curious_vla.git",
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "a9a109b80610c2d6d015fb14bc168a9bbde917f5",
+    "cache_file_name": "Chen2026ARXIV_Devil_is_in_Narrow.pdf",
+    "ngt_id": 4203639,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
+      }
+    ],
+    "total_read": 16,
+    "total_likes": 3,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 320,
+        "endIndex": 435,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Identifies the **Narrow Policy** problem as a fundamental bottleneck in the IL-RL pipeline that hinders autonomous driving VLAs.\n- Introduces **Curious-VLA**, a novel framework that systematically unleashes exploration for VLM itself without any additional module.\n- Achieves **state-of-the-art (SoTA)** performance on the Navsim benchmark with a PDMS score of 90.3.\n- Validates the effectiveness of its methods by achieving a Best-of-N PDMS score of 94.8, demonstrating successful exploration potential.\n- **Behavioral Diagnostics** are introduced to quantitatively verify the Narrow Policy phenomenon.",
+      "evaluation_question": "- On *Navsim v1*, achieves **90.3 PDMS**, surpassing traditional E2E methods like WoTE (**88.3**) and VLA-Token methods like AutoVLA (**89.1**).\n- On *Navsim v2*, obtains an **EPDMS score of 85.3**, improving upon DiffusionDrive (**84.5**) and establishing a new SOTA.\n- On *nuScenes*, demonstrates excellent results in *L2 error* and *Collision rate*, outperforming existing VLAs and E2E models.\n- Ablation studies show **+1.7 PDMS improvement** from CoT supervision and **+1.2 PDMS gain** from the proposed method compared to AutoVLA.",
+      "method_explanation_question": "- Processes driving inputs using a **VLA-Token** paradigm, directly predicting trajectory tokens via an auto-regressive or diffusion language model.\n- Generates diverse trajectories through **Feasible Trajectory Expansion (FTE)**, including exploratory data expansion and step-wise normalization.\n- Implements **Adaptive Diversity-Aware Sampling (ADAS)** to prioritize high-diversity samples and prevent premature convergence.\n- Reformulates the original driving reward into a **Spanning Driving Reward (SDR)** with a focal-style function to enhance sensitivity to driving quality.\n- Trains the model end-to-end using cross-entropy loss and optimizes through GRPO-based reinforcement learning.",
+      "problem_definition_question": "- Existing VLA models suffer from **Narrow Policy**, where IL stages over-exploit ground-truth trajectories, restricting subsequent RL updates.\n- **Exploration collapse** occurs due to insufficient feedback diversity, leading to limited policy updates and poor generalization.\n- Current approaches lack mechanisms to incorporate spatial context, reducing accuracy in challenging environments.\n- The **exploit\u2013explore dilemma** limits the ability to generalize across diverse, non-ideal conditions.\n- **Low trajectory diversity** and **limited quality** hinder real-world deployment of autonomous driving systems."
+    },
+    "affiliations": [
+      "State Key Laboratory of Media Convergence and Communication, Communication University of China",
+      "Institute for AI Industry Research, Tsinghua University",
+      "Lenovo Group Limited",
+      "National Superior College for Engineers, Beihang University",
+      "School of Electronic Information Engineering, Beihang University",
+      "Computer Science and Engineering, Beihang University",
+      "Cyber Science and Technology, Beihang University",
+      "Artificial Intelligence, Beihang University"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Autonomous Driving",
+      "keywords": "Autonomous Driving,  Reinforcement Learning,  Imitation Learning,  Narrow Policy,  Curious-VLA,  Navsim Benchmark,  PDMS,  EPDMS",
+      "method_shortname": "Curious-VLA",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": "https://github.com/Mashiroln/curious_vla.git",
+    "paper_source_id": "2603.06049",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4608874.0.jpeg",
+        "caption": "Figure 1. Visualization of Narrow Policy. (a) shows quantitative comparison of exploration. It is obvious that baselines achieve low diversity (mean-pFDE: 0.20m for Qwen2.5-VL, 0.33m for ReCogDrive) and low quality (min-FDE: 1.05m for Qwen2.5-VL). In contrast, our Curious-VLA achieves best diversity, quality and performance. (b) compares the trajectories of Qwen2.5-VL and our Curious-VLA. Qwen2.5-VL trajectories perform exploration collapse with single mode or unsafe behaviors, while ours not.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4608874.1.jpeg",
+        "caption": "Figure 2. Overall Pipeline of Curious-VLA. As identified in Sec. 3.2, existing VLAs with the IL-RL pipeline suffer from \u201cNarrow Policy\u201d and tend to generate overlap and unsafe behaviors. In this case, we introduce Curious-VLA, which takes into account both the think process and planing waypoint, to improve the diversity, quality and performance (middle panel). Specifically, Curious-VLA alleviates the Narrow Policy in both the IL stage (left panel) and the RL stage (right panel). For IL, to improve the separability of trajectory patterns, we generate diverse trajectories, structure the driving reasoning process into a four-stage CoT, and normalize each prediction step (See Sec. 4.1). For RL, to address the advantage collapse problem and sustain exploration, we introduce adaptive diverse aware sampling and spanning driving reward (See Sec. 4.2).",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4608874.2.jpeg",
+        "caption": "Figure 3. Visualization of horizon physical scale mismatch by waypoints distribution.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4608874.3.jpeg",
+        "caption": "Figure 4. Qualitative comparison with BEV and Camera. We can see that our Curious-VLA achieves more feasible trajectories.",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4608874.4.jpeg",
+        "caption": "Table 1. Comparison of different methods on Navsim V1 benchmark. The model with \u2020 indicates evaluation using Best-of-N sampling. The best and second best results are bolded and underlined, respectively. Continuous regresses the trajectory with an additional MLP/Transformer head. Discrete Action decodes action tokens that discretize each dimension of the trajectory into several bins. Text Waypoint decodes textual numbers that represent the trajectory.",
+        "figureNumber": 4,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4608874.5.jpeg",
+        "caption": "Table 2. Comparison of different methods with the Extended PDMS metric of NAVISM V2.",
+        "figureNumber": 5,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4608874.6.jpeg",
+        "caption": "Table 3. Open-loop evaluation on the nuScenes Benchmark.",
+        "figureNumber": 6,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4608874.7.jpeg",
+        "caption": "Table 4. Exploration analysis (all metrics @k=8). We evaluate Quality (minADE/FDE \u2193 ), Diversity (mean-pADE/FDE \u2191 ), and Perf. (mean-PDMS \u2191 ). In the Quality and Diversity columns, values correspond to ADE / FDE.",
+        "figureNumber": 7,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4608874.8.jpeg",
+        "caption": "Table 5. Ablation study on Imitation Learning approaches. We evaluate the impact of three key Feasible Trajectory Expansion components: DE (Exploratory Data Expansion), CoT (Chain-of-Thought) and SN (Step-wise",
+        "figureNumber": 8,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4608874.jpeg"
+    },
+    "ranking_score": 0.8641030643,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.06049.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.06049",
+    "shortened_authors": "Canyu Chen, Yuguang Yang, Zhewen Tan, Yizhi Wang, Ruiyi Zhan, Haiyan Liu, Xuanyao Mao, Jason Bao, Xinyue Tang, ..., Baochang Zhang",
+    "display_venue": "ArXiv 2026 (March 6)",
+    "is_cached_filename": "Chen2026ARXIV_Devil_is_in_Narrow.pdf"
+  },
+  {
+    "paper_id": 4618055,
+    "title": "One-Step Flow Policy: Self-Distillation for Fast Visuomotor Policies",
+    "authors": "Shaolong Li, Lichao Sun, Yongchao Chen",
+    "url": "https://arxiv.org/pdf/2603.12480",
+    "abstract": "Generative flow and diffusion models provide the continuous, multimodal action distributions needed for high-precision robotic policies. However, their reliance on iterative sampling introduces severe inference latency, degrading control frequency and harming performance in time-sensitive manipulation. To address this problem, we propose the One-Step Flow Policy (OFP), a from-scratch self-distillation framework for high-fidelity, single-step action generation without a pre-trained teacher. OFP unifies a self-consistency loss to enforce coherent transport across time intervals, and a self-guided regularization to sharpen predictions toward high-density expert modes. In addition, a warm-start mechanism leverages temporal action correlations to minimize the generative transport distance. Evaluations across 56 diverse simulated manipulation tasks demonstrate that a one-step OFP achieves state-of-the-art results, outperforming 100-step diffusion and flow policies while accelerating action generation by over $100\\times$. We further integrate OFP into the $\u03c0_{0.5}$ model on RoboTwin 2.0, where one-step OFP surpasses the original 10-step policy. These results establish OFP as a practical, scalable solution for highly accurate and low-latency robot control.",
+    "publication_date": "2026-03-12",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.12480",
+    "digest_date": 1773619200000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "e06cb6037c6f33a604e05e5c8fe3ea1743da88bc",
+    "cache_file_name": "Li2026ARXIV_One_Step_Flow_Policy.pdf",
+    "ngt_id": 4212767,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166572,
+        "name": "Distillation",
+        "readonly": false,
+        "color": "#ffad46"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      }
+    ],
+    "total_read": 57,
+    "total_likes": 6,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 304,
+        "endIndex": 493,
+        "highlightClass": "primary-highlight"
+      },
+      {
+        "startIndex": 495,
+        "endIndex": 672,
+        "highlightClass": "secondary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **One-Step Flow Policy (OFP)**, a self-distilled framework for high-fidelity, single-step action generation without pre-trained teachers.\n- Unifies **self-consistency loss** and **self-guided regularization** to enforce temporal coherence and sharpen predictions toward expert modes.\n- Incorporates a **warm-start mechanism** leveraging temporal action correlations to reduce generative transport distance.\n- Achieves state-of-the-art results across 56 simulated manipulation tasks, outperforming 100-step diffusion and flow policies by over 100 \u00d7.\n- Validates scalability by integrating OFP into the \u03c0 0 . 5 model on RoboTwin 2.0, surpassing the original 10-step policy.",
+      "evaluation_question": "- On *Adroit*, achieves **85.0%** success rate vs. DP3 (**79.0%**) at NFE=1.\n- On *DexArt*, reaches **64.3%** vs. DP3 (**63.7%**) at NFE=1.\n- On *MetaWorldEasy*, obtains **87.9%** vs. DP3 (**82.8%**) at NFE=1.\n- On *MetaWorldHard*, attains **49.2%** vs. DP3 (**41.0%**) at NFE=1.\n- Outperforms all baselines in *3D pointcloud* tasks with significant margin improvements.",
+      "method_explanation_question": "- Processes observations and generates actions using a **flow-based generative policy** conditioned on visual inputs.\n- Enforces **self-consistency** by training an interval-averaged velocity field to maintain temporal coherence.\n- Implements **self-guided regularization** via score-based corrections to align predictions with high-density expert distributions.\n- Leverages a **warm-start mechanism** to initialize action generation from prior steps, reducing transport distance.\n- Optimizes via a unified objective combining flow anchoring, self-consistency, and self-guidance losses.",
+      "problem_definition_question": "- Current generative policies suffer from **high inference latency** due to iterative sampling, limiting real-time robotic control.\n- Standard flow and diffusion models face **truncation errors** in low-NFE regimes, degrading sample quality.\n- Prior distillation methods either sacrifice precision or lack scalability for complex robotic tasks.\n- There is a critical need for **fast, high-fidelity visuomotor policies** that balance speed and accuracy.\n- Robotic systems require **low-latency, precise action generation** to handle dynamic environments effectively."
+    },
+    "affiliations": [
+      "College of AI, Tsinghua University",
+      "Lehigh University",
+      "CSE Department, University of Michigan"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Robotics",
+      "sub_subfield": "Visuomotor Control",
+      "keywords": "Visuomotor Control,  Flow Matching,  Diffusion Models,  Self-Distillation,  One-Step Flow Policy,  OFP",
+      "method_shortname": "One-Step Flow Policy",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2603.12480",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4618055.0.jpeg",
+        "caption": "Figure 1: Averaged across 56 tasks. Eval-uated at NFE=1, OFP outperforms all other single-step baselines and accelerates generation by over 100 \u00d7 compared to DP3 and FM Policy (NFE=100).",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4618055.1.jpeg",
+        "caption": "Figure 2: Self-Distillation of One-Step Flow Policies. (a) Self-Consistency Training: The model learns an interval-averaged velocity field by matching predictions across nested sub-intervals, enforcing temporal coherence along the marginal flow trajectory. (b) Self-Guided Training: By leveraging Classifier-Free Guidance on the model\u2019s own predictions, we extract a distribution-level correction signal. The regularization repels single-step predictions from the unconditional prior and sharpens the generated actions toward the high-density modes of the expert data.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4618055.2.jpeg",
+        "caption": "Figure 3: Warm-Start Action Prior for One-Step Inference. The unexecuted suffix of the previously generated action chunk is shifted and padded with the terminal action to form a full-length temporal prior. By starting closer to the target data manifold rather than from pure Gaussian noise, this initialization reduces the required transport distance.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4618055.3.jpeg",
+        "caption": "Table 1: Performance on 2D image-based manipulation. Results are averaged over 3 random seeds. The best performance in each column is highlighted in bold .",
+        "figureNumber": 3,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4618055.4.jpeg",
+        "caption": "Table 2: Performance on 3D pointcloud manipulation. We assess performance on 56 challenging tasks with 3 random seeds.",
+        "figureNumber": 4,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4618055.jpeg"
+    },
+    "ranking_score": 0.8514472576,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.12480.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.12480",
+    "shortened_authors": "Shaolong Li, Lichao Sun, Yongchao Chen",
+    "display_venue": "ArXiv 2026 (March 12)",
+    "is_cached_filename": "Li2026ARXIV_One_Step_Flow_Policy.pdf"
+  },
+  {
+    "paper_id": 4009116,
+    "title": "Distilling Multi-modal Large Language Models for Autonomous Driving",
+    "authors": "Deepti Hegde ,  Rajeev Yasarla ,  Hong Cai ,  Shizhong Han ,  Apratim Bhattacharyya ,  Shweta Mahajan ,  Litian Liu ,  Risheek Garrepalli ,  Vishal M. Patel ,  Fatih Porikli",
+    "url": "https://openaccess.thecvf.com//content/CVPR2025/papers/Hegde_Distilling_Multi-modal_Large_Language_Models_for_Autonomous_Driving_CVPR_2025_paper.pdf",
+    "abstract": "Autonomous driving demands safe motion planning, especially in critical \"long-tail\" scenarios. Recent end-to-end autonomous driving systems leverage large language models (LLMs) as planners to improve generalizability to rare events. However, using LLMs at test time introduces high computational costs. To address this, we propose DiMA, an end-to-end autonomous driving system that maintains the efficiency of an LLM-free (or vision-based) planner while leveraging the world knowledge of an LLM. DiMA distills the information from a multi-modal LLM to a vision-based end-to-end planner through a set of specially designed surrogate tasks. Under a joint training strategy, a scene encoder common to both networks produces structured representations that are semantically grounded as well as aligned to the final planning objective. Notably, the LLM is optional at inference, enabling robust planning without compromising on efficiency. Training with DiMA results in a 37% reduction in the L2 trajectory error and an 80% reduction in the collision rate of the vision-based planner, as well as a 44% trajectory error reduction in long-tail scenarios. \\ours also achieves state-of-the-art performance on the nuScenes planning benchmark.",
+    "publication_date": "2025-06-03",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2501.09757",
+    "digest_date": 1737072000000,
+    "project_link": null,
+    "conference": "Computer Vision and Pattern Recognition (CVPR)",
+    "conference_url": "https://openaccess.thecvf.com/menu",
+    "abbreviation": "CVPR",
+    "conference_year": 2025.0,
+    "conf_id": 1331.0,
+    "conference_submission_type": null,
+    "source": "conference_scraper",
+    "semantic_scholar_id": "0b9a8c2d5d8217f94bb8fab2e951a54821061be8",
+    "cache_file_name": "Hegde2025ARXIV_Distilling_Multi_modal_Large.pdf",
+    "ngt_id": 3647673,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166569,
+        "name": "MLLM",
+        "readonly": false,
+        "color": "#2da2bb"
+      },
+      {
+        "id": 166572,
+        "name": "Distillation",
+        "readonly": false,
+        "color": "#ffad46"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
+      }
+    ],
+    "total_read": 76,
+    "total_likes": 26,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 304,
+        "endIndex": 495,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": null,
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4009116.0.jpeg",
+        "caption": "Figure 1. Comparison of planning performance in long-tail scenarios from nuScenes: DiMA-VAD demonstrates greater robustness compared to VAD [22] in long-tail navigation scenarios such as overtaking a vehicle and performing a 3-point turn. DiMA-VAD also outperforms recent vision-planner PARA-Drive [50] and LLM planner TOKEN [40]. Notably, the 3-point turn is a zero-shot scenario that is only present in the validation set.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4009116.1.jpeg",
+        "caption": "Figure 2. Overview of DiMA. The input to the framework is a multi-view image sequence and a question text prompt. The vision-based end-to-end planner consists of a scene encoder and a planning transformer. The scene encoder learns structured latent representations in the form of b ird\u2019s-eye-view, e go, a gent, and m ap ( BEAM ) token embeddings and acts as a trainable tokenizer for the multi-modal large language model (MLLM). The planning transformer is trained under standard planning constraints [20, 22]. The MLLM is trained for planning, visual question answering, distillation, and a series of surrogate tasks.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4009116.2.jpeg",
+        "caption": "Figure 3. Examples of addition and deletion in scene editing. In the top row, a car (solid red box) is added on the left of the ego-vehicle (green box). In the bottom row, a car (dashed red box) is removed from the right of the ego-vehicle. A corresponding question-answer pair is created to characterize the edit.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4009116.3.jpeg",
+        "caption": "Table 1. Comparison of L2 trajectory error and collision rate on nuScenes [3] using standardized evaluation [50]. Models are evaluated on the general validation split as well as a \u201ctargeted\u201d split of challenging samples from [50]. The performance of the DiMA model variants are in shades of purple. We summarize results by averaging over at t = { 1 , 2 , 3 } s as well as at all time steps. The best average performance in each setting is in bold. \u201c+\u201d indicates the use of ego-status information.",
+        "figureNumber": 3,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": null,
+    "ranking_score": 0.8339224316,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Fopenaccess.thecvf.com%2F%2Fcontent%2FCVPR2025%2Fpapers%2FHegde_Distilling_Multi-modal_Large_Language_Models_for_Autonomous_Driving_CVPR_2025_paper.pdf.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": null,
+    "shortened_authors": "Deepti Hegde ,  Rajeev Yasarla ,  Hong Cai ,  Shizhong Han ,  Apratim Bhattacharyya ,  Shweta Mahajan ,  Litian Liu ,  Risheek Garrepalli ,  Vishal M. Patel ,  Fatih Porikli",
+    "display_venue": "CVPR 2025",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 4118196,
+    "title": "Dynamic Point Maps: A Versatile Representation for Dynamic 3D Reconstruction",
+    "authors": "Edgar Sucar ,  Zihang Lai ,  Eldar Insafutdinov ,  Andrea Vedaldi",
+    "url": "https://openaccess.thecvf.com//content/ICCV2025/papers/Sucar_Dynamic_Point_Maps_A_Versatile_Representation_for_Dynamic_3D_Reconstruction_ICCV_2025_paper.pdf",
+    "abstract": "DUSt3R has recently demonstrated that many tasks in multi-view geometry, including estimating camera intrinsics and extrinsics, reconstructing 3D scenes, and establishing image correspondences, can be reduced to predicting a pair of viewpoint-invariant point maps, i.e., pixel-aligned point clouds defined in a common reference frame. While this formulation is elegant and powerful, it is limited to static scenes. To overcome this limitation, we introduce the concept of Dynamic Point Maps (DPM), which extends standard point maps to support 4D tasks such as motion segmentation, scene flow estimation, 3D object tracking, and 2D correspondence. Our key insight is that, when time is introduced, several possible spatial and temporal references can be used to define the point maps. We identify a minimal subset of these combinations that can be regressed by a network to solve the aforementioned tasks. We train a DPM predictor on a mixture of synthetic and real data and evaluate it across diverse benchmarks, including video depth prediction, dynamic point cloud reconstruction, 3D scene flow, and object pose tracking, achieving state-of-the-art performance.",
+    "publication_date": "2025-10-15",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2503.16318",
+    "digest_date": 1742515200000,
+    "project_link": "https://www.robots.ox.ac.uk/~vgg/research/dynamic-point-maps/",
+    "conference": "IEEE International Conference on Computer Vision (ICCV)",
+    "conference_url": "https://openaccess.thecvf.com/menu",
+    "abbreviation": "ICCV",
+    "conference_year": 2025.0,
+    "conf_id": 1335.0,
+    "conference_submission_type": null,
+    "source": "conference_scraper",
+    "semantic_scholar_id": "f8d2a9b31cd6b4215e853017cc204ddccdac0325",
+    "cache_file_name": "Sucar2025ARXIV_Dynamic_Point_Maps_A.pdf",
+    "ngt_id": 3735710,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": null,
+    "total_read": 195,
+    "total_likes": 57,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 420,
+        "endIndex": 644,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": null,
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4118196.0.jpeg",
+        "caption": "Figure 1. We introduce the concept of Dynamic Point Maps (DPM). Differently from previous extension of point maps to dynamics, DPMs are time invariant in addition to be viewpoint invariant. Because of this, by predicting DPMs from a pair of images in a feed-forward manner we can easily solve key 3D tasks, such as recovering the camera parameters and reconstructing shape, as well 4D ones, such as estimating scene flow and 3D object tracking.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4118196.1.jpeg",
+        "caption": "Figure 2. We propose to extend DUSt3R to predict Dynamic Point Maps (DPM). Each image in the pair is mapped to two point maps that correspond to the timestamps of the two images (pairs share the same colour in the figure). All points map are defined in the reference frame of image I 1 , undoing the effect of viewpoint change. Scene flow and space-time correspondences can be inferred immediately.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4118196.2.jpeg",
+        "caption": "Figure 3. Left: Standard point maps applied to dynamic scenes as in MonST3R [80] fail to represent dynamics. The cylinder, which is moving downwards, breaks invariance when the point maps are overlaid. Right: Our Dynamic Point Maps correctly represent dynamics by also controlling time in addition to viewpoint. They allow to restore invariance while still representing the motion of the cylinder.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4118196.3.jpeg",
+        "caption": "Figure 4. Left: A schematic representation of the point cloud predictors P i ( t j , \u03c0 1 ) extracted from four images I 1 , . . . , I 4 color coded as before. Each circle represent an image, visualized as a point on a fictitious viewpoint-time plane. Each arrow corresponds to a point map, the base of which is the source image and the tip of which is the reference viewpoint and time. Right: Visualization of the eight predicted point maps. From bottom to top, we reconstruct the animated point cloud in the reference frame of the first image \u03c0 1 . In the bottom-right corner, each image contributes an invariant point map by undoing both the viewpoint and time changes; these point maps can then be fused.",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4118196.4.jpeg",
+        "caption": "Figure 5. Motion segmentation: from a pair of images using the dynamic point cloud predicted by the network we can segment out the dynamic elements of the scene, despite the camera motion.",
+        "figureNumber": 4,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4118196.5.jpeg",
+        "caption": "Figure 6. Point correspondence: DPMs allow to recover correspondences accounting both for dynamic objects as well as camera motion even when challenging viewpoint changes.",
+        "figureNumber": 5,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4118196.6.jpeg",
+        "caption": "Figure 7. Camera tracking: the explicit modeling of a dynamic point cloud allows to recover camera motion by directly aligning point clouds with matching timestamp.",
+        "figureNumber": 6,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": null,
+    "ranking_score": 0.8306493461,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Fopenaccess.thecvf.com%2F%2Fcontent%2FICCV2025%2Fpapers%2FSucar_Dynamic_Point_Maps_A_Versatile_Representation_for_Dynamic_3D_Reconstruction_ICCV_2025_paper.pdf.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": null,
+    "shortened_authors": "Edgar Sucar ,  Zihang Lai ,  Eldar Insafutdinov ,  Andrea Vedaldi",
+    "display_venue": "ICCV 2025",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 3937590,
+    "title": "Birth and Death of a Rose",
+    "authors": "Chen Geng ,  Yunzhi Zhang ,  Shangzhe Wu ,  Jiajun Wu",
+    "url": "https://openaccess.thecvf.com//content/CVPR2025/papers/Geng_Birth_and_Death_of_a_Rose_CVPR_2025_paper.pdf",
+    "abstract": "We study the problem of generating temporal object intrinsics--temporally evolving sequences of object geometry, reflectance, and texture, such as a blooming rose--from pre-trained 2D foundation models. Unlike conventional 3D modeling and animation techniques that require extensive manual effort and expertise, we introduce a method that generates such assets with signals distilled from pretrained 2D diffusion models. To ensure the temporal consistency of object intrinsics, we propose Neural Templates for temporal-state-guided distillation, derived automatically from image features from self-supervised learning. Our method can generate high-quality temporal object intrinsics for several natural phenomena and enable the sampling and controllable rendering of these dynamic objects from any viewpoint, under any environmental lighting conditions, at any time of their lifespan. Project website: <a href='https://chen-geng.com/rose4d' target='_blank'>https://chen-geng.com/rose4d</a>.",
+    "publication_date": "2025-06-03",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2412.05278",
+    "digest_date": 1733702400000,
+    "project_link": "https://chen-geng.com/rose4d",
+    "conference": "Computer Vision and Pattern Recognition (CVPR)",
+    "conference_url": "https://openaccess.thecvf.com/menu",
+    "abbreviation": "CVPR",
+    "conference_year": 2025.0,
+    "conf_id": 1331.0,
+    "conference_submission_type": null,
+    "source": "conference_scraper",
+    "semantic_scholar_id": "76a5ac5f8a79fd6daad0acbb3a063ed112f30e8f",
+    "cache_file_name": "Geng2024ARXIV_Birth_and_Death_of.pdf",
+    "ngt_id": 3586209,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": null,
+    "total_read": 208,
+    "total_likes": 20,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 207,
+        "endIndex": 424,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": null,
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/3937590.0.jpeg",
+        "caption": "Figure 1. The lifespan of a rose\u2019s object intrinsics generated with our method. We present a pipeline to generate temporally evolving sequences of 3D objects\u2019 geometry and material properties, including albedo, roughness, and metallic parameters (only albedo is shown here), as shown in (a), by distilling from 2D foundation models without any 3D data. As shown in (b), the generated assets can be rendered from any viewpoints and lighting conditions (environment map shown in the last row). See the supplemental website for animations.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/3937590.1.jpeg",
+        "caption": "Figure 2. Overview of the process to generate temporal object intrinsics. For a modeled natural process, we first estimate a task-specific Neural Template to get a 4D-consistent representation of its temporal state changes (Sec. 4). Then we iteratively optimize a hybrid 4D intrinsics field (Sec. 5.1) to generate temporal object intrinsics. In each iteration of optimization, we sample a camera pose and timestamp to render this optimizable 4D field into intrinsic maps. These maps are subsequently rendered into RGB images using a physically-based renderer (Sec. 5.2). Concurrently, the same camera pose and timestamp are used to query the Neural Template for the corresponding Neural State Map. This map conditions a fine-tuned 2D diffusion model, which provides guidance signals to update the 4D representation. See Sec. 4 and Figure 4 for details on Neural Template.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/3937590.2.jpeg",
+        "caption": "Figure 3. A motivating example: Neural State Map as a conditional control signal for diffusion models. Compressed DINOv2 features, or \u201cNeural State Map\u201d, represent both the temporal state and spatial viewpoint information throughout a temporal natural process, and inject effective 4D control into 2D diffusion models.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/3937590.3.jpeg",
+        "caption": "Figure 4. Internal structure of Neural Template. Taking camera pose \u03be and timestamp t as input, the neural template first render a task-specific coarse deformable mesh under the provided condition. It is further denoised with a consistency model and encoded to a feature map, which will be further used to control the diffusion models.",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/3937590.4.jpeg",
+        "caption": "Figure 5. Results on temporal object intrinsics generation. We show the generated 4D sequence with our method on part of the evaluated phenomena. Our method synthesizes the geometry and albedo,",
+        "figureNumber": 4,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": null,
+    "ranking_score": 0.8294089818,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Fopenaccess.thecvf.com%2F%2Fcontent%2FCVPR2025%2Fpapers%2FGeng_Birth_and_Death_of_a_Rose_CVPR_2025_paper.pdf.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": null,
+    "shortened_authors": "Chen Geng ,  Yunzhi Zhang ,  Shangzhe Wu ,  Jiajun Wu",
+    "display_venue": "CVPR 2025",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 4617883,
+    "title": "VGGT-World: Transforming VGGT into an Autoregressive Geometry World Model",
+    "authors": "Xiangyu Sun, Shijie Wang, Fengyi Zhang, Lin Liu, Caiyan Jia, Ziying Song, Zi Huang, Yadan Luo",
+    "url": "https://arxiv.org/pdf/2603.12655",
+    "abstract": "World models that forecast scene evolution by generating future video frames devote the bulk of their capacity to photometric details, yet the resulting predictions often remain geometrically inconsistent. We present VGGT-World, a geometry world model that side-steps video generation entirely and instead forecasts the temporal evolution of frozen geometry-foundation-model (GFM) features. Concretely, we repurpose the latent tokens of a frozen VGGT as the world state and train a lightweight temporal flow transformer to autoregressively predict their future trajectory. Two technical challenges arise in this high-dimensional (d=1024) feature space: (i) standard velocity-prediction flow matching collapses, and (ii) autoregressive rollout suffers from compounding exposure bias. We address the first with a clean-target (z-prediction) parameterization that yields a substantially higher signal-to-noise ratio, and the second with a two-stage latent flow-forcing curriculum that progressively conditions the model on its own partially denoised rollouts. Experiments on KITTI, Cityscapes, and TartanAir demonstrate that VGGT-World significantly outperforms the strongest baselines in depth forecasting while running 3.6-5 times faster with only 0.43B trainable parameters, establishing frozen GFM features as an effective and efficient predictive state for 3D world modeling.",
+    "publication_date": "2026-03-13",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.12655",
+    "digest_date": 1773619200000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "273f981c57a62c45c3b6c61bc46863cc56d03884",
+    "cache_file_name": "Sun2026ARXIV_VGGT_World_Transforming_VGGT.pdf",
+    "ngt_id": 4212022,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
+      }
+    ],
+    "total_read": 354,
+    "total_likes": 83,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 206,
+        "endIndex": 389,
+        "highlightClass": "primary-highlight"
+      },
+      {
+        "startIndex": 391,
+        "endIndex": 571,
+        "highlightClass": "secondary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **VGGT-World**, a geometry world model that forecasts temporal evolution of frozen GFM features.\n- Proposes **z-prediction parameterization** to enhance signal-to-noise ratio in high-dimensional space.\n- Develops a **two-stage latent flow-forcing curriculum** to mitigate exposure bias during autoregressive rollout.\n- Demonstrates **state-of-the-art performance** in depth forecasting with 0.43B parameters.\n- Establishes **frozen GFM features** as an effective predictive state for 3D world modeling.",
+      "evaluation_question": "- On *KITTI* and *Cityscapes*, achieves **mean AbsRel reduction up to 21%** and **32%** over prior baselines.\n- Improves **\u03b4 1** across both short- and mid-term horizons.\n- Runs **3.6\u20135\u00d7 faster** than Cosmos (12B) and Gen3R (9B).\n- Outperforms prior world models in **future depth prediction** and **camera trajectory preservation**.",
+      "method_explanation_question": "- Extracts deterministic geometry states from observed frames using a **frozen VGGT encoder**.\n- Predicts future token trajectories via a **lightweight temporal flow transformer**.\n- Decodes predicted tokens into 3D outputs using a **frozen VGGT decoder**.\n- Implements a **two-stage latent flow-forcing curriculum** to stabilize training.\n- Utilizes **z-prediction** to directly forecast clean target latents in high-dimensional space.",
+      "problem_definition_question": "- Existing world models prioritize photometric details over geometric consistency, leading to **geometrically invalid predictions**.\n- Current methods lack robust temporal dynamics modeling, resulting in **drifting geometry states** during autoregressive rollout.\n- Geometry-aware video generation approaches still focus on RGB reconstruction rather than direct 3D evolution prediction.\n- High-dimensional frozen GFM feature spaces pose challenges due to **exposure bias** and **compounding errors**.\n- There is a need for **geometry-consistent world models** that can predict future 3D scenes without video VAE training."
+    },
+    "affiliations": [
+      "Beijing Jiaotong University",
+      "UQMM Lab, The University of Queensland"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Computer Vision",
+      "keywords": "Geometry World Modeling,  Frozen Geometry Features,  Temporal Flow Transformer,  z-Prediction,  Latent Flow Forcing",
+      "method_shortname": "VGGT-World",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2603.12655",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4617883.0.jpeg",
+        "caption": "Fig. 1: From video world models to geometry world models. Video world models predict future RGB in VAE latent space, coupling scene dynamics with appearance reconstruction. As a result, decoded predictions can remain geometrically invalid, with broken scene layout and mislocalized actors despite plausible video appearance. VGGT-World instead uses frozen geometry-foundation features as the latent state and models their temporal evolution directly, yielding a VAE-free, lightweight, and geometry-consistent alternative for future 3D forecasting.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4617883.1.jpeg",
+        "caption": "Fig. 2: Comparison of v -prediction and z -prediction in frozen VGGT latent space. Left: z -prediction consistently achieves substantially higher signal-to-noise ratio than v -prediction in the layer-4 latent space. Middle: A target VGGT feature map and its corresponding RGB frame. Right: PCA visualizations of predicted latents during training. v -prediction remains noisy even after prolonged training, whereas z -prediction progressively recovers structured latent patterns aligned with the target VGGT feature.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4617883.jpeg"
+    },
+    "ranking_score": 0.8246461725,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.12655.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.12655",
+    "shortened_authors": "Xiangyu Sun, Shijie Wang, Fengyi Zhang, Lin Liu, Caiyan Jia, Ziying Song, Zi Huang, Yadan Luo",
+    "display_venue": "ArXiv 2026 (March 13)",
+    "is_cached_filename": "Sun2026ARXIV_VGGT_World_Transforming_VGGT.pdf"
   }
 ]
