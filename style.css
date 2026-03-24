@@ -142,6 +142,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
   border: 2px solid var(--color-border);
@@ -807,6 +808,10 @@ ul { list-style: none; }
   padding-top: var(--space-xl);
 }
 
+.reading-section h2 {
+  margin-bottom: var(--space-sm);
+}
+
 .reading-subtitle {
   color: var(--color-text-secondary);
   margin-bottom: var(--space-xl);
@@ -1163,6 +1168,7 @@ ul { list-style: none; }
   .container { padding: 0 var(--space-md); }
   .nav-container { padding: 0 var(--space-md); }
 
+  .nav-links { gap: var(--space-sm); }
   .nav-links a { font-size: var(--font-size-xs); }
 
   .hero-links { flex-wrap: wrap; justify-content: center; }

@@ -18,7 +18,7 @@ jobs:
       - run: pip install requests
 
       - name: Fetch papers from Scholar Inbox
-        run: python3 fetch_papers.py --cookie "session=${{ secrets.SCHOLAR_INBOX_SESSION }}" --output papers.json --pages 5
+        run: python3 fetch_papers.py --cookie "session=${{ secrets.SCHOLAR_INBOX_SESSION }}" --output papers.json --pages 3 --limit 30
 
       - name: Commit and push if changed
         run: |

@@ -51,20 +51,15 @@
   <main class="container">
     <section class="section reading-section">
       <h2 class="section-title">Reading List</h2>
-      <p class="reading-subtitle">Papers I've found interesting, sourced from my <a href="https://scholar-inbox.com" target="_blank" rel="noopener">Scholar Inbox</a>.</p>
+      <p class="reading-subtitle">A selection of recent papers I've found interesting, sourced from my <a href="https://scholar-inbox.com" target="_blank" rel="noopener">Scholar Inbox</a>.</p>
 
       <div class="reading-controls">
         <input type="text" id="reading-search" class="reading-search" placeholder="Search papers...">
         <div class="reading-sort" id="reading-sort">
-          <button class="sort-btn" data-sort="relevance">Relevance</button>
           <button class="sort-btn active" data-sort="published">Date Published</button>
+          <button class="sort-btn" data-sort="relevance">Relevance</button>
         </div>
       </div>
-      <div class="reading-filter-group">
-        <span class="reading-filter-label">Category</span>
-        <div class="reading-filters" id="reading-filters"></div>
-      </div>
-
       <div class="reading-layout">
         <aside class="reading-sidebar">
           <span class="reading-filter-label">Tags</span>
@@ -83,11 +78,9 @@
     (function () {
       const listEl = document.getElementById('reading-list');
       const searchEl = document.getElementById('reading-search');
-      const filtersEl = document.getElementById('reading-filters');
       const tagFiltersEl = document.getElementById('reading-tag-filters');
       const sortEl = document.getElementById('reading-sort');
       let papers = [];
-      let activeCategory = null;
       let activeTags = new Set();
       let activeSort = 'published';
 
@@ -95,7 +88,6 @@
         .then(r => r.json())
         .then(data => {
           papers = data;
-          renderCategoryFilters();
           renderTagFilters();
           initSort();
           renderPapers();
@@ -103,20 +95,6 @@
         .catch(() => {
           listEl.innerHTML = '<p style="text-align:center;color:var(--color-text-secondary)">Could not load papers.</p>';
         });
-
-      function renderCategoryFilters() {
-        const categories = [...new Set(papers.map(p => p.category).filter(Boolean))].sort();
-        filtersEl.innerHTML = '<button class="filter-btn active" data-cat="">All</button>' +
-          categories.map(c => `<button class="filter-btn" data-cat="${c}">${c}</button>`).join('');
-        filtersEl.querySelectorAll('.filter-btn').forEach(btn => {
-          btn.addEventListener('click', () => {
-            filtersEl.querySelector('.active').classList.remove('active');
-            btn.classList.add('active');
-            activeCategory = btn.dataset.cat || null;
-            renderPapers();
-          });
-        });
-      }
 
       function renderTagFilters() {
         const tagMap = {};
@@ -162,7 +140,6 @@
       function renderPapers() {
         const query = searchEl.value.toLowerCase();
         const filtered = papers.filter(p => {
-          if (activeCategory && p.category !== activeCategory) return false;
           if (activeTags.size > 0) {
             const colls = p.user_paper_collections || [];
             const paperTags = new Set(colls.map(c => c.name));

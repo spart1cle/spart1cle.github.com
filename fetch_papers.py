@@ -37,6 +37,7 @@ def main():
     parser.add_argument("--cookie", required=True, help='Session cookie as "name=value" (from browser DevTools)')
     parser.add_argument("--output", default="papers.json", help="Output JSON file")
     parser.add_argument("--pages", type=int, default=3, help="Number of pages to fetch")
+    parser.add_argument("--limit", type=int, default=30, help="Max number of papers to include")
     args = parser.parse_args()
 
     name, _, value = args.cookie.partition("=")
@@ -74,6 +75,10 @@ def main():
             break
         all_papers.extend(papers)
         print(f"  Got {len(papers)} papers (total: {len(all_papers)})", file=sys.stderr)
+        if len(all_papers) >= args.limit:
+            break
+
+    all_papers = all_papers[:args.limit]
 
     with open(args.output, "w") as f:
         json.dump(all_papers, f, indent=2)
