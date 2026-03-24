@@ -39,7 +39,7 @@
         <a href="index.html#about">About</a>
         <a href="index.html#publications">Publications</a>
         <a href="experience.html">Experience</a>
-        <a href="reading.html">Reading</a>
+        <a href="reading.html" class="active">Reading</a>
         <button id="theme-toggle" aria-label="Toggle dark mode">
           <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
           <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -54,7 +54,10 @@
       <p class="reading-subtitle">A selection of recent papers I've found interesting, sourced from my <a href="https://scholar-inbox.com" target="_blank" rel="noopener">Scholar Inbox</a>.</p>
 
       <div class="reading-controls">
-        <input type="text" id="reading-search" class="reading-search" placeholder="Search papers...">
+        <div class="reading-search-wrap">
+          <input type="text" id="reading-search" class="reading-search" placeholder="Search papers...">
+          <button class="reading-search-clear" id="reading-search-clear" aria-label="Clear search">&times;</button>
+        </div>
         <div class="reading-sort" id="reading-sort">
           <button class="sort-btn active" data-sort="published">Date Published</button>
           <button class="sort-btn" data-sort="relevance">Relevance</button>
@@ -64,8 +67,12 @@
         <aside class="reading-sidebar">
           <span class="reading-filter-label">Tags</span>
           <div class="reading-tag-list" id="reading-tag-filters"></div>
+          <button class="reading-clear-btn" id="reading-clear" style="display:none">Clear filters</button>
         </aside>
-        <div class="reading-main" id="reading-list"></div>
+        <div class="reading-main">
+          <p class="reading-count" id="reading-count"></p>
+          <div id="reading-list"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -80,9 +87,12 @@
       const searchEl = document.getElementById('reading-search');
       const tagFiltersEl = document.getElementById('reading-tag-filters');
       const sortEl = document.getElementById('reading-sort');
+      const countEl = document.getElementById('reading-count');
+      const clearBtn = document.getElementById('reading-clear');
       let papers = [];
       let activeTags = new Set();
       let activeSort = 'published';
+      let searchTimeout = null;
 
       fetch('papers.json')
         .then(r => r.json())
@@ -90,6 +100,8 @@
           papers = data;
           renderTagFilters();
           initSort();
+          initClear();
+          readHash();
           renderPapers();
         })
         .catch(() => {
@@ -107,17 +119,17 @@
         const likedCount = papers.filter(p => !(p.user_paper_collections || []).length).length;
         const sorted = Object.entries(tagMap).sort((a, b) => a[0].localeCompare(b[0]));
         tagFiltersEl.innerHTML =
-          (likedCount ? `<button class="filter-btn tag-filter-btn" data-tag="__liked__" style="--tag-color:var(--color-accent)">&#x1F44D; Liked</button>` : '') +
+          (likedCount ? `<button class="filter-btn tag-filter-btn" data-tag="__liked__" style="--tag-color:var(--color-accent)">&#x1F44D; Liked <span class="tag-count">${likedCount}</span></button>` : '') +
           sorted.map(([name, info]) =>
-            `<button class="filter-btn tag-filter-btn" data-tag="${name}" style="--tag-color:${info.color}">${name}</button>`
+            `<button class="filter-btn tag-filter-btn" data-tag="${name}" style="--tag-color:${info.color}">${name} <span class="tag-count">${info.count}</span></button>`
           ).join('');
         tagFiltersEl.querySelectorAll('.tag-filter-btn').forEach(btn => {
           btn.addEventListener('click', () => {
             const tag = btn.dataset.tag;
-            if (activeTags.has(tag)) {
-              activeTags.delete(tag);
-              btn.classList.remove('active');
-            } else {
+            const wasActive = activeTags.has(tag);
+            activeTags.clear();
+            tagFiltersEl.querySelectorAll('.tag-filter-btn.active').forEach(b => b.classList.remove('active'));
+            if (!wasActive) {
               activeTags.add(tag);
               btn.classList.add('active');
             }
@@ -134,6 +146,15 @@
             activeSort = btn.dataset.sort;
             renderPapers();
           });
+        });
+      }
+
+      function initClear() {
+        clearBtn.addEventListener('click', () => {
+          activeTags.clear();
+          searchEl.value = '';
+          tagFiltersEl.querySelectorAll('.tag-filter-btn.active').forEach(b => b.classList.remove('active'));
+          renderPapers();
         });
       }
 
@@ -161,6 +182,12 @@
         }
         // 'relevance' keeps the original API order (ranking_score)
 
+        const hasFilters = activeTags.size > 0 || query;
+        clearBtn.style.display = hasFilters ? '' : 'none';
+        countEl.textContent = filtered.length === papers.length
+          ? `${papers.length} papers`
+          : `Showing ${filtered.length} of ${papers.length} papers`;
+
         if (!filtered.length) {
           listEl.innerHTML = '<p style="text-align:center;color:var(--color-text-secondary);padding:var(--space-xl) 0">No papers match your search.</p>';
           return;
@@ -175,6 +202,12 @@
             : '<span class="reading-tag reading-tag-liked" style="--tag-color:var(--color-accent)">&#x1F44D; Liked</span>';
           const arxivUrl = p.arxiv_id ? `https://arxiv.org/abs/${p.arxiv_id}` : p.url;
           const abstract = p.abstract ? cleanAbstract(p.abstract) : '';
+          const summaries = p.summaries || {};
+          const contributions = summaries.contributions_question || '';
+          const problem = summaries.problem_definition_question || '';
+          const keywords = (p.keywords_metadata && p.keywords_metadata.keywords)
+            ? p.keywords_metadata.keywords.split(',').map(k => k.trim()).filter(Boolean)
+            : [];
 
           return `
             <article class="reading-card" data-id="${p.paper_id}">
@@ -182,6 +215,7 @@
                 <div class="reading-card-meta">
                   <span class="reading-date">${date}</span>
                   ${p.category ? `<span class="reading-category">${p.category}</span>` : ''}
+                  ${p.total_likes || p.total_read ? `<span class="reading-stats">${p.total_likes ? `<span title="Community likes"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> ${p.total_likes}</span>` : ''}${p.total_read ? `<span title="Community reads"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> ${p.total_read}</span>` : ''}</span>` : ''}
                 </div>
                 <h3 class="reading-card-title">${p.title}</h3>
                 <p class="reading-card-authors">${authors}</p>
@@ -195,11 +229,16 @@
                 </div>
                 <svg class="reading-expand-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </div>
-              <div class="reading-card-details">
-                ${abstract ? `<p class="reading-abstract">${abstract}</p>` : ''}
-              </div>
+              <div class="reading-card-details"><div>
+                ${contributions ? `<div class="reading-summary"><h4>Key Contributions</h4><div class="reading-summary-content">${renderMarkdown(contributions)}</div></div>` : ''}
+                ${problem ? `<div class="reading-summary"><h4>Problem</h4><div class="reading-summary-content">${renderMarkdown(problem)}</div></div>` : ''}
+                ${abstract ? `<details class="reading-abstract-toggle"><summary>Abstract</summary><p class="reading-abstract">${abstract}</p></details>` : ''}
+                ${keywords.length ? `<div class="reading-keywords">${keywords.map(k => `<span class="reading-keyword">${k}</span>`).join('')}</div>` : ''}
+              </div></div>
             </article>`;
         }).join('');
+
+        if (window.revealElements) window.revealElements('.reading-card');
       }
 
       function truncateAuthors(str, max) {
@@ -213,9 +252,59 @@
         return text.replace(/<[^>]+>/g, '').replace(/\\href\{[^}]*\}\{([^}]*)\}/g, '$1');
       }
 
-      searchEl.addEventListener('input', renderPapers);
+      function renderMarkdown(text) {
+        return text
+          .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+          .replace(/^- /gm, '<li>')
+          .replace(/(<li>.*)/g, '$1</li>')
+          .replace(/((<li>.*<\/li>\s*)+)/g, '<ul>$1</ul>');
+      }
+
+      const searchClearBtn = document.getElementById('reading-search-clear');
+      searchEl.addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(renderPapers, 150);
+        searchClearBtn.classList.toggle('visible', searchEl.value.length > 0);
+      });
+      searchClearBtn.addEventListener('click', () => {
+        searchEl.value = '';
+        searchClearBtn.classList.remove('visible');
+        updateHash();
+        renderPapers();
+      });
+
+      function updateHash() {
+        const params = new URLSearchParams();
+        if (activeTags.size) params.set('tag', [...activeTags][0]);
+        if (searchEl.value) params.set('q', searchEl.value);
+        const hash = params.toString();
+        history.replaceState(null, '', hash ? '#' + hash : location.pathname);
+      }
+
+      function readHash() {
+        const params = new URLSearchParams(location.hash.slice(1));
+        const tag = params.get('tag');
+        const q = params.get('q');
+        if (tag) {
+          activeTags.add(tag);
+          const btn = tagFiltersEl.querySelector(`[data-tag="${tag}"]`);
+          if (btn) btn.classList.add('active');
+        }
+        if (q) {
+          searchEl.value = q;
+          searchClearBtn.classList.add('visible');
+        }
+      }
+
+      // Update hash when filters change
+      const origRender = renderPapers;
+      renderPapers = function () {
+        updateHash();
+        origRender();
+      };
     })();
   </script>
+
 
 </body>
 </html>

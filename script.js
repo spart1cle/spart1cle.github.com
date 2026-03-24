@@ -138,6 +138,14 @@
     }, { threshold: 0.15 });
 
     targets.forEach(function (el) { observer.observe(el); });
+
+    window.revealElements = function (selector) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.querySelectorAll(selector).forEach(function (el) {
+        el.classList.add('scroll-reveal');
+        observer.observe(el);
+      });
+    };
   }
 
   // --- Active nav indicator ---
@@ -172,6 +180,25 @@
 
     window.addEventListener('scroll', update, { passive: true });
     update();
+  }
+
+  // --- Back to top button ---
+  function initBackToTop() {
+    var btn = document.getElementById('back-to-top');
+    if (!btn) {
+      btn = document.createElement('button');
+      btn.className = 'back-to-top';
+      btn.id = 'back-to-top';
+      btn.setAttribute('aria-label', 'Back to top');
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+      document.body.appendChild(btn);
+    }
+    window.addEventListener('scroll', function () {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   // --- Reading progress bar ---
@@ -389,6 +416,7 @@
     initScrollReveal();
     initActiveNav();
     initProgressBar();
+    initBackToTop();
     initAnimatedFavicon();
     initKonamiCode();
   });
