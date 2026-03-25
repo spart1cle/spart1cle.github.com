@@ -581,6 +581,7 @@
             if (data.access_token) {
               localStorage.setItem(TOKEN_KEY, data.access_token);
               document.getElementById('thoughts-fab').style.display = '';
+              if (thoughts.length) renderThoughts();
             } else {
               console.error('OAuth failed:', data);
             }
