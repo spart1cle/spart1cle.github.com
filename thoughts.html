@@ -839,13 +839,12 @@
       function showConfirmState() {
         buildConfirmCard();
         formFieldsEl.classList.add('hidden');
-        // Small delay so the form collapse starts before card appears
-        setTimeout(function () { confirmPreviewEl.classList.add('visible'); }, 50);
+        confirmPreviewEl.classList.add('visible');
       }
 
       function showEditState() {
         confirmPreviewEl.classList.remove('visible');
-        setTimeout(function () { formFieldsEl.classList.remove('hidden'); }, 50);
+        formFieldsEl.classList.remove('hidden');
       }
 
       function resetToEditState() {

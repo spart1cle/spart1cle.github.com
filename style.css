@@ -1631,29 +1631,27 @@ ul { list-style: none; }
 
 /* Compose → Confirm transition */
 .thoughts-form-fields {
-  max-height: 800px;
-  transition: opacity 0.25s ease, max-height 0.3s ease;
-  overflow: hidden;
+  transition: opacity 0.2s ease;
 }
 
 .thoughts-form-fields.hidden {
   opacity: 0;
-  max-height: 0 !important;
-  margin: 0;
-  padding: 0;
+  height: 0;
+  overflow: hidden;
   pointer-events: none;
 }
 
 .thoughts-confirm-preview {
   opacity: 0;
-  max-height: 0;
+  height: 0;
   overflow: hidden;
-  transition: opacity 0.3s ease 0.15s, max-height 0.35s ease;
+  transition: opacity 0.2s ease;
 }
 
 .thoughts-confirm-preview.visible {
   opacity: 1;
-  max-height: 800px;
+  height: auto;
+  overflow: visible;
 }
 
 .thoughts-confirm-preview .thought-card {
