@@ -99,6 +99,7 @@ body {
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
   transition: background-color var(--transition-slow),
               color var(--transition-slow);
 }
@@ -1044,6 +1045,7 @@ ul { list-style: none; }
 .reading-main {
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 
 .reading-filters {
@@ -1375,6 +1377,7 @@ ul { list-style: none; }
   box-shadow: 0 1px 3px var(--color-card-shadow);
   transition: box-shadow var(--transition-normal), transform var(--transition-normal);
   overflow: hidden;
+  max-width: 100%;
 }
 
 .thought-card:hover {
@@ -1394,6 +1397,8 @@ ul { list-style: none; }
   color: var(--color-text-secondary);
   line-height: var(--line-height);
   margin-bottom: var(--space-sm);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .thought-card-tags {
@@ -1486,6 +1491,8 @@ ul { list-style: none; }
 /* Link preview card */
 .thought-link-preview {
   margin-bottom: var(--space-sm);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .thought-preview-card {
@@ -1533,6 +1540,7 @@ ul { list-style: none; }
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
 }
 
 .thought-preview-desc {
@@ -2031,8 +2039,13 @@ ul { list-style: none; }
   .reading-controls { align-items: stretch; }
   .reading-layout { flex-direction: column; }
   .reading-sidebar { position: static; width: 100%; }
+  .reading-main { width: 100%; }
   .reading-tag-list { flex-direction: row; flex-wrap: wrap; }
   .reading-tag-list .tag-filter-btn { width: auto; }
+
+  /* Link previews: stack vertically on tablet */
+  .thought-preview-card { flex-direction: column; }
+  .thought-preview-img { width: 100%; height: 120px; }
 }
 
 /* --- Responsive: Mobile --- */
@@ -2064,9 +2077,8 @@ ul { list-style: none; }
   /* Code blocks: prevent horizontal overflow */
   .thought-code-block { font-size: 0.7rem; }
 
-  /* Link previews: stack vertically */
-  .thought-preview-card { flex-direction: column; }
-  .thought-preview-img { width: 100%; height: 120px; }
+  /* Link preview image: shorter on small screens */
+  .thought-preview-img { height: 100px; }
 
   /* Compose modal: reduce padding */
   .thoughts-modal-overlay { padding: var(--space-sm); }

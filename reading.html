@@ -104,6 +104,7 @@
         .then(r => r.json())
         .then(data => {
           papers = data;
+          rebuildTagColors();
           renderTagFilters();
           initSort();
           initClear();
@@ -114,20 +115,54 @@
           listEl.innerHTML = '<p style="text-align:center;color:var(--color-text-secondary)">Could not load papers.</p>';
         });
 
+      // ── Tag Colors ──────────────────────────────────────────
+      const tagColorCache = {};
+      function rebuildTagColors() {
+        const allTags = [];
+        const seen = {};
+        papers.forEach(p => {
+          (p.user_paper_collections || []).forEach(c => {
+            if (!seen[c.name]) { seen[c.name] = true; allTags.push(c.name); }
+          });
+        });
+        allTags.sort();
+        Object.keys(tagColorCache).forEach(k => delete tagColorCache[k]);
+        const n = allTags.length || 1;
+        const colors = [];
+        for (let i = 0; i < n; i++) {
+          colors.push(`hsl(${Math.round((i * 360) / n) % 360}, 65%, 50%)`);
+        }
+        // Deterministic shuffle so colors are stable across reloads
+        const seed = allTags.join(',');
+        let h = 0;
+        for (let j = 0; j < seed.length; j++) h = ((h << 5) - h + seed.charCodeAt(j)) | 0;
+        for (let k = colors.length - 1; k > 0; k--) {
+          h = (h * 1664525 + 1013904223) | 0;
+          const idx = ((h >>> 0) % (k + 1));
+          const tmp = colors[k]; colors[k] = colors[idx]; colors[idx] = tmp;
+        }
+        for (let i = 0; i < allTags.length; i++) {
+          tagColorCache[allTags[i]] = colors[i];
+        }
+      }
+      function tagColor(name) {
+        return tagColorCache[name] || 'hsl(0, 0%, 50%)';
+      }
+
       function renderTagFilters() {
         const tagMap = {};
         papers.forEach(p => {
           (p.user_paper_collections || []).forEach(c => {
-            if (!tagMap[c.name]) tagMap[c.name] = { color: c.color, count: 0 };
-            tagMap[c.name].count++;
+            if (!tagMap[c.name]) tagMap[c.name] = 0;
+            tagMap[c.name]++;
           });
         });
         const likedCount = papers.filter(p => !(p.user_paper_collections || []).length).length;
         const sorted = Object.entries(tagMap).sort((a, b) => a[0].localeCompare(b[0]));
         tagFiltersEl.innerHTML =
           (likedCount ? `<button class="filter-btn tag-filter-btn" data-tag="__liked__" style="--tag-color:var(--color-accent)">&#x1F44D; Liked <span class="tag-count">${likedCount}</span></button>` : '') +
-          sorted.map(([name, info]) =>
-            `<button class="filter-btn tag-filter-btn" data-tag="${name}" style="--tag-color:${info.color}">${name} <span class="tag-count">${info.count}</span></button>`
+          sorted.map(([name, count]) =>
+            `<button class="filter-btn tag-filter-btn" data-tag="${name}" style="--tag-color:${tagColor(name)}">${name} <span class="tag-count">${count}</span></button>`
           ).join('');
         tagFiltersEl.querySelectorAll('.tag-filter-btn').forEach(btn => {
           btn.addEventListener('click', () => {
@@ -209,9 +244,9 @@
         listEl.innerHTML = visible.map(p => {
           const date = p.publication_date || '';
           const authors = truncateAuthors(p.authors, 5);
-          const colls = p.user_paper_collections || [];
+          const colls = (p.user_paper_collections || []).slice().sort((a, b) => a.name.localeCompare(b.name));
           const collections = colls.length
-            ? colls.map(c => `<span class="reading-tag" style="--tag-color:${c.color}">${c.name}</span>`).join('')
+            ? colls.map(c => `<span class="reading-tag" style="--tag-color:${tagColor(c.name)}">${c.name}</span>`).join('')
             : '<span class="reading-tag reading-tag-liked" style="--tag-color:var(--color-accent)">&#x1F44D; Liked</span>';
           const arxivUrl = p.arxiv_id ? `https://arxiv.org/abs/${p.arxiv_id}` : p.url;
           const abstract = p.abstract ? cleanAbstract(p.abstract) : '';

@@ -150,6 +150,7 @@
         .then(function (r) { return r.json(); })
         .then(function (data) {
           thoughts = data;
+          rebuildTagColors();
           renderTagFilters();
           initClear();
           readHash();
@@ -162,18 +163,37 @@
         });
 
       // ── Tag Colors ──────────────────────────────────────────
-      var TAG_PALETTE = [
-        '#e6574e', '#e67e22', '#f1c40f', '#2ecc71', '#1abc9c',
-        '#3498db', '#9b59b6', '#e84393', '#00b894', '#6c5ce7',
-        '#fd79a8', '#0984e3', '#d35400', '#27ae60', '#8e44ad'
-      ];
       var tagColorCache = {};
+      function rebuildTagColors() {
+        var allTags = [];
+        var seen = {};
+        thoughts.forEach(function (t) {
+          (t.tags || []).forEach(function (tag) {
+            if (!seen[tag]) { seen[tag] = true; allTags.push(tag); }
+          });
+        });
+        allTags.sort();
+        tagColorCache = {};
+        var n = allTags.length || 1;
+        var colors = [];
+        for (var i = 0; i < n; i++) {
+          colors.push('hsl(' + Math.round((i * 360) / n) % 360 + ', 65%, 50%)');
+        }
+        // Deterministic shuffle so colors are stable across reloads
+        var seed = allTags.join(',');
+        var h = 0;
+        for (var j = 0; j < seed.length; j++) h = ((h << 5) - h + seed.charCodeAt(j)) | 0;
+        for (var k = colors.length - 1; k > 0; k--) {
+          h = (h * 1664525 + 1013904223) | 0;
+          var idx = ((h >>> 0) % (k + 1));
+          var tmp = colors[k]; colors[k] = colors[idx]; colors[idx] = tmp;
+        }
+        for (var i = 0; i < allTags.length; i++) {
+          tagColorCache[allTags[i]] = colors[i];
+        }
+      }
       function tagColor(name) {
-        if (tagColorCache[name]) return tagColorCache[name];
-        var hash = 0;
-        for (var i = 0; i < name.length; i++) hash = ((hash << 5) - hash + name.charCodeAt(i)) | 0;
-        tagColorCache[name] = TAG_PALETTE[Math.abs(hash) % TAG_PALETTE.length];
-        return tagColorCache[name];
+        return tagColorCache[name] || 'hsl(0, 0%, 50%)';
       }
 
       // ── Tag Filters ───────────────────────────────────────────
@@ -272,7 +292,7 @@
             lastMonth = month;
           }
 
-          var tagsHtml = (t.tags || []).map(function (tag) {
+          var tagsHtml = (t.tags || []).slice().sort(function (a, b) { return a.localeCompare(b); }).map(function (tag) {
             return '<span class="reading-tag" style="--tag-color:' + tagColor(tag) + '">' + escapeHtml(tag) + '</span>';
           }).join('');
 
@@ -344,6 +364,16 @@
           });
         }
         if (window.revealElements) window.revealElements('.thought-card');
+      }
+
+      function sanitizeText(str) {
+        if (!str) return '';
+        return str
+          .replace(/[\u2018\u2019\u201A]/g, "'")
+          .replace(/[\u201C\u201D\u201E]/g, '"')
+          .replace(/\u2013/g, '-')
+          .replace(/\u2014/g, '--')
+          .replace(/\u2026/g, '...');
       }
 
       function escapeHtml(str) {
@@ -519,7 +549,7 @@
           .then(function (r) { return r.json(); })
           .then(function (fileData) {
             if (!fileData.sha) throw new Error(fileData.message || 'Could not read file');
-            var currentContent = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
+            var currentContent = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, '')))));
             var updated = currentContent.filter(function (t) { return t.id !== id; });
             if (updated.length === currentContent.length) throw new Error('Entry not found');
             var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(updated, null, 2))));
@@ -542,6 +572,7 @@
             if (!res.ok) return res.json().then(function (err) { throw new Error(err.message || 'Delete failed'); });
             // Update local state
             thoughts = thoughts.filter(function (t) { return t.id !== id; });
+            rebuildTagColors();
             renderTagFilters();
             renderThoughts();
           })
@@ -811,7 +842,7 @@
         var tags = getComposeTags();
         var date = new Date().toISOString().slice(0, 10);
 
-        var tagsHtml = tags.map(function (tag) {
+        var tagsHtml = tags.slice().sort(function (a, b) { return a.localeCompare(b); }).map(function (tag) {
           return '<span class="reading-tag" style="--tag-color:' + tagColor(tag) + '">' + escapeHtml(tag) + '</span>';
         }).join('');
 
@@ -902,7 +933,7 @@
           id: String(Date.now()),
           type: url ? 'link' : 'note',
           date: new Date().toISOString().slice(0, 10),
-          text: text,
+          text: sanitizeText(text),
           url: url,
           tags: tags
         };
@@ -914,7 +945,7 @@
           .then(function (r) { return r.json(); })
           .then(function (fileData) {
             if (!fileData.sha) throw new Error(fileData.message || 'Could not read file');
-            var currentContent = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
+            var currentContent = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, '')))));
             currentContent.unshift(newEntry);
             var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(currentContent, null, 2))));
 
@@ -937,6 +968,7 @@
             statusEl.textContent = 'Published!';
             // Update local state
             thoughts.unshift(newEntry);
+            rebuildTagColors();
             renderTagFilters();
             renderThoughts();
             // Reset form
