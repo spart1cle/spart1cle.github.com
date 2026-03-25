@@ -125,24 +125,12 @@
             if (!seen[c.name]) { seen[c.name] = true; allTags.push(c.name); }
           });
         });
-        allTags.sort();
+        allTags.sort((a, b) => a.localeCompare(b));
         Object.keys(tagColorCache).forEach(k => delete tagColorCache[k]);
         const n = allTags.length || 1;
-        const colors = [];
-        for (let i = 0; i < n; i++) {
-          colors.push(`hsl(${Math.round((i * 360) / n) % 360}, 65%, 50%)`);
-        }
-        // Deterministic shuffle so colors are stable across reloads
-        const seed = allTags.join(',');
-        let h = 0;
-        for (let j = 0; j < seed.length; j++) h = ((h << 5) - h + seed.charCodeAt(j)) | 0;
-        for (let k = colors.length - 1; k > 0; k--) {
-          h = (h * 1664525 + 1013904223) | 0;
-          const idx = ((h >>> 0) % (k + 1));
-          const tmp = colors[k]; colors[k] = colors[idx]; colors[idx] = tmp;
-        }
         for (let i = 0; i < allTags.length; i++) {
-          tagColorCache[allTags[i]] = colors[i];
+          const hue = Math.round(170 + (i * 110) / n);
+          tagColorCache[allTags[i]] = `hsl(${hue}, 65%, 50%)`;
         }
       }
       function tagColor(name) {
