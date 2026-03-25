@@ -25,12 +25,13 @@
     var animId;
     var logicalW = 0;
     var logicalH = 0;
+    var isVisible = true;
 
     function resize() {
       var hero = canvas.parentElement;
       logicalW = hero.offsetWidth;
       logicalH = hero.offsetHeight;
-      var dpr = window.devicePixelRatio || 1;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = logicalW * dpr;
       canvas.height = logicalH * dpr;
       canvas.style.width = logicalW + 'px';
@@ -57,16 +58,19 @@
     }
 
     function draw() {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, logicalW, logicalH);
       var colorBase = getColor();
 
       // Draw connections
+      var connDistSq = CONNECTION_DIST * CONNECTION_DIST;
       for (var i = 0; i < particles.length; i++) {
         for (var j = i + 1; j < particles.length; j++) {
           var dx = particles[i].x - particles[j].x;
           var dy = particles[i].y - particles[j].y;
-          var dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < CONNECTION_DIST) {
+          var distSq = dx * dx + dy * dy;
+          if (distSq < connDistSq) {
+            var dist = Math.sqrt(distSq);
             var alpha = (1 - dist / CONNECTION_DIST) * 0.6;
             ctx.strokeStyle = colorBase + alpha + ')';
             ctx.lineWidth = 1;
@@ -96,6 +100,19 @@
       animId = requestAnimationFrame(draw);
     }
 
+    // Pause animation when hero is not visible
+    var heroObserver = new IntersectionObserver(function (entries) {
+      isVisible = entries[0].isIntersecting;
+      if (isVisible && !animId) {
+        animId = requestAnimationFrame(draw);
+      }
+      if (!isVisible && animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+      }
+    }, { threshold: 0 });
+    heroObserver.observe(canvas.parentElement);
+
     resize();
     createParticles();
     draw();
@@ -104,7 +121,6 @@
       var oldW = logicalW;
       var oldH = logicalH;
       resize();
-      // Rescale existing particle positions instead of regenerating
       if (oldW && oldH) {
         for (var i = 0; i < particles.length; i++) {
           particles[i].x = (particles[i].x / oldW) * logicalW;
@@ -152,7 +168,6 @@
   function initActiveNav() {
     var currentPage = location.pathname.split('/').pop() || 'index.html';
 
-    // Page-level active state for non-hash links (e.g. experience.html)
     document.querySelectorAll('.nav-links a').forEach(function (link) {
       var href = link.getAttribute('href');
       if (href && href.indexOf('#') === -1 && href === currentPage) {
@@ -160,12 +175,11 @@
       }
     });
 
-    // Scroll-based active state for hash-only links (index.html sections)
     var sections = document.querySelectorAll('section[id]');
     var hashLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     if (!sections.length || !hashLinks.length) return;
 
-    function update() {
+    registerScrollHandler(function () {
       var scrollPos = window.scrollY + 120;
       var current = '';
       sections.forEach(function (section) {
@@ -176,10 +190,7 @@
       hashLinks.forEach(function (link) {
         link.classList.toggle('active', link.getAttribute('href') === '#' + current);
       });
-    }
-
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+    });
   }
 
   // --- Back to top button ---
@@ -193,9 +204,9 @@
       btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>';
       document.body.appendChild(btn);
     }
-    window.addEventListener('scroll', function () {
+    registerScrollHandler(function () {
       btn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
+    });
     btn.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -209,15 +220,36 @@
     bar.className = 'progress-bar';
     header.appendChild(bar);
 
-    function update() {
+    registerScrollHandler(function () {
       var scrollTop = window.scrollY;
       var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
-    }
-
-    window.addEventListener('scroll', update, { passive: true });
-    update();
+      var progress = docHeight > 0 ? scrollTop / docHeight : 0;
+      bar.style.transform = 'scaleX(' + progress + ')';
+    });
   }
+
+  // --- Unified scroll handler (rAF-throttled) ---
+  var scrollHandlers = [];
+  var scrollTicking = false;
+
+  function registerScrollHandler(fn) {
+    scrollHandlers.push(fn);
+    fn(); // run once immediately
+  }
+
+  function onScroll() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(function () {
+        for (var i = 0; i < scrollHandlers.length; i++) {
+          scrollHandlers[i]();
+        }
+        scrollTicking = false;
+      });
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   // --- Animated favicon ---
   function initAnimatedFavicon() {
@@ -281,8 +313,22 @@
       link.href = canvas.toDataURL('image/png');
     }
 
-    setInterval(draw, 250);
     draw();
+    var faviconTimer = setTimeout(function tick() {
+      if (!document.hidden) draw();
+      faviconTimer = setTimeout(tick, 3000);
+    }, 3000);
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        clearTimeout(faviconTimer);
+      } else {
+        faviconTimer = setTimeout(function tick() {
+          draw();
+          faviconTimer = setTimeout(tick, 3000);
+        }, 3000);
+      }
+    });
   }
 
   // --- Konami code particle explosion ---
@@ -368,6 +414,26 @@
     }
   }
 
+  // --- Hamburger menu toggle ---
+  function initHamburger() {
+    var btn = document.getElementById('nav-hamburger');
+    var links = document.getElementById('nav-links');
+    if (!btn || !links) return;
+
+    btn.addEventListener('click', function () {
+      btn.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        btn.classList.remove('open');
+        links.classList.remove('open');
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     // Theme toggle
     var toggle = document.getElementById('theme-toggle');
@@ -394,12 +460,6 @@
 
         var expanded = card.classList.toggle('expanded');
         summary.setAttribute('aria-expanded', String(expanded));
-
-        if (expanded) {
-          details.style.maxHeight = details.scrollHeight + 'px';
-        } else {
-          details.style.maxHeight = '0px';
-        }
       }
 
       summary.addEventListener('click', toggle);
@@ -412,6 +472,7 @@
     });
 
     // Init features
+    initHamburger();
     initHeroCanvas();
     initScrollReveal();
     initActiveNav();

@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thoughts — Brandon B. May</title>
+  <meta name="description" content="Short-form notes, links, and observations on robotics, AI, and things I find interesting.">
+  <meta property="og:title" content="Thoughts — Brandon B. May">
+  <meta property="og:description" content="Short-form notes, links, and observations on robotics, AI, and things I find interesting.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://spart1cle.github.io/thoughts.html">
+  <meta property="og:image" content="https://spart1cle.github.io/assets/profile.jpg">
+  <link rel="canonical" href="https://spart1cle.github.io/thoughts.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Thoughts — Brandon B. May">
+  <meta name="twitter:description" content="Short-form notes, links, and observations on robotics, AI, and things I find interesting.">
+  <meta name="twitter:image" content="https://spart1cle.github.io/assets/profile.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script>
+    (function(){
+      var t = localStorage.getItem('theme-preference');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a class="nav-logo" href="index.html" aria-label="Home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#publications">Publications</a>
+        <a href="experience.html">Experience</a>
+        <a href="reading.html">Reading</a>
+        <a href="thoughts.html" class="active">Thoughts</a>
+      </div>
+      <div class="nav-actions">
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="section thoughts-section">
+      <h2 class="section-title">Thoughts</h2>
+      <p class="thoughts-subtitle">Notes, links, and fleeting ideas.</p>
+
+      <div class="reading-controls">
+        <div class="reading-search-wrap">
+          <input type="text" id="thoughts-search" class="reading-search" placeholder="Search thoughts...">
+          <button class="reading-search-clear" id="thoughts-search-clear" aria-label="Clear search">&times;</button>
+        </div>
+      </div>
+
+      <div class="reading-layout">
+        <aside class="reading-sidebar" id="thoughts-sidebar">
+          <span class="reading-filter-label">Tags</span>
+          <div class="reading-tag-list" id="thoughts-tag-filters"></div>
+          <button class="reading-clear-btn" id="thoughts-clear" style="display:none">Clear filters</button>
+        </aside>
+        <div class="reading-main">
+          <p class="reading-count" id="thoughts-count"></p>
+          <div id="thoughts-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Compose FAB (hidden by default) -->
+  <button class="thoughts-fab" id="thoughts-fab" style="display:none" aria-label="New thought">+</button>
+
+  <!-- Compose Modal -->
+  <div class="thoughts-modal-overlay" id="thoughts-modal" style="display:none">
+    <div class="thoughts-modal">
+      <div class="thoughts-modal-header">
+        <h3>New Thought</h3>
+        <button class="thoughts-modal-close" id="thoughts-modal-close">&times;</button>
+      </div>
+      <form id="thoughts-form">
+        <div class="thoughts-form-fields" id="thoughts-form-fields">
+          <textarea id="thought-text" class="thoughts-textarea" placeholder="What's on your mind?" rows="4"></textarea>
+          <div class="thoughts-url-field">
+            <input type="url" id="thought-url" class="reading-search" placeholder="Link URL (optional)">
+          </div>
+          <div class="thoughts-tags-field">
+            <div class="thoughts-existing-tags" id="thoughts-existing-tags"></div>
+            <div class="thoughts-new-tags" id="thoughts-new-tags"></div>
+            <input type="text" id="thought-tags" class="reading-search" placeholder="Add new tag...">
+          </div>
+          <div class="thoughts-preview" id="thoughts-preview" style="display:none">
+            <span class="reading-filter-label">Preview</span>
+            <div class="thoughts-preview-content" id="thoughts-preview-content"></div>
+          </div>
+          <div class="thoughts-submit-row" id="thoughts-submit-row">
+            <button type="button" class="thoughts-submit-btn" id="thoughts-publish-btn">Publish</button>
+          </div>
+        </div>
+        <div class="thoughts-confirm-preview" id="thoughts-confirm-preview">
+          <span class="reading-filter-label">Ready to publish</span>
+          <div id="thoughts-confirm-card"></div>
+          <div class="thoughts-confirm-row" style="margin-top: var(--space-md)">
+            <button type="submit" class="thoughts-submit-btn thoughts-confirm-btn" id="thoughts-confirm-btn">Confirm</button>
+            <button type="button" class="thoughts-submit-btn thoughts-cancel-btn" id="thoughts-cancel-btn">Cancel</button>
+          </div>
+        </div>
+        <p class="thoughts-status" id="thoughts-status"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Auth settings button -->
+  <button class="thoughts-auth-btn" id="thoughts-auth-btn" aria-label="Settings">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+  </button>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Brandon B. May</p>
+  </footer>
+
+  <script>
+    (function () {
+      var listEl = document.getElementById('thoughts-list');
+      var searchEl = document.getElementById('thoughts-search');
+      var tagFiltersEl = document.getElementById('thoughts-tag-filters');
+      var countEl = document.getElementById('thoughts-count');
+      var clearBtn = document.getElementById('thoughts-clear');
+      var thoughts = [];
+      var activeTags = new Set();
+      var searchTimeout = null;
+
+      // ── Data Loading ──────────────────────────────────────────
+      fetch('thoughts.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          thoughts = data;
+          renderTagFilters();
+          initClear();
+          readHash();
+          renderThoughts();
+          // Scroll to permalink if hash points to a thought
+          scrollToPermalink();
+        })
+        .catch(function () {
+          listEl.innerHTML = '<p style="text-align:center;color:var(--color-text-secondary)">Could not load thoughts.</p>';
+        });
+
+      // ── Tag Colors ──────────────────────────────────────────
+      var TAG_PALETTE = [
+        '#e6574e', '#e67e22', '#f1c40f', '#2ecc71', '#1abc9c',
+        '#3498db', '#9b59b6', '#e84393', '#00b894', '#6c5ce7',
+        '#fd79a8', '#0984e3', '#d35400', '#27ae60', '#8e44ad'
+      ];
+      var tagColorCache = {};
+      function tagColor(name) {
+        if (tagColorCache[name]) return tagColorCache[name];
+        var hash = 0;
+        for (var i = 0; i < name.length; i++) hash = ((hash << 5) - hash + name.charCodeAt(i)) | 0;
+        tagColorCache[name] = TAG_PALETTE[Math.abs(hash) % TAG_PALETTE.length];
+        return tagColorCache[name];
+      }
+
+      // ── Tag Filters ───────────────────────────────────────────
+      function renderTagFilters() {
+        var sidebarEl = document.getElementById('thoughts-sidebar');
+        var tagMap = {};
+        thoughts.forEach(function (t) {
+          (t.tags || []).forEach(function (tag) {
+            if (!tagMap[tag]) tagMap[tag] = 0;
+            tagMap[tag]++;
+          });
+        });
+        var sorted = Object.entries(tagMap).sort(function (a, b) { return a[0].localeCompare(b[0]); });
+        if (!sorted.length) {
+          sidebarEl.style.display = 'none';
+          return;
+        }
+        sidebarEl.style.display = '';
+        tagFiltersEl.innerHTML = sorted.map(function (entry) {
+          var name = entry[0], count = entry[1];
+          return '<button class="filter-btn tag-filter-btn" data-tag="' + escapeHtml(name) + '" style="--tag-color:' + tagColor(name) + '">' +
+            escapeHtml(name) + ' <span class="tag-count">' + count + '</span></button>';
+        }).join('');
+        tagFiltersEl.querySelectorAll('.tag-filter-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var tag = btn.dataset.tag;
+            var wasActive = activeTags.has(tag);
+            activeTags.clear();
+            tagFiltersEl.querySelectorAll('.tag-filter-btn.active').forEach(function (b) { b.classList.remove('active'); });
+            if (!wasActive) {
+              activeTags.add(tag);
+              btn.classList.add('active');
+            }
+            renderThoughts();
+          });
+        });
+      }
+
+      // ── Clear Button ──────────────────────────────────────────
+      function initClear() {
+        clearBtn.addEventListener('click', function () {
+          activeTags.clear();
+          searchEl.value = '';
+          tagFiltersEl.querySelectorAll('.tag-filter-btn.active').forEach(function (b) { b.classList.remove('active'); });
+          searchClearBtn.classList.remove('visible');
+          renderThoughts();
+        });
+      }
+
+      // ── Render Thoughts ───────────────────────────────────────
+      var PAGE_SIZE = 20;
+      var visibleCount = PAGE_SIZE;
+
+      function renderThoughts(resetPage) {
+        if (resetPage !== false) visibleCount = PAGE_SIZE;
+        updateHash();
+        var query = searchEl.value.toLowerCase();
+        var filtered = thoughts.filter(function (t) {
+          if (activeTags.size > 0) {
+            var entryTags = new Set(t.tags || []);
+            for (var tag of activeTags) {
+              if (!entryTags.has(tag)) return false;
+            }
+          }
+          if (query) {
+            var hay = (t.text + ' ' + (t.tags || []).join(' ') + ' ' + (t.url || '')).toLowerCase();
+            if (!hay.includes(query)) return false;
+          }
+          return true;
+        });
+
+        var hasFilters = activeTags.size > 0 || query;
+        clearBtn.style.display = hasFilters ? '' : 'none';
+        var noun = thoughts.length === 1 ? 'thought' : 'thoughts';
+        countEl.textContent = filtered.length === thoughts.length
+          ? thoughts.length + ' ' + noun
+          : 'Showing ' + filtered.length + ' of ' + thoughts.length + ' ' + noun;
+
+        if (!filtered.length) {
+          listEl.innerHTML = '<p style="text-align:center;color:var(--color-text-secondary);padding:var(--space-xl) 0">No thoughts match your search.</p>';
+          return;
+        }
+
+        var visible = filtered.slice(0, visibleCount);
+        var hasMore = filtered.length > visibleCount;
+
+        var html = '';
+        var lastMonth = '';
+        visible.forEach(function (t) {
+          // Date grouping — insert month header when month changes
+          var month = t.date ? t.date.slice(0, 7) : '';
+          if (month && month !== lastMonth) {
+            var d = new Date(t.date + 'T00:00:00');
+            var label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+            html += '<h3 class="thought-date-group">' + label + '</h3>';
+            lastMonth = month;
+          }
+
+          var tagsHtml = (t.tags || []).map(function (tag) {
+            return '<span class="reading-tag" style="--tag-color:' + tagColor(tag) + '">' + escapeHtml(tag) + '</span>';
+          }).join('');
+
+          var previewHtml = '';
+          if (t.url) {
+            previewHtml = '<div class="thought-link-preview" data-url="' + escapeHtml(t.url) + '" id="preview-' + t.id + '">' +
+              '<div class="thought-preview-loading">Loading preview...</div></div>';
+          }
+
+          var deleteBtn = isAuthenticated()
+            ? '<button class="thought-delete-btn" data-id="' + t.id + '" title="Delete"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6"></path><path d="M14 11v6"></path></svg></button>'
+            : '';
+
+          var deleteOverlay = isAuthenticated()
+            ? '<div class="thought-delete-overlay">' +
+                '<span>Delete this thought?</span>' +
+                '<div class="thought-delete-actions">' +
+                  '<button class="thought-delete-confirm-btn" data-id="' + t.id + '">Delete</button>' +
+                  '<button class="thought-delete-cancel-btn" data-id="' + t.id + '">Cancel</button>' +
+                '</div>' +
+              '</div>'
+            : '';
+
+          html += '<article class="thought-card" id="t-' + t.id + '">' +
+            deleteOverlay +
+            '<div class="thought-card-meta">' +
+              '<a href="#t-' + t.id + '" class="reading-date thought-permalink">' + escapeHtml(t.date) + '</a>' +
+              deleteBtn +
+            '</div>' +
+            '<div class="thought-text">' + formatText(t.text) + '</div>' +
+            previewHtml +
+            '<div class="thought-card-tags">' + tagsHtml + '</div>' +
+          '</article>';
+        });
+
+        listEl.innerHTML = html;
+
+        if (hasMore) {
+          listEl.insertAdjacentHTML('beforeend',
+            '<button class="thoughts-load-more" id="thoughts-load-more">Load more (' + (filtered.length - visibleCount) + ' remaining)</button>');
+          document.getElementById('thoughts-load-more').addEventListener('click', function () {
+            visibleCount += PAGE_SIZE;
+            renderThoughts(false);
+          });
+        }
+
+        // Attach delete handlers
+        listEl.querySelectorAll('.thought-delete-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () { handleDelete(btn.dataset.id); });
+        });
+        listEl.querySelectorAll('.thought-delete-confirm-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () { confirmDelete(btn.dataset.id); });
+        });
+        listEl.querySelectorAll('.thought-delete-cancel-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var card = document.getElementById('t-' + btn.dataset.id);
+            if (card) card.classList.remove('confirm-delete');
+          });
+        });
+
+        fetchLinkPreviews();
+        if (window.renderMathInElement) {
+          renderMathInElement(listEl, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+        if (window.revealElements) window.revealElements('.thought-card');
+      }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      function formatText(str) {
+        if (!str) return '';
+        // Split on code blocks (```...```) first, then process inline code
+        var parts = str.split(/(```[\s\S]*?```)/g);
+        return parts.map(function (part) {
+          if (part.startsWith('```') && part.endsWith('```')) {
+            var code = part.slice(3, -3);
+            // Strip optional language hint on first line
+            var firstNewline = code.indexOf('\n');
+            if (firstNewline !== -1 && /^[a-z]*$/.test(code.slice(0, firstNewline).trim())) {
+              code = code.slice(firstNewline + 1);
+            }
+            return '<pre class="thought-code-block"><code>' + escapeHtml(code) + '</code></pre>';
+          }
+          // Process inline code (`...`)
+          return part.split(/(`.+?`)/g).map(function (seg) {
+            if (seg.startsWith('`') && seg.endsWith('`')) {
+              return '<code class="thought-code-inline">' + escapeHtml(seg.slice(1, -1)) + '</code>';
+            }
+            return escapeHtml(seg);
+          }).join('');
+        }).join('');
+      }
+
+      // ── Link Previews ─────────────────────────────────────────
+      function fetchLinkPreviews() {
+        document.querySelectorAll('.thought-link-preview[data-url]').forEach(function (el) {
+          var url = el.dataset.url;
+          var cacheKey = 'og_' + url;
+          var cached = sessionStorage.getItem(cacheKey);
+
+          if (cached) {
+            renderPreview(el, JSON.parse(cached));
+            return;
+          }
+
+          fetch('https://api.microlink.io/?url=' + encodeURIComponent(url))
+            .then(function (r) { return r.json(); })
+            .then(function (res) {
+              if (res.status === 'success') {
+                var data = {
+                  title: res.data.title || '',
+                  description: res.data.description || '',
+                  image: res.data.image ? res.data.image.url : null,
+                  logo: res.data.logo ? res.data.logo.url : null,
+                  domain: new URL(url).hostname.replace('www.', '')
+                };
+                sessionStorage.setItem(cacheKey, JSON.stringify(data));
+                renderPreview(el, data);
+              } else {
+                renderPreviewFallback(el, url);
+              }
+            })
+            .catch(function () { renderPreviewFallback(el, url); });
+        });
+      }
+
+      function renderPreview(el, data) {
+        var url = el.dataset.url;
+        el.innerHTML =
+          '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener" class="thought-preview-card">' +
+            (data.image ? '<img class="thought-preview-img" src="' + escapeHtml(data.image) + '" alt="">' : '') +
+            '<div class="thought-preview-body">' +
+              '<span class="thought-preview-domain">' + escapeHtml(data.domain) + '</span>' +
+              '<span class="thought-preview-title">' + escapeHtml(data.title) + '</span>' +
+              '<span class="thought-preview-desc">' + escapeHtml(data.description) + '</span>' +
+            '</div>' +
+          '</a>';
+      }
+
+      function renderPreviewFallback(el, url) {
+        var domain;
+        try { domain = new URL(url).hostname.replace('www.', ''); } catch (e) { domain = url; }
+        el.innerHTML =
+          '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener" class="thought-preview-card">' +
+            '<div class="thought-preview-body">' +
+              '<span class="thought-preview-domain">' + escapeHtml(domain) + '</span>' +
+              '<span class="thought-preview-title">' + escapeHtml(url) + '</span>' +
+            '</div>' +
+          '</a>';
+      }
+
+      // ── Search ────────────────────────────────────────────────
+      var searchClearBtn = document.getElementById('thoughts-search-clear');
+      searchEl.addEventListener('input', function () {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(renderThoughts, 150);
+        searchClearBtn.classList.toggle('visible', searchEl.value.length > 0);
+      });
+      searchClearBtn.addEventListener('click', function () {
+        searchEl.value = '';
+        searchClearBtn.classList.remove('visible');
+        renderThoughts();
+      });
+
+      // ── Hash State ────────────────────────────────────────────
+      function isPermalinkHash() {
+        return location.hash.startsWith('#t-');
+      }
+
+      function updateHash() {
+        if (isPermalinkHash()) return;
+        var params = new URLSearchParams();
+        if (activeTags.size) params.set('tag', Array.from(activeTags)[0]);
+        if (searchEl.value) params.set('q', searchEl.value);
+        var hash = params.toString();
+        history.replaceState(null, '', hash ? '#' + hash : location.pathname);
+      }
+
+      function readHash() {
+        if (isPermalinkHash()) return;
+        var params = new URLSearchParams(location.hash.slice(1));
+        var tag = params.get('tag');
+        var q = params.get('q');
+        if (tag) {
+          activeTags.add(tag);
+          var btn = tagFiltersEl.querySelector('[data-tag="' + tag + '"]');
+          if (btn) btn.classList.add('active');
+        }
+        if (q) {
+          searchEl.value = q;
+          searchClearBtn.classList.add('visible');
+        }
+      }
+
+      function scrollToPermalink() {
+        if (!isPermalinkHash()) return;
+        var el = document.getElementById(location.hash.slice(1));
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.style.outline = '2px solid var(--color-accent)';
+          el.style.outlineOffset = '4px';
+          el.style.borderRadius = 'var(--border-radius)';
+          setTimeout(function () { el.style.outline = 'none'; }, 2000);
+        }
+      }
+
+      // ── Delete ────────────────────────────────────────────────
+      function handleDelete(id) {
+        var card = document.getElementById('t-' + id);
+        if (!card) return;
+
+        // If already showing confirm, cancel it
+        if (card.classList.contains('confirm-delete')) {
+          card.classList.remove('confirm-delete');
+          return;
+        }
+
+        // Show inline confirm state
+        card.classList.add('confirm-delete');
+      }
+
+      function confirmDelete(id) {
+        var card = document.getElementById('t-' + id);
+        var btn = card ? card.querySelector('.thought-delete-confirm-btn') : null;
+        if (btn) btn.textContent = 'Deleting...';
+
+        var pat = localStorage.getItem(TOKEN_KEY);
+        if (!pat) return;
+
+        fetch('https://api.github.com/repos/' + GITHUB_REPO + '/contents/thoughts.json?ref=' + GITHUB_BRANCH, {
+          headers: { Authorization: 'token ' + pat }
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (fileData) {
+            if (!fileData.sha) throw new Error(fileData.message || 'Could not read file');
+            var currentContent = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
+            var updated = currentContent.filter(function (t) { return t.id !== id; });
+            if (updated.length === currentContent.length) throw new Error('Entry not found');
+            var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(updated, null, 2))));
+
+            return fetch('https://api.github.com/repos/' + GITHUB_REPO + '/contents/thoughts.json', {
+              method: 'PUT',
+              headers: {
+                Authorization: 'token ' + pat,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                message: 'Delete thought: ' + id,
+                content: encoded,
+                sha: fileData.sha,
+                branch: GITHUB_BRANCH
+              })
+            });
+          })
+          .then(function (res) {
+            if (!res.ok) return res.json().then(function (err) { throw new Error(err.message || 'Delete failed'); });
+            // Update local state
+            thoughts = thoughts.filter(function (t) { return t.id !== id; });
+            renderTagFilters();
+            renderThoughts();
+          })
+          .catch(function (err) {
+            if (card) card.classList.remove('confirm-delete');
+            alert('Error: ' + err.message);
+          });
+      }
+
+      // ── Compose: Auth (GitHub OAuth) ─────────────────────────
+      var GITHUB_CLIENT_ID = 'Ov23liuSPDCcTpDL1qOt';
+      var OAUTH_WORKER_URL = 'https://github-oauth-proxy.brandon-b-may.workers.dev';
+      var GITHUB_REPO = 'spart1cle/spart1cle.github.io';
+      var GITHUB_BRANCH = 'main';
+      var TOKEN_KEY = 'thoughts-github-token';
+
+      function isAuthenticated() {
+        return !!localStorage.getItem(TOKEN_KEY);
+      }
+
+      // Handle OAuth callback — exchange code for token
+      (function handleOAuthCallback() {
+        var params = new URLSearchParams(window.location.search);
+        var code = params.get('code');
+        if (!code) return;
+        // Clean the URL immediately
+        history.replaceState(null, '', window.location.pathname + window.location.hash);
+        // Exchange code for token via Cloudflare Worker
+        fetch(OAUTH_WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: code })
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data.access_token) {
+              localStorage.setItem(TOKEN_KEY, data.access_token);
+              document.getElementById('thoughts-fab').style.display = '';
+            }
+          })
+          .catch(function () {});
+      })();
+
+      if (isAuthenticated()) {
+        document.getElementById('thoughts-fab').style.display = '';
+      }
+
+      document.getElementById('thoughts-auth-btn').addEventListener('click', function () {
+        if (isAuthenticated()) {
+          if (confirm('Already signed in. Sign out?')) {
+            localStorage.removeItem(TOKEN_KEY);
+            document.getElementById('thoughts-fab').style.display = 'none';
+          }
+          return;
+        }
+        // Redirect to GitHub OAuth
+        var redirectUri = encodeURIComponent(window.location.origin + '/thoughts.html');
+        window.location.href = 'https://github.com/login/oauth/authorize?client_id=' +
+          GITHUB_CLIENT_ID + '&redirect_uri=' + redirectUri + '&scope=repo';
+      });
+
+      // ── Compose: Tag Picker ──────────────────────────────────
+      var selectedComposeTags = new Set();
+      var existingTagsEl = document.getElementById('thoughts-existing-tags');
+
+      function getAllTags() {
+        var tags = new Set();
+        thoughts.forEach(function (t) {
+          (t.tags || []).forEach(function (tag) { tags.add(tag); });
+        });
+        return Array.from(tags).sort();
+      }
+
+      function renderComposeTags() {
+        var allTags = getAllTags();
+        if (!allTags.length) {
+          existingTagsEl.innerHTML = '';
+          return;
+        }
+        existingTagsEl.innerHTML = allTags.map(function (tag) {
+          var isSelected = selectedComposeTags.has(tag);
+          return '<button type="button" class="filter-btn tag-filter-btn' + (isSelected ? ' active' : '') +
+            '" data-compose-tag="' + escapeHtml(tag) + '" style="--tag-color:' + tagColor(tag) + '">' +
+            escapeHtml(tag) + '</button>';
+        }).join('');
+        existingTagsEl.querySelectorAll('[data-compose-tag]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var tag = btn.dataset.composeTag;
+            if (selectedComposeTags.has(tag)) {
+              selectedComposeTags.delete(tag);
+              btn.classList.remove('active');
+            } else {
+              selectedComposeTags.add(tag);
+              btn.classList.add('active');
+            }
+          });
+        });
+      }
+
+      // ── Compose: New Tag Chips ────────────────────────────────
+      var newTagsSet = new Set();
+      var newTagsEl = document.getElementById('thoughts-new-tags');
+      var tagInput = document.getElementById('thought-tags');
+
+      function renderNewTagChips() {
+        newTagsEl.innerHTML = Array.from(newTagsSet).map(function (tag) {
+          return '<button type="button" class="reading-tag thoughts-new-tag-chip" data-remove-tag="' + escapeHtml(tag) + '" style="--tag-color:' + tagColor(tag) + '">' +
+            escapeHtml(tag) + ' &times;</button>';
+        }).join('');
+        newTagsEl.querySelectorAll('[data-remove-tag]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            newTagsSet.delete(btn.dataset.removeTag);
+            renderNewTagChips();
+          });
+        });
+      }
+
+      tagInput.addEventListener('input', function () {
+        var val = tagInput.value;
+        if (val.indexOf(',') === -1) return;
+        var parts = val.split(',');
+        for (var i = 0; i < parts.length - 1; i++) {
+          var tag = parts[i].trim().toLowerCase();
+          if (tag) newTagsSet.add(tag);
+        }
+        tagInput.value = parts[parts.length - 1].trimStart();
+        renderNewTagChips();
+      });
+
+      tagInput.addEventListener('keydown', function (e) {
+        // Backspace on empty input removes last chip
+        if (e.key === 'Backspace' && !tagInput.value && newTagsSet.size) {
+          var last = Array.from(newTagsSet).pop();
+          newTagsSet.delete(last);
+          renderNewTagChips();
+        }
+      });
+
+      // ── Compose: Modal ────────────────────────────────────────
+      document.getElementById('thoughts-fab').addEventListener('click', function () {
+        renderComposeTags();
+        document.getElementById('thoughts-modal').style.display = '';
+      });
+
+      document.getElementById('thoughts-modal-close').addEventListener('click', function () {
+        document.getElementById('thoughts-modal').style.display = 'none';
+        resetToEditState();
+      });
+
+      document.getElementById('thoughts-modal').addEventListener('click', function (e) {
+        if (e.target === this) {
+          this.style.display = 'none';
+          resetToEditState();
+        }
+      });
+
+      // ── Compose: Live Preview ──────────────────────────────────
+      var composeTextEl = document.getElementById('thought-text');
+      var composeUrlEl = document.getElementById('thought-url');
+      var previewEl = document.getElementById('thoughts-preview');
+      var previewContentEl = document.getElementById('thoughts-preview-content');
+      var previewTimeout = null;
+
+      function renderComposeLinkPreview(el, url) {
+        var cacheKey = 'og_' + url;
+        var cached = sessionStorage.getItem(cacheKey);
+        if (cached) {
+          renderPreview(el, JSON.parse(cached));
+        } else {
+          fetch('https://api.microlink.io/?url=' + encodeURIComponent(url))
+            .then(function (r) { return r.json(); })
+            .then(function (res) {
+              if (res.status === 'success') {
+                var data = {
+                  title: res.data.title || '',
+                  description: res.data.description || '',
+                  image: res.data.image ? res.data.image.url : null,
+                  logo: res.data.logo ? res.data.logo.url : null,
+                  domain: new URL(url).hostname.replace('www.', '')
+                };
+                sessionStorage.setItem(cacheKey, JSON.stringify(data));
+                renderPreview(el, data);
+              } else {
+                renderPreviewFallback(el, url);
+              }
+            })
+            .catch(function () { renderPreviewFallback(el, url); });
+        }
+      }
+
+      function updateComposePreview() {
+        var text = composeTextEl.value.trim();
+        var url = composeUrlEl.value.trim();
+        if (!text && !url) {
+          previewEl.style.display = 'none';
+          return;
+        }
+        previewEl.style.display = '';
+
+        var html = '';
+        if (text) html += '<div class="thought-text">' + formatText(text) + '</div>';
+        if (url) html += '<div class="thought-link-preview" data-url="' + escapeHtml(url) + '" id="compose-preview-link"><div class="thought-preview-loading">Loading preview...</div></div>';
+        previewContentEl.innerHTML = html;
+
+        if (window.renderMathInElement) {
+          renderMathInElement(previewContentEl, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+
+        if (url) {
+          var el = document.getElementById('compose-preview-link');
+          if (el) renderComposeLinkPreview(el, url);
+        }
+      }
+
+      composeTextEl.addEventListener('input', function () {
+        clearTimeout(previewTimeout);
+        // Auto-fill URL field if a URL is found in text
+        var text = composeTextEl.value;
+        var urlMatch = text.match(/https?:\/\/[^\s)>\]]+/);
+        if (urlMatch && !composeUrlEl.value) {
+          composeUrlEl.value = urlMatch[0];
+        }
+        previewTimeout = setTimeout(updateComposePreview, 300);
+      });
+
+      composeUrlEl.addEventListener('input', function () {
+        clearTimeout(previewTimeout);
+        previewTimeout = setTimeout(updateComposePreview, 500);
+      });
+
+      // ── Compose: Submit ───────────────────────────────────────
+      var formFieldsEl = document.getElementById('thoughts-form-fields');
+      var confirmPreviewEl = document.getElementById('thoughts-confirm-preview');
+      var confirmCardEl = document.getElementById('thoughts-confirm-card');
+
+      function getComposeTags() {
+        var trailing = tagInput.value.trim().toLowerCase();
+        return Array.from(new Set(
+          Array.from(selectedComposeTags).concat(Array.from(newTagsSet)).concat(trailing ? [trailing] : [])
+        ));
+      }
+
+      function buildConfirmCard() {
+        var text = composeTextEl.value.trim();
+        var url = composeUrlEl.value.trim() || null;
+        var tags = getComposeTags();
+        var date = new Date().toISOString().slice(0, 10);
+
+        var tagsHtml = tags.map(function (tag) {
+          return '<span class="reading-tag" style="--tag-color:' + tagColor(tag) + '">' + escapeHtml(tag) + '</span>';
+        }).join('');
+
+        var previewHtml = '';
+        if (url) {
+          previewHtml = '<div class="thought-link-preview" data-url="' + escapeHtml(url) + '" id="confirm-card-preview">' +
+            '<div class="thought-preview-loading">Loading preview...</div></div>';
+        }
+
+        confirmCardEl.innerHTML =
+          '<article class="thought-card">' +
+            '<div class="thought-card-meta">' +
+              '<span class="reading-date">' + escapeHtml(date) + '</span>' +
+            '</div>' +
+            '<div class="thought-text">' + formatText(text) + '</div>' +
+            previewHtml +
+            (tagsHtml ? '<div class="thought-card-tags">' + tagsHtml + '</div>' : '') +
+          '</article>';
+
+        if (url) {
+          var el = document.getElementById('confirm-card-preview');
+          if (el) renderComposeLinkPreview(el, url);
+        }
+
+        if (window.renderMathInElement) {
+          renderMathInElement(confirmCardEl, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
+      }
+
+      function showConfirmState() {
+        buildConfirmCard();
+        formFieldsEl.classList.add('hidden');
+        // Small delay so the form collapse starts before card appears
+        setTimeout(function () { confirmPreviewEl.classList.add('visible'); }, 50);
+      }
+
+      function showEditState() {
+        confirmPreviewEl.classList.remove('visible');
+        setTimeout(function () { formFieldsEl.classList.remove('hidden'); }, 50);
+      }
+
+      function resetToEditState() {
+        confirmPreviewEl.classList.remove('visible');
+        formFieldsEl.classList.remove('hidden');
+      }
+
+      document.getElementById('thoughts-publish-btn').addEventListener('click', function () {
+        if (!composeTextEl.value.trim()) {
+          document.getElementById('thoughts-status').textContent = 'Text is required.';
+          return;
+        }
+        document.getElementById('thoughts-status').textContent = '';
+        showConfirmState();
+      });
+
+      document.getElementById('thoughts-cancel-btn').addEventListener('click', function () {
+        showEditState();
+      });
+
+      document.getElementById('thoughts-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var statusEl = document.getElementById('thoughts-status');
+        var confirmBtn = document.getElementById('thoughts-confirm-btn');
+        statusEl.textContent = 'Publishing...';
+        confirmBtn.disabled = true;
+
+        var pat = localStorage.getItem(TOKEN_KEY);
+        var repo = GITHUB_REPO;
+        var branch = GITHUB_BRANCH;
+
+        var text = composeTextEl.value.trim();
+        var url = composeUrlEl.value.trim() || null;
+        var trailing = tagInput.value.trim().toLowerCase();
+        if (trailing) newTagsSet.add(trailing);
+        var tags = Array.from(new Set(Array.from(selectedComposeTags).concat(Array.from(newTagsSet))));
+
+        var newEntry = {
+          id: String(Date.now()),
+          type: url ? 'link' : 'note',
+          date: new Date().toISOString().slice(0, 10),
+          text: text,
+          url: url,
+          tags: tags
+        };
+
+        // GET current file → prepend → PUT
+        fetch('https://api.github.com/repos/' + repo + '/contents/thoughts.json?ref=' + branch, {
+          headers: { Authorization: 'token ' + pat }
+        })
+          .then(function (r) { return r.json(); })
+          .then(function (fileData) {
+            if (!fileData.sha) throw new Error(fileData.message || 'Could not read file');
+            var currentContent = JSON.parse(atob(fileData.content.replace(/\n/g, '')));
+            currentContent.unshift(newEntry);
+            var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(currentContent, null, 2))));
+
+            return fetch('https://api.github.com/repos/' + repo + '/contents/thoughts.json', {
+              method: 'PUT',
+              headers: {
+                Authorization: 'token ' + pat,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                message: 'Add thought: ' + newEntry.type + ' - ' + newEntry.date,
+                content: encoded,
+                sha: fileData.sha,
+                branch: branch
+              })
+            });
+          })
+          .then(function (res) {
+            if (!res.ok) return res.json().then(function (err) { throw new Error(err.message || 'Commit failed'); });
+            statusEl.textContent = 'Published!';
+            // Update local state
+            thoughts.unshift(newEntry);
+            renderTagFilters();
+            renderThoughts();
+            // Reset form
+            composeTextEl.value = '';
+            composeUrlEl.value = '';
+            tagInput.value = '';
+            selectedComposeTags.clear();
+            newTagsSet.clear();
+            renderNewTagChips();
+            previewEl.style.display = 'none';
+            setTimeout(function () {
+              document.getElementById('thoughts-modal').style.display = 'none';
+              statusEl.textContent = '';
+              confirmBtn.disabled = false;
+              resetToEditState();
+            }, 1000);
+          })
+          .catch(function (err) {
+            statusEl.textContent = 'Error: ' + err.message;
+            confirmBtn.disabled = false;
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>
