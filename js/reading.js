@@ -187,9 +187,9 @@
               <div class="reading-card-bottom">
                 <div class="reading-card-tags">${collections}</div>
                 <div class="reading-card-links" onclick="event.stopPropagation()">
-                  ${arxivUrl ? `<a href="${escapeHtml(arxivUrl)}" target="_blank" rel="noopener">arXiv</a>` : ''}
-                  ${p.url ? `<a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">PDF</a>` : ''}
-                  ${p.project_link && !p.project_link.includes('}{') ? `<a href="${escapeHtml(p.project_link)}" target="_blank" rel="noopener">Project</a>` : ''}
+                  ${arxivUrl ? `<a class="pub-link" href="${escapeHtml(arxivUrl)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>arXiv</a>` : ''}
+                  ${p.url ? `<a class="pub-link" href="${escapeHtml(p.url)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>PDF</a>` : ''}
+                  ${p.project_link && !p.project_link.includes('}{') ? `<a class="pub-link" href="${escapeHtml(p.project_link)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</a>` : ''}
                 </div>
               </div>
               <svg class="reading-expand-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>

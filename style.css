@@ -1265,19 +1265,9 @@ ul { list-style: none; }
 
 .reading-card-links {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-sm);
+  flex-wrap: wrap;
   flex-shrink: 0;
-}
-
-.reading-card-links a {
-  font-size: var(--font-size-xs);
-  color: var(--color-accent);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.reading-card-links a:hover {
-  text-decoration: underline;
 }
 
 .reading-stats {
