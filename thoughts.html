@@ -577,12 +577,15 @@
         })
           .then(function (r) { return r.json(); })
           .then(function (data) {
+            console.log('OAuth response:', data);
             if (data.access_token) {
               localStorage.setItem(TOKEN_KEY, data.access_token);
               document.getElementById('thoughts-fab').style.display = '';
+            } else {
+              console.error('OAuth failed:', data);
             }
           })
-          .catch(function () {});
+          .catch(function (err) { console.error('OAuth error:', err); });
       })();
 
       if (isAuthenticated()) {
