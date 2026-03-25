@@ -2131,12 +2131,12 @@ ul { list-style: none; }
   .container { padding: 0 var(--space-md); }
   .nav-container { padding: 0 var(--space-sm); }
 
-  .nav-logo { width: 30px; height: 30px; }
-  .nav-logo svg { width: 14px; height: 14px; }
-  #theme-toggle { width: 30px; height: 30px; }
-  #theme-toggle svg { width: 14px; height: 14px; }
-  .nav-hamburger { width: 30px; height: 30px; }
-  .nav-hamburger span { width: 12px; }
+  .nav-logo { width: 36px; height: 36px; }
+  .nav-logo svg { width: 16px; height: 16px; }
+  #theme-toggle { width: 36px; height: 36px; }
+  #theme-toggle svg { width: 16px; height: 16px; }
+  .nav-hamburger { width: 36px; height: 36px; }
+  .nav-hamburger span { width: 14px; }
 
   .hero-links { flex-wrap: wrap; justify-content: center; }
   .pub-thumb { height: 110px; }
