@@ -1,5 +1,20 @@
 /* ============================================
    Brandon B. May — Personal Homepage
+   ============================================
+   Sections:
+   1. Variables & Theme
+   2. Reset & Base Typography
+   3. Navigation
+   4. Layout & Container
+   5. Page: Home (hero, about, publications, contact)
+   6. Page: Experience (timeline)
+   7. Utilities (progress bar, active nav, scroll reveal)
+   8. Shared Components (search, filters, tags, cards)
+   9. Page: Reading
+   10. Page: Thoughts
+   11. Footer
+   12. Responsive: Tablet
+   13. Responsive: Mobile
    ============================================ */
 
 :root {
@@ -877,7 +892,8 @@ ul { list-style: none; }
 }
 
 /* ============================================
-   Reading List
+   Shared Components (used by Reading + Thoughts)
+   — search, filters, tags, layout, pagination
    ============================================ */
 
 .reading-section {
@@ -1126,6 +1142,10 @@ ul { list-style: none; }
   padding-left: 0.5em;
 }
 
+/* ============================================
+   Page: Reading
+   ============================================ */
+
 .reading-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -1356,7 +1376,7 @@ ul { list-style: none; }
 }
 
 /* ============================================
-   Thoughts Page
+   Page: Thoughts
    ============================================ */
 
 .thoughts-section { padding-top: var(--space-xl); }
