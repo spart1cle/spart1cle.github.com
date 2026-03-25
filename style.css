@@ -1864,6 +1864,7 @@ ul { list-style: none; }
 /* Formatting toolbar */
 .thoughts-toolbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 2px;
   padding: 0.3rem;

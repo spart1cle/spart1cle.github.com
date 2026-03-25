@@ -732,30 +732,46 @@
         insert = `$$${sel || ''}$$`;
         cursorOffset = sel ? insert.length : 2;
         break;
+      case 'strikethrough':
+        insert = `~~${sel || 'text'}~~`;
+        cursorOffset = sel ? insert.length : 2;
+        break;
+      case 'image':
+        if (sel) {
+          insert = `![${sel}](url)`;
+          cursorOffset = insert.length - 4;
+        } else {
+          insert = '![alt](url)';
+          cursorOffset = 2;
+        }
+        break;
+      case 'ul': {
+        const lines = (sel || 'item').split('\n').map((l) => `- ${l}`).join('\n');
+        insert = (start > 0 && before[before.length - 1] !== '\n' ? '\n' : '') + lines;
+        cursorOffset = sel ? insert.length : insert.length - 4;
+        break;
+      }
+      case 'ol': {
+        const lines = (sel || 'item').split('\n').map((l, i) => `${i + 1}. ${l}`).join('\n');
+        insert = (start > 0 && before[before.length - 1] !== '\n' ? '\n' : '') + lines;
+        cursorOffset = sel ? insert.length : insert.length - 4;
+        break;
+      }
+      case 'hr':
+        insert = (start > 0 && before[before.length - 1] !== '\n' ? '\n' : '') + '---\n';
+        cursorOffset = insert.length;
+        break;
     }
 
     ta.focus();
     ta.setSelectionRange(start, end);
     document.execCommand('insertText', false, insert);
     const pos = start + cursorOffset;
+    const placeholderLen = { bold: 4, italic: 6, code: 4, math: 1, link: 4, strikethrough: 4, image: 3, ul: 4, ol: 4 };
     if (sel) {
       ta.setSelectionRange(start, start + insert.length);
     } else {
-      ta.setSelectionRange(
-        pos,
-        pos +
-          (fmt === 'bold'
-            ? 4
-            : fmt === 'italic'
-              ? 6
-              : fmt === 'code'
-                ? 4
-                : fmt === 'math'
-                  ? 1
-                  : fmt === 'link'
-                    ? 4
-                    : 0)
-      );
+      ta.setSelectionRange(pos, pos + (placeholderLen[fmt] || 0));
     }
     clearTimeout(previewTimeout);
     previewTimeout = setTimeout(updateComposePreview, 300);
