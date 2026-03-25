@@ -1,5 +1,16 @@
 [
   {
+    "id": "1774410299926",
+    "type": "link",
+    "date": "2026-03-25",
+    "text": "A follow-up to his LLM architecture gallery covering all different variants of attention mechanisms.",
+    "url": "https://magazine.sebastianraschka.com/p/visual-attention-variants?utm_source=post-email-title&publication_id=1174659&post_id=191674053",
+    "tags": [
+      "blog",
+      "llm"
+    ]
+  },
+  {
     "id": "1711324800000",
     "type": "note",
     "date": "2026-03-24",
