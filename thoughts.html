@@ -676,6 +676,17 @@
       });
 
       tagInput.addEventListener('keydown', function (e) {
+        // Enter creates a tag instead of submitting the form
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          var tag = tagInput.value.trim().toLowerCase();
+          if (tag) {
+            newTagsSet.add(tag);
+            tagInput.value = '';
+            renderNewTagChips();
+          }
+          return;
+        }
         // Backspace on empty input removes last chip
         if (e.key === 'Backspace' && !tagInput.value && newTagsSet.size) {
           var last = Array.from(newTagsSet).pop();
