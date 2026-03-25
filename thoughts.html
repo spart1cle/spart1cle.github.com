@@ -401,9 +401,9 @@
         if (window.marked) {
           marked.setOptions({ breaks: true, gfm: true });
           var renderer = new marked.Renderer();
-          renderer.link = function (href, title, text) {
-            return '<a href="' + href + '" target="_blank" rel="noopener"' +
-              (title ? ' title="' + title + '"' : '') + '>' + text + '</a>';
+          renderer.link = function (token) {
+            return '<a href="' + token.href + '" target="_blank" rel="noopener"' +
+              (token.title ? ' title="' + token.title + '"' : '') + '>' + token.text + '</a>';
           };
           return marked.parse(str, { renderer: renderer });
         }
@@ -918,8 +918,8 @@
             cursorOffset = sel ? insert.length : 1;
             break;
           case 'mathblock':
-            insert = (start > 0 && before[before.length - 1] !== '\n' ? '\n' : '') + '$$\n' + (sel || '') + '\n$$';
-            cursorOffset = sel ? insert.length : insert.indexOf('\n', 1) + 1;
+            insert = '$$' + (sel || '') + '$$';
+            cursorOffset = sel ? insert.length : 2;
             break;
         }
 
