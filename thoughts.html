@@ -867,6 +867,11 @@
 
       document.getElementById('thoughts-form').addEventListener('submit', function (e) {
         e.preventDefault();
+        // Only proceed if in confirm state; otherwise show preview first
+        if (!confirmPreviewEl.classList.contains('visible')) {
+          if (composeTextEl.value.trim()) showConfirmState();
+          return;
+        }
         var statusEl = document.getElementById('thoughts-status');
         var confirmBtn = document.getElementById('thoughts-confirm-btn');
         statusEl.textContent = 'Publishing...';
