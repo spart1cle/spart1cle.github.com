@@ -1265,9 +1265,14 @@ ul { list-style: none; }
 
 .reading-card-links {
   display: flex;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   flex-wrap: wrap;
   flex-shrink: 0;
+}
+
+.reading-card-links .pub-link {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
 }
 
 .reading-stats {
