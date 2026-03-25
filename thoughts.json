@@ -1,5 +1,17 @@
 [
   {
+    "id": "1774482682269",
+    "type": "link",
+    "date": "2026-03-25",
+    "text": "**Dream2Flow**, a framework that bridges video generation and robotic control through 3D object flow as an intermediate representation. This method reconstructs 3D object motions from generated videos and formulates manipulation as object trajectory tracking.",
+    "url": "https://dream2flow.github.io/",
+    "tags": [
+      "code",
+      "robotics",
+      "research"
+    ]
+  },
+  {
     "id": "1774436957773",
     "type": "link",
     "date": "2026-03-25",
