@@ -1410,7 +1410,6 @@ ul { list-style: none; }
 /* Edit & Delete buttons */
 .thought-edit-btn,
 .thought-delete-btn {
-  margin-left: auto;
   background: none;
   border: none;
   color: var(--color-text-muted);
@@ -1420,10 +1419,12 @@ ul { list-style: none; }
   padding: 2px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
 }
 
 .thought-edit-btn { margin-left: auto; }
-.thought-delete-btn { margin-left: 0; }
 
 .thought-card:hover .thought-edit-btn,
 .thought-card:hover .thought-delete-btn { opacity: 0.5; }
@@ -1723,14 +1724,18 @@ ul { list-style: none; }
 .thoughts-fab {
   position: fixed;
   bottom: var(--space-xl);
-  right: calc(var(--space-xl) + 52px);
-  width: 48px;
-  height: 48px;
+  right: calc(var(--space-xl) + 44px);
+  width: 36px;
+  height: 36px;
   border: none;
   border-radius: 50%;
   background: var(--color-accent);
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   box-shadow: 0 4px 12px var(--color-card-shadow-hover);
   transition: transform var(--transition-fast), background-color var(--transition-fast);
@@ -1977,8 +1982,8 @@ ul { list-style: none; }
   position: fixed;
   bottom: var(--space-xl);
   right: var(--space-xl);
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--color-border);
   border-radius: 50%;
   background: var(--color-surface);
@@ -2158,6 +2163,6 @@ ul { list-style: none; }
   .thoughts-modal { padding: var(--space-md); }
 
   /* Fixed buttons: tighter positioning */
-  .thoughts-fab { bottom: var(--space-lg); right: calc(var(--space-lg) + 48px); }
+  .thoughts-fab { bottom: var(--space-lg); right: calc(var(--space-lg) + 44px); }
   .thoughts-auth-btn { bottom: var(--space-lg); left: var(--space-lg); }
 }
