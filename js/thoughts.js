@@ -722,6 +722,7 @@
     const btn = e.target.closest('[data-fmt]');
     if (!btn) return;
     const fmt = btn.dataset.fmt;
+    if (fmt === 'emoji') { toggleEmojiPicker(); return; }
     const ta = composeTextEl;
     const start = ta.selectionStart;
     const end = ta.selectionEnd;
@@ -932,6 +933,60 @@
 
   composeTextEl.addEventListener('blur', () => {
     setTimeout(hideEmojiDropdown, 150);
+  });
+
+  // ── Emoji Picker (toolbar button) ─────────────────────────
+  const emojiPicker = document.createElement('div');
+  emojiPicker.className = 'thoughts-emoji-picker';
+  document.body.appendChild(emojiPicker);
+
+  function buildEmojiPickerGrid() {
+    const seen = new Set();
+    return Object.entries(EMOJI_MAP)
+      .filter(([, emoji]) => seen.has(emoji) ? false : (seen.add(emoji), true))
+      .map(([code, emoji]) =>
+        `<button type="button" class="emoji-picker-item" data-emoji="${emoji}" title=":${escapeHtml(code)}:">${emoji}</button>`
+      ).join('');
+  }
+
+  function showEmojiPicker() {
+    hideEmojiDropdown();
+    emojiPicker.innerHTML = buildEmojiPickerGrid();
+    const rect = composeTextEl.getBoundingClientRect();
+    emojiPicker.style.left = rect.left + 'px';
+    emojiPicker.style.top = (rect.bottom + 4) + 'px';
+    emojiPicker.style.width = Math.min(rect.width, 280) + 'px';
+    emojiPicker.classList.add('visible');
+    emojiPicker.querySelectorAll('.emoji-picker-item').forEach((btn) => {
+      btn.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        composeTextEl.focus();
+        document.execCommand('insertText', false, btn.dataset.emoji);
+        hideEmojiPicker();
+        clearTimeout(previewTimeout);
+        previewTimeout = setTimeout(updateComposePreview, 300);
+      });
+    });
+  }
+
+  function hideEmojiPicker() {
+    emojiPicker.classList.remove('visible');
+  }
+
+  function toggleEmojiPicker() {
+    if (emojiPicker.classList.contains('visible')) {
+      hideEmojiPicker();
+    } else {
+      showEmojiPicker();
+    }
+  }
+
+  document.addEventListener('mousedown', (e) => {
+    if (emojiPicker.classList.contains('visible') &&
+        !emojiPicker.contains(e.target) &&
+        !e.target.closest('[data-fmt="emoji"]')) {
+      hideEmojiPicker();
+    }
   });
 
   // ── Compose: Submit ────────────────────────────────────────
