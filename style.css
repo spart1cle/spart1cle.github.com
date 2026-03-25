@@ -1407,7 +1407,8 @@ ul { list-style: none; }
   gap: var(--space-xs);
 }
 
-/* Delete button */
+/* Edit & Delete buttons */
+.thought-edit-btn,
 .thought-delete-btn {
   margin-left: auto;
   background: none;
@@ -1421,7 +1422,12 @@ ul { list-style: none; }
   align-items: center;
 }
 
+.thought-edit-btn { margin-left: auto; }
+.thought-delete-btn { margin-left: 0; }
+
+.thought-card:hover .thought-edit-btn,
 .thought-card:hover .thought-delete-btn { opacity: 0.5; }
+.thought-edit-btn:hover { opacity: 1 !important; color: var(--color-accent); }
 .thought-delete-btn:hover { opacity: 1 !important; color: #e74c3c; }
 
 /* Delete confirmation overlay */
@@ -1558,8 +1564,25 @@ ul { list-style: none; }
   padding: var(--space-sm);
 }
 
+/* Markdown content inside thought cards */
+.thought-text p { margin-bottom: 0.5em; }
+.thought-text p:last-child { margin-bottom: 0; }
+.thought-text a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px; }
+.thought-text a:hover { color: var(--color-accent-hover); }
+.thought-text strong { color: var(--color-text); font-weight: 600; }
+.thought-text ul, .thought-text ol { margin: 0.5em 0; padding-left: 1.5em; }
+.thought-text li { margin-bottom: 0.25em; }
+.thought-text blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-md);
+  color: var(--color-text-muted);
+  margin: 0.5em 0;
+}
+.thought-text img { max-width: 100%; border-radius: var(--border-radius-sm); }
+.thought-text hr { border: none; border-top: 1px solid var(--color-border); margin: 0.75em 0; }
+
 /* Code formatting */
-.thought-code-inline {
+.thought-text code {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 0.8em;
   padding: 0.15em 0.4em;
@@ -1568,7 +1591,7 @@ ul { list-style: none; }
   color: var(--color-text);
 }
 
-.thought-code-block {
+.thought-text pre {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: var(--font-size-xs);
   padding: var(--space-sm) var(--space-md);
@@ -1580,8 +1603,11 @@ ul { list-style: none; }
   line-height: 1.5;
 }
 
-.thought-code-block code {
+.thought-text pre code {
   font-family: inherit;
+  padding: 0;
+  background: none;
+  font-size: inherit;
 }
 
 /* Date group headers */
@@ -1764,14 +1790,60 @@ ul { list-style: none; }
   color: var(--color-accent);
 }
 
+/* Formatting toolbar */
+.thoughts-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0.3rem;
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+  background: var(--color-bg-elevated);
+}
+
+.thoughts-toolbar button {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0.25rem 0.45rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.thoughts-toolbar button:hover {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+
+.thoughts-toolbar code {
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.75rem;
+}
+
+.thoughts-toolbar-sep {
+  width: 1px;
+  height: 18px;
+  background: var(--color-border);
+  margin: 0 2px;
+}
+
 .thoughts-textarea {
   width: 100%;
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-sm);
+  border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
   background: var(--color-surface);
   color: var(--color-text);
-  font-family: var(--font-sans);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: var(--font-size-sm);
   resize: vertical;
   margin-bottom: var(--space-md);
@@ -1779,6 +1851,7 @@ ul { list-style: none; }
 }
 
 .thoughts-textarea:focus { outline: none; border-color: var(--color-accent); }
+.thoughts-toolbar:has(+ .thoughts-textarea:focus) { border-color: var(--color-accent); }
 
 .thoughts-url-field { margin-bottom: var(--space-md); }
 
@@ -2075,7 +2148,7 @@ ul { list-style: none; }
   .reading-card.expanded .reading-card-details { padding-bottom: var(--space-md); }
 
   /* Code blocks: prevent horizontal overflow */
-  .thought-code-block { font-size: 0.7rem; }
+  .thought-text pre { font-size: 0.7rem; }
 
   /* Link preview image: shorter on small screens */
   .thought-preview-img { height: 100px; }

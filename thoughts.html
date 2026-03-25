@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     (function(){
       var t = localStorage.getItem('theme-preference');
@@ -95,6 +96,22 @@
       </div>
       <form id="thoughts-form">
         <div class="thoughts-form-fields" id="thoughts-form-fields">
+          <div class="thoughts-toolbar" id="thoughts-toolbar">
+            <button type="button" data-fmt="bold" title="Bold (Ctrl+B)"><strong>B</strong></button>
+            <button type="button" data-fmt="italic" title="Italic (Ctrl+I)"><em>I</em></button>
+            <button type="button" data-fmt="link" title="Link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            </button>
+            <span class="thoughts-toolbar-sep"></span>
+            <button type="button" data-fmt="code" title="Inline code"><code>&lt;/&gt;</code></button>
+            <button type="button" data-fmt="codeblock" title="Code block">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </button>
+            <span class="thoughts-toolbar-sep"></span>
+            <button type="button" data-fmt="quote" title="Blockquote">"</button>
+            <button type="button" data-fmt="math" title="Inline LaTeX">$</button>
+            <button type="button" data-fmt="mathblock" title="LaTeX block">$$</button>
+          </div>
           <textarea id="thought-text" class="thoughts-textarea" placeholder="What's on your mind?" rows="4"></textarea>
           <div class="thoughts-url-field">
             <input type="url" id="thought-url" class="reading-search" placeholder="Link URL (optional)">
@@ -290,6 +307,10 @@
               '<div class="thought-preview-loading">Loading preview...</div></div>';
           }
 
+          var editBtn = isAuthenticated()
+            ? '<button class="thought-edit-btn" data-id="' + t.id + '" title="Edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>'
+            : '';
+
           var deleteBtn = isAuthenticated()
             ? '<button class="thought-delete-btn" data-id="' + t.id + '" title="Delete"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><path d="M10 11v6"></path><path d="M14 11v6"></path></svg></button>'
             : '';
@@ -308,7 +329,7 @@
             deleteOverlay +
             '<div class="thought-card-meta">' +
               '<a href="#t-' + t.id + '" class="reading-date thought-permalink">' + escapeHtml(t.date) + '</a>' +
-              deleteBtn +
+              editBtn + deleteBtn +
             '</div>' +
             '<div class="thought-text">' + formatText(t.text) + '</div>' +
             previewHtml +
@@ -327,6 +348,10 @@
           });
         }
 
+        // Attach edit handlers
+        listEl.querySelectorAll('.thought-edit-btn').forEach(function (btn) {
+          btn.addEventListener('click', function () { handleEdit(btn.dataset.id); });
+        });
         // Attach delete handlers
         listEl.querySelectorAll('.thought-delete-btn').forEach(function (btn) {
           btn.addEventListener('click', function () { handleDelete(btn.dataset.id); });
@@ -373,26 +398,17 @@
 
       function formatText(str) {
         if (!str) return '';
-        // Split on code blocks (```...```) first, then process inline code
-        var parts = str.split(/(```[\s\S]*?```)/g);
-        return parts.map(function (part) {
-          if (part.startsWith('```') && part.endsWith('```')) {
-            var code = part.slice(3, -3);
-            // Strip optional language hint on first line
-            var firstNewline = code.indexOf('\n');
-            if (firstNewline !== -1 && /^[a-z]*$/.test(code.slice(0, firstNewline).trim())) {
-              code = code.slice(firstNewline + 1);
-            }
-            return '<pre class="thought-code-block"><code>' + escapeHtml(code) + '</code></pre>';
-          }
-          // Process inline code (`...`)
-          return part.split(/(`.+?`)/g).map(function (seg) {
-            if (seg.startsWith('`') && seg.endsWith('`')) {
-              return '<code class="thought-code-inline">' + escapeHtml(seg.slice(1, -1)) + '</code>';
-            }
-            return escapeHtml(seg);
-          }).join('');
-        }).join('');
+        if (window.marked) {
+          marked.setOptions({ breaks: true, gfm: true });
+          var renderer = new marked.Renderer();
+          renderer.link = function (href, title, text) {
+            return '<a href="' + href + '" target="_blank" rel="noopener"' +
+              (title ? ' title="' + title + '"' : '') + '>' + text + '</a>';
+          };
+          return marked.parse(str, { renderer: renderer });
+        }
+        // Fallback if marked hasn't loaded yet
+        return escapeHtml(str);
       }
 
       // ── Link Previews ─────────────────────────────────────────
@@ -506,6 +522,43 @@
           el.style.borderRadius = 'var(--border-radius)';
           setTimeout(function () { el.style.outline = 'none'; }, 2000);
         }
+      }
+
+      // ── Edit ──────────────────────────────────────────────────
+      var editingId = null;
+
+      function handleEdit(id) {
+        var entry = thoughts.find(function (t) { return t.id === id; });
+        if (!entry) return;
+        editingId = id;
+        // Pre-fill compose fields
+        composeTextEl.value = entry.text || '';
+        composeUrlEl.value = entry.url || '';
+        // Pre-select existing tags
+        selectedComposeTags.clear();
+        newTagsSet.clear();
+        tagInput.value = '';
+        (entry.tags || []).forEach(function (tag) { selectedComposeTags.add(tag); });
+        renderNewTagChips();
+        renderComposeTags();
+        updateComposePreview();
+        // Update modal title and button text
+        document.querySelector('.thoughts-modal-header h3').textContent = 'Edit Thought';
+        document.getElementById('thoughts-publish-btn').textContent = 'Update';
+        document.getElementById('thoughts-modal').style.display = '';
+      }
+
+      function resetComposeForm() {
+        editingId = null;
+        composeTextEl.value = '';
+        composeUrlEl.value = '';
+        tagInput.value = '';
+        selectedComposeTags.clear();
+        newTagsSet.clear();
+        renderNewTagChips();
+        previewEl.style.display = 'none';
+        document.querySelector('.thoughts-modal-header h3').textContent = 'New Thought';
+        document.getElementById('thoughts-publish-btn').textContent = 'Publish';
       }
 
       // ── Delete ────────────────────────────────────────────────
@@ -716,6 +769,7 @@
 
       // ── Compose: Modal ────────────────────────────────────────
       document.getElementById('thoughts-fab').addEventListener('click', function () {
+        resetComposeForm();
         renderComposeTags();
         document.getElementById('thoughts-modal').style.display = '';
       });
@@ -723,12 +777,14 @@
       document.getElementById('thoughts-modal-close').addEventListener('click', function () {
         document.getElementById('thoughts-modal').style.display = 'none';
         resetToEditState();
+        resetComposeForm();
       });
 
       document.getElementById('thoughts-modal').addEventListener('click', function (e) {
         if (e.target === this) {
           this.style.display = 'none';
           resetToEditState();
+          resetComposeForm();
         }
       });
 
@@ -810,6 +866,90 @@
       composeUrlEl.addEventListener('input', function () {
         clearTimeout(previewTimeout);
         previewTimeout = setTimeout(updateComposePreview, 500);
+      });
+
+      // ── Compose: Formatting Toolbar ──────────────────────────
+      document.getElementById('thoughts-toolbar').addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-fmt]');
+        if (!btn) return;
+        var fmt = btn.dataset.fmt;
+        var ta = composeTextEl;
+        var start = ta.selectionStart;
+        var end = ta.selectionEnd;
+        var sel = ta.value.substring(start, end);
+        var before = ta.value.substring(0, start);
+        var after = ta.value.substring(end);
+        var insert = '';
+        var cursorOffset = 0;
+
+        switch (fmt) {
+          case 'bold':
+            insert = '**' + (sel || 'bold') + '**';
+            cursorOffset = sel ? insert.length : 2;
+            break;
+          case 'italic':
+            insert = '*' + (sel || 'italic') + '*';
+            cursorOffset = sel ? insert.length : 1;
+            break;
+          case 'link':
+            if (sel) {
+              insert = '[' + sel + '](url)';
+              cursorOffset = insert.length - 1;
+            } else {
+              insert = '[text](url)';
+              cursorOffset = 1;
+            }
+            break;
+          case 'code':
+            insert = '`' + (sel || 'code') + '`';
+            cursorOffset = sel ? insert.length : 1;
+            break;
+          case 'codeblock':
+            insert = (start > 0 && before[before.length - 1] !== '\n' ? '\n' : '') + '```\n' + (sel || '') + '\n```';
+            cursorOffset = sel ? insert.length : insert.indexOf('\n', 1) + 1;
+            break;
+          case 'quote':
+            var lines = (sel || 'quote').split('\n').map(function (l) { return '> ' + l; }).join('\n');
+            insert = (start > 0 && before[before.length - 1] !== '\n' ? '\n' : '') + lines;
+            cursorOffset = sel ? insert.length : 2;
+            break;
+          case 'math':
+            insert = '$' + (sel || 'x') + '$';
+            cursorOffset = sel ? insert.length : 1;
+            break;
+          case 'mathblock':
+            insert = (start > 0 && before[before.length - 1] !== '\n' ? '\n' : '') + '$$\n' + (sel || '') + '\n$$';
+            cursorOffset = sel ? insert.length : insert.indexOf('\n', 1) + 1;
+            break;
+        }
+
+        ta.value = before + insert + after;
+        ta.focus();
+        var pos = start + cursorOffset;
+        if (sel) {
+          ta.setSelectionRange(start, start + insert.length);
+        } else {
+          ta.setSelectionRange(pos, pos + (fmt === 'bold' ? 4 : fmt === 'italic' ? 6 : fmt === 'code' ? 4 : fmt === 'math' ? 1 : fmt === 'link' ? 4 : 0));
+        }
+        // Trigger preview update
+        clearTimeout(previewTimeout);
+        previewTimeout = setTimeout(updateComposePreview, 300);
+      });
+
+      // Keyboard shortcuts
+      composeTextEl.addEventListener('keydown', function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+          e.preventDefault();
+          document.querySelector('[data-fmt="bold"]').click();
+        }
+        if ((e.ctrlKey || e.metaKey) && e.key === 'i') {
+          e.preventDefault();
+          document.querySelector('[data-fmt="italic"]').click();
+        }
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+          e.preventDefault();
+          document.querySelector('[data-fmt="link"]').click();
+        }
       });
 
       // ── Compose: Submit ───────────────────────────────────────
@@ -904,7 +1044,7 @@
         }
         var statusEl = document.getElementById('thoughts-status');
         var confirmBtn = document.getElementById('thoughts-confirm-btn');
-        statusEl.textContent = 'Publishing...';
+        statusEl.textContent = editingId ? 'Updating...' : 'Publishing...';
         confirmBtn.disabled = true;
 
         var pat = localStorage.getItem(TOKEN_KEY);
@@ -917,16 +1057,30 @@
         if (trailing) newTagsSet.add(trailing);
         var tags = Array.from(new Set(Array.from(selectedComposeTags).concat(Array.from(newTagsSet))));
 
-        var newEntry = {
-          id: String(Date.now()),
-          type: url ? 'link' : 'note',
-          date: new Date().toISOString().slice(0, 10),
-          text: sanitizeText(text),
-          url: url,
-          tags: tags
-        };
+        var isEdit = !!editingId;
+        var entry;
+        if (isEdit) {
+          var existing = thoughts.find(function (t) { return t.id === editingId; });
+          entry = {
+            id: editingId,
+            type: url ? 'link' : 'note',
+            date: existing ? existing.date : new Date().toISOString().slice(0, 10),
+            text: sanitizeText(text),
+            url: url,
+            tags: tags
+          };
+        } else {
+          entry = {
+            id: String(Date.now()),
+            type: url ? 'link' : 'note',
+            date: new Date().toISOString().slice(0, 10),
+            text: sanitizeText(text),
+            url: url,
+            tags: tags
+          };
+        }
 
-        // GET current file → prepend → PUT
+        // GET current file → update/prepend → PUT
         fetch('https://api.github.com/repos/' + repo + '/contents/thoughts.json?ref=' + branch, {
           headers: { Authorization: 'token ' + pat }
         })
@@ -934,7 +1088,13 @@
           .then(function (fileData) {
             if (!fileData.sha) throw new Error(fileData.message || 'Could not read file');
             var currentContent = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, '')))));
-            currentContent.unshift(newEntry);
+            if (isEdit) {
+              var idx = currentContent.findIndex(function (t) { return t.id === editingId; });
+              if (idx === -1) throw new Error('Entry not found');
+              currentContent[idx] = entry;
+            } else {
+              currentContent.unshift(entry);
+            }
             var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(currentContent, null, 2))));
 
             return fetch('https://api.github.com/repos/' + repo + '/contents/thoughts.json', {
@@ -944,7 +1104,7 @@
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify({
-                message: 'Add thought: ' + newEntry.type + ' - ' + newEntry.date,
+                message: (isEdit ? 'Edit' : 'Add') + ' thought: ' + entry.type + ' - ' + entry.date,
                 content: encoded,
                 sha: fileData.sha,
                 branch: branch
@@ -953,20 +1113,19 @@
           })
           .then(function (res) {
             if (!res.ok) return res.json().then(function (err) { throw new Error(err.message || 'Commit failed'); });
-            statusEl.textContent = 'Published!';
+            statusEl.textContent = isEdit ? 'Updated!' : 'Published!';
             // Update local state
-            thoughts.unshift(newEntry);
+            if (isEdit) {
+              var idx = thoughts.findIndex(function (t) { return t.id === editingId; });
+              if (idx !== -1) thoughts[idx] = entry;
+            } else {
+              thoughts.unshift(entry);
+            }
             rebuildTagColors();
             renderTagFilters();
             renderThoughts();
             // Reset form
-            composeTextEl.value = '';
-            composeUrlEl.value = '';
-            tagInput.value = '';
-            selectedComposeTags.clear();
-            newTagsSet.clear();
-            renderNewTagChips();
-            previewEl.style.display = 'none';
+            resetComposeForm();
             setTimeout(function () {
               document.getElementById('thoughts-modal').style.display = 'none';
               statusEl.textContent = '';
