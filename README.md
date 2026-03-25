@@ -17,10 +17,15 @@ Personal website for Brandon B. May — built with plain HTML, CSS, and JavaScri
 index.html          Home page
 experience.html     Experience & education timeline
 reading.html        Reading list (renders papers.json)
-thoughts.html       Thoughts feed (renders thoughts.json, inline compose UI)
+thoughts.html       Thoughts feed (renders thoughts.json)
 style.css           All styles, light/dark themes, responsive breakpoints
-script.js           Shared JS: theme toggle, hero canvas, scroll reveal,
+js/
+  shared.js         Shared utilities: escapeHtml, tag colors, hash state
+  script.js         Site-wide JS: theme toggle, hero canvas, scroll reveal,
                     progress bar, hamburger menu, animated favicon
+  reading.js        Reading page: paper filtering, search, sort, pagination
+  thoughts.js       Thoughts page: compose UI, GitHub OAuth, link previews,
+                    markdown/LaTeX rendering, CRUD via GitHub API
 papers.json         Reading list data (auto-updated daily)
 thoughts.json       Thoughts data (updated via GitHub API from the site)
 fetch_papers.py     Script to fetch liked papers from Scholar Inbox
