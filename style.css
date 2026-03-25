@@ -1484,6 +1484,11 @@ ul { list-style: none; }
   height: 20px;
 }
 
+.thought-edit-btn svg,
+.thought-delete-btn svg {
+  display: block;
+}
+
 .thought-edit-btn { margin-left: auto; }
 
 .thought-card:hover .thought-edit-btn,
