@@ -1908,6 +1908,43 @@ ul { list-style: none; }
   margin: 0 2px;
 }
 
+/* Emoji autocomplete dropdown */
+.thoughts-emoji-dropdown {
+  position: fixed;
+  z-index: 1100;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-md);
+  max-height: 240px;
+  overflow-y: auto;
+  display: none;
+}
+
+.thoughts-emoji-dropdown.visible { display: block; }
+
+.emoji-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  text-align: left;
+}
+
+.emoji-option:hover,
+.emoji-option.active { background: var(--color-accent-subtle); }
+
+.emoji-option span {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+}
+
 .thoughts-textarea {
   width: 100%;
   padding: 0.5rem 0.75rem;

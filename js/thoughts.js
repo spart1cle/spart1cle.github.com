@@ -16,6 +16,46 @@
   const activeTags = new Set();
   let searchTimeout = null;
 
+  // ── Emoji Map ─────────────────────────────────────────────
+  const EMOJI_MAP = {
+    smile: '\u{1F604}', grinning: '\u{1F600}', laughing: '\u{1F606}',
+    joy: '\u{1F602}', rofl: '\u{1F923}', wink: '\u{1F609}',
+    blush: '\u{1F60A}', heart_eyes: '\u{1F60D}', thinking: '\u{1F914}',
+    neutral_face: '\u{1F610}', unamused: '\u{1F612}', rolling_eyes: '\u{1F644}',
+    grimacing: '\u{1F62C}', cry: '\u{1F622}', sob: '\u{1F62D}',
+    scream: '\u{1F631}', sunglasses: '\u{1F60E}', nerd_face: '\u{1F913}',
+    mind_blown: '\u{1F92F}', skull: '\u{1F480}',
+    thumbsup: '\u{1F44D}', '+1': '\u{1F44D}', '-1': '\u{1F44E}',
+    clap: '\u{1F44F}', wave: '\u{1F44B}', raised_hands: '\u{1F64C}',
+    pray: '\u{1F64F}', muscle: '\u{1F4AA}', ok_hand: '\u{1F44C}',
+    eyes: '\u{1F440}', brain: '\u{1F9E0}',
+    heart: '\u{2764}\u{FE0F}', broken_heart: '\u{1F494}', sparkling_heart: '\u{1F496}',
+    fire: '\u{1F525}', star: '\u{2B50}', sparkles: '\u{2728}',
+    zap: '\u{26A1}', boom: '\u{1F4A5}', 100: '\u{1F4AF}',
+    trophy: '\u{1F3C6}', rocket: '\u{1F680}',
+    bulb: '\u{1F4A1}', lightbulb: '\u{1F4A1}',
+    warning: '\u{26A0}\u{FE0F}', x: '\u{274C}',
+    check: '\u{2705}', white_check_mark: '\u{2705}',
+    question: '\u{2753}', exclamation: '\u{2757}',
+    pin: '\u{1F4CC}', pushpin: '\u{1F4CC}', link: '\u{1F517}',
+    key: '\u{1F511}', lock: '\u{1F512}', bell: '\u{1F514}',
+    book: '\u{1F4D6}', books: '\u{1F4DA}', memo: '\u{1F4DD}',
+    pencil: '\u{270F}\u{FE0F}', clipboard: '\u{1F4CB}', chart: '\u{1F4C8}',
+    computer: '\u{1F4BB}', phone: '\u{1F4F1}',
+    mag: '\u{1F50D}', microscope: '\u{1F52C}', telescope: '\u{1F52D}',
+    gear: '\u{2699}\u{FE0F}', wrench: '\u{1F527}', hammer: '\u{1F528}',
+    tools: '\u{1F6E0}\u{FE0F}', shield: '\u{1F6E1}\u{FE0F}', package: '\u{1F4E6}',
+    sun: '\u{2600}\u{FE0F}', moon: '\u{1F319}', cloud: '\u{2601}\u{FE0F}',
+    rainbow: '\u{1F308}', earth: '\u{1F30D}', globe: '\u{1F310}',
+    seedling: '\u{1F331}', tree: '\u{1F333}',
+    robot: '\u{1F916}', bug: '\u{1F41B}',
+    coffee: '\u{2615}', beer: '\u{1F37A}', pizza: '\u{1F355}', cake: '\u{1F382}',
+    tada: '\u{1F389}', party: '\u{1F389}', confetti: '\u{1F38A}',
+    gift: '\u{1F381}', balloon: '\u{1F388}',
+    arrow_up: '\u{2B06}\u{FE0F}', arrow_down: '\u{2B07}\u{FE0F}',
+    arrow_left: '\u{2B05}\u{FE0F}', arrow_right: '\u{27A1}\u{FE0F}',
+  };
+
   // ── Data Loading ───────────────────────────────────────────
   fetch('thoughts.json')
     .then((r) => r.json())
@@ -231,8 +271,13 @@
       .replace(/\u2026/g, '...');
   }
 
+  function replaceEmoji(str) {
+    return str.replace(/:([a-z0-9_+-]{1,20}):/g, (m, code) => EMOJI_MAP[code] || m);
+  }
+
   function formatText(str) {
     if (!str) return '';
+    str = replaceEmoji(str);
     if (window.marked) {
       marked.setOptions({ breaks: true, gfm: true });
       const renderer = new marked.Renderer();
@@ -791,6 +836,102 @@
       e.preventDefault();
       document.querySelector('[data-fmt="link"]').click();
     }
+  });
+
+  // ── Emoji Autocomplete ────────────────────────────────────
+  const emojiDropdown = document.createElement('div');
+  emojiDropdown.className = 'thoughts-emoji-dropdown';
+  document.body.appendChild(emojiDropdown);
+
+  let emojiActiveIndex = 0;
+  let emojiMatches = [];
+
+  function getEmojiTrigger() {
+    const cursor = composeTextEl.selectionStart;
+    const before = composeTextEl.value.slice(0, cursor);
+    const match = before.match(/:([a-z0-9_]{1,20})$/);
+    if (!match) return null;
+    const colonPos = before.length - match[0].length;
+    if (colonPos > 0 && /\w/.test(before[colonPos - 1])) return null;
+    return { partial: match[1], colonPos };
+  }
+
+  function showEmojiDropdown(trigger) {
+    emojiMatches = Object.entries(EMOJI_MAP)
+      .filter(([code]) => code.startsWith(trigger.partial))
+      .slice(0, 8);
+    if (!emojiMatches.length) {
+      emojiDropdown.classList.remove('visible');
+      return;
+    }
+    emojiActiveIndex = 0;
+    renderEmojiOptions();
+    const rect = composeTextEl.getBoundingClientRect();
+    emojiDropdown.style.left = rect.left + 'px';
+    emojiDropdown.style.top = (rect.bottom + 4) + 'px';
+    emojiDropdown.style.minWidth = Math.min(rect.width, 260) + 'px';
+    emojiDropdown.classList.add('visible');
+  }
+
+  function hideEmojiDropdown() {
+    emojiDropdown.classList.remove('visible');
+    emojiMatches = [];
+  }
+
+  function renderEmojiOptions() {
+    emojiDropdown.innerHTML = emojiMatches
+      .map(([code, emoji], i) =>
+        `<button type="button" class="emoji-option${i === emojiActiveIndex ? ' active' : ''}" data-idx="${i}">${emoji} <span>:${escapeHtml(code)}:</span></button>`
+      ).join('');
+    emojiDropdown.querySelectorAll('.emoji-option').forEach((btn) => {
+      btn.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        insertEmoji(emojiMatches[parseInt(btn.dataset.idx)]);
+      });
+    });
+  }
+
+  function insertEmoji([, emoji]) {
+    const trigger = getEmojiTrigger();
+    if (!trigger) return;
+    composeTextEl.focus();
+    composeTextEl.setSelectionRange(trigger.colonPos, composeTextEl.selectionStart);
+    document.execCommand('insertText', false, emoji);
+    hideEmojiDropdown();
+    clearTimeout(previewTimeout);
+    previewTimeout = setTimeout(updateComposePreview, 300);
+  }
+
+  composeTextEl.addEventListener('input', () => {
+    const trigger = getEmojiTrigger();
+    if (trigger && trigger.partial.length >= 2) {
+      showEmojiDropdown(trigger);
+    } else {
+      hideEmojiDropdown();
+    }
+  });
+
+  composeTextEl.addEventListener('keydown', (e) => {
+    if (!emojiMatches.length) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      emojiActiveIndex = (emojiActiveIndex + 1) % emojiMatches.length;
+      renderEmojiOptions();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      emojiActiveIndex = (emojiActiveIndex - 1 + emojiMatches.length) % emojiMatches.length;
+      renderEmojiOptions();
+    } else if (e.key === 'Enter' || e.key === 'Tab') {
+      e.preventDefault();
+      insertEmoji(emojiMatches[emojiActiveIndex]);
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      hideEmojiDropdown();
+    }
+  });
+
+  composeTextEl.addEventListener('blur', () => {
+    setTimeout(hideEmojiDropdown, 150);
   });
 
   // ── Compose: Submit ────────────────────────────────────────
