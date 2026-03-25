@@ -923,8 +923,9 @@
             break;
         }
 
-        ta.value = before + insert + after;
         ta.focus();
+        ta.setSelectionRange(start, end);
+        document.execCommand('insertText', false, insert);
         var pos = start + cursorOffset;
         if (sel) {
           ta.setSelectionRange(start, start + insert.length);
