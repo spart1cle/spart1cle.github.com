@@ -3,7 +3,7 @@
     "id": "1774527267321",
     "type": "link",
     "date": "2026-03-26",
-    "text": "How [Ilia Larchenko](https://huggingface.co/IliaLarchenko) et. al. trained a robot to do 50 household tasks in simulation by building upon the $\\pi_{0.5}$ VLA architecture [[Code](https://github.com/IliaLarchenko/behavior-1k-solution)] [[Paper](https://arxiv.org/abs/2512.06951)] [[Video](https://www.youtube.com/watch?v=J4wpO0EdCZs)]",
+    "text": "How [Ilia Larchenko](https://huggingface.co/IliaLarchenko) et. al. trained a robot to do 50 household tasks in simulation by building upon the [$\\pi_{0.5}$](https://www.pi.website/blog/pi05) VLA architecture [[Code](https://github.com/IliaLarchenko/behavior-1k-solution)] [[Paper](https://arxiv.org/abs/2512.06951)] [[Video](https://www.youtube.com/watch?v=J4wpO0EdCZs)]",
     "url": "https://robot-learning-collective.github.io/winning-behavior-1k-challenge.html",
     "tags": [
       "blog",
