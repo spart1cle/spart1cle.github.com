@@ -5,7 +5,6 @@ import os
 import re
 import subprocess
 import sys
-import urllib.parse
 import urllib.request
 
 SITE_URL = "https://brandonbmay.com/reading.html"
@@ -88,48 +87,6 @@ def md_to_slack(text):
     return text
 
 
-# ── Link Preview via Microlink ──────────────────────────────
-
-def fetch_og(url):
-    try:
-        api_url = f"https://api.microlink.io/?url={urllib.request.quote(url, safe='')}"
-        req = urllib.request.Request(api_url, headers={"User-Agent": "notify-slack/1.0"})
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read().decode())
-        if data.get("status") != "success":
-            return None
-        d = data["data"]
-        return {
-            "title": d.get("title") or "",
-            "description": d.get("description") or "",
-            "image": (d.get("image") or {}).get("url"),
-            "logo": (d.get("logo") or {}).get("url"),
-        }
-    except Exception:
-        return None
-
-
-def build_attachment(url, og):
-    domain = urllib.parse.urlparse(url).hostname or ""
-    if domain.startswith("www."):
-        domain = domain[4:]
-
-    att = {
-        "fallback": og.get("title") or url,
-        "title": og.get("title") or url,
-        "title_link": url,
-        "footer": domain,
-        "color": "#E0E0E0",
-    }
-    if og.get("description"):
-        att["text"] = og["description"]
-    if og.get("image"):
-        att["image_url"] = og["image"]
-    elif og.get("logo"):
-        att["thumb_url"] = og["logo"]
-    return att
-
-
 # ── Slack Web API ───────────────────────────────────────────
 
 def slack_api(token, method, body):
@@ -149,19 +106,19 @@ def slack_api(token, method, body):
     return data
 
 
-def slack_post(token, channel, blocks, attachments=None):
-    body = {"channel": channel, "blocks": blocks}
-    if attachments:
-        body["attachments"] = attachments
-    data = slack_api(token, "chat.postMessage", body)
+def slack_post(token, channel, blocks, text=""):
+    data = slack_api(token, "chat.postMessage", {
+        "channel": channel, "blocks": blocks,
+        "text": text, "unfurl_links": True,
+    })
     return data["ts"]
 
 
-def slack_update(token, channel, ts, blocks, attachments=None):
-    body = {"channel": channel, "ts": ts, "blocks": blocks}
-    if attachments:
-        body["attachments"] = attachments
-    slack_api(token, "chat.update", body)
+def slack_update(token, channel, ts, blocks, text=""):
+    slack_api(token, "chat.update", {
+        "channel": channel, "ts": ts, "blocks": blocks,
+        "text": text, "unfurl_links": True,
+    })
 
 
 # ── Block Kit Card ──────────────────────────────────────────
@@ -231,17 +188,10 @@ def build_message(paper):
 
     blocks.append({"type": "divider"})
 
-    # Link preview attachment for the project page or arxiv
-    preview_url = project_link if (project_link and "}{" not in project_link) else (
-        f"https://arxiv.org/abs/{arxiv_id}" if arxiv_id else None
-    )
-    attachments = None
-    if preview_url:
-        og = fetch_og(preview_url)
-        if og:
-            attachments = [build_attachment(preview_url, og)]
+    # Pass arxiv URL as fallback text so Slack can unfurl it
+    unfurl_url = f"https://arxiv.org/abs/{arxiv_id}" if arxiv_id else ""
 
-    return blocks, attachments
+    return blocks, unfurl_url
 
 
 # ── Main ────────────────────────────────────────────────────
@@ -286,8 +236,8 @@ def main():
     for p in new_papers:
         pid = str(p["paper_id"])
         try:
-            blocks, atts = build_message(p)
-            ts = slack_post(slack_token, channel_id, blocks, atts)
+            blocks, text = build_message(p)
+            ts = slack_post(slack_token, channel_id, blocks, text)
             mapping[pid] = ts
             mapping_changed = True
             print(f"  Posted: {pid}")
@@ -316,14 +266,14 @@ def manual_push(slack_token, channel_id, gist_id, gist_token, paper_id):
 
     mapping = gist_read(gist_id, gist_token)
     ts = mapping.get(paper_id)
-    blocks, atts = build_message(paper)
+    blocks, text = build_message(paper)
 
     try:
         if ts:
-            slack_update(slack_token, channel_id, ts, blocks, atts)
+            slack_update(slack_token, channel_id, ts, blocks, text)
             print(f"  Updated: {paper_id}")
         else:
-            ts = slack_post(slack_token, channel_id, blocks, atts)
+            ts = slack_post(slack_token, channel_id, blocks, text)
             mapping[paper_id] = ts
             gist_write(gist_id, gist_token, mapping)
             print(f"  Posted: {paper_id}")
