@@ -5,6 +5,7 @@ import os
 import re
 import subprocess
 import sys
+import urllib.parse
 import urllib.request
 
 SITE_URL = "https://brandonbmay.com/thoughts.html"
@@ -104,6 +105,50 @@ def md_to_slack(text):
     return text
 
 
+# ── Link Preview via Microlink ──────────────────────────────
+
+def fetch_og(url):
+    """Fetch Open Graph metadata via microlink.io. Returns dict or None."""
+    try:
+        api_url = f"https://api.microlink.io/?url={urllib.request.quote(url, safe='')}"
+        req = urllib.request.Request(api_url, headers={"User-Agent": "notify-slack/1.0"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode())
+        if data.get("status") != "success":
+            return None
+        d = data["data"]
+        return {
+            "title": d.get("title") or "",
+            "description": d.get("description") or "",
+            "image": (d.get("image") or {}).get("url"),
+            "logo": (d.get("logo") or {}).get("url"),
+        }
+    except Exception:
+        return None
+
+
+def build_attachment(url, og):
+    """Build a Slack attachment mimicking a link unfurl."""
+    domain = urllib.parse.urlparse(url).hostname or ""
+    if domain.startswith("www."):
+        domain = domain[4:]
+
+    att = {
+        "fallback": og.get("title") or url,
+        "title": og.get("title") or url,
+        "title_link": url,
+        "footer": domain,
+        "color": "#E0E0E0",
+    }
+    if og.get("description"):
+        att["text"] = og["description"]
+    if og.get("image"):
+        att["image_url"] = og["image"]
+    elif og.get("logo"):
+        att["thumb_url"] = og["logo"]
+    return att
+
+
 # ── Slack Web API ───────────────────────────────────────────
 
 def slack_api(token, method, body):
@@ -123,24 +168,18 @@ def slack_api(token, method, body):
     return data
 
 
-def slack_post(token, channel, blocks, url=None):
-    body = {
-        "channel": channel, "blocks": blocks,
-        "unfurl_links": True, "unfurl_media": True,
-    }
-    if url:
-        body["text"] = url
+def slack_post(token, channel, blocks, attachments=None):
+    body = {"channel": channel, "blocks": blocks}
+    if attachments:
+        body["attachments"] = attachments
     data = slack_api(token, "chat.postMessage", body)
     return data["ts"]
 
 
-def slack_update(token, channel, ts, blocks, url=None):
-    body = {
-        "channel": channel, "ts": ts, "blocks": blocks,
-        "unfurl_links": True, "unfurl_media": True,
-    }
-    if url:
-        body["text"] = url
+def slack_update(token, channel, ts, blocks, attachments=None):
+    body = {"channel": channel, "ts": ts, "blocks": blocks}
+    if attachments:
+        body["attachments"] = attachments
     slack_api(token, "chat.update", body)
 
 
@@ -150,7 +189,8 @@ def slack_delete(token, channel, ts):
 
 # ── Block Kit Card ──────────────────────────────────────────
 
-def build_blocks(thought):
+def build_message(thought):
+    """Return (blocks, attachments) for a thought."""
     emoji = TYPE_EMOJI.get(thought.get("type", "note"), "\U0001F4AD")
     date = thought.get("date", "")
     text = md_to_slack(thought.get("text", ""))
@@ -173,12 +213,6 @@ def build_blocks(thought):
         },
     ]
 
-    if url:
-        blocks.append({
-            "type": "section",
-            "text": {"type": "mrkdwn", "text": url},
-        })
-
     if tags:
         tag_str = "  ".join(f"`{tag}`" for tag in tags)
         blocks.append({
@@ -192,7 +226,17 @@ def build_blocks(thought):
     })
 
     blocks.append({"type": "divider"})
-    return blocks, url
+
+    attachments = None
+    if url:
+        og = fetch_og(url)
+        if og:
+            attachments = [build_attachment(url, og)]
+        else:
+            # Fallback: plain link attachment if OG fetch fails
+            attachments = [{"fallback": url, "title": url, "title_link": url}]
+
+    return blocks, attachments
 
 
 # ── Main ────────────────────────────────────────────────────
@@ -236,8 +280,8 @@ def main():
 
     for t in new_thoughts:
         try:
-            blocks, url = build_blocks(t)
-            ts = slack_post(slack_token, channel_id, blocks, url)
+            blocks, atts = build_message(t)
+            ts = slack_post(slack_token, channel_id, blocks, atts)
             mapping[t["id"]] = ts
             mapping_changed = True
             print(f"  Posted: {t['id']}")
@@ -248,13 +292,13 @@ def main():
     # ── Edited thoughts ──
     for t in edited_thoughts:
         ts = mapping.get(t["id"])
-        blocks, url = build_blocks(t)
+        blocks, atts = build_message(t)
         try:
             if ts:
-                slack_update(slack_token, channel_id, ts, blocks, url)
+                slack_update(slack_token, channel_id, ts, blocks, atts)
                 print(f"  Updated: {t['id']}")
             else:
-                ts = slack_post(slack_token, channel_id, blocks, url)
+                ts = slack_post(slack_token, channel_id, blocks, atts)
                 mapping[t["id"]] = ts
                 mapping_changed = True
                 print(f"  Posted (untracked edit): {t['id']}")
@@ -299,14 +343,14 @@ def manual_push(slack_token, channel_id, gist_id, gist_token, thought_id):
 
     mapping = gist_read(gist_id, gist_token)
     ts = mapping.get(thought_id)
-    blocks, url = build_blocks(thought)
+    blocks, atts = build_message(thought)
 
     try:
         if ts:
-            slack_update(slack_token, channel_id, ts, blocks, url)
+            slack_update(slack_token, channel_id, ts, blocks, atts)
             print(f"  Updated: {thought_id}")
         else:
-            ts = slack_post(slack_token, channel_id, blocks, url)
+            ts = slack_post(slack_token, channel_id, blocks, atts)
             mapping[thought_id] = ts
             gist_write(gist_id, gist_token, mapping)
             print(f"  Posted: {thought_id}")
