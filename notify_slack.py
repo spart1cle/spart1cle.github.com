@@ -126,6 +126,7 @@ def slack_api(token, method, body):
 def slack_post(token, channel, blocks):
     data = slack_api(token, "chat.postMessage", {
         "channel": channel, "blocks": blocks,
+        "unfurl_links": True, "unfurl_media": True,
     })
     return data["ts"]
 
@@ -133,6 +134,7 @@ def slack_post(token, channel, blocks):
 def slack_update(token, channel, ts, blocks):
     slack_api(token, "chat.update", {
         "channel": channel, "ts": ts, "blocks": blocks,
+        "unfurl_links": True, "unfurl_media": True,
     })
 
 
@@ -151,9 +153,6 @@ def build_blocks(thought):
     thought_id = thought.get("id", "")
     permalink = f"{SITE_URL}#t-{thought_id}"
 
-    if thought.get("type") == "link" and url:
-        text += f"  <{url}|\u2197>"
-
     blocks = [
         {
             "type": "header",
@@ -167,6 +166,12 @@ def build_blocks(thought):
             "text": {"type": "mrkdwn", "text": text},
         },
     ]
+
+    if url:
+        blocks.append({
+            "type": "section",
+            "text": {"type": "mrkdwn", "text": url},
+        })
 
     if tags:
         tag_str = "  ".join(f"`{tag}`" for tag in tags)
