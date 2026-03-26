@@ -132,7 +132,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9883386372,
+    "ranking_score": 0.9882030255,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -258,7 +258,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9883192285,
+    "ranking_score": 0.988183631,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -302,12 +302,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166824,
-        "name": "Policy",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
@@ -318,6 +312,12 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
       }
     ],
     "total_read": 243,
@@ -377,7 +377,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9872793516,
+    "ranking_score": 0.9871501475,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -541,7 +541,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9870955429,
+    "ranking_score": 0.986956726,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -554,6 +554,134 @@
     "html_link": null,
     "shortened_authors": "Haoyu Zhen ,  Qiao Sun ,  Hongxin Zhang ,  Junyan Li ,  Siyuan Zhou ,  Yilun Du ,  Chuang Gan",
     "display_venue": "ICCV 2025",
+    "is_cached_filename": null
+  },
+  {
+    "paper_id": 3145441,
+    "title": "Towards Generalist Robot Learning from Internet Video: A Survey",
+    "authors": "Robert McCarthy, Daniel C.H. Tan, Dominik Schmidt, Fernando Acero, Nathan Herr, Yilun Du, Thomas G. Thuruthel, Zhibin Li",
+    "url": "https://arxiv.org/pdf/2404.19664",
+    "abstract": "Scaling deep learning to massive and diverse internet data has driven remarkable breakthroughs in domains such as video generation and natural language processing.\nRobot learning, however, has thus far failed to replicate this success and remains constrained by a scarcity of available data.\nLearning from Videos (LfV) methods aim to address this data bottleneck by augmenting traditional robot data with large-scale internet video.\nThis video data provides foundational information regarding physical dynamics, behaviours, and tasks, and can be highly informative for general-purpose robots.\n\nThis survey systematically examines the emerging field of LfV.\nWe first outline essential concepts, including detailing fundamental LfV challenges such as distribution shift and missing action labels in video data.\nNext, we comprehensively review current methods for extracting knowledge from large-scale internet video, overcoming LfV challenges, and improving robot learning through video-informed training.\nThe survey concludes with a critical discussion of future opportunities.\nHere, we emphasize the need for scalable foundation model approaches that can leverage the full range of available internet video and enhance the learning of robot policies and dynamics models.\nOverall, the survey aims to inform and catalyse future LfV research, driving progress towards general-purpose robots.",
+    "publication_date": "2025-07-23",
+    "pdf_download_success": true,
+    "citations": 10.0,
+    "arxiv_id": "2404.19664",
+    "digest_date": 1714521600000,
+    "project_link": null,
+    "conference": "AAAI 2026",
+    "conference_url": null,
+    "abbreviation": "",
+    "conference_year": 2026.0,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "conference_planner",
+    "semantic_scholar_id": "10c6fdff7c4ce46e012e4a4c3cdca75269d7a712",
+    "cache_file_name": "McCarthy2024ARXIV_Towards_Generalist_Robot_Learning.pdf",
+    "ngt_id": 2837115,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
+        "id": 166541,
+        "name": "Survey",
+        "readonly": false,
+        "color": "#ffad46"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      }
+    ],
+    "total_read": 22,
+    "total_likes": 10,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 391,
+        "endIndex": 480,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 745,
+        "endIndex": 895,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": [
+      {
+        "author_id": 96731,
+        "author_name": "T. G. Thuruthel"
+      },
+      {
+        "author_id": 148492,
+        "author_name": "Robert McCarthy"
+      },
+      {
+        "author_id": 98299,
+        "author_name": "Fernando Acero"
+      },
+      {
+        "author_id": 97653,
+        "author_name": "Daniel C.H. Tan"
+      },
+      {
+        "author_id": 111186,
+        "author_name": "Zhibin Li"
+      },
+      {
+        "author_id": 347545,
+        "author_name": "Dominik Schmidt"
+      },
+      {
+        "author_id": 4440044,
+        "author_name": "Nathan Herr"
+      },
+      {
+        "author_id": 4440045,
+        "author_name": "Yilun Du"
+      }
+    ],
+    "summaries": {},
+    "affiliations": null,
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": null,
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/3145441.0.jpeg",
+        "caption": "Figure 1: An overview of the key narratives, concepts, and taxonomies contained in this survey on Learning from Videos (LfV) for generalist robotics. The top green box presents the high-level motivation behind LfV approaches. The middle orange boxes highlight the potential benefits LfV can provide (Section 3.2) and the challenges in LfV (Section 3.3). The bottom blue box visualises possible components in a pipeline for learning from large-scale internet video, as per the taxonomies presented in the survey. Large internet video datasets (Section 6) can be used to help pretrain (video) foundation models (Section 4). These foundation models can further be adapted into reinforcement learning (RL) \u2018knowledge modalities\u2019 and used in the robot domain (Section 5.2). The diagram additionally highlights that action representations (Section 5.1.1) can be used to mitigate the issue of missing action labels in video.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": null,
+    "ranking_score": 0.9858643745,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": false,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2404.19664.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": null,
+    "shortened_authors": "Robert McCarthy, Daniel C.H. Tan, Dominik Schmidt, Fernando Acero, Nathan Herr, Yilun Du, Thomas G. Thuruthel, Zhibin Li",
+    "display_venue": "ArXiv 2025 (July 23)",
     "is_cached_filename": null
   },
   {
@@ -584,7 +712,7 @@
     "rating": 1,
     "bookmarked": 0,
     "user_paper_collections": null,
-    "total_read": 294,
+    "total_read": 295,
     "total_likes": 93,
     "category": "Machine Learning",
     "arxives_doi": null,
@@ -673,7 +801,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9848598728,
+    "ranking_score": 0.9846836932,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -717,10 +845,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#f691b2"
       },
       {
         "id": 166547,
@@ -729,20 +857,20 @@
         "color": "#ff7537"
       },
       {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
-    "total_read": 354,
-    "total_likes": 97,
+    "total_read": 355,
+    "total_likes": 98,
     "category": "Robotics and Control",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -767,7 +895,7 @@
     "paper_source_id": "2602.15922",
     "teaser_figures": null,
     "first_page_image": null,
-    "ranking_score": 0.9832306463,
+    "ranking_score": 0.9830545507,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -810,8 +938,8 @@
     "rating": 1,
     "bookmarked": 0,
     "user_paper_collections": null,
-    "total_read": 199,
-    "total_likes": 58,
+    "total_read": 200,
+    "total_likes": 59,
     "category": "Computer Vision and Graphics",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -865,7 +993,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9772183447,
+    "ranking_score": 0.9769714574,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -908,8 +1036,8 @@
     "rating": 1,
     "bookmarked": 0,
     "user_paper_collections": null,
-    "total_read": 28,
-    "total_likes": 10,
+    "total_read": 31,
+    "total_likes": 11,
     "category": "Robotics and Control",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -985,7 +1113,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4629678.jpeg"
     },
-    "ranking_score": 0.9762436349,
+    "ranking_score": 0.9759832752,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -1154,7 +1282,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4593796.jpeg"
     },
-    "ranking_score": 0.9761948588,
+    "ranking_score": 0.9759176305,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -1198,10 +1326,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       },
       {
         "id": 166546,
@@ -1210,20 +1338,20 @@
         "color": "#16a765"
       },
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
-    "total_read": 135,
-    "total_likes": 32,
+    "total_read": 136,
+    "total_likes": 33,
     "category": "Robotics and Control",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -1280,7 +1408,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4615026.jpeg"
     },
-    "ranking_score": 0.9760654714,
+    "ranking_score": 0.9758171211,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -1330,16 +1458,16 @@
         "color": "#4986e7"
       },
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 80,
@@ -1368,7 +1496,7 @@
     "paper_source_id": "2602.22663",
     "teaser_figures": null,
     "first_page_image": null,
-    "ranking_score": 0.9749850746,
+    "ranking_score": 0.9746981223,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -1418,10 +1546,10 @@
         "color": "#b99aff"
       },
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#b99aff"
       },
       {
         "id": 166539,
@@ -1430,14 +1558,14 @@
         "color": "#f691b2"
       },
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#ff7537"
       }
     ],
-    "total_read": 87,
-    "total_likes": 13,
+    "total_read": 88,
+    "total_likes": 14,
     "category": "Robotics and Control",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -1510,7 +1638,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4613600.jpeg"
     },
-    "ranking_score": 0.9731845703,
+    "ranking_score": 0.9729135709,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -1524,6 +1652,160 @@
     "shortened_authors": "Tenny Yin, Zhiting Mei, Zhonghe Zheng, Miyu Yamane, David Wang, Jade Sceats, Samuel M. Bateman, Lihan Zha, Apurva Badithela, ..., Anirudha Majumdar",
     "display_venue": "ArXiv 2026 (March 9)",
     "is_cached_filename": "Yin2026ARXIV_PlayWorld_Learning_Robot_World.pdf"
+  },
+  {
+    "paper_id": 4625532,
+    "title": "Scaling Sim-to-Real Reinforcement Learning for Robot VLAs with Generative 3D Worlds",
+    "authors": "Andrew Choi, Xinjie Wang, Zhizhong Su, Wei Xu",
+    "url": "https://arxiv.org/pdf/2603.18532",
+    "abstract": "The strong performance of large vision-language models (VLMs) trained with reinforcement learning (RL) has motivated similar approaches for fine-tuning vision-language-action (VLA) models in robotics. Many recent works fine-tune VLAs directly in the real world to avoid addressing the sim-to-real gap. While real-world RL circumvents sim-to-real issues, it inherently limits the generality of the resulting VLA, as scaling scene and object diversity in the physical world is prohibitively difficult. This leads to the paradoxical outcome of transforming a broadly pretrained model into an overfitted, scene-specific policy. Training in simulation can instead provide access to diverse scenes, but designing those scenes is also costly. In this work, we show that VLAs can be RL fine-tuned without sacrificing generality and with reduced labor by leveraging 3D world generative models. Using these models together with a language-driven scene designer, we generate hundreds of diverse interactive scenes containing unique objects and backgrounds, enabling scalable and highly parallel policy learning. Starting from a pretrained imitation baseline, our approach increases simulation success from 9.7% to 79.8% while achieving a 1.25$\\times$ speedup in task completion time. We further demonstrate successful sim-to-real transfer enabled by the quality of the generated digital twins together with domain randomization, improving real-world success from 21.7% to 75% and achieving a 1.13$\\times$ speedup. Finally, we further highlight the benefits of leveraging the effectively unlimited data from 3D world generative models through an ablation study showing that increasing scene diversity directly improves zero-shot generalization.",
+    "publication_date": "2026-03-19",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.18532",
+    "digest_date": 1773964800000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "5f78715ee85b5e5e375ddee5ed31a50e7e9f032f",
+    "cache_file_name": "Choi2026ARXIV_Scaling_Sim_to_Real.pdf",
+    "ngt_id": 4220290,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      }
+    ],
+    "total_read": 72,
+    "total_likes": 7,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 736,
+        "endIndex": 883,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **generative 3D world models** to automatically construct diverse training environments for RL fine-tuning of VLA policies.\n- Demonstrates **significant improvements in sim-to-real transfer** with a 53.3-percentage-point increase in real-world task success.\n- Highlights the effectiveness of **language-driven scene designers** in translating task descriptions into structured environments.\n- Shows that **increasing scene diversity improves zero-shot generalization** by up to 24.8 percentage points.\n- Achieves **high policy performance** with a 70.1-percentage-point improvement in simulation success and a 1.25 \u00d7 speedup in task completion time.",
+      "evaluation_question": "- Achieves **79.8%** success rate on simulated scenes, surpassing the initial imitation baseline of **9.7%**.\n- Improves real-world success from **21.7%** to **75%**, with a **1.13 \u00d7 speedup** in task completion.\n- Zero-shot generalization improves by **24.8 percentage points** when training on 50 scenes compared to a single scene.\n- Policy trained on generated scenes achieves **74.3%** success on unseen real-world tasks.\n- Simulation success increases from **9.7%** to **79.8%** with increased scene diversity.",
+      "method_explanation_question": "- Constructs **interactive 3D environments** using generative models and language-driven scene designers.\n- Fine-tunes **pretrained VLA policies** with reinforcement learning across diverse scenes using massive parallelization.\n- Implements **domain randomization** and **PD control with gravity compensation** to bridge the sim-to-real gap.\n- Uses **flow matching models** and **PPOFlow** for efficient policy optimization with sparse rewards.\n- Generates **structured scene layouts** from natural language instructions to enable scalable policy learning.",
+      "problem_definition_question": "- Existing methods suffer from **limited scene diversity**, leading to overfitting on specific environments.\n- **Sim-to-real gaps** hinder the generalization of policies trained in simulation.\n- Most approaches require **manual scene design**, which is costly and limits scalability.\n- **Robustness to out-of-distribution scenarios** is lacking in current VLA models.\n- There is a need for **automated, scalable training pipelines** that reduce reliance on real-world data."
+    },
+    "affiliations": [
+      "Horizon Robotics"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Robotics",
+      "keywords": "Vision-Language-Action Models,  Generative Simulation,  Sim-to-Real Transfer,  Reinforcement Learning,  Scene Design,  Robot Manipulation",
+      "method_shortname": "Sim-to-Real VLA",
+      "color": "#fe7878"
+    },
+    "project_url": "https://horizon.auto",
+    "github_url": null,
+    "paper_source_id": "2603.18532",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4625532.0.jpeg",
+        "caption": "Figure 1: Overall pipeline diagram. Real-world data trains an imitation policy \u03c0 pre . Task descriptions are fed to a language-driven scene designer, which forwards layouts to a 3D world generative model to produce digital twin scenes. \u03c0 \u03b8 is trained across these scenes, initialized from \u03c0 pre , with massive parallelization and domain randomization. Finally, the trained \u03c0 \u03b8 is deployed in the real world.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4625532.1.jpeg",
+        "caption": "Figure 2: Overview of the simulation environment generation pipeline. A GPT-4o-powered scene designer converts task descriptions into structured scene graphs over semantic roles and spatial relations, which are instantiated into fully interactive 3D worlds. A quality assurance loop filters physically implausible configurations before simulation, enabling scalable, on-demand generation of diverse environments for RL training.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4625532.2.jpeg",
+        "caption": "Figure 3: Architecture diagram of the \u03c0 0 model as a pretrained imitation model \u03c0 pre (left) and then modified for RL fine-tuning, \u03c0 \u03b8 (right).",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4625532.3.jpeg",
+        "caption": "Figure 4: Experiment overview.",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4625532.4.jpeg",
+        "caption": "Figure 5: Training curves for all N .",
+        "figureNumber": 4,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4625532.5.jpeg",
+        "caption": "Table 1: Simulation evaluation results. EG: EmbodiedGen. SE: SimplerEnv. For a certain policy (row), the evaluation results are colored coded as OOD , ID , and mixture .",
+        "figureNumber": 5,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4625532.6.jpeg",
+        "caption": "Table 2: Sim-to-real evaluation results. Objects or attributes that are OOD during RL training are highlighted . Attributes in parentheses were not included in the language command. Columns are color coded as success , failure , and time metrics.",
+        "figureNumber": 6,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4625532.jpeg"
+    },
+    "ranking_score": 0.9714542703,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.18532.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.18532",
+    "shortened_authors": "Andrew Choi, Xinjie Wang, Zhizhong Su, Wei Xu",
+    "display_venue": "ArXiv 2026 (March 19)",
+    "is_cached_filename": "Choi2026ARXIV_Scaling_Sim_to_Real.pdf"
   },
   {
     "paper_id": 4515115,
@@ -1560,16 +1842,16 @@
         "color": "#ffad46"
       },
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "total_read": 53,
@@ -1593,7 +1875,7 @@
     "paper_source_id": "2512.16760",
     "teaser_figures": null,
     "first_page_image": null,
-    "ranking_score": 0.9711267788,
+    "ranking_score": 0.9707886698,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -1637,6 +1919,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
@@ -1647,12 +1935,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 34,
@@ -1745,7 +2027,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9689728657,
+    "ranking_score": 0.9686436345,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -1834,7 +2116,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9676944034,
+    "ranking_score": 0.9673286802,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -1896,7 +2178,7 @@
         "color": "#16a765"
       }
     ],
-    "total_read": 90,
+    "total_read": 91,
     "total_likes": 14,
     "category": "Robotics and Control",
     "arxives_doi": null,
@@ -1955,7 +2237,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4621659.jpeg"
     },
-    "ranking_score": 0.9652046712,
+    "ranking_score": 0.9648425587,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -2102,7 +2384,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4623991.jpeg"
     },
-    "ranking_score": 0.9640843388,
+    "ranking_score": 0.9637285413,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -2146,28 +2428,28 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166541,
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
       },
       {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
+      },
+      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 31,
@@ -2239,7 +2521,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.96211874,
+    "ranking_score": 0.9617017847,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -2401,7 +2683,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4610335.jpeg"
     },
-    "ranking_score": 0.9601897235,
+    "ranking_score": 0.9597881019,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -2445,6 +2727,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166824,
         "name": "Policy",
         "readonly": false,
@@ -2455,12 +2743,6 @@
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "total_read": 216,
@@ -2529,7 +2811,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9594279594,
+    "ranking_score": 0.959032461,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -2573,12 +2855,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -2589,6 +2865,12 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 49,
@@ -2668,7 +2950,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4616398.jpeg"
     },
-    "ranking_score": 0.9590453753,
+    "ranking_score": 0.9586013153,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -2712,10 +2994,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166544,
+        "name": "Reasoning",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#b6cff5"
+      },
+      {
+        "id": 166543,
+        "name": "VLM",
+        "readonly": false,
+        "color": "#42d692"
       },
       {
         "id": 166540,
@@ -2724,22 +3012,16 @@
         "color": "#2da2bb"
       },
       {
-        "id": 166544,
-        "name": "Reasoning",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#b6cff5"
+        "color": "#ff7537"
       },
       {
         "id": 166538,
         "name": "RL",
         "readonly": false,
         "color": "#b99aff"
-      },
-      {
-        "id": 166543,
-        "name": "VLM",
-        "readonly": false,
-        "color": "#42d692"
       }
     ],
     "total_read": 58,
@@ -2805,7 +3087,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9584932902,
+    "ranking_score": 0.9580196303,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -2849,12 +3131,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166543,
-        "name": "VLM",
-        "readonly": false,
-        "color": "#42d692"
-      },
-      {
         "id": 166572,
         "name": "Distillation",
         "readonly": false,
@@ -2865,6 +3141,12 @@
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
+      },
+      {
+        "id": 166543,
+        "name": "VLM",
+        "readonly": false,
+        "color": "#42d692"
       }
     ],
     "total_read": 51,
@@ -2901,7 +3183,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9536148123,
+    "ranking_score": 0.9530723495,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -3063,7 +3345,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4605471.jpeg"
     },
-    "ranking_score": 0.9454187885,
+    "ranking_score": 0.9448526932,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -3127,7 +3409,7 @@
     "paper_source_id": "2601.05230",
     "teaser_figures": null,
     "first_page_image": null,
-    "ranking_score": 0.9411052019,
+    "ranking_score": 0.9404961751,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -3170,7 +3452,7 @@
     "rating": 1,
     "bookmarked": 0,
     "user_paper_collections": null,
-    "total_read": 189,
+    "total_read": 192,
     "total_likes": 79,
     "category": "Computer Vision and Graphics",
     "arxives_doi": null,
@@ -3262,7 +3544,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4620054.jpeg"
     },
-    "ranking_score": 0.940631008,
+    "ranking_score": 0.9399790011,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -3312,16 +3594,16 @@
         "color": "#b99aff"
       },
       {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
       }
     ],
     "total_read": 23,
@@ -3449,7 +3731,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4602610.jpeg"
     },
-    "ranking_score": 0.939085927,
+    "ranking_score": 0.9384563819,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -3612,7 +3894,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4610625.jpeg"
     },
-    "ranking_score": 0.9291680049,
+    "ranking_score": 0.9284459746,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -3655,8 +3937,8 @@
     "rating": 1,
     "bookmarked": 0,
     "user_paper_collections": null,
-    "total_read": 55,
-    "total_likes": 14,
+    "total_read": 62,
+    "total_likes": 16,
     "category": "Robotics and Control",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -3729,7 +4011,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4628222.jpeg"
     },
-    "ranking_score": 0.9259402568,
+    "ranking_score": 0.9252139235,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -3772,8 +4054,8 @@
     "rating": 1,
     "bookmarked": 0,
     "user_paper_collections": null,
-    "total_read": 426,
-    "total_likes": 183,
+    "total_read": 428,
+    "total_likes": 185,
     "category": "Computer Vision and Graphics",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -3857,7 +4139,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9243061641,
+    "ranking_score": 0.9235245447,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -3926,7 +4208,7 @@
     "paper_source_id": "2601.02456",
     "teaser_figures": null,
     "first_page_image": null,
-    "ranking_score": 0.9221290754,
+    "ranking_score": 0.9212893925,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -3970,28 +4252,28 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
       },
       {
-        "id": 166821,
-        "name": "\ud83d\udc40",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166821,
+        "name": "\ud83d\udc40",
+        "readonly": false,
+        "color": "#4986e7"
       },
       {
         "id": 166544,
@@ -4045,7 +4327,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.918396024,
+    "ranking_score": 0.9175218322,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -4088,8 +4370,8 @@
     "rating": 1,
     "bookmarked": 0,
     "user_paper_collections": null,
-    "total_read": 779,
-    "total_likes": 543,
+    "total_read": 780,
+    "total_likes": 545,
     "category": "Computer Vision and Graphics",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -4134,7 +4416,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9154855766,
+    "ranking_score": 0.9146069188,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -4267,7 +4549,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9151410184,
+    "ranking_score": 0.9142736161,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -4311,16 +4593,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166541,
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
       }
     ],
     "total_read": 263,
@@ -4368,7 +4650,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9150255412,
+    "ranking_score": 0.9141770904,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -4450,7 +4732,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.9136968842,
+    "ranking_score": 0.9128607313,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -4634,7 +4916,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4596311.jpeg"
     },
-    "ranking_score": 0.9093590292,
+    "ranking_score": 0.9083813283,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -4782,7 +5064,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4609051.jpeg"
     },
-    "ranking_score": 0.9044084991,
+    "ranking_score": 0.9034507148,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -4851,7 +5133,7 @@
     "paper_source_id": "2602.23361",
     "teaser_figures": null,
     "first_page_image": null,
-    "ranking_score": 0.9041622386,
+    "ranking_score": 0.9031795361,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -4894,7 +5176,7 @@
     "rating": 1,
     "bookmarked": 0,
     "user_paper_collections": null,
-    "total_read": 240,
+    "total_read": 239,
     "total_likes": 217,
     "category": "Computer Vision and Graphics",
     "arxives_doi": null,
@@ -5014,7 +5296,7 @@
     "paper_source_id": null,
     "teaser_figures": null,
     "first_page_image": null,
-    "ranking_score": 0.8908885365,
+    "ranking_score": 0.8897652006,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -5058,6 +5340,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -5068,12 +5356,6 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166546,
-        "name": "Diffusion",
-        "readonly": false,
-        "color": "#16a765"
       }
     ],
     "total_read": 226,
@@ -5127,7 +5409,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.8905900297,
+    "ranking_score": 0.8895369588,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -5171,19 +5453,19 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
-    "total_read": 79,
+    "total_read": 80,
     "total_likes": 18,
     "category": "Robotics and Control",
     "arxives_doi": null,
@@ -5276,7 +5558,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4615794.jpeg"
     },
-    "ranking_score": 0.8814220203,
+    "ranking_score": 0.880316525,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -5384,7 +5666,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4616492.jpeg"
     },
-    "ranking_score": 0.8802800125,
+    "ranking_score": 0.8791840743,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -5510,7 +5792,7 @@
       }
     ],
     "first_page_image": null,
-    "ranking_score": 0.8789360908,
+    "ranking_score": 0.8778250024,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -5670,7 +5952,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4615344.jpeg"
     },
-    "ranking_score": 0.8763227369,
+    "ranking_score": 0.8751482793,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -5714,16 +5996,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       },
       {
         "id": 166549,
@@ -5798,7 +6080,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4611321.jpeg"
     },
-    "ranking_score": 0.8734374046,
+    "ranking_score": 0.8722942293,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -5812,6 +6094,137 @@
     "shortened_authors": "Haibao Yu, Kuntao Xiao, Jiahang Wang, Ruiyang Hao, Yuxin Huang, Guoran Hu, Haifang Qin, Bowen Jing, Yuntian Bo, Ping Luo",
     "display_venue": "ArXiv 2026 (March 8)",
     "is_cached_filename": "Yu2026ARXIV_ReconDrive_Fast_Feed_Forward.pdf"
+  },
+  {
+    "paper_id": 4630730,
+    "title": "ABot-PhysWorld: Interactive World Foundation Model for Robotic Manipulation with Physics Alignment",
+    "authors": "Yuzhi Chen, Ronghan Chen, Dongjie Huo, Yandan Yang, Dekang Qi, Haoyun Liu, Tong Lin, Shuang Zeng, Junjin Xiao, Xinyuan Chang, Feng Xiong, Xing Wei, Zhiheng Ma, Mu Xu",
+    "url": "https://arxiv.org/pdf/2603.23376",
+    "abstract": "Video-based world models offer a powerful paradigm for embodied simulation and planning, yet state-of-the-art models often generate physically implausible manipulations - such as object penetration and anti-gravity motion - due to training on generic visual data and likelihood-based objectives that ignore physical laws. We present ABot-PhysWorld, a 14B Diffusion Transformer model that generates visually realistic, physically plausible, and action-controllable videos. Built on a curated dataset of three million manipulation clips with physics-aware annotation, it uses a novel DPO-based post-training framework with decoupled discriminators to suppress unphysical behaviors while preserving visual quality. A parallel context block enables precise spatial action injection for cross-embodiment control. To better evaluate generalization, we introduce EZSbench, the first training-independent embodied zero-shot benchmark combining real and synthetic unseen robot-task-scene combinations. It employs a decoupled protocol to separately assess physical realism and action alignment. ABot-PhysWorld achieves new state-of-the-art performance on PBench and EZSbench, surpassing Veo 3.1 and Sora v2 Pro in physical plausibility and trajectory consistency. We will release EZSbench to promote standardized evaluation in embodied video generation.",
+    "publication_date": "2026-03-24",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.23376",
+    "digest_date": 1774396800000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "f0b4c3de2408c64c8c4f948b38c5df4a48cfd9b6",
+    "cache_file_name": "Chen2026ARXIV_ABot_PhysWorld_Interactive_World.pdf",
+    "ngt_id": 4225349,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      }
+    ],
+    "total_read": 41,
+    "total_likes": 9,
+    "category": "Computer Vision and Graphics",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 322,
+        "endIndex": 470,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **ABot-PhysWorld** , a 14B Diffusion Transformer model that generates physically plausible and action-controllable videos.\n- Proposes **EZSbench** , the first training-independent embodied zero-shot benchmark for evaluating physical realism and action alignment.\n- Develops a **physics-aware DPO-based post-training framework** with decoupled discriminators to suppress unphysical behaviors.\n- Presents a **parallel context block** for precise spatial action injection across different embodiments.\n- **Enhances generalization** across robots, objects, and environments through curated physics-aware annotations.",
+      "evaluation_question": "- Achieves new state-of-the-art performance on *PBench* and *EZSbench*, surpassing Veo 3.1 and Sora v2 Pro in physical plausibility and trajectory consistency.\n- Outperforms existing models in *physical consistency* and *action trajectory alignment*.\n- Demonstrates superior *zero-shot generalization* capabilities on unseen robot-task-scene combinations.",
+      "method_explanation_question": "- Constructs a **curated dataset** of three million manipulation clips with physics-aware annotations.\n- Implements a **physics-inspired DPO-based post-training framework** with decoupled discriminators to suppress unphysical behaviors.\n- Utilizes a **parallel context block** for precise spatial action injection across different embodiments.\n- Trains the model using **diffusion-DPO** with a focus on physical preference alignment.\n- Generates action-conditioned videos through **spatially structured action maps** injected via parallel context blocks.",
+      "problem_definition_question": "- Existing models like Veo 3.1 and Sora v2 Pro often produce physically implausible manipulations due to lack of physics-aware training.\n- **Over-smoothing** and poor scalability limit their reliability in real-world robotic applications.\n- Current benchmarks emphasize visual quality over physical consistency and zero-shot generalization.\n- There is a critical need for **physically grounded world models** that can handle diverse, unseen scenarios.\n- **Action controllability** and **physical plausibility** are essential for robust robotic simulation and planning."
+    },
+    "affiliations": [
+      "Alibaba Group",
+      "AMAP CV Lab"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Robotics",
+      "keywords": "Embodied Intelligence,  Physical Reasoning,  Action Controllability,  Zero-Shot Generalization,  Physics Alignment",
+      "method_shortname": "ABot-PhysWorld",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": "https://github.com/amap-cvlab/ABot-PhysWorld",
+    "paper_source_id": "2603.23376",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4630730.3.jpeg",
+        "caption": "Table 1 Quantitative comparison on the PAI-Bench robot domain subset.",
+        "figureNumber": 3,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4630730.0.jpeg",
+        "caption": "Figure 1 Overview of the data curation pipeline. (a) shows the multi-stage filtering and balancing flow from raw aggregation ( \u223c 3M clips) to training-ready splits (SFT, RL, and A2V data). (b) Task-aware quota allocation: head tasks are capped at 8\u201315%, body tasks are uniformly sampled at 40\u201350%, and long-tail tasks are fully preserved to maximize task diversity. (c) Dataset and robot type distribution: the left ring shows the original composition and the right ring shows the rebalanced result after hierarchical sampling. (d) Physics-aware video captioning pipeline: a perception module (Qwen3-VL 32B) extracts structured physical attributes, followed by a writing module (Qwen3 32B FP8) that generates four-phase captions covering scene setup, action detail, state transition, and camera summary.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4630730.1.jpeg",
+        "caption": "Figure 2 Two-stage training pipeline. Stage 1 : SFT on the DiT to predict future frames from observations and instructions. Stage 2 : generate N candidates, score via physics checklist, and apply DPO via LoRA on frozen DiT weights.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4630730.2.jpeg",
+        "caption": "Figure 3 Construction pipeline of the EZSbench. Top : dual-source image augmentation\u2014Branch 1 generates synthetic initial observations via text-to-image (Nano Banana) by varying robot morphology, scene, task, and viewpoint; Branch 2 applies VLM-guided background editing to real-world images while preserving foreground interactions. Down : three-stage dense description synthesis\u2014visual anchoring grounds the scene layout and object coordinates, action simulation infers kinematically compliant trajectories with micro-physical interactions, and narrative synthesis produces a documentary-style caption integrating initial state, trajectory, and final state.",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4630730.jpeg"
+    },
+    "ranking_score": 0.8685884839,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.23376.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.23376",
+    "shortened_authors": "Yuzhi Chen, Ronghan Chen, Dongjie Huo, Yandan Yang, Dekang Qi, Haoyun Liu, Tong Lin, Shuang Zeng, Junjin Xiao, ..., Mu Xu",
+    "display_venue": "ArXiv 2026 (March 24)",
+    "is_cached_filename": "Chen2026ARXIV_ABot_PhysWorld_Interactive_World.pdf"
   },
   {
     "paper_id": 4605892,
@@ -5848,8 +6261,8 @@
         "color": "#ff7537"
       }
     ],
-    "total_read": 115,
-    "total_likes": 40,
+    "total_read": 116,
+    "total_likes": 41,
     "category": "Computer Vision and Graphics",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -5936,7 +6349,7 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4605892.jpeg"
     },
-    "ranking_score": 0.8687668362,
+    "ranking_score": 0.8676446788,
     "has_ranking": true,
     "color": [
       0.8234038948,
@@ -5950,422 +6363,5 @@
     "shortened_authors": "Shenghai Yuan, Yuanyang Yin, Zongjian Li, Xinwei Huang, Xiao Yang, Li Yuan",
     "display_venue": "ArXiv 2026 (March 4)",
     "is_cached_filename": "Yuan2026ARXIV_Helios_Real_Real_Time.pdf"
-  },
-  {
-    "paper_id": 4178089,
-    "title": "LightEMMA: Lightweight End-to-End Multimodal Model for Autonomous Driving",
-    "authors": "Zhijie Qiao, Haowei Li, Zhong Cao, Henry X. Liu",
-    "url": "https://arxiv.org/pdf/2505.00284",
-    "abstract": "Vision-Language Models (VLMs) have demonstrated significant potential for end-to-end autonomous driving. However, the field still lacks a practical platform that enables dynamic model updates, rapid validation, fair comparison, and intuitive performance assessment. To that end, we introduce LightEMMA, a Lightweight End-to-End Multimodal Model for Autonomous driving. LightEMMA provides a unified, VLM-based autonomous driving framework without ad hoc customizations, enabling easy integration with evolving state-of-the-art commercial and open-source models. We construct twelve autonomous driving agents using various VLMs and evaluate their performance on the challenging nuScenes prediction task, comprehensively assessing computational metrics and providing critical insights. Illustrative examples show that, although VLMs exhibit strong scenario interpretation capabilities, their practical performance in autonomous driving tasks remains a concern. Additionally, increased model complexity and extended reasoning do not necessarily lead to better performance, emphasizing the need for further improvements and task-specific designs. The code is available at <a href='https://github.com/michigan-traffic-lab/LightEMMA' target='_blank'>https://github.com/michigan-traffic-lab/LightEMMA</a>.",
-    "publication_date": "2025-09-13",
-    "pdf_download_success": true,
-    "citations": null,
-    "arxiv_id": "2505.00284",
-    "digest_date": 1746144000000,
-    "project_link": "https://github.com/michigan-traffic-lab/LightEMMA",
-    "conference": null,
-    "conference_url": null,
-    "abbreviation": null,
-    "conference_year": null,
-    "conf_id": null,
-    "conference_submission_type": null,
-    "source": "arxiv",
-    "semantic_scholar_id": "89a5b96198ba6e5574d12f6357edfaac5366f7aa",
-    "cache_file_name": "Qiao2025ARXIV_LightEMMA_Lightweight_End_to.pdf",
-    "ngt_id": 3820124,
-    "read": true,
-    "n_positive_ratings": 1,
-    "n_negative_ratings": 0,
-    "rating": 1,
-    "bookmarked": 0,
-    "user_paper_collections": [
-      {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
-        "id": 166543,
-        "name": "VLM",
-        "readonly": false,
-        "color": "#42d692"
-      }
-    ],
-    "total_read": 48,
-    "total_likes": 13,
-    "category": "Robotics and Control",
-    "arxives_doi": null,
-    "chemrxiv_id": null,
-    "inferredHighlights": [
-      {
-        "startIndex": 224,
-        "endIndex": 389,
-        "highlightClass": "primary-highlight"
-      },
-      {
-        "startIndex": 391,
-        "endIndex": 594,
-        "highlightClass": "secondary-highlight"
-      }
-    ],
-    "author_details": null,
-    "summaries": {},
-    "affiliations": null,
-    "keywords_metadata": {},
-    "project_url": null,
-    "github_url": null,
-    "paper_source_id": "2505.00284",
-    "teaser_figures": [
-      {
-        "imageUrl": "/teaser_figures/4178089.0.jpeg",
-        "caption": "Fig. 1. LightEMMA Architecture.",
-        "figureNumber": 0,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4178089.1.jpeg",
-        "caption": "TABLE I C OMPARISON OF M ODEL E FFICIENCY AND C OMPUTATIONAL C OST",
-        "figureNumber": 1,
-        "figureType": "Table"
-      },
-      {
-        "imageUrl": "/teaser_figures/4178089.2.jpeg",
-        "caption": "TABLE II P ERFORMANCE C OMPARISON ON NU S CENES P REDICTION T ASK",
-        "figureNumber": 2,
-        "figureType": "Table"
-      },
-      {
-        "imageUrl": "/teaser_figures/4178089.3.jpeg",
-        "caption": "Fig. 2. LightEMMA nuScenes prediction task examples.",
-        "figureNumber": 3,
-        "figureType": "Figure"
-      }
-    ],
-    "first_page_image": null,
-    "ranking_score": 0.8664874506,
-    "has_ranking": true,
-    "color": [
-      0.8234038948,
-      0.409333696,
-      0.4901396872,
-      0.3
-    ],
-    "is_cached": false,
-    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2505.00284.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
-    "html_link": "https://arxiv.org/html/2505.00284",
-    "shortened_authors": "Zhijie Qiao, Haowei Li, Zhong Cao, Henry X. Liu",
-    "display_venue": "ArXiv 2025 (September 13)",
-    "is_cached_filename": null
-  },
-  {
-    "paper_id": 4608874,
-    "title": "Devil is in Narrow Policy: Unleashing Exploration in Driving VLA Models",
-    "authors": "Canyu Chen, Yuguang Yang, Zhewen Tan, Yizhi Wang, Ruiyi Zhan, Haiyan Liu, Xuanyao Mao, Jason Bao, Xinyue Tang, Linlin Yang, Bingchuan Sun, Yan Wang, Baochang Zhang",
-    "url": "https://arxiv.org/pdf/2603.06049",
-    "abstract": "We identify a fundamental Narrow Policy limitation undermining the performance of autonomous VLA models, where driving Imitation Learning (IL) tends to collapse exploration and limit the potential of subsequent Reinforcement Learning (RL) stages, which often saturate prematurely due to insufficient feedback diversity. Thereby, we propose Curious-VLA, a framework that alleviates the exploit-explore dilemma through a two-stage design. During IL, we introduce a Feasible Trajectory Expansion (FTE) strategy to generate multiple physically valid trajectories and a step-wise normalized trajectory representation to adapt this diverse data. In the RL stage, we present Adaptive Diversity-Aware Sampling (ADAS) that prioritizes high-diversity samples and introduce Spanning Driving Reward (SDR) with a focal style weighting to amplify reward's value span for improving sensitivity to driving quality. On the Navsim benchmark, Curious-VLA achieves SoTA results (PDMS 90.3, EPDMS 85.4) and a Best-of-N PDMS of 94.8, demonstrating its effectiveness in unlocking the exploratory potential of VLA models. Code: <a href='https://github.com/Mashiroln/curious_vla.git' target='_blank'>https://github.com/Mashiroln/curious_vla.git</a>.",
-    "publication_date": "2026-03-06",
-    "pdf_download_success": true,
-    "citations": null,
-    "arxiv_id": "2603.06049",
-    "digest_date": 1773014400000,
-    "project_link": "https://github.com/Mashiroln/curious_vla.git",
-    "conference": null,
-    "conference_url": null,
-    "abbreviation": null,
-    "conference_year": null,
-    "conf_id": null,
-    "conference_submission_type": null,
-    "source": "arxiv",
-    "semantic_scholar_id": "a9a109b80610c2d6d015fb14bc168a9bbde917f5",
-    "cache_file_name": "Chen2026ARXIV_Devil_is_in_Narrow.pdf",
-    "ngt_id": 4203639,
-    "read": true,
-    "n_positive_ratings": 1,
-    "n_negative_ratings": 0,
-    "rating": 1,
-    "bookmarked": 0,
-    "user_paper_collections": [
-      {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      }
-    ],
-    "total_read": 16,
-    "total_likes": 3,
-    "category": "Computer Vision and Graphics",
-    "arxives_doi": null,
-    "chemrxiv_id": null,
-    "inferredHighlights": [
-      {
-        "startIndex": 320,
-        "endIndex": 435,
-        "highlightClass": "primary-highlight"
-      }
-    ],
-    "author_details": null,
-    "summaries": {
-      "contributions_question": "- Identifies the **Narrow Policy** problem as a fundamental bottleneck in the IL-RL pipeline that hinders autonomous driving VLAs.\n- Introduces **Curious-VLA**, a novel framework that systematically unleashes exploration for VLM itself without any additional module.\n- Achieves **state-of-the-art (SoTA)** performance on the Navsim benchmark with a PDMS score of 90.3.\n- Validates the effectiveness of its methods by achieving a Best-of-N PDMS score of 94.8, demonstrating successful exploration potential.\n- **Behavioral Diagnostics** are introduced to quantitatively verify the Narrow Policy phenomenon.",
-      "evaluation_question": "- On *Navsim v1*, achieves **90.3 PDMS**, surpassing traditional E2E methods like WoTE (**88.3**) and VLA-Token methods like AutoVLA (**89.1**).\n- On *Navsim v2*, obtains an **EPDMS score of 85.3**, improving upon DiffusionDrive (**84.5**) and establishing a new SOTA.\n- On *nuScenes*, demonstrates excellent results in *L2 error* and *Collision rate*, outperforming existing VLAs and E2E models.\n- Ablation studies show **+1.7 PDMS improvement** from CoT supervision and **+1.2 PDMS gain** from the proposed method compared to AutoVLA.",
-      "method_explanation_question": "- Processes driving inputs using a **VLA-Token** paradigm, directly predicting trajectory tokens via an auto-regressive or diffusion language model.\n- Generates diverse trajectories through **Feasible Trajectory Expansion (FTE)**, including exploratory data expansion and step-wise normalization.\n- Implements **Adaptive Diversity-Aware Sampling (ADAS)** to prioritize high-diversity samples and prevent premature convergence.\n- Reformulates the original driving reward into a **Spanning Driving Reward (SDR)** with a focal-style function to enhance sensitivity to driving quality.\n- Trains the model end-to-end using cross-entropy loss and optimizes through GRPO-based reinforcement learning.",
-      "problem_definition_question": "- Existing VLA models suffer from **Narrow Policy**, where IL stages over-exploit ground-truth trajectories, restricting subsequent RL updates.\n- **Exploration collapse** occurs due to insufficient feedback diversity, leading to limited policy updates and poor generalization.\n- Current approaches lack mechanisms to incorporate spatial context, reducing accuracy in challenging environments.\n- The **exploit\u2013explore dilemma** limits the ability to generalize across diverse, non-ideal conditions.\n- **Low trajectory diversity** and **limited quality** hinder real-world deployment of autonomous driving systems."
-    },
-    "affiliations": [
-      "State Key Laboratory of Media Convergence and Communication, Communication University of China",
-      "Institute for AI Industry Research, Tsinghua University",
-      "Lenovo Group Limited",
-      "National Superior College for Engineers, Beihang University",
-      "School of Electronic Information Engineering, Beihang University",
-      "Computer Science and Engineering, Beihang University",
-      "Cyber Science and Technology, Beihang University",
-      "Artificial Intelligence, Beihang University"
-    ],
-    "keywords_metadata": {
-      "field": "Computer Science",
-      "subfield": "Artificial Intelligence",
-      "sub_subfield": "Autonomous Driving",
-      "keywords": "Autonomous Driving,  Reinforcement Learning,  Imitation Learning,  Narrow Policy,  Curious-VLA,  Navsim Benchmark,  PDMS,  EPDMS",
-      "method_shortname": "Curious-VLA",
-      "color": "#fe7878"
-    },
-    "project_url": null,
-    "github_url": "https://github.com/Mashiroln/curious_vla.git",
-    "paper_source_id": "2603.06049",
-    "teaser_figures": [
-      {
-        "imageUrl": "/teaser_figures/4608874.0.jpeg",
-        "caption": "Figure 1. Visualization of Narrow Policy. (a) shows quantitative comparison of exploration. It is obvious that baselines achieve low diversity (mean-pFDE: 0.20m for Qwen2.5-VL, 0.33m for ReCogDrive) and low quality (min-FDE: 1.05m for Qwen2.5-VL). In contrast, our Curious-VLA achieves best diversity, quality and performance. (b) compares the trajectories of Qwen2.5-VL and our Curious-VLA. Qwen2.5-VL trajectories perform exploration collapse with single mode or unsafe behaviors, while ours not.",
-        "figureNumber": 0,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4608874.1.jpeg",
-        "caption": "Figure 2. Overall Pipeline of Curious-VLA. As identified in Sec. 3.2, existing VLAs with the IL-RL pipeline suffer from \u201cNarrow Policy\u201d and tend to generate overlap and unsafe behaviors. In this case, we introduce Curious-VLA, which takes into account both the think process and planing waypoint, to improve the diversity, quality and performance (middle panel). Specifically, Curious-VLA alleviates the Narrow Policy in both the IL stage (left panel) and the RL stage (right panel). For IL, to improve the separability of trajectory patterns, we generate diverse trajectories, structure the driving reasoning process into a four-stage CoT, and normalize each prediction step (See Sec. 4.1). For RL, to address the advantage collapse problem and sustain exploration, we introduce adaptive diverse aware sampling and spanning driving reward (See Sec. 4.2).",
-        "figureNumber": 1,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4608874.2.jpeg",
-        "caption": "Figure 3. Visualization of horizon physical scale mismatch by waypoints distribution.",
-        "figureNumber": 2,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4608874.3.jpeg",
-        "caption": "Figure 4. Qualitative comparison with BEV and Camera. We can see that our Curious-VLA achieves more feasible trajectories.",
-        "figureNumber": 3,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4608874.4.jpeg",
-        "caption": "Table 1. Comparison of different methods on Navsim V1 benchmark. The model with \u2020 indicates evaluation using Best-of-N sampling. The best and second best results are bolded and underlined, respectively. Continuous regresses the trajectory with an additional MLP/Transformer head. Discrete Action decodes action tokens that discretize each dimension of the trajectory into several bins. Text Waypoint decodes textual numbers that represent the trajectory.",
-        "figureNumber": 4,
-        "figureType": "Table"
-      },
-      {
-        "imageUrl": "/teaser_figures/4608874.5.jpeg",
-        "caption": "Table 2. Comparison of different methods with the Extended PDMS metric of NAVISM V2.",
-        "figureNumber": 5,
-        "figureType": "Table"
-      },
-      {
-        "imageUrl": "/teaser_figures/4608874.6.jpeg",
-        "caption": "Table 3. Open-loop evaluation on the nuScenes Benchmark.",
-        "figureNumber": 6,
-        "figureType": "Table"
-      },
-      {
-        "imageUrl": "/teaser_figures/4608874.7.jpeg",
-        "caption": "Table 4. Exploration analysis (all metrics @k=8). We evaluate Quality (minADE/FDE \u2193 ), Diversity (mean-pADE/FDE \u2191 ), and Perf. (mean-PDMS \u2191 ). In the Quality and Diversity columns, values correspond to ADE / FDE.",
-        "figureNumber": 7,
-        "figureType": "Table"
-      },
-      {
-        "imageUrl": "/teaser_figures/4608874.8.jpeg",
-        "caption": "Table 5. Ablation study on Imitation Learning approaches. We evaluate the impact of three key Feasible Trajectory Expansion components: DE (Exploratory Data Expansion), CoT (Chain-of-Thought) and SN (Step-wise",
-        "figureNumber": 8,
-        "figureType": "Table"
-      }
-    ],
-    "first_page_image": {
-      "imageUrl": "/first_pages/4608874.jpeg"
-    },
-    "ranking_score": 0.8567588768,
-    "has_ranking": true,
-    "color": [
-      0.8234038948,
-      0.409333696,
-      0.4901396872,
-      0.3
-    ],
-    "is_cached": true,
-    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.06049.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
-    "html_link": "https://arxiv.org/html/2603.06049",
-    "shortened_authors": "Canyu Chen, Yuguang Yang, Zhewen Tan, Yizhi Wang, Ruiyi Zhan, Haiyan Liu, Xuanyao Mao, Jason Bao, Xinyue Tang, ..., Baochang Zhang",
-    "display_venue": "ArXiv 2026 (March 6)",
-    "is_cached_filename": "Chen2026ARXIV_Devil_is_in_Narrow.pdf"
-  },
-  {
-    "paper_id": 4618055,
-    "title": "One-Step Flow Policy: Self-Distillation for Fast Visuomotor Policies",
-    "authors": "Shaolong Li, Lichao Sun, Yongchao Chen",
-    "url": "https://arxiv.org/pdf/2603.12480",
-    "abstract": "Generative flow and diffusion models provide the continuous, multimodal action distributions needed for high-precision robotic policies. However, their reliance on iterative sampling introduces severe inference latency, degrading control frequency and harming performance in time-sensitive manipulation. To address this problem, we propose the One-Step Flow Policy (OFP), a from-scratch self-distillation framework for high-fidelity, single-step action generation without a pre-trained teacher. OFP unifies a self-consistency loss to enforce coherent transport across time intervals, and a self-guided regularization to sharpen predictions toward high-density expert modes. In addition, a warm-start mechanism leverages temporal action correlations to minimize the generative transport distance. Evaluations across 56 diverse simulated manipulation tasks demonstrate that a one-step OFP achieves state-of-the-art results, outperforming 100-step diffusion and flow policies while accelerating action generation by over $100\\times$. We further integrate OFP into the $\u03c0_{0.5}$ model on RoboTwin 2.0, where one-step OFP surpasses the original 10-step policy. These results establish OFP as a practical, scalable solution for highly accurate and low-latency robot control.",
-    "publication_date": "2026-03-12",
-    "pdf_download_success": true,
-    "citations": null,
-    "arxiv_id": "2603.12480",
-    "digest_date": 1773619200000,
-    "project_link": null,
-    "conference": null,
-    "conference_url": null,
-    "abbreviation": null,
-    "conference_year": null,
-    "conf_id": null,
-    "conference_submission_type": null,
-    "source": "arxiv",
-    "semantic_scholar_id": "e06cb6037c6f33a604e05e5c8fe3ea1743da88bc",
-    "cache_file_name": "Li2026ARXIV_One_Step_Flow_Policy.pdf",
-    "ngt_id": 4212767,
-    "read": true,
-    "n_positive_ratings": 1,
-    "n_negative_ratings": 0,
-    "rating": 1,
-    "bookmarked": 0,
-    "user_paper_collections": [
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
-        "id": 166572,
-        "name": "Distillation",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
-        "id": 166546,
-        "name": "Diffusion",
-        "readonly": false,
-        "color": "#16a765"
-      }
-    ],
-    "total_read": 59,
-    "total_likes": 6,
-    "category": "Robotics and Control",
-    "arxives_doi": null,
-    "chemrxiv_id": null,
-    "inferredHighlights": [
-      {
-        "startIndex": 304,
-        "endIndex": 493,
-        "highlightClass": "primary-highlight"
-      },
-      {
-        "startIndex": 495,
-        "endIndex": 672,
-        "highlightClass": "secondary-highlight"
-      }
-    ],
-    "author_details": null,
-    "summaries": {
-      "contributions_question": "- Introduces **One-Step Flow Policy (OFP)**, a self-distilled framework for high-fidelity, single-step action generation without pre-trained teachers.\n- Unifies **self-consistency loss** and **self-guided regularization** to enforce temporal coherence and sharpen predictions toward expert modes.\n- Incorporates a **warm-start mechanism** leveraging temporal action correlations to reduce generative transport distance.\n- Achieves state-of-the-art results across 56 simulated manipulation tasks, outperforming 100-step diffusion and flow policies by over 100 \u00d7.\n- Validates scalability by integrating OFP into the \u03c0 0 . 5 model on RoboTwin 2.0, surpassing the original 10-step policy.",
-      "evaluation_question": "- On *Adroit*, achieves **85.0%** success rate vs. DP3 (**79.0%**) at NFE=1.\n- On *DexArt*, reaches **64.3%** vs. DP3 (**63.7%**) at NFE=1.\n- On *MetaWorldEasy*, obtains **87.9%** vs. DP3 (**82.8%**) at NFE=1.\n- On *MetaWorldHard*, attains **49.2%** vs. DP3 (**41.0%**) at NFE=1.\n- Outperforms all baselines in *3D pointcloud* tasks with significant margin improvements.",
-      "method_explanation_question": "- Processes observations and generates actions using a **flow-based generative policy** conditioned on visual inputs.\n- Enforces **self-consistency** by training an interval-averaged velocity field to maintain temporal coherence.\n- Implements **self-guided regularization** via score-based corrections to align predictions with high-density expert distributions.\n- Leverages a **warm-start mechanism** to initialize action generation from prior steps, reducing transport distance.\n- Optimizes via a unified objective combining flow anchoring, self-consistency, and self-guidance losses.",
-      "problem_definition_question": "- Current generative policies suffer from **high inference latency** due to iterative sampling, limiting real-time robotic control.\n- Standard flow and diffusion models face **truncation errors** in low-NFE regimes, degrading sample quality.\n- Prior distillation methods either sacrifice precision or lack scalability for complex robotic tasks.\n- There is a critical need for **fast, high-fidelity visuomotor policies** that balance speed and accuracy.\n- Robotic systems require **low-latency, precise action generation** to handle dynamic environments effectively."
-    },
-    "affiliations": [
-      "College of AI, Tsinghua University",
-      "Lehigh University",
-      "CSE Department, University of Michigan"
-    ],
-    "keywords_metadata": {
-      "field": "Computer Science",
-      "subfield": "Robotics",
-      "sub_subfield": "Visuomotor Control",
-      "keywords": "Visuomotor Control,  Flow Matching,  Diffusion Models,  Self-Distillation,  One-Step Flow Policy,  OFP",
-      "method_shortname": "One-Step Flow Policy",
-      "color": "#fe7878"
-    },
-    "project_url": null,
-    "github_url": null,
-    "paper_source_id": "2603.12480",
-    "teaser_figures": [
-      {
-        "imageUrl": "/teaser_figures/4618055.0.jpeg",
-        "caption": "Figure 1: Averaged across 56 tasks. Eval-uated at NFE=1, OFP outperforms all other single-step baselines and accelerates generation by over 100 \u00d7 compared to DP3 and FM Policy (NFE=100).",
-        "figureNumber": 0,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4618055.1.jpeg",
-        "caption": "Figure 2: Self-Distillation of One-Step Flow Policies. (a) Self-Consistency Training: The model learns an interval-averaged velocity field by matching predictions across nested sub-intervals, enforcing temporal coherence along the marginal flow trajectory. (b) Self-Guided Training: By leveraging Classifier-Free Guidance on the model\u2019s own predictions, we extract a distribution-level correction signal. The regularization repels single-step predictions from the unconditional prior and sharpens the generated actions toward the high-density modes of the expert data.",
-        "figureNumber": 1,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4618055.2.jpeg",
-        "caption": "Figure 3: Warm-Start Action Prior for One-Step Inference. The unexecuted suffix of the previously generated action chunk is shifted and padded with the terminal action to form a full-length temporal prior. By starting closer to the target data manifold rather than from pure Gaussian noise, this initialization reduces the required transport distance.",
-        "figureNumber": 2,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4618055.3.jpeg",
-        "caption": "Table 1: Performance on 2D image-based manipulation. Results are averaged over 3 random seeds. The best performance in each column is highlighted in bold .",
-        "figureNumber": 3,
-        "figureType": "Table"
-      },
-      {
-        "imageUrl": "/teaser_figures/4618055.4.jpeg",
-        "caption": "Table 2: Performance on 3D pointcloud manipulation. We assess performance on 56 challenging tasks with 3 random seeds.",
-        "figureNumber": 4,
-        "figureType": "Table"
-      }
-    ],
-    "first_page_image": {
-      "imageUrl": "/first_pages/4618055.jpeg"
-    },
-    "ranking_score": 0.8536838749,
-    "has_ranking": true,
-    "color": [
-      0.8234038948,
-      0.409333696,
-      0.4901396872,
-      0.3
-    ],
-    "is_cached": true,
-    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.12480.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
-    "html_link": "https://arxiv.org/html/2603.12480",
-    "shortened_authors": "Shaolong Li, Lichao Sun, Yongchao Chen",
-    "display_venue": "ArXiv 2026 (March 12)",
-    "is_cached_filename": "Li2026ARXIV_One_Step_Flow_Policy.pdf"
   }
 ]
