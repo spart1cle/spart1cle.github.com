@@ -225,7 +225,7 @@
         renderThoughts();
       });
     });
-    collapseTags(tagFiltersEl);
+    collapseTags(tagFiltersEl, sidebarEl);
   }
 
   // ── Clear Button ───────────────────────────────────────────

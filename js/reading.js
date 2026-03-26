@@ -69,7 +69,7 @@
         renderPapers();
       });
     });
-    collapseTags(tagFiltersEl);
+    collapseTags(tagFiltersEl, tagFiltersEl.closest('.reading-sidebar'));
   }
 
   // ── Sort ───────────────────────────────────────────────────
