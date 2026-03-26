@@ -1361,6 +1361,10 @@ ul { list-style: none; }
   padding: 0.15rem 0.5rem;
 }
 
+.paper-slack-btn { border: none; cursor: pointer; }
+.paper-slack-btn.sending { opacity: 0.5; cursor: wait; }
+.paper-slack-btn.sent { background: #2eb67d !important; color: #fff !important; }
+
 .reading-stats {
   display: flex;
   align-items: center;

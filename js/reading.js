@@ -187,6 +187,7 @@
                   ${arxivUrl ? `<a class="pub-link" href="${escapeHtml(arxivUrl)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>arXiv</a>` : ''}
                   ${p.url ? `<a class="pub-link" href="${escapeHtml(p.url)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>PDF</a>` : ''}
                   ${p.project_link && !p.project_link.includes('}{') ? `<a class="pub-link" href="${escapeHtml(p.project_link)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</a>` : ''}
+                  ${localStorage.getItem('thoughts-github-token') ? `<button class="pub-link paper-slack-btn" data-id="${escapeHtml(p.paper_id)}" title="Push to Slack"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2a2.5 2.5 0 0 0 0 5H17V4.5A2.5 2.5 0 0 0 14.5 2z"/><path d="M7 5h3.5"/><path d="M2 9.5A2.5 2.5 0 0 0 4.5 12H7V9.5A2.5 2.5 0 0 0 2 9.5z"/><path d="M7 12v3.5"/><path d="M9.5 22a2.5 2.5 0 0 0 0-5H7v2.5A2.5 2.5 0 0 0 9.5 22z"/><path d="M17 19h-3.5"/><path d="M22 14.5a2.5 2.5 0 0 0-2.5-2.5H17v2.5a2.5 2.5 0 0 0 5 0z"/><path d="M17 12v-3.5"/></svg>Slack</button>` : ''}
                 </div>
               </div>
               <svg class="reading-expand-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -212,8 +213,53 @@
       });
     }
 
+    // Attach Slack push handlers
+    listEl.querySelectorAll('.paper-slack-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        handlePaperSlackPush(btn);
+      });
+    });
+
     if (window.revealElements) window.revealElements('.reading-card');
     window.initTagColors();
+  }
+
+  // ── Slack Push ──────────────────────────────────────────────
+  const GITHUB_REPO = 'spart1cle/spart1cle.github.io';
+  const GITHUB_BRANCH = 'main';
+
+  function handlePaperSlackPush(btn) {
+    const id = btn.dataset.id;
+    const pat = localStorage.getItem('thoughts-github-token');
+    if (!pat) return;
+
+    btn.disabled = true;
+    btn.classList.add('sending');
+
+    fetch(`https://api.github.com/repos/${GITHUB_REPO}/actions/workflows/notify-papers.yml/dispatches`, {
+      method: 'POST',
+      headers: {
+        Authorization: `token ${pat}`,
+        Accept: 'application/vnd.github+json',
+      },
+      body: JSON.stringify({ ref: GITHUB_BRANCH, inputs: { paper_id: String(id) } }),
+    })
+      .then((r) => {
+        if (!r.ok) throw new Error(`${r.status}`);
+        btn.classList.remove('sending');
+        btn.classList.add('sent');
+        setTimeout(() => {
+          btn.classList.remove('sent');
+          btn.disabled = false;
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error('Slack push failed:', err);
+        btn.classList.remove('sending');
+        btn.disabled = false;
+        alert('Failed to trigger Slack push. Check console for details.');
+      });
   }
 
   // ── Helpers ────────────────────────────────────────────────

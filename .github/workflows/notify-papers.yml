@@ -1,0 +1,27 @@
+name: Notify New Papers to Slack
+
+on:
+  workflow_dispatch:
+    inputs:
+      paper_id:
+        description: 'Single paper ID to push to Slack'
+        required: true
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Push paper to Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          PAPER_ID: ${{ github.event.inputs.paper_id }}
+        run: python3 notify_papers_slack.py
