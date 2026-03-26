@@ -322,6 +322,10 @@
         ? `<button class="thought-edit-btn" data-id="${t.id}" title="Edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>`
         : '';
 
+      const slackBtn = isAuthenticated()
+        ? `<button class="thought-slack-btn" data-id="${t.id}" title="Push to Slack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2a2.5 2.5 0 0 0 0 5H17V4.5A2.5 2.5 0 0 0 14.5 2z"/><path d="M7 5h3.5"/><path d="M2 9.5A2.5 2.5 0 0 0 4.5 12H7V9.5A2.5 2.5 0 0 0 2 9.5z"/><path d="M7 12v3.5"/><path d="M9.5 22a2.5 2.5 0 0 0 0-5H7v2.5A2.5 2.5 0 0 0 9.5 22z"/><path d="M17 19h-3.5"/><path d="M22 14.5a2.5 2.5 0 0 0-2.5-2.5H17v2.5a2.5 2.5 0 0 0 5 0z"/><path d="M17 12v-3.5"/></svg></button>`
+        : '';
+
       const deleteBtn = isAuthenticated()
         ? `<button class="thought-delete-btn" data-id="${t.id}" title="Delete"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>`
         : '';
@@ -333,7 +337,7 @@
       html +=
         `<article class="thought-card" id="t-${t.id}">` +
         deleteOverlay +
-        `<div class="thought-card-meta"><a href="#t-${t.id}" class="reading-date thought-permalink">${escapeHtml(t.date)}</a>${editBtn}${deleteBtn}</div>` +
+        `<div class="thought-card-meta"><a href="#t-${t.id}" class="reading-date thought-permalink">${escapeHtml(t.date)}</a>${editBtn}${slackBtn}${deleteBtn}</div>` +
         `<div class="thought-text">${formatText(t.text)}</div>` +
         previewHtml +
         `<div class="thought-card-tags">${tagsHtml}</div>` +
@@ -356,6 +360,10 @@
     // Attach edit handlers
     listEl.querySelectorAll('.thought-edit-btn').forEach((btn) => {
       btn.addEventListener('click', () => handleEdit(btn.dataset.id));
+    });
+    // Attach Slack handlers
+    listEl.querySelectorAll('.thought-slack-btn').forEach((btn) => {
+      btn.addEventListener('click', () => handleSlackPush(btn));
     });
     // Attach delete handlers
     listEl.querySelectorAll('.thought-delete-btn').forEach((btn) => {
@@ -502,6 +510,40 @@
         el.style.outline = 'none';
       }, 2000);
     }
+  }
+
+  // ── Slack Push ─────────────────────────────────────────────
+  function handleSlackPush(btn) {
+    const id = btn.dataset.id;
+    const pat = localStorage.getItem(TOKEN_KEY);
+    if (!pat) return;
+
+    btn.disabled = true;
+    btn.classList.add('sending');
+
+    fetch(`https://api.github.com/repos/${GITHUB_REPO}/actions/workflows/notify-thoughts.yml/dispatches`, {
+      method: 'POST',
+      headers: {
+        Authorization: `token ${pat}`,
+        Accept: 'application/vnd.github+json',
+      },
+      body: JSON.stringify({ ref: GITHUB_BRANCH, inputs: { thought_id: id } }),
+    })
+      .then((r) => {
+        if (!r.ok) throw new Error(`${r.status}`);
+        btn.classList.remove('sending');
+        btn.classList.add('sent');
+        setTimeout(() => {
+          btn.classList.remove('sent');
+          btn.disabled = false;
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error('Slack push failed:', err);
+        btn.classList.remove('sending');
+        btn.disabled = false;
+        alert('Failed to trigger Slack push. Check console for details.');
+      });
   }
 
   // ── Edit ───────────────────────────────────────────────────

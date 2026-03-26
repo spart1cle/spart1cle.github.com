@@ -1513,8 +1513,9 @@ ul { list-style: none; }
   gap: var(--space-xs);
 }
 
-/* Edit & Delete buttons */
+/* Edit, Slack & Delete buttons */
 .thought-edit-btn,
+.thought-slack-btn,
 .thought-delete-btn {
   background: none;
   border: none;
@@ -1531,6 +1532,7 @@ ul { list-style: none; }
 }
 
 .thought-edit-btn svg,
+.thought-slack-btn svg,
 .thought-delete-btn svg {
   display: block;
 }
@@ -1538,9 +1540,13 @@ ul { list-style: none; }
 .thought-edit-btn { margin-left: auto; }
 
 .thought-card:hover .thought-edit-btn,
+.thought-card:hover .thought-slack-btn,
 .thought-card:hover .thought-delete-btn { opacity: 0.5; }
 .thought-edit-btn:hover { opacity: 1 !important; color: var(--color-accent); }
+.thought-slack-btn:hover { opacity: 1 !important; color: #4A154B; }
 .thought-delete-btn:hover { opacity: 1 !important; color: #e74c3c; }
+.thought-slack-btn.sending { opacity: 0.5 !important; cursor: wait; }
+.thought-slack-btn.sent { opacity: 1 !important; color: #2eb67d; }
 
 /* Delete confirmation overlay */
 .thought-delete-overlay {
