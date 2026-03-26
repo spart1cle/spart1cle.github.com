@@ -377,7 +377,7 @@ ul { list-style: none; }
 .hero-links {
   display: flex;
   gap: var(--space-sm);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .hero-links a {
