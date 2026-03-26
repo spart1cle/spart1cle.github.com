@@ -444,6 +444,33 @@
     });
   }
 
+  // ── Auto-Color Tags ──────────────────────────────────────────
+  // Scans the DOM for .reading-tag and .tag-filter-btn elements,
+  // collects unique tag names, and assigns deterministic HSL colors
+  // using the same formula as shared.js buildTagColorCache.
+  window.initTagColors = function () {
+    var els = document.querySelectorAll(
+      '.reading-tag:not(.reading-tag-liked), .tag-filter-btn[data-tag]:not([data-tag="__liked__"]), .tag-filter-btn[data-compose-tag]'
+    );
+    if (!els.length) return;
+    var seen = {};
+    var allNames = [];
+    els.forEach(function (el) {
+      var name = el.dataset.tag || el.dataset.composeTag || el.dataset.removeTag || el.textContent.trim();
+      if (name && !seen[name]) { seen[name] = true; allNames.push(name); }
+    });
+    allNames.sort(function (a, b) { return a.localeCompare(b); });
+    var n = allNames.length || 1;
+    var cache = {};
+    for (var i = 0; i < allNames.length; i++) {
+      cache[allNames[i]] = 'hsl(' + Math.round(170 + (i * 110) / n) + ', 65%, 50%)';
+    }
+    els.forEach(function (el) {
+      var name = el.dataset.tag || el.dataset.composeTag || el.dataset.removeTag || el.textContent.trim();
+      if (cache[name]) el.style.setProperty('--tag-color', cache[name]);
+    });
+  };
+
   // ── Init ───────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('theme-toggle');
@@ -478,6 +505,7 @@
       });
     });
 
+    window.initTagColors();
     initHamburger();
     initHeroCanvas();
     initScrollReveal();

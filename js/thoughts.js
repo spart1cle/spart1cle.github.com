@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  const { escapeHtml, buildTagColorCache, tagColor, updateHash, readHash, collapseTags } = SiteUtils;
+  const { escapeHtml, updateHash, readHash, collapseTags } = SiteUtils;
 
   const listEl = document.getElementById('thoughts-list');
   const searchEl = document.getElementById('thoughts-search');
@@ -14,7 +14,6 @@
   const searchClearBtn = document.getElementById('thoughts-search-clear');
 
   let thoughts = [];
-  let tagColorCache = {};
   const activeTags = new Set();
   let searchTimeout = null;
   let activeMonth = null;
@@ -65,7 +64,6 @@
     .then((r) => r.json())
     .then((data) => {
       thoughts = data;
-      tagColorCache = buildTagColorCache(thoughts, (t) => t.tags || []);
       buildMonthDensity();
       renderTagFilters();
       initClear();
@@ -209,7 +207,7 @@
     tagFiltersEl.innerHTML = sorted
       .map(
         ([name, count]) =>
-          `<button class="filter-btn tag-filter-btn" data-tag="${escapeHtml(name)}" style="--tag-color:${tagColor(tagColorCache, name)}">${escapeHtml(name)} <span class="tag-count">${count}</span></button>`
+          `<button class="filter-btn tag-filter-btn" data-tag="${escapeHtml(name)}">${escapeHtml(name)} <span class="tag-count">${count}</span></button>`
       )
       .join('');
     tagFiltersEl.querySelectorAll('.tag-filter-btn').forEach((btn) => {
@@ -311,7 +309,7 @@
         .sort((a, b) => a.localeCompare(b))
         .map(
           (tag) =>
-            `<span class="reading-tag" style="--tag-color:${tagColor(tagColorCache, tag)}">${escapeHtml(tag)}</span>`
+            `<span class="reading-tag">${escapeHtml(tag)}</span>`
         )
         .join('');
 
@@ -384,6 +382,7 @@
       });
     }
     if (window.revealElements) window.revealElements('.thought-card');
+    window.initTagColors();
   }
 
   // ── Text Processing ────────────────────────────────────────
@@ -588,7 +587,6 @@
       .then((res) => {
         if (!res.ok) return res.json().then((err) => { throw new Error(err.message || 'Delete failed'); });
         thoughts = thoughts.filter((t) => t.id !== id);
-        tagColorCache = buildTagColorCache(thoughts, (t) => t.tags || []);
         renderTagFilters();
         renderThoughts();
       })
@@ -671,7 +669,7 @@
     existingTagsEl.innerHTML = allTags
       .map((tag) => {
         const isSelected = selectedComposeTags.has(tag);
-        return `<button type="button" class="filter-btn tag-filter-btn${isSelected ? ' active' : ''}" data-compose-tag="${escapeHtml(tag)}" style="--tag-color:${tagColor(tagColorCache, tag)}">${escapeHtml(tag)}</button>`;
+        return `<button type="button" class="filter-btn tag-filter-btn${isSelected ? ' active' : ''}" data-compose-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</button>`;
       })
       .join('');
     existingTagsEl.querySelectorAll('[data-compose-tag]').forEach((btn) => {
@@ -686,6 +684,7 @@
         }
       });
     });
+    window.initTagColors();
   }
 
   // ── Compose: New Tag Chips ─────────────────────────────────
@@ -697,7 +696,7 @@
     newTagsEl.innerHTML = [...newTagsSet]
       .map(
         (tag) =>
-          `<button type="button" class="reading-tag thoughts-new-tag-chip" data-remove-tag="${escapeHtml(tag)}" style="--tag-color:${tagColor(tagColorCache, tag)}">${escapeHtml(tag)} &times;</button>`
+          `<button type="button" class="reading-tag thoughts-new-tag-chip" data-remove-tag="${escapeHtml(tag)}">${escapeHtml(tag)} &times;</button>`
       )
       .join('');
     newTagsEl.querySelectorAll('[data-remove-tag]').forEach((btn) => {
@@ -706,6 +705,7 @@
         renderNewTagChips();
       });
     });
+    window.initTagColors();
   }
 
   tagInput.addEventListener('input', () => {
@@ -1139,7 +1139,7 @@
       .sort((a, b) => a.localeCompare(b))
       .map(
         (tag) =>
-          `<span class="reading-tag" style="--tag-color:${tagColor(tagColorCache, tag)}">${escapeHtml(tag)}</span>`
+          `<span class="reading-tag">${escapeHtml(tag)}</span>`
       )
       .join('');
 
@@ -1169,6 +1169,7 @@
         throwOnError: false,
       });
     }
+    window.initTagColors();
   }
 
   function showConfirmState() {
@@ -1286,7 +1287,6 @@
         } else {
           thoughts.unshift(entry);
         }
-        tagColorCache = buildTagColorCache(thoughts, (t) => t.tags || []);
         renderTagFilters();
         renderThoughts();
         resetComposeForm();

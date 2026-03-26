@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  const { escapeHtml, buildTagColorCache, tagColor, updateHash, readHash, collapseTags } = SiteUtils;
+  const { escapeHtml, updateHash, readHash, collapseTags } = SiteUtils;
 
   const listEl = document.getElementById('reading-list');
   const searchEl = document.getElementById('reading-search');
@@ -13,7 +13,6 @@
   const searchClearBtn = document.getElementById('reading-search-clear');
 
   let papers = [];
-  let tagColorCache = {};
   let activeTags = new Set();
   let activeSort = 'published';
   let searchTimeout = null;
@@ -23,9 +22,6 @@
     .then((r) => r.json())
     .then((data) => {
       papers = data;
-      tagColorCache = buildTagColorCache(papers, (p) =>
-        (p.user_paper_collections || []).map((c) => c.name)
-      );
       renderTagFilters();
       initSort();
       initClear();
@@ -55,7 +51,7 @@
       sorted
         .map(
           ([name, count]) =>
-            `<button class="filter-btn tag-filter-btn" data-tag="${escapeHtml(name)}" style="--tag-color:${tagColor(tagColorCache, name)}">${escapeHtml(name)} <span class="tag-count">${count}</span></button>`
+            `<button class="filter-btn tag-filter-btn" data-tag="${escapeHtml(name)}">${escapeHtml(name)} <span class="tag-count">${count}</span></button>`
         )
         .join('');
     tagFiltersEl.querySelectorAll('.tag-filter-btn').forEach((btn) => {
@@ -158,7 +154,7 @@
           ? colls
               .map(
                 (c) =>
-                  `<span class="reading-tag" style="--tag-color:${tagColor(tagColorCache, c.name)}">${escapeHtml(c.name)}</span>`
+                  `<span class="reading-tag">${escapeHtml(c.name)}</span>`
               )
               .join('')
           : '<span class="reading-tag reading-tag-liked" style="--tag-color:var(--color-accent)">&#x1F44D; Liked</span>';
@@ -217,6 +213,7 @@
     }
 
     if (window.revealElements) window.revealElements('.reading-card');
+    window.initTagColors();
   }
 
   // ── Helpers ────────────────────────────────────────────────
