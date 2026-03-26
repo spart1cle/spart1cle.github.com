@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  const { escapeHtml, buildTagColorCache, tagColor, updateHash, readHash } = SiteUtils;
+  const { escapeHtml, buildTagColorCache, tagColor, updateHash, readHash, collapseTags } = SiteUtils;
 
   const listEl = document.getElementById('reading-list');
   const searchEl = document.getElementById('reading-search');
@@ -73,6 +73,7 @@
         renderPapers();
       });
     });
+    collapseTags(tagFiltersEl);
   }
 
   // ── Sort ───────────────────────────────────────────────────

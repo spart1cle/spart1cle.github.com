@@ -2,19 +2,23 @@
 (function () {
   'use strict';
 
-  const { escapeHtml, buildTagColorCache, tagColor, updateHash, readHash } = SiteUtils;
+  const { escapeHtml, buildTagColorCache, tagColor, updateHash, readHash, collapseTags } = SiteUtils;
 
   const listEl = document.getElementById('thoughts-list');
   const searchEl = document.getElementById('thoughts-search');
   const tagFiltersEl = document.getElementById('thoughts-tag-filters');
   const countEl = document.getElementById('thoughts-count');
-  const clearBtn = document.getElementById('thoughts-clear');
+  const clearBtns = document.querySelectorAll('.thoughts-clear');
+  const clearBtnTag = clearBtns[0];
+  const clearBtnMonth = clearBtns[1];
   const searchClearBtn = document.getElementById('thoughts-search-clear');
 
   let thoughts = [];
   let tagColorCache = {};
   const activeTags = new Set();
   let searchTimeout = null;
+  let activeMonth = null;
+  let monthDensityMap = {};
 
   // ── Emoji Map ─────────────────────────────────────────────
   const EMOJI_MAP = {
@@ -62,11 +66,14 @@
     .then((data) => {
       thoughts = data;
       tagColorCache = buildTagColorCache(thoughts, (t) => t.tags || []);
+      buildMonthDensity();
       renderTagFilters();
       initClear();
       if (!isPermalinkHash()) {
-        readHash(activeTags, tagFiltersEl, searchEl, searchClearBtn);
+        const hashState = readHash(activeTags, tagFiltersEl, searchEl, searchClearBtn);
+        if (hashState && hashState.month) activeMonth = hashState.month;
       }
+      renderArchive();
       renderThoughts();
       scrollToPermalink();
     })
@@ -74,6 +81,114 @@
       listEl.innerHTML =
         '<p style="text-align:center;color:var(--color-text-secondary)">Could not load thoughts.</p>';
     });
+
+  // ── Archive Widget ─────────────────────────────────────────
+  const MONTH_LABELS = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+  const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const MAX_BAR_HEIGHT = 40;
+  const ARCHIVE_YEAR_LIMIT = 2;
+  let archiveExpanded = false;
+
+  function buildMonthDensity() {
+    monthDensityMap = {};
+    thoughts.forEach((t) => {
+      if (!t.date) return;
+      const key = t.date.slice(0, 7);
+      monthDensityMap[key] = (monthDensityMap[key] || 0) + 1;
+    });
+  }
+
+  function renderArchive() {
+    const container = document.getElementById('archive-years');
+    if (!container) return;
+
+    const years = {};
+    Object.keys(monthDensityMap).forEach((key) => {
+      const y = key.slice(0, 4);
+      if (!years[y]) years[y] = true;
+    });
+    const sortedYears = Object.keys(years).sort((a, b) => b - a);
+
+    if (!sortedYears.length) {
+      container.innerHTML = '';
+      return;
+    }
+
+    const maxCount = Math.max(...Object.values(monthDensityMap));
+
+    const hasHidden = !archiveExpanded && sortedYears.length > ARCHIVE_YEAR_LIMIT;
+    const visibleYears = hasHidden ? sortedYears.slice(0, ARCHIVE_YEAR_LIMIT) : sortedYears;
+
+    let html = '<div class="archive-years-row">';
+    visibleYears.forEach((year) => {
+      html += `<div class="archive-year">`;
+      html += `<span class="archive-year-label">${year}</span>`;
+      html += `<div class="archive-bars">`;
+      for (let m = 0; m < 12; m++) {
+        const key = `${year}-${String(m + 1).padStart(2, '0')}`;
+        const count = monthDensityMap[key] || 0;
+        const height = count > 0
+          ? Math.max(4, Math.round((count / maxCount) * MAX_BAR_HEIGHT))
+          : 2;
+        const density = count === 0 ? 'empty'
+          : count <= maxCount * 0.25 ? 'L1'
+          : count <= maxCount * 0.5 ? 'L2'
+          : count <= maxCount * 0.75 ? 'L3'
+          : 'L4';
+        const isActive = activeMonth === key;
+        const tooltip = `${MONTH_NAMES[m]} ${year} (${count} ${count === 1 ? 'post' : 'posts'})`;
+        html += `<button class="archive-bar archive-bar-${density}${isActive ? ' active' : ''}" data-month="${key}" style="height:${height}px" title="${tooltip}"></button>`;
+      }
+      html += `</div>`;
+      html += `<div class="archive-months">${MONTH_LABELS.map((l) => `<span>${l}</span>`).join('')}</div>`;
+      html += `</div>`;
+    });
+    html += '</div>';
+
+    if (sortedYears.length > ARCHIVE_YEAR_LIMIT) {
+      const hiddenCount = sortedYears.length - ARCHIVE_YEAR_LIMIT;
+      html += `<button class="tag-toggle-btn" id="archive-toggle">${archiveExpanded ? 'Show less' : `Show ${hiddenCount} older`}</button>`;
+    }
+
+    container.innerHTML = html;
+
+    const toggle = document.getElementById('archive-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        if (archiveExpanded) {
+          // Collapsing: scroll back first, then re-render
+          const row = container.querySelector('.archive-years-row');
+          if (row && row.scrollLeft > 0) {
+            row.scrollTo({ left: 0, behavior: 'smooth' });
+            setTimeout(() => { archiveExpanded = false; renderArchive(); }, 700);
+          } else {
+            archiveExpanded = false;
+            renderArchive();
+          }
+        } else {
+          // Expanding: re-render first, then scroll to reveal
+          archiveExpanded = true;
+          renderArchive();
+          const row = container.querySelector('.archive-years-row');
+          const newYear = row && row.children[ARCHIVE_YEAR_LIMIT];
+          if (newYear) newYear.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        }
+      });
+    }
+
+    container.querySelectorAll('.archive-bar').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.month;
+        if (activeMonth === key) {
+          activeMonth = null;
+        } else {
+          activeMonth = key;
+        }
+        renderArchive();
+        renderThoughts();
+      });
+    });
+  }
 
   // ── Tag Filters ────────────────────────────────────────────
   function renderTagFilters() {
@@ -112,17 +227,23 @@
         renderThoughts();
       });
     });
+    collapseTags(tagFiltersEl);
   }
 
   // ── Clear Button ───────────────────────────────────────────
   function initClear() {
-    clearBtn.addEventListener('click', () => {
+    clearBtnTag.addEventListener('click', () => {
       activeTags.clear();
       searchEl.value = '';
       tagFiltersEl
         .querySelectorAll('.tag-filter-btn.active')
         .forEach((b) => b.classList.remove('active'));
       searchClearBtn.classList.remove('visible');
+      renderThoughts();
+    });
+    clearBtnMonth.addEventListener('click', () => {
+      activeMonth = null;
+      renderArchive();
       renderThoughts();
     });
   }
@@ -135,10 +256,12 @@
     if (resetPage !== false) visibleCount = PAGE_SIZE;
     updateHash(activeTags, searchEl.value, {
       skipIf: () => isPermalinkHash(),
+      month: activeMonth,
     });
 
     const query = searchEl.value.toLowerCase();
     const filtered = thoughts.filter((t) => {
+      if (activeMonth && (!t.date || t.date.slice(0, 7) !== activeMonth)) return false;
       if (activeTags.size > 0) {
         const entryTags = new Set(t.tags || []);
         for (const tag of activeTags) {
@@ -152,8 +275,11 @@
       return true;
     });
 
-    const hasFilters = activeTags.size > 0 || query;
-    clearBtn.style.display = hasFilters ? '' : 'none';
+    const hasFilters = activeTags.size > 0 || query || activeMonth;
+    const showTagClear = activeTags.size > 0 || query;
+    const showMonthClear = !!activeMonth;
+    clearBtnTag.style.display = showTagClear ? '' : 'none';
+    clearBtnMonth.style.display = showMonthClear ? '' : 'none';
     const noun = thoughts.length === 1 ? 'thought' : 'thoughts';
     countEl.textContent =
       filtered.length === thoughts.length
