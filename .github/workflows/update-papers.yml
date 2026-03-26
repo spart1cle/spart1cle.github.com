@@ -34,7 +34,8 @@ jobs:
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Notify new papers to Slack
-        if: steps.commit.outputs.changed == 'true'
+        #if: steps.commit.outputs.changed == 'true'
+        if: false
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
