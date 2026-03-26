@@ -123,19 +123,25 @@ def slack_api(token, method, body):
     return data
 
 
-def slack_post(token, channel, blocks):
-    data = slack_api(token, "chat.postMessage", {
+def slack_post(token, channel, blocks, url=None):
+    body = {
         "channel": channel, "blocks": blocks,
         "unfurl_links": True, "unfurl_media": True,
-    })
+    }
+    if url:
+        body["text"] = url
+    data = slack_api(token, "chat.postMessage", body)
     return data["ts"]
 
 
-def slack_update(token, channel, ts, blocks):
-    slack_api(token, "chat.update", {
+def slack_update(token, channel, ts, blocks, url=None):
+    body = {
         "channel": channel, "ts": ts, "blocks": blocks,
         "unfurl_links": True, "unfurl_media": True,
-    })
+    }
+    if url:
+        body["text"] = url
+    slack_api(token, "chat.update", body)
 
 
 def slack_delete(token, channel, ts):
@@ -186,7 +192,7 @@ def build_blocks(thought):
     })
 
     blocks.append({"type": "divider"})
-    return blocks
+    return blocks, url
 
 
 # ── Main ────────────────────────────────────────────────────
@@ -230,7 +236,8 @@ def main():
 
     for t in new_thoughts:
         try:
-            ts = slack_post(slack_token, channel_id, build_blocks(t))
+            blocks, url = build_blocks(t)
+            ts = slack_post(slack_token, channel_id, blocks, url)
             mapping[t["id"]] = ts
             mapping_changed = True
             print(f"  Posted: {t['id']}")
@@ -241,13 +248,13 @@ def main():
     # ── Edited thoughts ──
     for t in edited_thoughts:
         ts = mapping.get(t["id"])
-        blocks = build_blocks(t)
+        blocks, url = build_blocks(t)
         try:
             if ts:
-                slack_update(slack_token, channel_id, ts, blocks)
+                slack_update(slack_token, channel_id, ts, blocks, url)
                 print(f"  Updated: {t['id']}")
             else:
-                ts = slack_post(slack_token, channel_id, blocks)
+                ts = slack_post(slack_token, channel_id, blocks, url)
                 mapping[t["id"]] = ts
                 mapping_changed = True
                 print(f"  Posted (untracked edit): {t['id']}")
@@ -292,14 +299,14 @@ def manual_push(slack_token, channel_id, gist_id, gist_token, thought_id):
 
     mapping = gist_read(gist_id, gist_token)
     ts = mapping.get(thought_id)
-    blocks = build_blocks(thought)
+    blocks, url = build_blocks(thought)
 
     try:
         if ts:
-            slack_update(slack_token, channel_id, ts, blocks)
+            slack_update(slack_token, channel_id, ts, blocks, url)
             print(f"  Updated: {thought_id}")
         else:
-            ts = slack_post(slack_token, channel_id, blocks)
+            ts = slack_post(slack_token, channel_id, blocks, url)
             mapping[thought_id] = ts
             gist_write(gist_id, gist_token, mapping)
             print(f"  Posted: {thought_id}")
