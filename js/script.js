@@ -445,9 +445,9 @@
   }
 
   // ── Auto-Color Tags ──────────────────────────────────────────
-  // Scans the DOM for .reading-tag and .tag-filter-btn elements,
-  // collects unique tag names, and assigns deterministic HSL colors
-  // using the same formula as shared.js buildTagColorCache.
+  // Generates the original HSL palette, converts each color to OKLCH,
+  // then normalises lightness so all tags look equally bright while
+  // preserving each color's natural hue and chroma.
   window.initTagColors = function () {
     var els = document.querySelectorAll(
       '.reading-tag, .tag-filter-btn[data-tag], .tag-filter-btn[data-compose-tag]'
@@ -461,9 +461,58 @@
     });
     allNames.sort(function (a, b) { return a.localeCompare(b); });
     var n = allNames.length || 1;
+
+    function hslToRgb(h, s, l) {
+      h = ((h % 360) + 360) % 360;
+      var c = (1 - Math.abs(2 * l - 1)) * s;
+      var x = c * (1 - Math.abs((h / 60) % 2 - 1));
+      var m = l - c / 2;
+      var r, g, b;
+      if (h < 60)       { r = c; g = x; b = 0; }
+      else if (h < 120) { r = x; g = c; b = 0; }
+      else if (h < 180) { r = 0; g = c; b = x; }
+      else if (h < 240) { r = 0; g = x; b = c; }
+      else if (h < 300) { r = x; g = 0; b = c; }
+      else              { r = c; g = 0; b = x; }
+      return [r + m, g + m, b + m];
+    }
+
+    function toLinear(c) {
+      return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    }
+
+    function rgbToOklch(r, g, b) {
+      r = toLinear(r); g = toLinear(g); b = toLinear(b);
+      var l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
+      var m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
+      var s = 0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b;
+      var l_ = Math.cbrt(l), m_ = Math.cbrt(m), s_ = Math.cbrt(s);
+      var L = 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720468 * s_;
+      var a = 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_;
+      var B = 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086757660 * s_;
+      var C = Math.sqrt(a * a + B * B);
+      var H = Math.atan2(B, a) * 180 / Math.PI;
+      if (H < 0) H += 360;
+      return [L, C, H];
+    }
+
+    // Convert original HSL colors to OKLCH
+    var oklchColors = [];
+    var sumL = 0;
+    for (var i = 0; i < allNames.length; i++) {
+      var hue = 175 + (i * 110) / n;
+      var rgb = hslToRgb(hue, 0.65, 0.5);
+      var lch = rgbToOklch(rgb[0], rgb[1], rgb[2]);
+      oklchColors.push(lch);
+      sumL += lch[0];
+    }
+    var targetL = sumL / allNames.length;
+
+    // Build cache: uniform lightness, original chroma & hue
     var cache = {};
     for (var i = 0; i < allNames.length; i++) {
-      cache[allNames[i]] = 'oklch(0.65 0.37 ' + Math.round(170 + (i * 110) / n) + ')';
+      var c = oklchColors[i];
+      cache[allNames[i]] = 'oklch(' + targetL.toFixed(4) + ' ' + c[1].toFixed(4) + ' ' + c[2].toFixed(2) + ')';
     }
     els.forEach(function (el) {
       var name = el.dataset.tag || el.dataset.composeTag || el.dataset.removeTag || el.textContent.trim();
