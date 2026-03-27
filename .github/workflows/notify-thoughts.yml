@@ -30,3 +30,15 @@ jobs:
           GIST_ID: ${{ secrets.GIST_ID }}
           THOUGHT_ID: ${{ github.event.inputs.thought_id }}
         run: python3 notify_slack.py
+
+      - name: Generate Atom feed
+        if: github.event_name == 'push'
+        run: python3 generate_feed.py
+
+      - name: Commit feed if changed
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add feed.xml
+          git diff --cached --quiet || git commit -m "Update Atom feed" && git push
