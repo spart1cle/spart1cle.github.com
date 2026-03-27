@@ -964,6 +964,8 @@ ul { list-style: none; }
 
 .sort-btn {
   padding: 0.5rem 0.75rem;
+  min-width: 5.5rem;
+  text-align: center;
   border: none;
   background: var(--color-surface);
   color: var(--color-text-secondary);

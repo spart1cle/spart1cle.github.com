@@ -12,12 +12,15 @@
   const clearBtnTag = clearBtns[0];
   const clearBtnMonth = clearBtns[1];
   const searchClearBtn = document.getElementById('thoughts-search-clear');
+  const sortEl = document.getElementById('thoughts-sort');
 
   let thoughts = [];
   const activeTags = new Set();
   let searchTimeout = null;
   let activeMonth = null;
   let monthDensityMap = {};
+  let activeSort = 'date';
+  let sortAsc = false;
 
   // ── Emoji Map ─────────────────────────────────────────────
   const EMOJI_MAP = {
@@ -66,6 +69,7 @@
       thoughts = data;
       buildMonthDensity();
       renderTagFilters();
+      initSort();
       initClear();
       if (!isPermalinkHash()) {
         const hashState = readHash(activeTags, tagFiltersEl, searchEl, searchClearBtn);
@@ -228,6 +232,32 @@
     collapseTags(tagFiltersEl, sidebarEl);
   }
 
+  // ── Sort ───────────────────────────────────────────────────
+  function updateSortArrows() {
+    sortEl.querySelectorAll('.sort-btn').forEach((btn) => {
+      const label = btn.dataset.label || (btn.dataset.label = btn.textContent);
+      btn.textContent = btn.classList.contains('active') ? label + (sortAsc ? ' \u25B2' : ' \u25BC') : label;
+    });
+  }
+
+  function initSort() {
+    sortEl.querySelectorAll('.sort-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.sort === activeSort) {
+          sortAsc = !sortAsc;
+        } else {
+          sortEl.querySelector('.active').classList.remove('active');
+          btn.classList.add('active');
+          activeSort = btn.dataset.sort;
+          sortAsc = false;
+        }
+        updateSortArrows();
+        renderThoughts();
+      });
+    });
+    updateSortArrows();
+  }
+
   // ── Clear Button ───────────────────────────────────────────
   function initClear() {
     clearBtnTag.addEventListener('click', () => {
@@ -272,6 +302,18 @@
       }
       return true;
     });
+
+    if (activeSort === 'date') {
+      filtered.sort((a, b) => {
+        var cmp = (b.date || '').localeCompare(a.date || '');
+        return sortAsc ? -cmp : cmp;
+      });
+    } else if (activeSort === 'length') {
+      filtered.sort((a, b) => {
+        var cmp = (b.text || '').length - (a.text || '').length;
+        return sortAsc ? -cmp : cmp;
+      });
+    }
 
     const hasFilters = activeTags.size > 0 || query || activeMonth;
     const showTagClear = activeTags.size > 0 || query;

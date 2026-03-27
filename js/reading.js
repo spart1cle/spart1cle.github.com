@@ -15,6 +15,7 @@
   let papers = [];
   let activeTags = new Set();
   let activeSort = 'published';
+  let sortAsc = false;
   let searchTimeout = null;
 
   // ── Data Loading ───────────────────────────────────────────
@@ -73,15 +74,29 @@
   }
 
   // ── Sort ───────────────────────────────────────────────────
+  function updateSortArrows() {
+    sortEl.querySelectorAll('.sort-btn').forEach((btn) => {
+      const label = btn.dataset.label || (btn.dataset.label = btn.textContent);
+      btn.textContent = btn.classList.contains('active') ? label + (sortAsc ? ' \u25B2' : ' \u25BC') : label;
+    });
+  }
+
   function initSort() {
     sortEl.querySelectorAll('.sort-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        sortEl.querySelector('.active').classList.remove('active');
-        btn.classList.add('active');
-        activeSort = btn.dataset.sort;
+        if (btn.dataset.sort === activeSort) {
+          sortAsc = !sortAsc;
+        } else {
+          sortEl.querySelector('.active').classList.remove('active');
+          btn.classList.add('active');
+          activeSort = btn.dataset.sort;
+          sortAsc = false;
+        }
+        updateSortArrows();
         renderPapers();
       });
     });
+    updateSortArrows();
   }
 
   // ── Clear ──────────────────────────────────────────────────
@@ -123,9 +138,13 @@
     });
 
     if (activeSort === 'published') {
-      filtered.sort((a, b) => (b.publication_date || '').localeCompare(a.publication_date || ''));
+      filtered.sort((a, b) => {
+        var cmp = (b.publication_date || '').localeCompare(a.publication_date || '');
+        return sortAsc ? -cmp : cmp;
+      });
+    } else if (activeSort === 'relevance' && sortAsc) {
+      filtered.reverse();
     }
-    // 'relevance' keeps the original API order (ranking_score)
 
     const hasFilters = activeTags.size > 0 || query;
     clearBtn.style.display = hasFilters ? '' : 'none';
