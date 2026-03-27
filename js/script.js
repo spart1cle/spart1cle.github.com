@@ -560,8 +560,10 @@
         if (expanded) {
           const summary = expanded.querySelector('.pub-summary');
           expanded.classList.remove('expanded');
-          summary.setAttribute('aria-expanded', 'false');
-          summary.focus();
+          if (summary) {
+            summary.setAttribute('aria-expanded', 'false');
+            summary.focus();
+          }
         }
       }
     });

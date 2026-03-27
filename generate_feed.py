@@ -56,9 +56,9 @@ def main():
 
     indent(feed)
     tree = ElementTree(feed)
-    tree.write("feed.xml", xml_declaration=True, encoding="unicode")
-    with open("feed.xml", "a") as f:
-        f.write("\n")
+    tree.write("feed.xml", xml_declaration=True, encoding="UTF-8")
+    with open("feed.xml", "ab") as f:
+        f.write(b"\n")
 
 if __name__ == "__main__":
     main()
