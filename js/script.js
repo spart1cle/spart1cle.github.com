@@ -554,7 +554,29 @@
       });
     });
 
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const expanded = document.querySelector('.pub-card.expanded');
+        if (expanded) {
+          const summary = expanded.querySelector('.pub-summary');
+          expanded.classList.remove('expanded');
+          summary.setAttribute('aria-expanded', 'false');
+          summary.focus();
+        }
+      }
+    });
+
     window.initTagColors();
+
+    // Clickable tags on static pages: navigate to reading.html with filter
+    document.addEventListener('click', (e) => {
+      const tagEl = e.target.closest('.reading-tag[data-tag]');
+      if (!tagEl) return;
+      // On dynamic pages (reading/thoughts), page-specific handlers call stopPropagation
+      const tag = tagEl.dataset.tag;
+      if (tag) window.location.href = `reading.html#tags=${encodeURIComponent(tag)}`;
+    });
+
     initHamburger();
     initHeroCanvas();
     initScrollReveal();

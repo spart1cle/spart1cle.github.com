@@ -14,33 +14,76 @@
   };
 
   // ── Hash State ─────────────────────────────────────────────
-  // Write active tag + search query to location.hash
+  // Write active tags + search query to location.hash
   SiteUtils.updateHash = (activeTags, searchValue, opts = {}) => {
     if (opts.skipIf && opts.skipIf()) return;
     const params = new URLSearchParams();
-    if (activeTags.size) params.set('tag', [...activeTags][0]);
+    if (activeTags.size) params.set('tags', [...activeTags].join(','));
     if (searchValue) params.set('q', searchValue);
     if (opts.month) params.set('month', opts.month);
     const hash = params.toString();
     history.replaceState(null, '', hash ? `#${hash}` : location.pathname);
   };
 
-  // Restore tag + search query from location.hash
+  // Restore tags + search query from location.hash
   SiteUtils.readHash = (activeTags, tagFiltersEl, searchEl, searchClearBtn) => {
     const params = new URLSearchParams(location.hash.slice(1));
-    const tag = params.get('tag');
+    const tags = params.get('tags') || params.get('tag') || '';
     const q = params.get('q');
     const month = params.get('month');
-    if (tag) {
-      activeTags.add(tag);
-      const btn = tagFiltersEl.querySelector(`[data-tag="${tag}"]`);
-      if (btn) btn.classList.add('active');
+    if (tags) {
+      tags.split(',').forEach((t) => {
+        const tag = t.trim();
+        if (!tag) return;
+        activeTags.add(tag);
+        const btn = tagFiltersEl.querySelector(`[data-tag="${tag}"]`);
+        if (btn) btn.classList.add('active');
+      });
     }
     if (q) {
       searchEl.value = q;
       if (searchClearBtn) searchClearBtn.classList.add('visible');
     }
     return { month: month || null };
+  };
+
+  // ── Tag Click Handler ──────────────────────────────────────
+  SiteUtils.handleTagClick = (event, tag, activeTags, tagFiltersEl, renderFn) => {
+    if (event.shiftKey) {
+      // Shift+click: toggle just this tag
+      const btn = tagFiltersEl.querySelector(`[data-tag="${tag}"]`);
+      if (activeTags.has(tag)) {
+        activeTags.delete(tag);
+        if (btn) btn.classList.remove('active');
+      } else {
+        activeTags.add(tag);
+        if (btn) btn.classList.add('active');
+      }
+    } else {
+      // Normal click: clear all, toggle this tag
+      const wasActive = activeTags.has(tag);
+      activeTags.clear();
+      tagFiltersEl
+        .querySelectorAll('.tag-filter-btn.active')
+        .forEach((b) => b.classList.remove('active'));
+      if (!wasActive) {
+        activeTags.add(tag);
+        const btn = tagFiltersEl.querySelector(`[data-tag="${tag}"]`);
+        if (btn) btn.classList.add('active');
+      }
+    }
+    renderFn();
+  };
+
+  // ── Search Shortcut ────────────────────────────────────────
+  SiteUtils.initSearchShortcut = (searchEl) => {
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== '/') return;
+      const ae = document.activeElement;
+      if (ae && (ae.tagName === 'INPUT' || ae.tagName === 'TEXTAREA' || ae.isContentEditable)) return;
+      e.preventDefault();
+      searchEl.focus();
+    });
   };
 
   // ── Collapsible Tag List ──────────────────────────────────

@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  const { escapeHtml, updateHash, readHash, collapseTags } = SiteUtils;
+  const { escapeHtml, updateHash, readHash, collapseTags, handleTagClick, initSearchShortcut } = SiteUtils;
 
   const listEl = document.getElementById('thoughts-list');
   const searchEl = document.getElementById('thoughts-search');
@@ -21,6 +21,7 @@
   let monthDensityMap = {};
   let activeSort = 'date';
   let sortAsc = false;
+  let hasRendered = false;
 
   // ── Emoji Map ─────────────────────────────────────────────
   const EMOJI_MAP = {
@@ -63,6 +64,9 @@
   };
 
   // ── Data Loading ───────────────────────────────────────────
+  const skeletonCard = '<div class="skeleton-card"><div class="skeleton-line skeleton-line-short"></div><div class="skeleton-line skeleton-line-long"></div><div class="skeleton-line skeleton-line-medium"></div><div style="display:flex;gap:0.5rem;margin-top:0.25rem"><span class="skeleton-tag"></span><span class="skeleton-tag"></span></div></div>';
+  listEl.innerHTML = skeletonCard.repeat(5);
+
   fetch('thoughts.json')
     .then((r) => r.json())
     .then((data) => {
@@ -215,18 +219,8 @@
       )
       .join('');
     tagFiltersEl.querySelectorAll('.tag-filter-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const tag = btn.dataset.tag;
-        const wasActive = activeTags.has(tag);
-        activeTags.clear();
-        tagFiltersEl
-          .querySelectorAll('.tag-filter-btn.active')
-          .forEach((b) => b.classList.remove('active'));
-        if (!wasActive) {
-          activeTags.add(tag);
-          btn.classList.add('active');
-        }
-        renderThoughts();
+      btn.addEventListener('click', (e) => {
+        handleTagClick(e, btn.dataset.tag, activeTags, tagFiltersEl, renderThoughts);
       });
     });
     collapseTags(tagFiltersEl, sidebarEl);
@@ -282,6 +276,10 @@
 
   function renderThoughts(resetPage) {
     if (resetPage !== false) visibleCount = PAGE_SIZE;
+    if (hasRendered && resetPage !== false) {
+      countEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    hasRendered = true;
     updateHash(activeTags, searchEl.value, {
       skipIf: () => isPermalinkHash(),
       month: activeMonth,
@@ -351,7 +349,7 @@
         .sort((a, b) => a.localeCompare(b))
         .map(
           (tag) =>
-            `<span class="reading-tag">${escapeHtml(tag)}</span>`
+            `<span class="reading-tag${activeTags.has(tag) ? ' active' : ''}" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</span>`
         )
         .join('');
 
@@ -376,10 +374,12 @@
         ? `<div class="thought-delete-overlay"><span>Delete this thought?</span><div class="thought-delete-actions"><button class="thought-delete-confirm-btn" data-id="${t.id}">Delete</button><button class="thought-delete-cancel-btn" data-id="${t.id}">Cancel</button></div></div>`
         : '';
 
+      const copyBtn = `<button class="thought-copy-btn" data-id="${t.id}" title="Copy permalink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></button>`;
+
       html +=
         `<article class="thought-card" id="t-${t.id}">` +
         deleteOverlay +
-        `<div class="thought-card-meta"><a href="#t-${t.id}" class="reading-date thought-permalink">${escapeHtml(t.date)}</a>${editBtn}${slackBtn}${deleteBtn}</div>` +
+        `<div class="thought-card-meta"><a href="#t-${t.id}" class="reading-date thought-permalink">${escapeHtml(t.date)}</a>${copyBtn}${editBtn}${slackBtn}${deleteBtn}</div>` +
         `<div class="thought-text">${formatText(t.text)}</div>` +
         previewHtml +
         `<div class="thought-card-tags">${tagsHtml}</div>` +
@@ -399,6 +399,27 @@
       });
     }
 
+    // Attach copy permalink handlers
+    listEl.querySelectorAll('.thought-copy-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const url = `${location.origin}${location.pathname}#t-${btn.dataset.id}`;
+        navigator.clipboard.writeText(url).then(() => {
+          btn.classList.add('copied');
+          setTimeout(() => btn.classList.remove('copied'), 1500);
+        }).catch(() => {
+          // Fallback for older browsers
+          const ta = document.createElement('textarea');
+          ta.value = url;
+          ta.style.cssText = 'position:fixed;opacity:0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          ta.remove();
+          btn.classList.add('copied');
+          setTimeout(() => btn.classList.remove('copied'), 1500);
+        });
+      });
+    });
     // Attach edit handlers
     listEl.querySelectorAll('.thought-edit-btn').forEach((btn) => {
       btn.addEventListener('click', () => handleEdit(btn.dataset.id));
@@ -434,6 +455,14 @@
     if (window.revealElements) window.revealElements('.thought-card');
     window.initTagColors();
   }
+
+  // ── Card Tag Clicks ───────────────────────────────────────
+  listEl.addEventListener('click', (e) => {
+    const tagEl = e.target.closest('.reading-tag[data-tag]');
+    if (!tagEl) return;
+    e.stopPropagation();
+    handleTagClick(e, tagEl.dataset.tag, activeTags, tagFiltersEl, renderThoughts);
+  });
 
   // ── Text Processing ────────────────────────────────────────
   function sanitizeText(str) {
@@ -535,6 +564,8 @@
     renderThoughts();
   });
 
+  initSearchShortcut(searchEl);
+
   // ── Permalink ──────────────────────────────────────────────
   function isPermalinkHash() {
     return location.hash.startsWith('#t-');
@@ -606,7 +637,7 @@
     updateComposePreview();
     document.querySelector('.thoughts-modal-header h3').textContent = 'Edit Thought';
     document.getElementById('thoughts-publish-btn').textContent = 'Update';
-    document.getElementById('thoughts-modal').style.display = '';
+    openModal();
   }
 
   function resetComposeForm() {
@@ -823,21 +854,64 @@
   });
 
   // ── Compose: Modal ─────────────────────────────────────────
+  let previousFocus = null;
+
+  function openModal() {
+    previousFocus = document.activeElement;
+    const modal = document.getElementById('thoughts-modal');
+    modal.style.display = '';
+    const first = modal.querySelector('input, textarea, button, select, [tabindex]:not([tabindex="-1"])');
+    if (first) setTimeout(() => first.focus(), 0);
+    document.addEventListener('keydown', trapModalKeydown);
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('thoughts-modal');
+    modal.style.display = 'none';
+    document.removeEventListener('keydown', trapModalKeydown);
+    if (previousFocus) previousFocus.focus();
+    previousFocus = null;
+  }
+
+  function trapModalKeydown(e) {
+    const modal = document.getElementById('thoughts-modal');
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeModal();
+      resetToEditState();
+      resetComposeForm();
+      return;
+    }
+    if (e.key === 'Tab') {
+      const focusable = [...modal.querySelectorAll('input, textarea, button, select, [tabindex]:not([tabindex="-1"])')].filter(el => el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
   document.getElementById('thoughts-fab').addEventListener('click', () => {
     resetComposeForm();
     renderComposeTags();
-    document.getElementById('thoughts-modal').style.display = '';
+    openModal();
   });
 
   document.getElementById('thoughts-modal-close').addEventListener('click', () => {
-    document.getElementById('thoughts-modal').style.display = 'none';
+    closeModal();
     resetToEditState();
     resetComposeForm();
   });
 
   document.getElementById('thoughts-modal').addEventListener('click', function (e) {
     if (e.target === this) {
-      this.style.display = 'none';
+      closeModal();
       resetToEditState();
       resetComposeForm();
     }
@@ -1375,7 +1449,7 @@
         renderThoughts();
         resetComposeForm();
         setTimeout(() => {
-          document.getElementById('thoughts-modal').style.display = 'none';
+          closeModal();
           statusEl.textContent = '';
           confirmBtn.disabled = false;
           resetToEditState();
