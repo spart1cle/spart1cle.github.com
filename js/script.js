@@ -450,7 +450,7 @@
   // using the same formula as shared.js buildTagColorCache.
   window.initTagColors = function () {
     var els = document.querySelectorAll(
-      '.reading-tag:not(.reading-tag-liked), .tag-filter-btn[data-tag]:not([data-tag="__liked__"]), .tag-filter-btn[data-compose-tag]'
+      '.reading-tag, .tag-filter-btn[data-tag], .tag-filter-btn[data-compose-tag]'
     );
     if (!els.length) return;
     var seen = {};
@@ -463,7 +463,7 @@
     var n = allNames.length || 1;
     var cache = {};
     for (var i = 0; i < allNames.length; i++) {
-      cache[allNames[i]] = 'hsl(' + Math.round(170 + (i * 110) / n) + ', 65%, 50%)';
+      cache[allNames[i]] = 'oklch(0.65 0.37 ' + Math.round(170 + (i * 110) / n) + ')';
     }
     els.forEach(function (el) {
       var name = el.dataset.tag || el.dataset.composeTag || el.dataset.removeTag || el.textContent.trim();

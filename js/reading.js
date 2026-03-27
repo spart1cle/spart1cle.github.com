@@ -46,7 +46,7 @@
     const sorted = Object.entries(tagMap).sort((a, b) => a[0].localeCompare(b[0]));
     tagFiltersEl.innerHTML =
       (likedCount
-        ? `<button class="filter-btn tag-filter-btn" data-tag="__liked__" style="--tag-color:var(--color-accent)">&#x1F44D; Liked <span class="tag-count">${likedCount}</span></button>`
+        ? `<button class="filter-btn tag-filter-btn" data-tag="__liked__">&#x1F44D; Liked <span class="tag-count">${likedCount}</span></button>`
         : '') +
       sorted
         .map(
@@ -157,7 +157,7 @@
                   `<span class="reading-tag">${escapeHtml(c.name)}</span>`
               )
               .join('')
-          : '<span class="reading-tag reading-tag-liked" style="--tag-color:var(--color-accent)">&#x1F44D; Liked</span>';
+          : '<span class="reading-tag reading-tag-liked" data-tag="__liked__">&#x1F44D; Liked</span>';
         const arxivUrl = p.arxiv_id ? `https://arxiv.org/abs/${p.arxiv_id}` : p.url;
         const abstract = p.abstract ? cleanAbstract(p.abstract) : '';
         const summaries = p.summaries || {};
