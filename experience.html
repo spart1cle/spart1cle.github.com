@@ -17,7 +17,8 @@
   <meta name="twitter:image" content="https://brandonbmay.com/assets/profile.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css?v=5">
   <script>
     (function(){
@@ -185,7 +186,7 @@
         </div>
 
         <div class="timeline-entry">
-          <div class="timeline-icon skidmore"><img src="assets/skidmore.jpg" alt="Skidmore"></div>
+          <div class="timeline-icon skidmore"><picture><source srcset="assets/skidmore.webp" type="image/webp"><img src="assets/skidmore.jpg" alt="Skidmore" decoding="async"></picture></div>
           <div class="timeline-body">
             <div class="timeline-header">
               <span class="timeline-company"><a href="https://www.skidmore.edu" target="_blank" rel="noopener">Skidmore College</a></span>

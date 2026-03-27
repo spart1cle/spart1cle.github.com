@@ -17,7 +17,9 @@
   <meta name="twitter:image" content="https://brandonbmay.com/assets/profile.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.rel='stylesheet';this.onload=null" crossorigin>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="preload" as="image" href="assets/profile.jpg">
   <link rel="stylesheet" href="style.css?v=5">
   <script>
     (function(){
@@ -106,7 +108,7 @@
         <div class="hero-text">
           <h1>Brandon B. May</h1>
           <p class="hero-title">Staff Engineer &mdash; Large Driving Models</p>
-          <p class="hero-org"><img class="hero-org-logo" src="assets/motional.png" alt="Motional logo"><a href="https://motional.com" target="_blank" rel="noopener">Motional</a></p>
+          <p class="hero-org"><img class="hero-org-logo" src="assets/motional.png" alt="Motional logo" decoding="async"><a href="https://motional.com" target="_blank" rel="noopener">Motional</a></p>
           <p class="hero-focus">Robot Learning · VLAs · World Foundation Models</p>
           <div class="hero-links">
             <a href="https://scholar.google.com/citations?user=_UnlC7IAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">
@@ -132,7 +134,10 @@
           </div>
         </div>
         <div class="hero-photo">
-          <img src="assets/profile.jpg" alt="Brandon B. May" width="210" height="210">
+          <picture>
+            <source srcset="assets/profile.webp" type="image/webp">
+            <img src="assets/profile.jpg" alt="Brandon B. May" width="210" height="210" fetchpriority="high" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
@@ -154,7 +159,10 @@
       <article class="pub-card" data-expandable>
         <div class="pub-summary">
           <div class="pub-thumb">
-<img src="assets/simify.jpg" alt="SIMIFY robot manipulation" loading="lazy">
+<picture>
+  <source srcset="assets/simify.webp" type="image/webp">
+  <img src="assets/simify.jpg" alt="SIMIFY robot manipulation" loading="lazy" decoding="async">
+</picture>
           </div>
           <div class="pub-content">
             <div class="pub-header">
@@ -184,7 +192,10 @@
       <article class="pub-card" data-expandable>
         <div class="pub-summary">
           <div class="pub-thumb">
-            <img src="assets/realissim.png" alt="Real-is-Sim framework diagram" loading="lazy">
+            <picture>
+              <source srcset="assets/realissim.webp" type="image/webp">
+              <img src="assets/realissim.png" alt="Real-is-Sim framework diagram" loading="lazy" decoding="async">
+            </picture>
           </div>
           <div class="pub-content">
             <div class="pub-header">
@@ -223,7 +234,10 @@
       <article class="pub-card" data-expandable>
         <div class="pub-summary">
           <div class="pub-thumb">
-<img src="assets/piegraph.png" alt="PIEGraph figure" loading="lazy" style="object-position: center bottom;">
+<picture>
+  <source srcset="assets/piegraph.webp" type="image/webp">
+  <img src="assets/piegraph.png" alt="PIEGraph figure" loading="lazy" decoding="async" style="object-position: center bottom;">
+</picture>
           </div>
           <div class="pub-content">
             <div class="pub-header">
@@ -259,7 +273,10 @@
       <article class="pub-card" data-expandable>
         <div class="pub-summary">
           <div class="pub-thumb">
-            <img src="assets/theia.png" alt="Theia method overview" loading="lazy">
+            <picture>
+              <source srcset="assets/theia.webp" type="image/webp">
+              <img src="assets/theia.png" alt="Theia method overview" loading="lazy" decoding="async">
+            </picture>
           </div>
           <div class="pub-content">
             <div class="pub-header">
@@ -302,7 +319,10 @@
       <article class="pub-card" data-expandable>
         <div class="pub-summary">
           <div class="pub-thumb">
-<img src="assets/sancdifi.png" alt="Sancdifi method overview" loading="lazy">
+<picture>
+  <source srcset="assets/sancdifi.webp" type="image/webp">
+  <img src="assets/sancdifi.png" alt="Sancdifi method overview" loading="lazy" decoding="async">
+</picture>
           </div>
           <div class="pub-content">
             <div class="pub-header">
@@ -336,7 +356,10 @@
       <article class="pub-card" data-expandable>
         <div class="pub-summary">
           <div class="pub-thumb">
-<img src="assets/overhead.png" alt="Overhead imagery dataset" loading="lazy">
+<picture>
+  <source srcset="assets/overhead.webp" type="image/webp">
+  <img src="assets/overhead.png" alt="Overhead imagery dataset" loading="lazy" decoding="async">
+</picture>
           </div>
           <div class="pub-content">
             <div class="pub-header">
@@ -370,7 +393,10 @@
       <article class="pub-card" data-expandable>
         <div class="pub-summary">
           <div class="pub-thumb">
-<img src="assets/xfr.png" alt="Explainable face recognition saliency maps" loading="lazy">
+<picture>
+  <source srcset="assets/xfr.webp" type="image/webp">
+  <img src="assets/xfr.png" alt="Explainable face recognition saliency maps" loading="lazy" decoding="async">
+</picture>
           </div>
           <div class="pub-content">
             <div class="pub-header">
