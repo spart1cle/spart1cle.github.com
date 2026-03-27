@@ -101,6 +101,34 @@
   padding: 0;
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.nav-logo:focus-visible {
+  outline-offset: 3px;
+}
+
+/* Skip-link (keyboard accessibility) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  background: var(--color-accent);
+  color: #fff;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-sm);
+  z-index: 1000;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-height) + var(--space-lg));
@@ -1012,6 +1040,11 @@ ul { list-style: none; }
   border-color: var(--color-accent);
 }
 
+.reading-search:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-accent-subtle);
+}
+
 .reading-search-clear {
   position: absolute;
   right: 0.5rem;
@@ -1301,6 +1334,19 @@ ul { list-style: none; }
   background: color-mix(in srgb, var(--tag-color, var(--color-accent)) 20%, transparent);
   color: color-mix(in srgb, var(--tag-color, var(--color-accent)) 60%, var(--color-tag-mix));
   font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.reading-tag:hover {
+  background: color-mix(in srgb, var(--tag-color, var(--color-accent)) 35%, transparent);
+  border-color: color-mix(in srgb, var(--tag-color, var(--color-accent)) 60%, transparent);
+}
+
+.reading-tag.active {
+  background: var(--tag-color, var(--color-accent));
+  border-color: var(--tag-color, var(--color-accent));
+  color: #fff;
 }
 
 .reading-expand-icon {
@@ -1536,7 +1582,8 @@ ul { list-style: none; }
   gap: var(--space-xs);
 }
 
-/* Edit, Slack & Delete buttons */
+/* Copy, Edit, Slack & Delete buttons */
+.thought-copy-btn,
 .thought-edit-btn,
 .thought-slack-btn,
 .thought-delete-btn {
@@ -1554,17 +1601,21 @@ ul { list-style: none; }
   height: 20px;
 }
 
+.thought-copy-btn svg,
 .thought-edit-btn svg,
 .thought-slack-btn svg,
 .thought-delete-btn svg {
   display: block;
 }
 
-.thought-edit-btn { margin-left: auto; }
+.thought-copy-btn { margin-left: auto; }
 
+.thought-card:hover .thought-copy-btn,
 .thought-card:hover .thought-edit-btn,
 .thought-card:hover .thought-slack-btn,
 .thought-card:hover .thought-delete-btn { opacity: 0.5; }
+.thought-copy-btn:hover { opacity: 1 !important; color: var(--color-accent); }
+.thought-copy-btn.copied { opacity: 1 !important; color: #22c55e; }
 .thought-edit-btn:hover { opacity: 1 !important; color: var(--color-accent); }
 .thought-slack-btn:hover { opacity: 1 !important; color: #4A154B; }
 .thought-delete-btn:hover { opacity: 1 !important; color: #e74c3c; }
@@ -1956,8 +2007,8 @@ ul { list-style: none; }
   position: fixed;
   bottom: var(--space-xl);
   right: calc(var(--space-xl) + 44px);
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border: none;
   border-radius: 50%;
   background: var(--color-accent);
@@ -2158,6 +2209,10 @@ ul { list-style: none; }
 }
 
 .thoughts-textarea:focus { outline: none; border-color: var(--color-accent); }
+.thoughts-textarea:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-accent-subtle);
+}
 .thoughts-toolbar:has(+ .thoughts-textarea:focus) { border-color: var(--color-accent); }
 
 .thoughts-url-field { margin-bottom: var(--space-md); }
@@ -2259,8 +2314,8 @@ ul { list-style: none; }
   position: fixed;
   bottom: var(--space-xl);
   left: var(--space-xl);
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--color-border);
   border-radius: 50%;
   background: var(--color-surface);
@@ -2284,8 +2339,8 @@ ul { list-style: none; }
   position: fixed;
   bottom: var(--space-xl);
   right: var(--space-xl);
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--color-border);
   border-radius: 50%;
   background: var(--color-surface);
@@ -2317,6 +2372,45 @@ ul { list-style: none; }
     transform: none;
     transition: none;
   }
+}
+
+/* --- Loading Skeletons --- */
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.skeleton-line {
+  height: 0.75rem;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--color-border) 25%, var(--color-bg) 50%, var(--color-border) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-line-short { width: 40%; }
+.skeleton-line-medium { width: 70%; }
+.skeleton-line-long { width: 90%; }
+.skeleton-line-title { height: 1rem; width: 80%; }
+
+.skeleton-tag {
+  display: inline-block;
+  height: 1.2rem;
+  width: 4rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-border) 25%, var(--color-bg) 50%, var(--color-border) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
 }
 
 /* --- Responsive: Tablet (hamburger menu) --- */
@@ -2485,4 +2579,55 @@ ul { list-style: none; }
   /* Fixed buttons: tighter positioning */
   .thoughts-fab { bottom: var(--space-lg); right: calc(var(--space-lg) + 44px); }
   .thoughts-auth-btn { bottom: var(--space-lg); left: var(--space-lg); }
+}
+
+@media print {
+  header, footer, .back-to-top, .thoughts-fab, .thoughts-auth-btn,
+  canvas, .progress-bar, .reading-sidebar, .reading-search-wrap,
+  .thoughts-search-wrap, .skip-link, .thoughts-modal-overlay,
+  .nav-hamburger, #theme-toggle { display: none !important; }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .pub-card, .reading-card, .thought-card, .timeline-entry {
+    break-inside: avoid;
+    border: 1px solid #ccc;
+  }
+
+  h1, h2, h3, h4 {
+    break-after: avoid;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  .nav-links a::after,
+  .nav-logo::after,
+  .pub-link::after {
+    content: none !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  img { max-width: 100% !important; }
 }
