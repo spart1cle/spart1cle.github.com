@@ -731,8 +731,6 @@ ul { list-style: none; }
   gap: var(--space-lg);
   margin-bottom: var(--space-xl);
   position: relative;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 180px;
 }
 
 .timeline-entry:last-child {
@@ -758,6 +756,12 @@ ul { list-style: none; }
   transition: box-shadow var(--transition-slow);
 }
 
+.timeline-icon picture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
 .timeline-icon img {
   width: 100%;
   height: 100%;
@@ -765,7 +769,7 @@ ul { list-style: none; }
   object-fit: cover;
 }
 
-.timeline-icon.motional { background: var(--color-bg-elevated); }
+.timeline-icon.gm { background: var(--color-bg-elevated); }
 .timeline-icon.rai { background: var(--color-bg-elevated); }
 .timeline-icon.str { background: var(--color-bg-elevated); }
 .timeline-icon.mitre { background: var(--color-bg-elevated); }
@@ -773,7 +777,16 @@ ul { list-style: none; }
 .timeline-icon.skidmore { background: #006341; }
 
 .timeline-entry.current .timeline-icon {
-  box-shadow: 0 2px 8px var(--color-card-shadow), 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
+  width: 56px;
+  height: 56px;
+  margin-left: -4px;
+  margin-right: -4px;
+  box-shadow: 0 2px 8px var(--color-card-shadow);
+}
+
+.timeline-entry.current:not(:last-child)::after {
+  left: 24px;
+  top: 60px;
 }
 
 /* Connecting line between icons */
