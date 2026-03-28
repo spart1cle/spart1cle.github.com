@@ -751,7 +751,7 @@ ul { list-style: none; }
   letter-spacing: -0.02em;
   color: #fff;
   position: relative;
-  margin-top: 2px;
+  margin-top: var(--space-md);
   box-shadow: 0 2px 8px var(--color-card-shadow);
   transition: box-shadow var(--transition-slow);
 }
@@ -786,7 +786,7 @@ ul { list-style: none; }
 
 .timeline-entry.current:not(:last-child)::after {
   left: 24px;
-  top: 60px;
+  top: calc(var(--space-md) + 58px);
 }
 
 /* Connecting line between icons */
@@ -794,8 +794,8 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   left: 24px;
-  top: 52px;
-  bottom: calc(-1 * var(--space-xl));
+  top: calc(var(--space-md) + 50px);
+  bottom: calc(-1 * var(--space-xl) - var(--space-md));
   width: 2px;
   transform: translateX(-50%);
   background: var(--color-border);
