@@ -1,5 +1,16 @@
 [
   {
+    "id": "1774795083474",
+    "type": "link",
+    "date": "2026-03-29",
+    "text": "Sebastian Rasbt just finished writing his latest book on building reasoning models from scratch",
+    "url": "https://github.com/rasbt/reasoning-from-scratch",
+    "tags": [
+      "news",
+      "book"
+    ]
+  },
+  {
     "id": "1774716730119",
     "type": "link",
     "date": "2026-03-28",
