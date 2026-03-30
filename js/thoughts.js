@@ -1421,6 +1421,19 @@
     const isEdit = !!editingId;
 
     // Fetch OG preview data for link thoughts before saving
+    function fetchYouTubeOEmbed(videoUrl) {
+      return fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(videoUrl)}&format=json`)
+        .then((r) => r.json())
+        .then((res) => ({
+          title: res.title || '',
+          description: '',
+          image: res.thumbnail_url || null,
+          domain: new URL(videoUrl).hostname.replace('www.', ''),
+        }))
+        .catch(() => null);
+    }
+
+    const isYouTube = url && /(?:youtube\.com|youtu\.be)/.test(url);
     const previewPromise = url
       ? fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
           .then((r) => r.json())
@@ -1433,9 +1446,9 @@
                 domain: new URL(url).hostname.replace('www.', ''),
               };
             }
-            return null;
+            return isYouTube ? fetchYouTubeOEmbed(url) : null;
           })
-          .catch(() => null)
+          .catch(() => isYouTube ? fetchYouTubeOEmbed(url) : null)
       : Promise.resolve(null);
 
     previewPromise.then((preview) => {
