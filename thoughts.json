@@ -8,7 +8,13 @@
     "tags": [
       "blog",
       "llm"
-    ]
+    ],
+    "preview": {
+      "title": "GRPO++: Tricks for Making RL Actually Work",
+      "description": "How to go from the vanilla GRPO algorithm to functional RL training at scale...",
+      "image": "https://substackcdn.com/image/fetch/$s_!r8Bx!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F168ff804-da03-4ce5-84be-4f3f7322ff70_2500x1404.png",
+      "domain": "cameronrwolfe.substack.com"
+    }
   },
   {
     "id": "1774890484604",
@@ -20,7 +26,13 @@
       "video",
       "research",
       "robotics"
-    ]
+    ],
+    "preview": {
+      "title": "Jiafei  Duan - Towards Robotics Foundation Models that can Reason",
+      "description": "",
+      "image": "https://i.ytimg.com/vi/-N3lCJxxJyI/hqdefault.jpg",
+      "domain": "youtube.com"
+    }
   },
   {
     "id": "1774874875970",
@@ -32,7 +44,13 @@
       "robotics",
       "research",
       "workshop"
-    ]
+    ],
+    "preview": {
+      "title": "ICRA 2026 Beyond Teleoperation Workshop",
+      "description": "",
+      "image": null,
+      "domain": "icra-beyond-teleop.github.io"
+    }
   },
   {
     "id": "1774808686570",
@@ -44,7 +62,13 @@
       "robotics",
       "world models",
       "research"
-    ]
+    ],
+    "preview": {
+      "title": "📖 130. Robotics World Model Reading Club 01—San Francisco 20260328 Recap: Explicit 3D as the Backbone: Toward Unified World Models for Robotics",
+      "description": "Robotics World Model Reading Club 01: https://luma.com/8s4w1wu6 1.",
+      "image": "https://media.licdn.com/dms/image/v2/D5612AQHxUE8BO4a4Wg/article-cover_image-shrink_720_1280/B56Z04WJhYH0AI-/0/1774766824753?e=2147483647&amp;v=beta&amp;t=P6CfaQ7IuiVNI70K1P4KFivI5K8e-uBmOMomLhyHgM8",
+      "domain": "linkedin.com"
+    }
   },
   {
     "id": "1774803394467",
@@ -55,7 +79,13 @@
     "tags": [
       "research",
       "world models"
-    ]
+    ],
+    "preview": {
+      "title": "14 JEPA Milestones as a Map of AI Progress",
+      "description": "",
+      "image": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/108bbd2f-2b90-4d30-83e5-ef33ac5984f3/05a40bc5-08cb-4569-bb37-b50250fc59ae.png?t=1774784502",
+      "domain": "turingpost.com"
+    }
   },
   {
     "id": "1774795083474",
@@ -66,7 +96,13 @@
     "tags": [
       "news",
       "book"
-    ]
+    ],
+    "preview": {
+      "title": "GitHub - rasbt/reasoning-from-scratch: Implement a reasoning LLM in PyTorch from scratch, step by step",
+      "description": "Implement a reasoning LLM in PyTorch from scratch, step by step - rasbt/reasoning-from-scratch",
+      "image": "https://repository-images.githubusercontent.com/942696497/552ca932-7f7c-4436-a111-c9ece9cff77d",
+      "domain": "github.com"
+    }
   },
   {
     "id": "1774716730119",
@@ -77,7 +113,13 @@
     "tags": [
       "news",
       "robotics"
-    ]
+    ],
+    "preview": {
+      "title": "The real breakthrough behind our GTC demo - Generalist AI",
+      "description": "GEN-0 has given us a step-change in the speed of generalization—from a brand-new robot to a live public demo in days.",
+      "image": "https://generalistai.com/assets/generalist-og-image.jpg",
+      "domain": "generalistai.com"
+    }
   },
   {
     "id": "1774698615672",
@@ -88,7 +130,13 @@
     "tags": [
       "news",
       "robotics"
-    ]
+    ],
+    "preview": {
+      "title": "Physical Intelligence is reportedly in talks to raise $1B, again | TechCrunch",
+      "description": "The deal would effectively double the company&#039;s $5.6 billion valuation in just four months.",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/01/IMG_4026.jpeg?resize=1200,900",
+      "domain": "techcrunch.com"
+    }
   },
   {
     "id": "1774638858467",
@@ -100,7 +148,13 @@
       "code",
       "vla",
       "research"
-    ]
+    ],
+    "preview": {
+      "title": "GitHub - allenai/MolmoBot: Code and website for &quot;MolmoB0T: Large-Scale Simulation Enables Zero-Shot Manipulation&quot;.",
+      "description": "Code and website for &quot;MolmoB0T: Large-Scale Simulation Enables Zero-Shot Manipulation&quot;. - allenai/MolmoBot",
+      "image": "https://opengraph.githubassets.com/3ff0a4db2fd0d523aef8231c1e3c0533c3f2e14f9a3fb40f9ca3d2d0bc5d9f3a/allenai/MolmoBot",
+      "domain": "github.com"
+    }
   },
   {
     "id": "1774635066399",
@@ -112,7 +166,13 @@
       "research",
       "video",
       "vla"
-    ]
+    ],
+    "preview": {
+      "title": "From Research to Production: How Alpamayo Accelerates Autonomous Vehicle Development S81779 | GTC San Jose 2026 | NVIDIA On-Demand",
+      "description": "Discover the latest advancements in end-to-end autonomous driving as the industry accelerates toward scalable, Level 4 AI-driven systems",
+      "image": "https://cdnsecakmi.kaltura.com/p/2935771/thumbnail/entry_id/1_m9cc1pu8/width/1200",
+      "domain": "nvidia.com"
+    }
   },
   {
     "id": "1774527267321",
@@ -127,7 +187,13 @@
       "robotics",
       "video",
       "vla"
-    ]
+    ],
+    "preview": {
+      "title": "Winning the BEHAVIOR-1K Challenge (NeurIPS 2025)",
+      "description": "Can one robotics model trained via Imitation Learning solve 50 household tasks?",
+      "image": "https://robot-learning-collective.github.io/assets/winning-behavior-1k-challenge/preview.jpg",
+      "domain": "robot-learning-collective.github.io"
+    }
   },
   {
     "id": "1774518737212",
@@ -137,7 +203,13 @@
     "url": "https://arcprize.org/arc-agi/3",
     "tags": [
       "news"
-    ]
+    ],
+    "preview": {
+      "title": "ARC-AGI-3",
+      "description": "ARC-AGI-3 is the first interactive reasoning benchmark for AI agents—play as humans and build agents that learn in novel environments.",
+      "image": "https://arcprize.org/media/images/og-arc-agi-3-share.png",
+      "domain": "arcprize.org"
+    }
   },
   {
     "id": "1774516787894",
@@ -149,7 +221,13 @@
       "blog",
       "robotics",
       "world models"
-    ]
+    ],
+    "preview": {
+      "title": "Will World Models Allow Robots to Think?",
+      "description": "A brief review of the technology powering a new generation of intelligent robots",
+      "image": "https://substackcdn.com/image/fetch/$s_!VBmW!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F12c6de68-1841-43f6-959b-054128aec902_2816x1536.png",
+      "domain": "itcanthink.substack.com"
+    }
   },
   {
     "id": "1774482682269",
@@ -161,7 +239,13 @@
       "code",
       "robotics",
       "research"
-    ]
+    ],
+    "preview": {
+      "title": "Dream2Flow",
+      "description": "",
+      "image": null,
+      "domain": "dream2flow.github.io"
+    }
   },
   {
     "id": "1774436957773",
@@ -175,7 +259,13 @@
       "news",
       "code",
       "vla"
-    ]
+    ],
+    "preview": {
+      "title": "TRI Develops VLA Framework for Robotic Manipulation | Toyota Research Institute posted on the topic | LinkedIn",
+      "description": "TRI is developing a framework to train Vision-Language-Action (VLA) models for robotic manipulation. As we are working towards sharing this framework with the community, we have been testing on a variety of sim and real tasks. Stay tuned!",
+      "image": "https://dms.licdn.com/playlist/vid/v2/D5605AQGCVnGCV5UOpw/thumbnail-with-play-button-overlay-high/B56Z0iAzZgKcDU-/0/1774392149454?e=2147483647&amp;v=beta&amp;t=rCVMn0rL12uiZd6LesChMxUwO63lbxPpVQijnyHxVjw",
+      "domain": "linkedin.com"
+    }
   },
   {
     "id": "1774435589357",
@@ -187,7 +277,13 @@
       "robotics",
       "video",
       "course"
-    ]
+    ],
+    "preview": {
+      "title": "Cheng Chi: Robotics Beyond Algorithms [ETHZ Robot Learning 2026]",
+      "description": "",
+      "image": "https://i.ytimg.com/vi/tvFvIEOBKfM/hqdefault.jpg",
+      "domain": "youtu.be"
+    }
   },
   {
     "id": "1774410299926",
@@ -198,7 +294,13 @@
     "tags": [
       "blog",
       "llm"
-    ]
+    ],
+    "preview": {
+      "title": "A Visual Guide to Attention Variants in Modern LLMs",
+      "description": "From MHA and GQA to MLA, sparse attention, and hybrid architectures",
+      "image": "https://substackcdn.com/image/fetch/$s_!8IKa!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F51d52b9a-e820-45d6-8135-f94496ec1745_1600x900.png",
+      "domain": "magazine.sebastianraschka.com"
+    }
   },
   {
     "id": "1711324800000",

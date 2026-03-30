@@ -354,7 +354,19 @@
         .join('');
 
       let previewHtml = '';
-      if (t.url) {
+      if (t.url && t.preview) {
+        // Embedded preview data — render inline, no API call needed
+        const p = t.preview;
+        previewHtml =
+          `<div class="thought-link-preview" id="preview-${t.id}">` +
+          `<a href="${escapeHtml(t.url)}" target="_blank" rel="noopener" class="thought-preview-card">` +
+          (p.image ? `<img class="thought-preview-img" src="${escapeHtml(p.image)}" alt="">` : '') +
+          `<div class="thought-preview-body">` +
+          `<span class="thought-preview-domain">${escapeHtml(p.domain || '')}</span>` +
+          `<span class="thought-preview-title">${escapeHtml(p.title || '')}</span>` +
+          `<span class="thought-preview-desc">${escapeHtml(p.description || '')}</span>` +
+          `</div></a></div>`;
+      } else if (t.url) {
         previewHtml = `<div class="thought-link-preview" data-url="${escapeHtml(t.url)}" id="preview-${t.id}"><div class="thought-preview-loading">Loading preview...</div></div>`;
       }
 
@@ -1407,6 +1419,27 @@
     const tags = [...new Set([...selectedComposeTags, ...newTagsSet])];
 
     const isEdit = !!editingId;
+
+    // Fetch OG preview data for link thoughts before saving
+    const previewPromise = url
+      ? fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
+          .then((r) => r.json())
+          .then((res) => {
+            if (res.status === 'success') {
+              return {
+                title: res.data.title || '',
+                description: res.data.description || '',
+                image: res.data.image ? res.data.image.url : null,
+                domain: new URL(url).hostname.replace('www.', ''),
+              };
+            }
+            return null;
+          })
+          .catch(() => null)
+      : Promise.resolve(null);
+
+    previewPromise.then((preview) => {
+
     let entry;
     if (isEdit) {
       const existing = thoughts.find((t) => t.id === editingId);
@@ -1428,6 +1461,7 @@
         tags,
       };
     }
+    if (preview) entry.preview = preview;
 
     // GET current file -> update/prepend -> PUT
     fetch(`https://api.github.com/repos/${repo}/contents/thoughts.json?ref=${branch}`, {
@@ -1485,5 +1519,7 @@
         statusEl.textContent = `Error: ${err.message}`;
         confirmBtn.disabled = false;
       });
+
+    }); // end previewPromise.then
   });
 })();
