@@ -1442,7 +1442,7 @@
               return {
                 title: res.data.title || '',
                 description: res.data.description || '',
-                image: res.data.image ? res.data.image.url : null,
+                image: res.data.image && !/licdn\.com|linkedin\.com/.test(res.data.image.url) ? res.data.image.url : null,
                 domain: new URL(url).hostname.replace('www.', ''),
               };
             }
