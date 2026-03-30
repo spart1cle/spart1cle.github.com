@@ -157,16 +157,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166541,
-        "name": "Survey",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166541,
+        "name": "Survey",
+        "readonly": false,
+        "color": "#ffad46"
       }
     ],
     "total_read": 61,
@@ -299,10 +299,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       },
       {
         "id": 166824,
@@ -311,10 +311,10 @@
         "color": "#16a765"
       },
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       }
     ],
     "total_read": 245,
@@ -708,16 +708,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
-      },
-      {
-        "id": 166546,
-        "name": "Diffusion",
-        "readonly": false,
-        "color": "#16a765"
+        "color": "#f691b2"
       },
       {
         "id": 166548,
@@ -726,10 +720,16 @@
         "color": "#b99aff"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166546,
+        "name": "Diffusion",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#16a765"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 357,
@@ -802,6 +802,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166824,
         "name": "Policy",
         "readonly": false,
@@ -812,12 +818,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 165,
@@ -885,10 +885,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -897,16 +897,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
         "color": "#16a765"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 138,
@@ -1011,12 +1011,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -1027,6 +1021,12 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
       }
     ],
     "total_read": 88,
@@ -1453,16 +1453,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
       },
       {
         "id": 166547,
@@ -1471,8 +1471,8 @@
         "color": "#ff7537"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
         "color": "#b99aff"
       }
@@ -1595,10 +1595,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       },
       {
         "id": 166545,
@@ -1607,10 +1607,10 @@
         "color": "#4986e7"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       }
     ],
     "total_read": 80,
@@ -1683,12 +1683,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -1705,6 +1699,12 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 70,
@@ -1849,6 +1849,18 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
+      },
+      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
@@ -1861,22 +1873,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
       }
     ],
     "total_read": 80,
@@ -2224,12 +2224,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -2240,6 +2234,12 @@
         "name": "Policy",
         "readonly": false,
         "color": "#16a765"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 91,
@@ -2351,16 +2351,16 @@
         "color": "#16a765"
       },
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 47,
@@ -2513,16 +2513,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 68,
@@ -2640,12 +2640,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -2656,6 +2650,12 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
       }
     ],
     "total_read": 37,
@@ -2956,10 +2956,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#ff7537"
       },
       {
         "id": 166537,
@@ -2968,16 +2968,16 @@
         "color": "#ff7537"
       },
       {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 60,
@@ -3124,16 +3124,16 @@
         "color": "#ffad46"
       },
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "total_read": 54,
@@ -3201,18 +3201,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
-        "id": 166541,
-        "name": "Survey",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -3223,6 +3211,18 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166541,
+        "name": "Survey",
+        "readonly": false,
+        "color": "#ffad46"
       }
     ],
     "total_read": 31,
@@ -3484,10 +3484,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -3496,10 +3496,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#4986e7"
       }
     ],
     "total_read": 34,
@@ -3636,6 +3636,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
@@ -3646,12 +3652,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166824,
-        "name": "Policy",
-        "readonly": false,
-        "color": "#16a765"
       }
     ],
     "total_read": 52,
@@ -3730,10 +3730,10 @@
         "color": "#16a765"
       },
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#f691b2"
       },
       {
         "id": 166547,
@@ -3742,10 +3742,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b99aff"
       }
     ],
     "total_read": 59,
@@ -3889,8 +3889,8 @@
         "color": "#16a765"
       }
     ],
-    "total_read": 217,
-    "total_likes": 69,
+    "total_read": 218,
+    "total_likes": 70,
     "category": "Machine Learning",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -3999,16 +3999,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 138,
@@ -4274,10 +4274,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       },
       {
         "id": 166538,
@@ -4286,10 +4286,10 @@
         "color": "#b99aff"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       }
     ],
     "total_read": 49,
@@ -4413,16 +4413,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166819,
-        "name": "CL",
-        "readonly": false,
-        "color": "#42d692"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166819,
+        "name": "CL",
+        "readonly": false,
+        "color": "#42d692"
       }
     ],
     "total_read": 89,
@@ -4575,22 +4575,22 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
       },
       {
-        "id": 166543,
-        "name": "VLM",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
-        "color": "#42d692"
-      },
-      {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
+        "color": "#b99aff"
       },
       {
         "id": 166544,
@@ -4599,10 +4599,10 @@
         "color": "#b6cff5"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166543,
+        "name": "VLM",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#42d692"
       }
     ],
     "total_read": 58,
@@ -4919,16 +4919,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166572,
         "name": "Distillation",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       },
       {
         "id": 166543,
@@ -5149,7 +5149,7 @@
     "rating": 1,
     "bookmarked": 0,
     "user_paper_collections": null,
-    "total_read": 115,
+    "total_read": 117,
     "total_likes": 25,
     "category": "Robotics and Control",
     "arxives_doi": null,
@@ -5336,6 +5336,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
+      },
+      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
@@ -5346,12 +5352,6 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
       }
     ],
     "total_read": 23,
@@ -5529,16 +5529,16 @@
         "color": "#b6cff5"
       },
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -5832,6 +5832,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -5842,15 +5848,9 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
-    "total_read": 9,
+    "total_read": 11,
     "total_likes": 2,
     "category": "Robotics and Control",
     "arxives_doi": null,
@@ -6253,16 +6253,16 @@
         "color": "#2da2bb"
       },
       {
-        "id": 166549,
-        "name": "GSplat",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166549,
+        "name": "GSplat",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 72,
@@ -6410,10 +6410,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       },
       {
         "id": 166546,
@@ -6428,10 +6428,10 @@
         "color": "#b99aff"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       }
     ],
     "total_read": 49,
@@ -6541,18 +6541,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
@@ -6563,9 +6551,21 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
-    "total_read": 15,
+    "total_read": 17,
     "total_likes": 3,
     "category": "Robotics and Control",
     "arxives_doi": null,
@@ -6634,6 +6634,142 @@
     "shortened_authors": "Zhide Zhong, Haodong Yan, Junfeng Li, Junjie He, Tianran Zhang, Haoang Li",
     "display_venue": "ArXiv 2026 (March 27)",
     "is_cached_filename": "Zhong2026ARXIV_VLA_OPD_Bridging_Offline.pdf"
+  },
+  {
+    "paper_id": 4624866,
+    "title": "FASTER: Rethinking Real-Time Flow VLAs",
+    "authors": "Yuxiang Lu, Zhe Liu, Xianzhe Fan, Zhenya Yang, Jinghua Hou, Junyi Li, Kaixin Ding, Hengshuang Zhao",
+    "url": "https://arxiv.org/pdf/2603.19199",
+    "abstract": "Real-time execution is crucial for deploying Vision-Language-Action (VLA) models in the physical world. Existing asynchronous inference methods primarily optimize trajectory smoothness, but neglect the critical latency in reacting to environmental changes. By rethinking the notion of reaction in action chunking policies, this paper presents a systematic analysis of the factors governing reaction time. We show that reaction time follows a uniform distribution determined jointly by the Time to First Action (TTFA) and the execution horizon. Moreover, we reveal that the standard practice of applying a constant schedule in flow-based VLAs can be inefficient and forces the system to complete all sampling steps before any movement can start, forming the bottleneck in reaction latency. To overcome this issue, we propose Fast Action Sampling for ImmediaTE Reaction (FASTER). By introducing a Horizon-Aware Schedule, FASTER adaptively prioritizes near-term actions during flow sampling, compressing the denoising of the immediate reaction by tenfold (e.g., in $\u03c0_{0.5}$ and X-VLA) into a single step, while preserving the quality of long-horizon trajectory. Coupled with a streaming client-server pipeline, FASTER substantially reduces the effective reaction latency on real robots, especially when deployed on consumer-grade GPUs. Real-world experiments, including a highly dynamic table tennis task, prove that FASTER unlocks unprecedented real-time responsiveness for generalist policies, enabling rapid generation of accurate and smooth trajectories.",
+    "publication_date": "2026-03-19",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.19199",
+    "digest_date": 1773964800000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "949e9bfcffa872fef6d9eabf2bd7cd6cea31e828",
+    "cache_file_name": "Lu2026ARXIV_FASTER_Rethinking_Real_Time.pdf",
+    "ngt_id": 4219563,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      }
+    ],
+    "total_read": 15,
+    "total_likes": 3,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 257,
+        "endIndex": 403,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 405,
+        "endIndex": 542,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **FASTER**, a novel method to reduce reaction latency in flow-based VLAs by compressing immediate action sampling.\n- Reveals that reaction time follows a **uniform distribution** influenced by TTFA and execution horizon.\n- Proposes a **Horizon-Aware Schedule** to prioritize near-term actions, reducing TTFA to one-step sampling.\n- Designs a **streaming client-server interface** for real-time execution on consumer-grade GPUs.\n- **Significantly improves real-time responsiveness** in dynamic tasks like table tennis.",
+      "evaluation_question": "- On *table tennis*, achieves **real-time responsiveness** surpassing prior methods.\n- Reduces **reaction latency** by 10\u00d7 compared to \u03c0 0 . 5 and X-VLA.\n- Demonstrates **superior performance** on real robots with low-latency inference.\n- Improves **trajectory smoothness** and accuracy through early-stopping strategies.",
+      "method_explanation_question": "- Processes observations and applies **Horizon-Aware Schedule** to prioritize near-term actions during flow sampling.\n- Generates immediate actions via **one-step sampling** while preserving long-horizon trajectory accuracy.\n- Utilizes a **streaming client-server pipeline** to dispatch early actions to the robot controller.\n- Optimizes inference-execution cycle frequency through **early stopping** and parallel processing.\n- Adapts to dynamic environments by continuously refining subsequent actions based on real-time feedback.",
+      "problem_definition_question": "- Existing flow-based VLAs suffer from **high reaction latency** due to sequential action sampling.\n- **Inter-chunk pauses** disrupt smooth motion and limit real-time applicability.\n- Standard constant schedules force completion of all steps before any action can be executed.\n- **Asynchronous methods** face challenges with perception-execution gaps and discontinuous motion.\n- There is a need for **adaptive scheduling** to prioritize immediate actions without sacrificing long-term accuracy."
+    },
+    "affiliations": [
+      "The University of Hong Kong",
+      "ACE Robotics"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Real-Time Systems",
+      "keywords": "Real-Time VLA,  Flow Matching Acceleration,  Asynchronous Inference,  Reaction Latency,  Horizon-Aware Schedule",
+      "method_shortname": "FASTER",
+      "color": "#fe7878"
+    },
+    "project_url": "https://innovator-zero.github.io/FASTER",
+    "github_url": null,
+    "paper_source_id": "2603.19199",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4624866.0.jpeg",
+        "caption": "Fig. 1: We propose FASTER to alleviate the reaction latency bottleneck in action chunking flow policies. By compressing the sampling iterations of the immediate reaction into a single step, FASTER (bottom) achieves 10 \u00d7 acceleration compared to original \u03c0 0 . 5 and X-VLA (top). This enables real-time responsiveness in highly dynamic tasks such as playing table tennis. FASTER is a plug-and-play solution for flow-based VLAs, demanding no architectural modifications or additional training.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4624866.1.jpeg",
+        "caption": "Fig. 2: Temporal pipelines of (a) synchronous and (b) asynchronous inference in a robotic system composed of an action chunking policy server and a robot client. As indicated by the best and worst cases, reaction time depends on both inference latency and the interval between consecutive inference-execution cycles. We also illustrate the decomposition of two adjacent action chunks to clarify the discretized inference delay d and the execution horizon s (bounded by s min and H \u2212 d ) in the asynchronous client.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4624866.2.jpeg",
+        "caption": "Table 1: Reaction characteristics of synchronous and asynchronous inference. U ( a, b ) denotes a uniform distribution with lower and upper bounds a and b , so the expectation of \u2206t react equals the midpoint ( a + b ) / 2 .",
+        "figureNumber": 2,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4624866.3.jpeg",
+        "caption": "Fig. 3: Visualizations of (a) straightness S ( A ) of the denoising path during sampling of the action chunk, and (b) differences between the intermediate clean action estimates \u02dc A \u03c4 \u2192 0 t at each sampling timestep \u03c4 and the final output A 0 t .",
+        "figureNumber": 3,
+        "figureType": "Figure"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4624866.jpeg"
+    },
+    "ranking_score": 0.922499364,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.19199.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.19199",
+    "shortened_authors": "Yuxiang Lu, Zhe Liu, Xianzhe Fan, Zhenya Yang, Jinghua Hou, Junyi Li, Kaixin Ding, Hengshuang Zhao",
+    "display_venue": "ArXiv 2026 (March 19)",
+    "is_cached_filename": "Lu2026ARXIV_FASTER_Rethinking_Real_Time.pdf"
   },
   {
     "paper_id": 4314246,
@@ -6746,12 +6882,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -6762,6 +6892,12 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
       }
     ],
     "total_read": 7,
@@ -6899,16 +7035,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166541,
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
       }
     ],
     "total_read": 263,
@@ -7018,7 +7154,7 @@
         "color": "#b99aff"
       }
     ],
-    "total_read": 34,
+    "total_read": 35,
     "total_likes": 10,
     "category": "Robotics and Control",
     "arxives_doi": null,
@@ -7520,16 +7656,16 @@
         "color": "#16a765"
       },
       {
-        "id": 166572,
-        "name": "Distillation",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166572,
+        "name": "Distillation",
+        "readonly": false,
+        "color": "#ffad46"
       }
     ],
     "total_read": 61,
@@ -8040,6 +8176,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -8050,12 +8192,6 @@
         "name": "Reasoning",
         "readonly": false,
         "color": "#b6cff5"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 5,
@@ -8216,16 +8352,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       },
       {
         "id": 166546,
@@ -8650,16 +8786,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       },
       {
         "id": 166549,
@@ -8778,16 +8914,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
       },
       {
         "id": 166543,
@@ -8968,16 +9104,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "total_read": 17,
@@ -9123,6 +9259,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166569,
+        "name": "MLLM",
+        "readonly": false,
+        "color": "#2da2bb"
+      },
+      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
@@ -9133,12 +9275,6 @@
         "name": "MoE",
         "readonly": false,
         "color": "#b6cff5"
-      },
-      {
-        "id": 166569,
-        "name": "MLLM",
-        "readonly": false,
-        "color": "#2da2bb"
       }
     ],
     "total_read": 76,
@@ -9277,16 +9413,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
       }
     ],
     "total_read": 7,
@@ -9569,8 +9705,8 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166569,
-        "name": "MLLM",
+        "id": 166540,
+        "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
       },
@@ -9581,8 +9717,8 @@
         "color": "#ffad46"
       },
       {
-        "id": 166540,
-        "name": "AD",
+        "id": 166569,
+        "name": "MLLM",
         "readonly": false,
         "color": "#2da2bb"
       }
@@ -9677,16 +9813,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 360,
@@ -9789,6 +9925,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -9799,12 +9941,6 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "total_read": 44,
@@ -9903,10 +10039,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166543,
-        "name": "VLM",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#42d692"
+        "color": "#4986e7"
       },
       {
         "id": 166540,
@@ -9915,10 +10051,10 @@
         "color": "#2da2bb"
       },
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166543,
+        "name": "VLM",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#42d692"
       }
     ],
     "total_read": 48,
@@ -10028,16 +10164,16 @@
         "color": "#4986e7"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
         "color": "#16a765"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 10,
@@ -10217,6 +10353,161 @@
     "is_cached_filename": null
   },
   {
+    "paper_id": 4602409,
+    "title": "Mean-Flow based One-Step Vision-Language-Action",
+    "authors": "Yang Chen, Xiaoguang Ma, Bin Zhao",
+    "url": "https://arxiv.org/pdf/2603.01469",
+    "abstract": "Recent advances in FlowMatching-based Vision-Language-Action (VLA) frameworks have demonstrated remarkable advantages in generating high-frequency action chunks, particularly for highly dexterous robotic manipulation tasks. Despite these notable achievements, their practical applications are constrained by prolonged generation latency, which stems from inherent iterative sampling requirements and architectural limitations. To address this critical bottleneck, we propose a Mean-Flow based One-Step VLA approach. Specifically, we resolve the noise-induced issues in the action generation process, thereby eliminating the consistency constraints inherent to conventional Flow-Matching methods. This significantly enhances generation efficiency and enables one-step action generation. Real-world robotic experiments show that the generation speed of the proposed Mean-Flow based One-Step VLA is 8.7 times and 83.9 times faster than that of SmolVLA and Diffusion Policy, respectively. These results elucidate its great potential as a high-efficiency backbone for VLA-based robotic manipulation.",
+    "publication_date": "2026-03-02",
+    "pdf_download_success": true,
+    "citations": null,
+    "arxiv_id": "2603.01469",
+    "digest_date": 1772496000000,
+    "project_link": null,
+    "conference": null,
+    "conference_url": null,
+    "abbreviation": null,
+    "conference_year": null,
+    "conf_id": null,
+    "conference_submission_type": null,
+    "source": "arxiv",
+    "semantic_scholar_id": "52378985bb845d5a015e02833cddbebc57d9612e",
+    "cache_file_name": "Chen2026ARXIV_Mean_Flow_based_One.pdf",
+    "ngt_id": 4197197,
+    "read": true,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "rating": 1,
+    "bookmarked": 0,
+    "user_paper_collections": [
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
+      }
+    ],
+    "total_read": 10,
+    "total_likes": 2,
+    "category": "Robotics and Control",
+    "arxives_doi": null,
+    "chemrxiv_id": null,
+    "inferredHighlights": [
+      {
+        "startIndex": 427,
+        "endIndex": 514,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": null,
+    "summaries": {
+      "contributions_question": "- Introduces **Mean-Flow** as a novel method for one-step action generation in VLA systems.\n- Achieves **8.7x and 83.9x speed improvements** over SmolVLA and Diffusion Policy, respectively.\n- Validates the framework through real-world robotic experiments demonstrating robust performance under single-step and multi-step generation modes.\n- **Eliminates consistency constraints** inherent to conventional Flow-Matching methods, enhancing training stability.\n- Offers a **high-efficiency backbone** for VLA-based robotic manipulation with significant practical implications.",
+      "evaluation_question": "- On *real-world robotic tasks*, achieves **8.7x and 83.9x faster generation speeds** than SmolVLA and Diffusion Policy, respectively.\n- **Maintains competitive success rates** across pick-place, stacking, and sorting tasks.\n- Ablation studies show **significant improvements in trajectory fidelity** when using Mean-Flow over traditional Flow-Matching approaches.\n- **Reduces inference latency** by eliminating multi-step numerical integration, enabling real-time control.",
+      "method_explanation_question": "- Processes multimodal inputs (vision, language, proprioception) via a **pretrained VLM** to produce unified representations.\n- Generates continuous action sequences using a **mean denoising vector field** that models overall mapping from noise to data.\n- Predicts action trajectories directly through a **single forward pass** without iterative refinement.\n- Optimizes end-to-end using a **custom loss function** that incorporates both mean and instantaneous vector fields.\n- Enables **one-step inference** by learning a deterministic transport mapping between noise and data distributions.",
+      "problem_definition_question": "- Conventional Flow-Matching methods suffer from **inherent trade-offs** between real-time efficiency and action generation accuracy.\n- **Multi-step numerical integration** is required for trajectory reconstruction, increasing computational cost.\n- Existing methods lack **robustness to environmental changes** and struggle with real-time control requirements.\n- **Accumulated discretization errors** degrade trajectory quality when reducing inference steps.\n- There is a critical need for **efficient, stable, and accurate** generative models for real-world robotic manipulation."
+    },
+    "affiliations": [
+      "Tsinghua University",
+      "KAIST"
+    ],
+    "keywords_metadata": {
+      "field": "Computer Science",
+      "subfield": "Artificial Intelligence",
+      "sub_subfield": "Robotics",
+      "keywords": "Vision-Language-Action Models,  Mean-Flow,  One-Step Generation,  Robotic Manipulation,  Continuous Action Control",
+      "method_shortname": "MeanFlow",
+      "color": "#fe7878"
+    },
+    "project_url": null,
+    "github_url": null,
+    "paper_source_id": "2603.01469",
+    "teaser_figures": [
+      {
+        "imageUrl": "/teaser_figures/4602409.5.jpeg",
+        "caption": "TABLE IV",
+        "figureNumber": 5,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4602409.0.jpeg",
+        "caption": "Fig. 1. Overview of the Mean-Flow based One-Step VLA framework. The pretrained VLM processes multimodal inputs. During training, the Mean-Flow action expert approximates the mean denoising vector field conditioned on VLM features and predicts the mean vector field to obtain the Action A 0 during inference.",
+        "figureNumber": 0,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4602409.1.jpeg",
+        "caption": "Fig. 2. Illustrations of Real-world robotic arm and three real manipulation tasks.",
+        "figureNumber": 1,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4602409.2.jpeg",
+        "caption": "Fig. 3. MeanFlow under various flow - ratio .",
+        "figureNumber": 2,
+        "figureType": "Figure"
+      },
+      {
+        "imageUrl": "/teaser_figures/4602409.3.jpeg",
+        "caption": "TABLE II S UCCESS RATES (%) UNDER VARIOUS G AMMA VALUE WITH flow - ratio =",
+        "figureNumber": 3,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4602409.4.jpeg",
+        "caption": "TABLE I S UCCESS RATES (%) UNDER VARIOUS FLOW RATIOS (NFE = 5).",
+        "figureNumber": 4,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4602409.6.jpeg",
+        "caption": "TABLE III S UCCESS RATES (%) UNDER VARIOUS NFE VALUES WITH flow - ratio =0.2, G AMMA =0.5.",
+        "figureNumber": 6,
+        "figureType": "Table"
+      },
+      {
+        "imageUrl": "/teaser_figures/4602409.7.jpeg",
+        "caption": "TABLE V S UCCESS RATES (%) OF THREE MODELS EVALUATED ACROSS THREE DIFFERENT TASKS .",
+        "figureNumber": 7,
+        "figureType": "Table"
+      }
+    ],
+    "first_page_image": {
+      "imageUrl": "/first_pages/4602409.jpeg"
+    },
+    "ranking_score": 0.8235669968,
+    "has_ranking": true,
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "is_cached": true,
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.01469.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "html_link": "https://arxiv.org/html/2603.01469",
+    "shortened_authors": "Yang Chen, Xiaoguang Ma, Bin Zhao",
+    "display_venue": "ArXiv 2026 (March 2)",
+    "is_cached_filename": "Chen2026ARXIV_Mean_Flow_based_One.pdf"
+  },
+  {
     "paper_id": 4319597,
     "title": "HunyuanWorld 1.0: Generating Immersive, Explorable, and Interactive 3D Worlds from Words or Pixels",
     "authors": "HunyuanWorld Team, Zhenwei Wang, Yuhao Liu, Junta Wu, Zixiao Gu, Haoyuan Wang, Xuhui Zuo, Tianyu Huang, Wenhuan Li, Sheng Zhang, Yihang Lian, Yulin Tsai, Lifu Wang, Sicong Liu, Puhua Jiang, Xianghui Yang, Dongyuan Guo, Yixuan Tang, Xinyue Mao, Jiaao Yu, Junlin Yu, Jihong Zhang, Meng Chen, Liang Dong, Yiwen Jia, Chao Zhang, Yonghao Tan, Hao Zhang, Zheng Ye, Peng He, Runzhou Wu, Minghui Chen, Zhan Li, Wangchen Qin, Lei Wang, Yifu Sun, Lin Niu, Xiang Yuan, Xiaofeng Yang, Yingping He, Jie Xiao, Yangyu Tao, Jianchen Zhu, Jinbao Xue, Kai Liu, Chongqing Zhao, Xinming Wu, Tian Liu, Peng Chen, Di Wang, Yuhong Liu, Linus, Jie Jiang, Tengfei Wang, Chunchao Guo",
@@ -10328,16 +10619,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
-      },
-      {
         "id": 166821,
         "name": "\ud83d\udc40",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166544,
+        "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
       },
       {
         "id": 166537,
@@ -10432,28 +10723,28 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
         "color": "#16a765"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#4986e7"
       },
       {
         "id": 166540,
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 14,
@@ -10588,16 +10879,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       },
       {
         "id": 166544,
@@ -11173,12 +11464,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 168685,
-        "name": "Memory",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -11189,6 +11474,12 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 168685,
+        "name": "Memory",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 83,
@@ -11281,20 +11572,20 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
-    "total_read": 48,
-    "total_likes": 24,
+    "total_read": 49,
+    "total_likes": 25,
     "category": "Machine Learning",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -11414,16 +11705,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 168532,
         "name": "Data",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 16,
@@ -11691,10 +11982,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -11703,10 +11994,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#4986e7"
       }
     ],
     "total_read": 6,
@@ -11774,16 +12065,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 168532,
         "name": "Data",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 7,
@@ -12051,8 +12342,8 @@
         "color": "#f691b2"
       }
     ],
-    "total_read": 57,
-    "total_likes": 11,
+    "total_read": 68,
+    "total_likes": 12,
     "category": "Computer Vision and Graphics",
     "arxives_doi": null,
     "chemrxiv_id": null,
@@ -12156,16 +12447,16 @@
         "color": "#b99aff"
       },
       {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
-      },
-      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
+      },
+      {
+        "id": 166544,
+        "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
       }
     ],
     "total_read": 1,
@@ -12275,6 +12566,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166578,
+        "name": "Prediction",
+        "readonly": false,
+        "color": "#cca6ac"
+      },
+      {
         "id": 166572,
         "name": "Distillation",
         "readonly": false,
@@ -12285,12 +12582,6 @@
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
-      },
-      {
-        "id": 166578,
-        "name": "Prediction",
-        "readonly": false,
-        "color": "#cca6ac"
       }
     ],
     "total_read": 4,
@@ -12409,135 +12700,5 @@
     "shortened_authors": "Zhiyu Huang, Zewei Zhou, Tianhui Cai, Yun Zhang, Jiaqi Ma",
     "display_venue": "ArXiv 2025 (November 21)",
     "is_cached_filename": null
-  },
-  {
-    "paper_id": 4628693,
-    "title": "mSFT: Addressing Dataset Mixtures Overfitting Heterogeneously in Multi-task SFT",
-    "authors": "Woosung Koh, Jeyoung Jeon, Youngjin Song, Yujin Cheon, Soowon Oh, Jaehyeong Choi, Se-Young Yun",
-    "url": "https://arxiv.org/pdf/2603.21606",
-    "abstract": "Current language model training commonly applies multi-task Supervised Fine-Tuning (SFT) using a homogeneous compute budget across all sub-datasets. This approach is fundamentally sub-optimal: heterogeneous learning dynamics cause faster-learning tasks to overfit early while slower ones remain under-fitted. To address this, we introduce mSFT, an iterative, overfitting-aware search algorithm for multi-task data mixtures. mSFT trains the model on an active mixture, identifies and excludes the earliest overfitting sub-dataset, and reverts to that specific optimal checkpoint before continuing. Extensive evaluations demonstrate that mSFT consistently outperforms 4 baselines across 10 benchmarks and 6 base models. Further analysis confirms mSFT maintains robust gains across diverse dataset sizes, task granularities, and is insensitive to its single new hyperparameter (compute budget). Notably, at low compute budget, mSFT can improve performance while lowering training FLOPs. Ultimately, mSFT establishes a practical overfitting-aware algorithm for multi-task SFT that maximizes the potential of models across diverse data mixtures.",
-    "publication_date": "2026-03-23",
-    "pdf_download_success": true,
-    "citations": null,
-    "arxiv_id": "2603.21606",
-    "digest_date": 1774310400000,
-    "project_link": null,
-    "conference": null,
-    "conference_url": null,
-    "abbreviation": null,
-    "conference_year": null,
-    "conf_id": null,
-    "conference_submission_type": null,
-    "source": "arxiv",
-    "semantic_scholar_id": "1d3147476e0c1e28f6b655f3b920b6601df5ccc1",
-    "cache_file_name": "Koh2026ARXIV_mSFT_Addressing_Dataset_Mixtures_1.pdf",
-    "ngt_id": 4223443,
-    "read": true,
-    "n_positive_ratings": 1,
-    "n_negative_ratings": 0,
-    "rating": 1,
-    "bookmarked": 0,
-    "user_paper_collections": null,
-    "total_read": 1,
-    "total_likes": 1,
-    "category": "Machine Learning",
-    "arxives_doi": null,
-    "chemrxiv_id": null,
-    "inferredHighlights": [
-      {
-        "startIndex": 309,
-        "endIndex": 422,
-        "highlightClass": "primary-highlight"
-      },
-      {
-        "startIndex": 424,
-        "endIndex": 595,
-        "highlightClass": "secondary-highlight"
-      }
-    ],
-    "author_details": null,
-    "summaries": {
-      "contributions_question": "- Introduces **M SFT** for multi-task SFT, dynamically excluding overfitting sub-datasets.\n- Proposes an **overfitting-aware search algorithm** that improves performance across diverse datasets.\n- Demonstrates **robust gains** across varying dataset sizes and task granularities.\n- Achieves **performance improvements** while reducing FLOPs under constrained compute budgets.\n- **Maintains consistency** in performance despite changes in compute budget and dataset composition.",
-      "evaluation_question": "- On *CommonsenseQA*, achieves **53.8%** vs. SFT (**43.6%**), **+10.2%** improvement.\n- Reaches **70.6%** accuracy on *Medical Categories* vs. SFT (**59.7%**), **+10.9%** gain.\n- Improves performance by **+3.4%** with compute budget C=1, while reducing FLOPs.\n- Outperforms IES by **+1.86%** on *MedMCQA* subcategories.\n- Consistently outperforms baselines across all benchmarks with **+5.4%** average improvement.",
-      "method_explanation_question": "- Trains the model on an active mixture of sub-datasets with a pre-determined compute budget.\n- Identifies and excludes the earliest overfitting sub-dataset using checkpoint roll-back.\n- Reverts to the optimal checkpoint before continuing training on the remaining sub-datasets.\n- Iteratively applies this process until no further overfitting is detected.\n- Optimizes end-to-end training with dynamic exclusion of overfitting sub-datasets.",
-      "problem_definition_question": "- Standard homogeneous SFT assumes uniform compute allocation across sub-datasets, leading to overfitting.\n- **Heterogeneous learning dynamics** cause faster tasks to overfit while slower ones remain under-fitted.\n- Current methods lack adaptive mechanisms to handle varying convergence rates and optimal stopping points.\n- This results in sub-optimal performance across diverse data mixtures.\n- **Need for overfitting-aware algorithms** to dynamically adjust compute allocation per sub-dataset."
-    },
-    "affiliations": [
-      "KAIST",
-      "Yonsei University",
-      "Samsung Electronics"
-    ],
-    "keywords_metadata": {
-      "field": "Computer Science",
-      "subfield": "Machine Learning",
-      "sub_subfield": "Multi-task Learning",
-      "keywords": "Multi-task Learning,  Overfitting Awareness,  Dynamic Exclusion,  Compute Budget Optimization,  Benchmark Evaluation",
-      "method_shortname": "M SFT",
-      "color": "#fe7878"
-    },
-    "project_url": null,
-    "github_url": null,
-    "paper_source_id": "2603.21606",
-    "teaser_figures": [
-      {
-        "imageUrl": "/teaser_figures/4628693.0.jpeg",
-        "caption": "Figure 1: SFT is compute-light. Using OLMo 2 as an example, SFT is relatively compute-light, and therefore additional compute usage at this stage is negligible.",
-        "figureNumber": 0,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4628693.1.jpeg",
-        "caption": "Figure 2: Heterogeneous learning dynamics. Multi-task SFT on Qwen3 8B demonstrates that underlying sub-datasets overfitting dynamics vary greatly. This observation is consistent across all other models; visualized in Appendix B.",
-        "figureNumber": 1,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4628693.2.jpeg",
-        "caption": "Figure 3: Divergence of optimal compute upon dataset exclusion. Excluding a small fraction of the training mixture alters the optimization trajectory, shifting optimal stopping points for remaining tasks. (a) \u2206 optimal compute varies across individual sub-tasks. (b) This divergence",
-        "figureNumber": 2,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4628693.3.jpeg",
-        "caption": "Table 2: Main results. Comparison of six methodologies across six underlying models ( OLMo 2 , Qwen2.5 , and Qwen3 ), evaluating performance across three major task categories.",
-        "figureNumber": 3,
-        "figureType": "Table"
-      },
-      {
-        "imageUrl": "/teaser_figures/4628693.4.jpeg",
-        "caption": "Figure 4: Further details of main results. [left] M SFT achieves the lowest levels of standard deviation across benchmarks (STD), indicating performance gains are not due to large outliers. [right] Across models, M SFT achieves 1st place the most. The 1st place count does not add up to 60 = 6 \u00b7 10 (models \u00b7 benchmarks) as there are cases where 1st place is tied. This affirms that M SFT reliably elevates both the performance floor and ceiling across a diverse suite of tasks.",
-        "figureNumber": 4,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4628693.5.jpeg",
-        "caption": "Figure 5: Robustness across varying dataset sizes. \u2206 Accuracy of Continual SFT, IES, and M SFT relative to SFT. M SFT consistently achieves the highest performance gains across different total dataset sizes and tasks ( N ), avoiding the degradation seen in Continual SFT at larger scales.",
-        "figureNumber": 5,
-        "figureType": "Figure"
-      },
-      {
-        "imageUrl": "/teaser_figures/4628693.6.jpeg",
-        "caption": "Figure 6: Accuracy and FLOPs across compute budget. Accuracy gains and FLOPs decomposition of M SFT across different compute budgets ( C ). At C = 1, M SFT achieves accuracy gain while strictly reducing net compute due to zero roll-out overhead.",
-        "figureNumber": 6,
-        "figureType": "Figure"
-      }
-    ],
-    "first_page_image": {
-      "imageUrl": "/first_pages/4628693.jpeg"
-    },
-    "ranking_score": 0.3310266365,
-    "has_ranking": true,
-    "color": [
-      0.53788342,
-      0.5792307796,
-      0.8522098918,
-      0.3
-    ],
-    "is_cached": true,
-    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2603.21606.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
-    "html_link": "https://arxiv.org/html/2603.21606",
-    "shortened_authors": "Woosung Koh, Jeyoung Jeon, Youngjin Song, Yujin Cheon, Soowon Oh, Jaehyeong Choi, Se-Young Yun",
-    "display_venue": "ArXiv 2026 (March 23)",
-    "is_cached_filename": "Koh2026ARXIV_mSFT_Addressing_Dataset_Mixtures_1.pdf"
   }
 ]
