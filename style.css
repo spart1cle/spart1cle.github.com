@@ -445,6 +445,11 @@ ul { list-style: none; }
   flex-shrink: 0;
 }
 
+.icon-hf {
+  width: 20px !important;
+  height: 20px !important;
+}
+
 .icon-hf .hf-head {
   fill: none;
   stroke: currentColor;
