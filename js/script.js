@@ -31,7 +31,7 @@
       const hero = canvas.parentElement;
       logicalW = hero.offsetWidth;
       logicalH = hero.offsetHeight;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = window.devicePixelRatio || 1;
       canvas.width = logicalW * dpr;
       canvas.height = logicalH * dpr;
       canvas.style.width = `${logicalW}px`;
