@@ -1434,7 +1434,8 @@
     }
 
     const isYouTube = url && /(?:youtube\.com|youtu\.be)/.test(url);
-    const domainOnly = url ? { title: '', description: '', image: null, domain: new URL(url).hostname.replace('www.', '') } : null;
+    const thumbUrl = url ? `https://image.thum.io/get/width/1200/crop/630/${url}` : null;
+    const domainOnly = url ? { title: '', description: '', image: thumbUrl, domain: new URL(url).hostname.replace('www.', '') } : null;
 
     const previewPromise = url
       ? fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
@@ -1444,7 +1445,7 @@
               return {
                 title: res.data.title || '',
                 description: res.data.description || '',
-                image: res.data.image && !/licdn\.com|linkedin\.com/.test(res.data.image.url) ? res.data.image.url : null,
+                image: res.data.image && !/licdn\.com|linkedin\.com/.test(res.data.image.url) ? res.data.image.url : thumbUrl,
                 domain: new URL(url).hostname.replace('www.', ''),
               };
             }
