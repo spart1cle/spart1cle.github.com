@@ -493,35 +493,61 @@
   }
 
   // ── Link Previews ──────────────────────────────────────────
+  const previewQueue = [];
+  let previewFetching = false;
+
+  function processPreviewQueue() {
+    if (previewFetching || previewQueue.length === 0) return;
+    previewFetching = true;
+    const { el, url } = previewQueue.shift();
+    // Element may have been removed by a re-render
+    if (!document.contains(el)) { previewFetching = false; processPreviewQueue(); return; }
+    fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
+      .then((r) => r.json())
+      .then((res) => {
+        if (res.status === 'success') {
+          const data = {
+            title: res.data.title || '',
+            description: res.data.description || '',
+            image: res.data.image ? res.data.image.url : null,
+            logo: res.data.logo ? res.data.logo.url : null,
+            domain: new URL(url).hostname.replace('www.', ''),
+          };
+          sessionStorage.setItem(`og_${url}`, JSON.stringify(data));
+          if (document.contains(el)) renderPreview(el, data);
+        } else {
+          if (document.contains(el)) renderPreviewFallback(el, url);
+        }
+      })
+      .catch(() => { if (document.contains(el)) renderPreviewFallback(el, url); })
+      .finally(() => { previewFetching = false; setTimeout(processPreviewQueue, 150); });
+  }
+
+  const previewObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      previewObserver.unobserve(el);
+      const url = el.dataset.url;
+      const cached = sessionStorage.getItem(`og_${url}`);
+      if (cached) {
+        renderPreview(el, JSON.parse(cached));
+      } else {
+        previewQueue.push({ el, url });
+        processPreviewQueue();
+      }
+    });
+  }, { rootMargin: '200px' });
+
   function fetchLinkPreviews() {
     document.querySelectorAll('.thought-link-preview[data-url]').forEach((el) => {
       const url = el.dataset.url;
-      const cacheKey = `og_${url}`;
-      const cached = sessionStorage.getItem(cacheKey);
-
+      const cached = sessionStorage.getItem(`og_${url}`);
       if (cached) {
         renderPreview(el, JSON.parse(cached));
-        return;
+      } else {
+        previewObserver.observe(el);
       }
-
-      fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
-        .then((r) => r.json())
-        .then((res) => {
-          if (res.status === 'success') {
-            const data = {
-              title: res.data.title || '',
-              description: res.data.description || '',
-              image: res.data.image ? res.data.image.url : null,
-              logo: res.data.logo ? res.data.logo.url : null,
-              domain: new URL(url).hostname.replace('www.', ''),
-            };
-            sessionStorage.setItem(cacheKey, JSON.stringify(data));
-            renderPreview(el, data);
-          } else {
-            renderPreviewFallback(el, url);
-          }
-        })
-        .catch(() => renderPreviewFallback(el, url));
     });
   }
 
