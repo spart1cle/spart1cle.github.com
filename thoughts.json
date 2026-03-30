@@ -1,5 +1,16 @@
 [
   {
+    "id": "1774894756778",
+    "type": "link",
+    "date": "2026-03-30",
+    "text": "GRPO++: Tricks for Making RL Actually Work\nHow to go from the vanilla GRPO algorithm to functional RL training at scale.",
+    "url": "https://cameronrwolfe.substack.com/p/grpo-tricks",
+    "tags": [
+      "blog",
+      "llm"
+    ]
+  },
+  {
     "id": "1774890484604",
     "type": "link",
     "date": "2026-03-30",
