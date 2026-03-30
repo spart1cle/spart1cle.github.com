@@ -1434,6 +1434,8 @@
     }
 
     const isYouTube = url && /(?:youtube\.com|youtu\.be)/.test(url);
+    const domainOnly = url ? { title: '', description: '', image: null, domain: new URL(url).hostname.replace('www.', '') } : null;
+
     const previewPromise = url
       ? fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
           .then((r) => r.json())
@@ -1446,9 +1448,9 @@
                 domain: new URL(url).hostname.replace('www.', ''),
               };
             }
-            return isYouTube ? fetchYouTubeOEmbed(url) : null;
+            return isYouTube ? fetchYouTubeOEmbed(url).then((r) => r || domainOnly) : domainOnly;
           })
-          .catch(() => isYouTube ? fetchYouTubeOEmbed(url) : null)
+          .catch(() => isYouTube ? fetchYouTubeOEmbed(url).then((r) => r || domainOnly) : domainOnly)
       : Promise.resolve(null);
 
     previewPromise.then((preview) => {
