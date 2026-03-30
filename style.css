@@ -445,6 +445,27 @@ ul { list-style: none; }
   flex-shrink: 0;
 }
 
+.icon-hf .hf-head {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+}
+.icon-hf .hf-eyes,
+.icon-hf .hf-mouth,
+.icon-hf .hf-dimples {
+  fill: currentColor;
+}
+.icon-hf .hf-hands {
+  fill: currentColor;
+}
+.icon-hf .hf-hands-fill {
+  fill: var(--color-bg);
+}
+
+[data-theme="dark"] .icon-hf .hf-hands-fill {
+  fill: var(--color-bg);
+}
+
 .hero-photo { flex-shrink: 0; }
 
 .hero-photo img {
