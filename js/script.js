@@ -20,8 +20,8 @@
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const PARTICLE_COUNT = 40;
-    const CONNECTION_DIST = 120;
+    const PARTICLE_COUNT = 55;
+    const CONNECTION_DIST = 100;
     let animId;
     let logicalW = 0;
     let logicalH = 0;
@@ -39,6 +39,15 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
+    // Generate particle colors using the same hue range as tag colors (HSL 175–285°)
+    function particleHsl(index) {
+      const hue = 175 + (index * 110) / PARTICLE_COUNT;
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      return isDark
+        ? `hsla(${hue}, 90%, 65%,`
+        : `hsla(${hue}, 85%, 45%,`;
+    }
+
     function createParticles() {
       particles = [];
       for (let i = 0; i < PARTICLE_COUNT; i++) {
@@ -47,20 +56,15 @@
           y: Math.random() * logicalH,
           vx: (Math.random() - 0.5) * 0.5,
           vy: (Math.random() - 0.5) * 0.5,
-          r: Math.random() * 2 + 1,
+          r: Math.random() * 2.5 + 1.5,
+          colorIdx: i,
         });
       }
-    }
-
-    function getColor() {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      return isDark ? 'rgba(45, 212, 191,' : 'rgba(13, 148, 136,';
     }
 
     function draw() {
       if (!isVisible) return;
       ctx.clearRect(0, 0, logicalW, logicalH);
-      const colorBase = getColor();
 
       const connDistSq = CONNECTION_DIST * CONNECTION_DIST;
       for (let i = 0; i < particles.length; i++) {
@@ -70,9 +74,10 @@
           const distSq = dx * dx + dy * dy;
           if (distSq < connDistSq) {
             const dist = Math.sqrt(distSq);
-            const alpha = (1 - dist / CONNECTION_DIST) * 0.6;
-            ctx.strokeStyle = `${colorBase}${alpha})`;
-            ctx.lineWidth = 1;
+            const alpha = (1 - dist / CONNECTION_DIST) * 0.7;
+            const midIdx = (particles[i].colorIdx + particles[j].colorIdx) / 2;
+            ctx.strokeStyle = particleHsl(midIdx) + `${alpha})`;
+            ctx.lineWidth = 1 + (1 - dist / CONNECTION_DIST);
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -83,7 +88,7 @@
 
       for (let k = 0; k < particles.length; k++) {
         const p = particles[k];
-        ctx.fillStyle = `${colorBase}0.6)`;
+        ctx.fillStyle = particleHsl(p.colorIdx) + '0.85)';
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();
