@@ -471,6 +471,7 @@ ul { list-style: none; }
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   transition: color var(--transition-slow);
+  text-wrap: pretty;
 }
 
 .card p:last-child { margin-bottom: 0; }
