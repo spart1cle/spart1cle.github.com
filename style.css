@@ -2546,6 +2546,23 @@ ul { list-style: none; }
     font-size: 0.6875rem;
   }
 
+  .timeline-entry.current .timeline-icon {
+    width: 44px;
+    height: 44px;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  .timeline-entry:not(:last-child)::after {
+    left: 20px;
+    top: calc(var(--space-md) + 42px);
+  }
+
+  .timeline-entry.current:not(:last-child)::after {
+    left: 20px;
+    top: calc(var(--space-md) + 46px);
+  }
+
   /* Sidebar collapse */
   .reading-controls { align-items: stretch; }
   .reading-layout { flex-direction: column; }
