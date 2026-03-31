@@ -562,16 +562,24 @@
     const links = document.getElementById('nav-links');
     if (!btn || !links) return;
 
+    function closeMenu() {
+      btn.classList.remove('open');
+      links.classList.remove('open');
+    }
+
     btn.addEventListener('click', () => {
       btn.classList.toggle('open');
       links.classList.toggle('open');
     });
 
+    document.addEventListener('click', (e) => {
+      if (links.classList.contains('open') && !links.contains(e.target) && !btn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
     links.querySelectorAll('a').forEach((a) => {
-      a.addEventListener('click', () => {
-        btn.classList.remove('open');
-        links.classList.remove('open');
-      });
+      a.addEventListener('click', closeMenu);
     });
   }
 
