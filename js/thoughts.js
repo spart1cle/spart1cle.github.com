@@ -615,7 +615,12 @@
     if (!isPermalinkHash()) return;
     const el = document.getElementById(location.hash.slice(1));
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.remove('scroll-reveal');
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      document.documentElement.style.scrollBehavior = 'auto';
+      el.scrollIntoView({ block: 'start' });
+      document.documentElement.style.scrollBehavior = '';
       el.style.outline = '2px solid var(--color-accent)';
       el.style.outlineOffset = '4px';
       el.style.borderRadius = 'var(--border-radius)';

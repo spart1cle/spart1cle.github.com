@@ -745,9 +745,18 @@
       if (item.url) {
         window.location.href = item.url;
       } else if (item.el) {
-        item.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else if (item.type === 'page') {
-        window.location.href = item.url;
+        item.el.classList.remove('scroll-reveal');
+        item.el.style.opacity = '1';
+        item.el.style.transform = 'none';
+        // Auto-expand pub cards
+        if (item.el.matches('.pub-card[data-expandable]') && !item.el.classList.contains('expanded')) {
+          item.el.classList.add('expanded');
+          const summary = item.el.querySelector('.pub-summary');
+          if (summary) summary.setAttribute('aria-expanded', 'true');
+        }
+        document.documentElement.style.scrollBehavior = 'auto';
+        item.el.scrollIntoView({ block: 'start' });
+        document.documentElement.style.scrollBehavior = '';
       }
     }
 
