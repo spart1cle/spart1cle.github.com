@@ -71,6 +71,8 @@
     .then((r) => r.json())
     .then((data) => {
       thoughts = data;
+      window.__searchData = window.__searchData || {};
+      window.__searchData.thoughts = thoughts;
       buildMonthDensity();
       renderTagFilters();
       initSort();
