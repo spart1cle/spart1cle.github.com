@@ -556,6 +556,405 @@
     }
   }
 
+  // ── Global Search (Cmd+K) ────────────────────────────────
+  function initGlobalSearch() {
+    let overlay = null;
+    let activeIdx = -1;
+    let results = [];
+    let cachedExternal = null;
+    let loadingExternal = false;
+
+    const pages = [
+      { title: 'Home', url: 'index.html', type: 'page' },
+      { title: 'Experience', url: 'experience.html', type: 'page' },
+      { title: 'Reading', url: 'reading.html', type: 'page' },
+      { title: 'Thoughts', url: 'thoughts.html', type: 'page' },
+    ];
+
+    // Scrape DOM for items on the current page
+    function buildLocalIndex() {
+      const items = [...pages];
+
+      document.querySelectorAll('.pub-card').forEach(card => {
+        const title = card.querySelector('.pub-title')?.textContent || '';
+        const authors = card.querySelector('.pub-authors')?.textContent || '';
+        const venue = card.querySelector('.pub-venue')?.textContent || '';
+        items.push({ type: 'publication', title, subtitle: authors + ' — ' + venue, text: title + ' ' + authors + ' ' + venue, el: card });
+      });
+
+      document.querySelectorAll('.timeline-entry').forEach(entry => {
+        const company = entry.querySelector('.timeline-company')?.textContent || '';
+        const role = entry.querySelector('.timeline-role')?.textContent || '';
+        const desc = entry.querySelector('.timeline-desc')?.textContent || '';
+        items.push({ type: 'experience', title: company, subtitle: role, text: company + ' ' + role + ' ' + desc, url: 'experience.html' });
+      });
+
+      return items;
+    }
+
+    // Fetch papers, thoughts, and experience HTML (once, lazily)
+    function loadExternalData() {
+      if (cachedExternal || loadingExternal) return;
+      loadingExternal = true;
+
+      Promise.all([
+        fetch('papers.json').then(r => r.ok ? r.json() : []).catch(() => []),
+        fetch('thoughts.json').then(r => r.ok ? r.json() : []).catch(() => []),
+        fetch('experience.html').then(r => r.ok ? r.text() : '').catch(() => ''),
+        fetch('index.html').then(r => r.ok ? r.text() : '').catch(() => ''),
+      ]).then(([papers, thoughts, expHtml, homeHtml]) => {
+        const items = [];
+
+        papers.slice(0, 300).forEach(p => {
+          const collections = (p.user_paper_collections || []).map(c => c.name).join(' ');
+          const keywords = p.keywords_metadata && p.keywords_metadata.keywords ? p.keywords_metadata.keywords : '';
+          items.push({ type: 'paper', title: p.title, subtitle: (p.authors || '').substring(0, 80), text: p.title + ' ' + (p.authors || '') + ' ' + (p.abstract || '') + ' ' + collections + ' ' + keywords, url: 'reading.html#paper-' + (p.paper_id || '') });
+        });
+
+        thoughts.slice(0, 200).forEach(t => {
+          items.push({ type: 'thought', title: (t.text || '').substring(0, 80), subtitle: t.date, text: (t.text || '') + ' ' + (t.tags || []).join(' '), url: 'thoughts.html#t-' + t.id });
+        });
+
+        // Parse experience HTML if we're not already on that page
+        if (!document.querySelector('.timeline-entry') && expHtml) {
+          const doc = new DOMParser().parseFromString(expHtml, 'text/html');
+          doc.querySelectorAll('.timeline-entry').forEach(entry => {
+            const company = entry.querySelector('.timeline-company')?.textContent || '';
+            const role = entry.querySelector('.timeline-role')?.textContent || '';
+            const desc = entry.querySelector('.timeline-desc')?.textContent || '';
+            items.push({ type: 'experience', title: company, subtitle: role, text: company + ' ' + role + ' ' + desc, url: 'experience.html' });
+          });
+        }
+
+        // Parse index.html for publications if we're not already on the home page
+        if (!document.querySelector('.pub-card') && homeHtml) {
+          const doc = new DOMParser().parseFromString(homeHtml, 'text/html');
+          doc.querySelectorAll('.pub-card').forEach(card => {
+            const title = card.querySelector('.pub-title')?.textContent || '';
+            const authors = card.querySelector('.pub-authors')?.textContent || '';
+            const venue = card.querySelector('.pub-venue')?.textContent || '';
+            items.push({ type: 'publication', title, subtitle: authors + ' — ' + venue, text: title + ' ' + authors + ' ' + venue, url: 'index.html#publications' });
+          });
+        }
+
+        cachedExternal = items;
+
+        // Re-render if modal is open
+        if (overlay) {
+          const input = overlay.querySelector('.gs-input');
+          render(search(input ? input.value.trim() : ''));
+        }
+      });
+    }
+
+    function search(query) {
+      const items = buildLocalIndex();
+      if (cachedExternal) items.push(...cachedExternal);
+
+      if (!query) {
+        return items.filter(i => i.type === 'page');
+      }
+
+      const tokens = query.toLowerCase().split(/\s+/).filter(Boolean);
+      return items.filter(item => {
+        const hay = (item.text || item.title + ' ' + (item.subtitle || '')).toLowerCase();
+        return tokens.every(t => hay.includes(t));
+      }).slice(0, 50);
+    }
+
+    function render(items) {
+      results = items;
+      activeIdx = items.length ? 0 : -1;
+      const list = overlay.querySelector('.gs-results');
+      if (!items.length) {
+        list.innerHTML = '<div class="gs-empty">No results found</div>';
+        return;
+      }
+      const typeLabels = { page: 'Pages', publication: 'Publications', experience: 'Experience', paper: 'Reading', thought: 'Thoughts' };
+      const typeIcons = {
+        page: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>',
+        publication: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>',
+        experience: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>',
+        paper: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>',
+        thought: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>',
+      };
+
+      const MAX_VISIBLE = 3;
+      let html = '';
+      let lastType = '';
+      let typeCount = 0;
+      items.forEach((item, i) => {
+        if (item.type !== lastType) {
+          // Close previous group's hidden overflow
+          if (lastType && lastType !== 'page' && typeCount > MAX_VISIBLE) {
+            html += `<button class="gs-show-less" data-type="${lastType}">Show less</button></div>`;
+          }
+          lastType = item.type;
+          typeCount = 0;
+          html += `<div class="gs-category">${typeLabels[item.type] || item.type}</div>`;
+        }
+        typeCount++;
+        if (typeCount === MAX_VISIBLE + 1 && item.type !== 'page') {
+          const remaining = items.filter(x => x.type === item.type).length - MAX_VISIBLE;
+          html += `<button class="gs-show-more" data-type="${item.type}">Show ${remaining} more</button>`;
+          html += `<div class="gs-overflow" data-type="${item.type}">`;
+        }
+        html += `<div class="gs-result${i === activeIdx ? ' active' : ''}" data-idx="${i}">
+          <span class="gs-result-icon">${typeIcons[item.type] || ''}</span>
+          <div class="gs-result-text">
+            <span class="gs-result-title">${escapeForSearch(item.title)}</span>
+            ${item.subtitle ? `<span class="gs-result-sub">${escapeForSearch(item.subtitle)}</span>` : ''}
+          </div>
+        </div>`;
+      });
+      if (lastType !== 'page' && typeCount > MAX_VISIBLE) html += `<button class="gs-show-less" data-type="${lastType}">Show less</button></div>`;
+      list.innerHTML = html;
+
+      list.querySelectorAll('.gs-show-more').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const type = btn.dataset.type;
+          const overflow = list.querySelector(`.gs-overflow[data-type="${type}"]`);
+          if (overflow) overflow.classList.add('expanded');
+          btn.style.display = 'none';
+          overlay.querySelector('.gs-input').focus();
+        });
+      });
+      list.querySelectorAll('.gs-show-less').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const type = btn.dataset.type;
+          const overflow = list.querySelector(`.gs-overflow[data-type="${type}"]`);
+          if (overflow) overflow.classList.remove('expanded');
+          const moreBtn = list.querySelector(`.gs-show-more[data-type="${type}"]`);
+          if (moreBtn) moreBtn.style.display = '';
+          overlay.querySelector('.gs-input').focus();
+        });
+      });
+    }
+
+    function escapeForSearch(s) {
+      const d = document.createElement('div');
+      d.textContent = s || '';
+      return d.innerHTML;
+    }
+
+    function navigate(item) {
+      if (!item) return;
+      close();
+      if (item.url) {
+        window.location.href = item.url;
+      } else if (item.el) {
+        item.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (item.type === 'page') {
+        window.location.href = item.url;
+      }
+    }
+
+    function isVisible(idx) {
+      const list = overlay.querySelector('.gs-results');
+      const el = list.querySelector(`.gs-result[data-idx="${idx}"]`);
+      if (!el) return false;
+      const overflow = el.closest('.gs-overflow');
+      return !overflow || overflow.classList.contains('expanded');
+    }
+
+    function updateActive(newIdx) {
+      if (!results.length) return;
+      const dir = newIdx > activeIdx ? 1 : -1;
+      newIdx = Math.max(0, Math.min(results.length - 1, newIdx));
+      // Skip over hidden (collapsed) results
+      while (newIdx > 0 && newIdx < results.length - 1 && !isVisible(newIdx)) {
+        newIdx += dir;
+      }
+      activeIdx = Math.max(0, Math.min(results.length - 1, newIdx));
+      const list = overlay.querySelector('.gs-results');
+      list.querySelectorAll('.gs-result').forEach((el) => {
+        el.classList.toggle('active', +el.dataset.idx === activeIdx);
+      });
+      const active = list.querySelector('.gs-result.active');
+      if (active) active.scrollIntoView({ block: 'nearest' });
+    }
+
+    function open() {
+      if (overlay) return;
+      loadExternalData();
+      overlay = document.createElement('div');
+      overlay.className = 'gs-overlay';
+      overlay.innerHTML = `
+        <div class="gs-modal">
+          <input class="gs-input" placeholder="Search..." autofocus>
+          <div class="gs-results"></div>
+          <div class="gs-footer">
+            <span><kbd>↑↓</kbd> Navigate</span>
+            <span><kbd>↵</kbd> Open</span>
+            <span><kbd>esc</kbd> Close</span>
+          </div>
+        </div>`;
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+
+      const input = overlay.querySelector('.gs-input');
+      render(search(''));
+
+      input.addEventListener('input', () => {
+        render(search(input.value.trim()));
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') { e.preventDefault(); updateActive(activeIdx + 1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); updateActive(activeIdx - 1); }
+        else if (e.key === 'Enter' && results[activeIdx]) { e.preventDefault(); navigate(results[activeIdx]); }
+      });
+
+      const resultsList = overlay.querySelector('.gs-results');
+      resultsList.addEventListener('click', (e) => {
+        const el = e.target.closest('.gs-result');
+        if (el) navigate(results[+el.dataset.idx]);
+      });
+      resultsList.addEventListener('mousemove', (e) => {
+        const el = e.target.closest('.gs-result');
+        if (el && +el.dataset.idx !== activeIdx) {
+          updateActive(+el.dataset.idx);
+        }
+      });
+
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) close();
+      });
+
+      document.addEventListener('keydown', onKey);
+      requestAnimationFrame(() => input.focus());
+    }
+
+    function onKey(e) {
+      if (e.key === 'Escape' && overlay) {
+        e.stopImmediatePropagation();
+        close();
+      }
+    }
+
+    function close() {
+      if (!overlay) return;
+      document.removeEventListener('keydown', onKey);
+      overlay.remove();
+      overlay = null;
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        const ae = document.activeElement;
+        if (ae && (ae.tagName === 'TEXTAREA' || ae.isContentEditable)) return;
+        e.preventDefault();
+        if (overlay) close(); else open();
+      }
+    });
+
+    const searchBtn = document.getElementById('nav-search');
+    if (searchBtn) searchBtn.addEventListener('click', () => { if (!overlay) open(); });
+  }
+
+  // ── Image Lightbox ───────────────────────────────────────
+  function initLightbox() {
+    let overlay = null;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.body.addEventListener('click', (e) => {
+      const img = e.target.closest('.pub-thumb img, .thought-text img');
+      if (!img || overlay) return;
+      e.stopPropagation();
+      open(img);
+    });
+
+    function open(img) {
+      const src = img.currentSrc || img.src;
+      const rect = img.getBoundingClientRect();
+
+      overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      overlay.innerHTML = `
+        <div class="lightbox-backdrop"></div>
+        <img class="lightbox-img" src="${src}" alt="${img.alt || ''}">
+        <button class="lightbox-close" aria-label="Close lightbox">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>`;
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+
+      const lbImg = overlay.querySelector('.lightbox-img');
+
+      if (!reducedMotion) {
+        // FLIP: start at thumbnail position
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        const tx = rect.left + rect.width / 2 - cx;
+        const ty = rect.top + rect.height / 2 - cy;
+        const scale = rect.width / Math.min(window.innerWidth * 0.9, lbImg.naturalWidth || rect.width);
+        lbImg.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+        lbImg.style.opacity = '0.5';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            lbImg.style.transform = '';
+            lbImg.style.opacity = '';
+          });
+        });
+      }
+
+      overlay.querySelector('.lightbox-backdrop').addEventListener('click', close);
+      overlay.querySelector('.lightbox-close').addEventListener('click', close);
+      document.addEventListener('keydown', onKey);
+
+      // Mobile swipe dismiss
+      let startY = 0, currentY = 0, dragging = false;
+      lbImg.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+        currentY = startY;
+        dragging = true;
+        lbImg.style.transition = 'none';
+      }, { passive: true });
+
+      lbImg.addEventListener('touchmove', (e) => {
+        if (!dragging) return;
+        currentY = e.touches[0].clientY;
+        const dy = currentY - startY;
+        lbImg.style.transform = `translateY(${dy}px)`;
+        lbImg.style.opacity = Math.max(0, 1 - Math.abs(dy) / 300);
+      }, { passive: true });
+
+      lbImg.addEventListener('touchend', () => {
+        if (!dragging) return;
+        dragging = false;
+        const dy = Math.abs(currentY - startY);
+        if (dy > 80) {
+          close();
+        } else {
+          lbImg.style.transition = '';
+          lbImg.style.transform = '';
+          lbImg.style.opacity = '';
+        }
+      }, { passive: true });
+    }
+
+    function onKey(e) {
+      if (e.key === 'Escape' && overlay) {
+        e.stopImmediatePropagation();
+        close();
+      }
+    }
+
+    function close() {
+      if (!overlay) return;
+      document.removeEventListener('keydown', onKey);
+      overlay.style.opacity = '0';
+      setTimeout(() => {
+        overlay?.remove();
+        overlay = null;
+        document.body.style.overflow = '';
+      }, reducedMotion ? 0 : 200);
+    }
+  }
+
   // ── Hamburger Menu Toggle ──────────────────────────────────
   function initHamburger() {
     const btn = document.getElementById('nav-hamburger');
@@ -679,7 +1078,7 @@
       summary.setAttribute('aria-expanded', 'false');
 
       function toggle(e) {
-        if (e.target.closest('a')) return;
+        if (e.target.closest('a, img, .pub-cite-btn')) return;
         const expanded = card.classList.toggle('expanded');
         summary.setAttribute('aria-expanded', String(expanded));
       }
@@ -707,6 +1106,35 @@
       }
     });
 
+    // ── BibTeX Copy ──────────────────────────────────────────
+    document.querySelectorAll('.pub-cite-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.pub-card');
+        const bibtex = card?.dataset.bibtex;
+        if (!bibtex) return;
+        navigator.clipboard.writeText(bibtex).then(() => {
+          citeFlash(btn);
+        }).catch(() => {
+          const ta = document.createElement('textarea');
+          ta.value = bibtex;
+          ta.style.cssText = 'position:fixed;opacity:0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          ta.remove();
+          citeFlash(btn);
+        });
+      });
+    });
+
+    function citeFlash(btn) {
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.classList.remove('copied');
+      }, 1500);
+    }
+
     window.initTagColors();
 
     // Clickable tags on static pages: navigate to reading.html with filter
@@ -718,6 +1146,8 @@
       if (tag) window.location.href = `reading.html#tags=${encodeURIComponent(tag)}`;
     });
 
+    initGlobalSearch();
+    initLightbox();
     initHamburger();
     initHeroCanvas();
     initScrollReveal();

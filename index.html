@@ -89,6 +89,9 @@
         <a href="thoughts.html">Thoughts</a>
       </div>
       <div class="nav-actions">
+        <button id="nav-search" class="nav-search-btn" aria-label="Search (Cmd+K)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
         <button id="theme-toggle" aria-label="Toggle dark mode">
           <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
           <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -157,7 +160,12 @@
       <h2>Publications</h2>
 
       <!-- SIMIFY -->
-      <article class="pub-card" data-expandable>
+      <article class="pub-card" data-expandable data-bibtex="@article{may2026simify,
+  title={SIMIFY: Generative Real-to-Sim Enables Multi-Object Spatial and Physical Reasoning},
+  author={May, Brandon B. and others},
+  journal={arXiv preprint},
+  year={2026}
+}">
         <div class="pub-summary">
           <div class="pub-thumb">
 <picture>
@@ -179,6 +187,9 @@
                 <span class="reading-tag">Robot Learning</span>
                 <span class="reading-tag">Simulation</span>
               </div>
+              <button class="pub-cite-btn" aria-label="Copy BibTeX citation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
             </div>
           </div>
         </div>
@@ -190,7 +201,12 @@
       </article>
 
       <!-- Real-is-Sim -->
-      <article class="pub-card" data-expandable>
+      <article class="pub-card" data-expandable data-bibtex="@inproceedings{abouchakra2026realissim,
+  title={Real-is-Sim: Bridging the Sim-to-Real Gap with a Dynamic Digital Twin for Real-World Robot Policy Evaluation},
+  author={Abou-Chakra, Jad and Sun, Lingfeng and Rana, Krishan and May, Brandon B. and Schmeckpeper, Karl and S&uuml;nderhauf, Niko and Minniti, Maria Vittoria and Herlant, Laura},
+  booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2026}
+}">
         <div class="pub-summary">
           <div class="pub-thumb">
             <picture>
@@ -220,6 +236,9 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                   Website
                 </a>
+                <button class="pub-cite-btn" aria-label="Copy BibTeX citation">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
               </div>
             </div>
           </div>
@@ -232,7 +251,12 @@
       </article>
 
       <!-- Equivariant Object Dynamics (CoRL 2025) -->
-      <article class="pub-card" data-expandable>
+      <article class="pub-card" data-expandable data-bibtex="@inproceedings{orozco2025piegraph,
+  title={Learning Equivariant Neural-Augmented Object Dynamics from Few Interactions},
+  author={Orozco, Sergio and May, Brandon B. and Kusnur, Tushar and Konidaris, George and Herlant, Laura},
+  booktitle={RINO Workshop at Conference on Robot Learning (CoRL)},
+  year={2025}
+}">
         <div class="pub-summary">
           <div class="pub-thumb">
 <picture>
@@ -259,6 +283,9 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                   OpenReview
                 </a>
+                <button class="pub-cite-btn" aria-label="Copy BibTeX citation">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
               </div>
             </div>
           </div>
@@ -271,7 +298,12 @@
       </article>
 
       <!-- Theia -->
-      <article class="pub-card" data-expandable>
+      <article class="pub-card" data-expandable data-bibtex="@inproceedings{shang2024theia,
+  title={Theia: Distilling Diverse Vision Foundation Models for Robot Learning},
+  author={Shang, Jinghuan and Schmeckpeper, Karl and May, Brandon B. and Minniti, Maria Vittoria and Kelestemur, Tarik and Watkins, David and Herlant, Laura},
+  booktitle={Conference on Robot Learning (CoRL)},
+  year={2024}
+}">
         <div class="pub-summary">
           <div class="pub-thumb">
             <picture>
@@ -305,6 +337,9 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                   Code
                 </a>
+                <button class="pub-cite-btn" aria-label="Copy BibTeX citation">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
               </div>
             </div>
           </div>
@@ -317,7 +352,12 @@
       </article>
 
       <!-- Sancdifi -->
-      <article class="pub-card" data-expandable>
+      <article class="pub-card" data-expandable data-bibtex="@inproceedings{may2023sancdifi,
+  title={Salient Conditional Diffusion for Defending Against Backdoor Attacks},
+  author={May, Brandon B. and Tatro, N. Joseph and Kumar, Piyush and others},
+  booktitle={Backdoor Attacks and Defenses Workshop at International Conference on Learning Representations (ICLR)},
+  year={2023}
+}">
         <div class="pub-summary">
           <div class="pub-thumb">
 <picture>
@@ -342,6 +382,9 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                   arXiv
                 </a>
+                <button class="pub-cite-btn" aria-label="Copy BibTeX citation">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
               </div>
             </div>
           </div>
@@ -354,7 +397,12 @@
       </article>
 
       <!-- Overhead Imagery -->
-      <article class="pub-card" data-expandable>
+      <article class="pub-card" data-expandable data-bibtex="@inproceedings{may2023overhead,
+  title={Comprehensive Dataset of Synthetic and Manipulated Overhead Imagery for Development and Evaluation of Forensic Tools},
+  author={May, Brandon B. and Trapeznikov, Kirill and Fang, Shengbang and Stamm, Matthew C.},
+  booktitle={ACM Workshop on Information Hiding and Multimedia Security (IH&amp;MMSec)},
+  year={2023}
+}">
         <div class="pub-summary">
           <div class="pub-thumb">
 <picture>
@@ -379,6 +427,9 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                   arXiv
                 </a>
+                <button class="pub-cite-btn" aria-label="Copy BibTeX citation">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
               </div>
             </div>
           </div>
@@ -391,7 +442,12 @@
       </article>
 
       <!-- Explainable Face Recognition -->
-      <article class="pub-card" data-expandable>
+      <article class="pub-card" data-expandable data-bibtex="@inproceedings{williford2020xfr,
+  title={Explainable Face Recognition},
+  author={Williford, Jonathan R. and May, Brandon B. and Byrne, Jeffrey},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2020}
+}">
         <div class="pub-summary">
           <div class="pub-thumb">
 <picture>
@@ -424,6 +480,9 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                   Code
                 </a>
+                <button class="pub-cite-btn" aria-label="Copy BibTeX citation">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
               </div>
             </div>
           </div>
