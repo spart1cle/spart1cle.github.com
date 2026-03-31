@@ -359,7 +359,58 @@
       }
     });
 
-    function boom() {
+    // Mobile: shake detection
+    let lastShake = 0;
+    let shakeCount = 0;
+    let lastAccel = { x: 0, y: 0, z: 0 };
+    let shakeTimer = null;
+    const SHAKE_THRESHOLD = 25;
+    const SHAKES_NEEDED = 3;
+
+    window.addEventListener('devicemotion', (e) => {
+      const a = e.accelerationIncludingGravity;
+      if (!a) return;
+      const delta = Math.abs(a.x - lastAccel.x) + Math.abs(a.y - lastAccel.y) + Math.abs(a.z - lastAccel.z);
+      lastAccel = { x: a.x, y: a.y, z: a.z };
+
+      if (delta > SHAKE_THRESHOLD) {
+        const now = Date.now();
+        if (now - lastShake > 300) {
+          shakeCount++;
+          lastShake = now;
+          clearTimeout(shakeTimer);
+          shakeTimer = setTimeout(() => { shakeCount = 0; }, 1500);
+          if (shakeCount >= SHAKES_NEEDED) {
+            shakeCount = 0;
+            clearTimeout(shakeTimer);
+            boom();
+          }
+        }
+      }
+    });
+
+    // Mobile: 7-tap on profile photo
+    const photo = document.querySelector('.hero-photo');
+    if (photo) {
+      let tapCount = 0;
+      let tapTimer = null;
+      photo.addEventListener('click', (e) => {
+        tapCount++;
+        clearTimeout(tapTimer);
+        tapTimer = setTimeout(() => { tapCount = 0; }, 2000);
+        if (tapCount >= 7) {
+          tapCount = 0;
+          clearTimeout(tapTimer);
+          boom(e.clientX, e.clientY);
+        }
+      });
+    }
+
+    let booming = false;
+
+    function boom(originX, originY) {
+      if (booming) return;
+      booming = true;
       const overlay = document.createElement('canvas');
       overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;pointer-events:none;';
       document.body.appendChild(overlay);
@@ -373,60 +424,135 @@
       const ctx = overlay.getContext('2d');
       ctx.scale(dpr, dpr);
 
-      const cx = W / 2;
-      const cy = H / 2;
-      const colors = [
-        '#2dd4bf', '#0d9488', '#5eead4', '#fbbf24',
-        '#f472b6', '#818cf8', '#34d399', '#fb923c',
-      ];
+      const cx = originX != null ? originX : W / 2;
+      const cy = originY != null ? originY : H / 2;
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const sat = isDark ? '90%' : '85%';
+      const lit = isDark ? '65%' : '45%';
       const parts = [];
+
+      const TAIL_LEN = 6;
 
       for (let i = 0; i < 200; i++) {
         const angle = Math.random() * Math.PI * 2;
         const speed = Math.random() * 10 + 3;
+        const hue = 175 + Math.random() * 110;
+        const trail = new Array(TAIL_LEN);
+        for (let t = 0; t < TAIL_LEN; t++) trail[t] = { x: cx, y: cy };
         parts.push({
           x: cx,
           y: cy,
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 2,
+          vx: Math.cos(angle) * speed * 60,
+          vy: (Math.sin(angle) * speed - 2) * 60,
           r: Math.random() * 4 + 1.5,
-          color: colors[Math.floor(Math.random() * colors.length)],
+          hsl: `hsl(${hue} ${sat} ${lit} / `,
           life: 1,
-          decay: Math.random() * 0.012 + 0.006,
+          decay: (Math.random() * 0.012 + 0.006) * 60,
+          trail: trail,
+          tIdx: 0,
         });
       }
 
-      function frame() {
+      // Initial flash state
+      let flashLife = 1;
+      const flashDecay = 3; // fades over ~0.33s
+
+      let prev = performance.now();
+
+      function frame(now) {
+        const dt = Math.min((now - prev) / 1000, 0.05);
+        prev = now;
         ctx.clearRect(0, 0, W, H);
         let alive = false;
+        const drag = Math.pow(0.99, 60 * dt);
+        const gravity = 7.2 * 60 * dt;
+
+        // Draw initial flash/glow
+        if (flashLife > 0) {
+          alive = true;
+          flashLife -= flashDecay * dt;
+          const flashAlpha = Math.max(0, flashLife) * 0.6;
+          const flashRadius = (1 - flashLife) * 150 + 50;
+          const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, flashRadius);
+          grad.addColorStop(0, `hsl(200 ${sat} ${lit} / ${flashAlpha})`);
+          grad.addColorStop(1, `hsl(200 ${sat} ${lit} / 0)`);
+          ctx.fillStyle = grad;
+          ctx.fillRect(cx - flashRadius, cy - flashRadius, flashRadius * 2, flashRadius * 2);
+        }
 
         for (let k = 0; k < parts.length; k++) {
           const p = parts[k];
           if (p.life <= 0) continue;
           alive = true;
-          p.x += p.vx;
-          p.y += p.vy;
-          p.vy += 0.12;
-          p.vx *= 0.99;
-          p.life -= p.decay;
 
-          ctx.globalAlpha = Math.max(0, p.life);
-          ctx.fillStyle = p.color;
+          // Write current position into circular buffer
+          p.trail[p.tIdx].x = p.x;
+          p.trail[p.tIdx].y = p.y;
+          p.tIdx = (p.tIdx + 1) % TAIL_LEN;
+
+          p.x += p.vx * dt;
+          p.y += p.vy * dt;
+          p.vy += gravity;
+          p.vx *= drag;
+          p.life -= p.decay * dt;
+
+          // Sparkle flicker when life < 0.3
+          let alpha = Math.max(0, p.life);
+          if (p.life < 0.3 && p.life > 0) {
+            alpha *= 0.4 + 0.6 * (0.5 + 0.5 * Math.sin(now * 0.03 + k * 7));
+          }
+
+          // Draw tail from oldest to newest
+          for (let t = 0; t < TAIL_LEN; t++) {
+            const idx = (p.tIdx + t) % TAIL_LEN;
+            const frac = (t + 1) / (TAIL_LEN + 1);
+            const d = p.r * frac;
+            ctx.fillStyle = p.hsl + alpha * frac * 0.5 + ')';
+            ctx.beginPath();
+            ctx.arc(p.trail[idx].x, p.trail[idx].y, d, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          // Draw head
+          ctx.fillStyle = p.hsl + alpha + ')';
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
           ctx.fill();
-        }
 
-        ctx.globalAlpha = 1;
+          // Secondary burst: spawn child particles when dying
+          if (p.life <= 0.25 && !p.spawned && Math.random() < 0.2) {
+            p.spawned = true;
+            for (let c = 0; c < 4; c++) {
+              const cAngle = Math.random() * Math.PI * 2;
+              const cSpeed = (Math.random() * 5 + 3) * 60;
+              const cTrail = new Array(TAIL_LEN);
+              for (let t = 0; t < TAIL_LEN; t++) cTrail[t] = { x: p.x, y: p.y };
+              parts.push({
+                x: p.x,
+                y: p.y,
+                vx: Math.cos(cAngle) * cSpeed,
+                vy: Math.sin(cAngle) * cSpeed,
+                r: p.r * 0.75,
+                hsl: p.hsl,
+                life: 0.7 + Math.random() * 0.4,
+                decay: (Math.random() * 0.008 + 0.005) * 60,
+                trail: cTrail,
+                tIdx: 0,
+                spawned: true,
+              });
+            }
+          }
+        }
 
         if (alive) {
           requestAnimationFrame(frame);
         } else {
           overlay.remove();
+          booming = false;
         }
       }
 
-      frame();
+      requestAnimationFrame(frame);
     }
   }
 
