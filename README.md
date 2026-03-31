@@ -84,7 +84,11 @@ pip install requests
 python3 fetch_papers.py --cookie "session=YOUR_SESSION_COOKIE" --output papers.json
 ```
 
-The workflow uses the `SCHOLAR_INBOX_SESSION` repository secret.
+The workflow uses the `SCHOLAR_INBOX_SESSION` repository secret. This session cookie expires periodically — if the workflow fails with a `401 Unauthorized`, refresh it:
+
+1. Log in to [scholar-inbox.com](https://scholar-inbox.com)
+2. Open DevTools → Application → Cookies → copy the `session` cookie value
+3. Update the `SCHOLAR_INBOX_SESSION` secret in [repo settings](https://github.com/spart1cle/spart1cle.github.io/settings/secrets/actions)
 
 ## Thoughts
 
