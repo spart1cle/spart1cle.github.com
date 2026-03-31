@@ -1,5 +1,22 @@
 [
   {
+    "id": "1774991917937",
+    "type": "link",
+    "date": "2026-03-31",
+    "text": "OpenAI closed their latest funding round with **$122 billion** in committed capital at a post money valuation of **$852 billion**!",
+    "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+    "tags": [
+      "news",
+      "startup"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "openai.com"
+    }
+  },
+  {
     "id": "1774940531188",
     "type": "link",
     "date": "2026-03-31",
