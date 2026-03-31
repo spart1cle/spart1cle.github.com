@@ -622,7 +622,8 @@
             const company = entry.querySelector('.timeline-company')?.textContent || '';
             const role = entry.querySelector('.timeline-role')?.textContent || '';
             const desc = entry.querySelector('.timeline-desc')?.textContent || '';
-            items.push({ type: 'experience', title: company, subtitle: role, text: company + ' ' + role + ' ' + desc, url: 'experience.html' });
+            const id = entry.id || ('exp-' + company.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').substring(0, 50));
+            items.push({ type: 'experience', title: company, subtitle: role, text: company + ' ' + role + ' ' + desc, url: 'experience.html#' + id });
           });
         }
 
@@ -1172,22 +1173,41 @@
     // Deep-link to a specific pub card via #pub-{slug}
     function jumpToPub() {
       if (!location.hash.startsWith('#pub-')) return;
-      const el = document.getElementById(location.hash.slice(1));
-      if (!el || !el.classList.contains('pub-card')) return;
-      el.classList.remove('scroll-reveal');
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      if (el.dataset.expandable !== undefined && !el.classList.contains('expanded')) {
-        el.classList.add('expanded');
-        const summary = el.querySelector('.pub-summary');
-        if (summary) summary.setAttribute('aria-expanded', 'true');
-      }
-      document.documentElement.style.scrollBehavior = 'auto';
-      el.scrollIntoView({ block: 'start' });
-      document.documentElement.style.scrollBehavior = '';
+      requestAnimationFrame(() => {
+        const el = document.getElementById(location.hash.slice(1));
+        if (!el || !el.classList.contains('pub-card')) return;
+        el.classList.remove('scroll-reveal');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        if (el.dataset.expandable !== undefined && !el.classList.contains('expanded')) {
+          el.classList.add('expanded');
+          const summary = el.querySelector('.pub-summary');
+          if (summary) summary.setAttribute('aria-expanded', 'true');
+        }
+        document.documentElement.style.scrollBehavior = 'auto';
+        el.scrollIntoView({ block: 'start' });
+        document.documentElement.style.scrollBehavior = '';
+      });
     }
     jumpToPub();
     window.addEventListener('hashchange', jumpToPub);
+
+    // Deep-link to a specific experience entry via #exp-{slug}
+    function jumpToExp() {
+      if (!location.hash.startsWith('#exp-')) return;
+      requestAnimationFrame(() => {
+        const el = document.getElementById(location.hash.slice(1));
+        if (!el || !el.classList.contains('timeline-entry')) return;
+        el.classList.remove('scroll-reveal');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        document.documentElement.style.scrollBehavior = 'auto';
+        el.scrollIntoView({ block: 'start' });
+        document.documentElement.style.scrollBehavior = '';
+      });
+    }
+    jumpToExp();
+    window.addEventListener('hashchange', jumpToExp);
 
     initActiveNav();
     initProgressBar();

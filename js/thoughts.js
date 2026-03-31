@@ -83,8 +83,11 @@
       }
       renderArchive();
       if (isPermalinkHash()) {
+        // Find the target thought's index and render just enough to include it
+        const targetId = location.hash.slice(3); // strip '#t-'
+        const idx = thoughts.findIndex(t => String(t.id) === targetId);
         window.__skipReveal = true;
-        visibleCount = thoughts.length;
+        visibleCount = idx >= 0 ? idx + PAGE_SIZE : thoughts.length;
         renderThoughts(false);
       } else {
         renderThoughts();
@@ -712,20 +715,26 @@
   function scrollToPermalink() {
     if (!isPermalinkHash()) return;
     const el = document.getElementById(location.hash.slice(1));
-    if (el) {
-      el.classList.remove('scroll-reveal');
-      el.style.opacity = '1';
-      el.style.transform = 'none';
+    if (!el) return;
+    el.classList.remove('scroll-reveal');
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+
+    // Hide page while we wait for layout to settle, then scroll and reveal
+    document.body.style.opacity = '0';
+    setTimeout(() => {
       document.documentElement.style.scrollBehavior = 'auto';
       el.scrollIntoView({ block: 'start' });
       document.documentElement.style.scrollBehavior = '';
-      el.style.outline = '2px solid var(--color-accent)';
-      el.style.outlineOffset = '4px';
-      el.style.borderRadius = 'var(--border-radius)';
-      setTimeout(() => {
-        el.style.outline = 'none';
-      }, 2000);
-    }
+      document.body.style.opacity = '';
+    }, 150);
+
+    el.style.outline = '2px solid var(--color-accent)';
+    el.style.outlineOffset = '4px';
+    el.style.borderRadius = 'var(--border-radius)';
+    setTimeout(() => {
+      el.style.outline = 'none';
+    }, 2150);
   }
 
   // ── Slack Push ─────────────────────────────────────────────
