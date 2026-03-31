@@ -11,6 +11,7 @@
   const countEl = document.getElementById('reading-count');
   const clearBtn = document.getElementById('reading-clear');
   const searchClearBtn = document.getElementById('reading-search-clear');
+  const expandAllBtn = document.getElementById('reading-expand-all');
 
   let papers = [];
   let activeTags = new Set();
@@ -27,16 +28,61 @@
     .then((r) => r.json())
     .then((data) => {
       papers = data;
+      window.__searchData = window.__searchData || {};
+      window.__searchData.papers = papers;
       renderTagFilters();
       initSort();
       initClear();
-      readHash(activeTags, tagFiltersEl, searchEl, searchClearBtn);
-      renderPapers();
+      function jumpToPaper() {
+        const m = location.hash.match(/^#paper-(.+)$/);
+        if (!m) return false;
+        const id = decodeURIComponent(m[1]);
+        visibleCount = papers.length;
+        window.__skipReveal = true;
+        renderPapers(false);
+        delete window.__skipReveal;
+
+        requestAnimationFrame(() => {
+          const target = listEl.querySelector('.reading-card[data-id="' + id + '"]');
+          if (!target) return;
+
+          // Expand card
+          const header = target.querySelector('.reading-card-header');
+          target.classList.add('expanded');
+          if (header) header.setAttribute('aria-expanded', 'true');
+          const details = target.querySelector('.reading-card-details');
+          if (details && !details.querySelector('.reading-summary')) {
+            const abstractToggle = details.querySelector('.reading-abstract-toggle');
+            if (abstractToggle) abstractToggle.open = true;
+          }
+
+          // Scroll — use native scrollIntoView which respects CSS scroll-padding-top
+          document.documentElement.style.scrollBehavior = 'auto';
+          target.scrollIntoView({ block: 'start' });
+          document.documentElement.style.scrollBehavior = '';
+        });
+        return true;
+      }
+
+      if (!jumpToPaper()) {
+        readHash(activeTags, tagFiltersEl, searchEl, searchClearBtn);
+        renderPapers();
+      }
+
+      window.addEventListener('hashchange', () => jumpToPaper());
 
       function toggleReadingCard(header) {
         const card = header.parentElement;
         const expanded = card.classList.toggle('expanded');
         header.setAttribute('aria-expanded', String(expanded));
+        // Auto-open abstract if it's the only detail content
+        if (expanded) {
+          const details = card.querySelector('.reading-card-details');
+          if (details && !details.querySelector('.reading-summary')) {
+            const abstractToggle = details.querySelector('.reading-abstract-toggle');
+            if (abstractToggle) abstractToggle.open = true;
+          }
+        }
       }
 
       listEl.addEventListener('click', function(e) {
@@ -137,11 +183,71 @@
     });
   }
 
+  // ── Card HTML ────────────────────────────────────────────────
+  function renderCardHtml(p) {
+    const date = p.publication_date || '';
+    const authors = truncateAuthors(p.authors, 5);
+    const colls = (p.user_paper_collections || [])
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
+    const collections = colls.length
+      ? colls
+          .map(
+            (c) =>
+              `<span class="reading-tag${activeTags.has(c.name) ? ' active' : ''}" data-tag="${escapeHtml(c.name)}">${escapeHtml(c.name)}</span>`
+          )
+          .join('')
+      : `<span class="reading-tag reading-tag-liked${activeTags.has('__liked__') ? ' active' : ''}" data-tag="__liked__">&#x1F44D; Liked</span>`;
+    const arxivUrl = p.arxiv_id ? `https://arxiv.org/abs/${p.arxiv_id}` : p.url;
+    const abstract = p.abstract ? cleanAbstract(p.abstract) : '';
+    const summaries = p.summaries || {};
+    const contributions = summaries.contributions_question || '';
+    const problem = summaries.problem_definition_question || '';
+    const keywords =
+      p.keywords_metadata && p.keywords_metadata.keywords
+        ? p.keywords_metadata.keywords
+            .split(',')
+            .map((k) => k.trim())
+            .filter(Boolean)
+        : [];
+
+    return `
+      <article class="reading-card" data-id="${escapeHtml(p.paper_id)}">
+        <div class="reading-card-header" role="button" tabindex="0" aria-expanded="false">
+          <div class="reading-card-meta">
+            <span class="reading-date">${escapeHtml(date)}</span>
+            ${p.category ? `<span class="reading-category">${escapeHtml(p.category)}</span>` : ''}
+            ${p.total_likes || p.total_read ? `<span class="reading-stats">${p.total_likes ? `<span title="Community likes"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> ${p.total_likes}</span>` : ''}${p.total_read ? `<span title="Community reads"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> ${p.total_read}</span>` : ''}</span>` : ''}
+            ${localStorage.getItem('thoughts-github-token') ? `<button class="paper-slack-btn" data-id="${escapeHtml(p.paper_id)}" title="Push to Slack" onclick="event.stopPropagation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2a2.5 2.5 0 0 0 0 5H17V4.5A2.5 2.5 0 0 0 14.5 2z"/><path d="M7 5h3.5"/><path d="M2 9.5A2.5 2.5 0 0 0 4.5 12H7V9.5A2.5 2.5 0 0 0 2 9.5z"/><path d="M7 12v3.5"/><path d="M9.5 22a2.5 2.5 0 0 0 0-5H7v2.5A2.5 2.5 0 0 0 9.5 22z"/><path d="M17 19h-3.5"/><path d="M22 14.5a2.5 2.5 0 0 0-2.5-2.5H17v2.5a2.5 2.5 0 0 0 5 0z"/><path d="M17 12v-3.5"/></svg></button>` : ''}
+            <button class="paper-copy-btn" data-id="${escapeHtml(p.paper_id)}" title="Copy permalink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></button>
+          </div>
+          <h3 class="reading-card-title">${escapeHtml(p.title)}</h3>
+          <p class="reading-card-authors">${escapeHtml(authors)}</p>
+          <div class="reading-card-bottom">
+            <div class="reading-card-tags">${collections}</div>
+            <div class="reading-card-links" onclick="event.stopPropagation()">
+              ${arxivUrl ? `<a class="pub-link" href="${escapeHtml(arxivUrl)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>arXiv</a>` : ''}
+              ${p.url ? `<a class="pub-link" href="${escapeHtml(p.url)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>PDF</a>` : ''}
+              ${p.project_link && !p.project_link.includes('}{') ? `<a class="pub-link" href="${escapeHtml(p.project_link)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</a>` : ''}
+            </div>
+          </div>
+          <svg class="reading-expand-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="reading-card-details"><div>
+          ${contributions ? `<div class="reading-summary"><h4>Key Contributions</h4><div class="reading-summary-content">${renderMarkdown(contributions)}</div></div>` : ''}
+          ${problem ? `<div class="reading-summary"><h4>Problem</h4><div class="reading-summary-content">${renderMarkdown(problem)}</div></div>` : ''}
+          ${abstract ? `<details class="reading-abstract-toggle"><summary>Abstract</summary><p class="reading-abstract">${abstract}</p></details>` : ''}
+          ${keywords.length ? `<div class="reading-keywords">${keywords.map((k) => `<span class="reading-keyword">${escapeHtml(k)}</span>`).join('')}</div>` : ''}
+        </div></div>
+      </article>`;
+  }
+
   // ── Render Papers ──────────────────────────────────────────
   const PAGE_SIZE = 20;
   let visibleCount = PAGE_SIZE;
 
   function renderPapers(resetPage) {
+    if (loadObserver) loadObserver.disconnect();
     if (resetPage !== false) visibleCount = PAGE_SIZE;
     if (hasRendered && resetPage !== false) {
       countEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -192,77 +298,9 @@
     const visible = filtered.slice(0, visibleCount);
     const hasMore = filtered.length > visibleCount;
 
-    listEl.innerHTML = visible
-      .map((p) => {
-        const date = p.publication_date || '';
-        const authors = truncateAuthors(p.authors, 5);
-        const colls = (p.user_paper_collections || [])
-          .slice()
-          .sort((a, b) => a.name.localeCompare(b.name));
-        const collections = colls.length
-          ? colls
-              .map(
-                (c) =>
-                  `<span class="reading-tag${activeTags.has(c.name) ? ' active' : ''}" data-tag="${escapeHtml(c.name)}">${escapeHtml(c.name)}</span>`
-              )
-              .join('')
-          : `<span class="reading-tag reading-tag-liked${activeTags.has('__liked__') ? ' active' : ''}" data-tag="__liked__">&#x1F44D; Liked</span>`;
-        const arxivUrl = p.arxiv_id ? `https://arxiv.org/abs/${p.arxiv_id}` : p.url;
-        const abstract = p.abstract ? cleanAbstract(p.abstract) : '';
-        const summaries = p.summaries || {};
-        const contributions = summaries.contributions_question || '';
-        const problem = summaries.problem_definition_question || '';
-        const keywords =
-          p.keywords_metadata && p.keywords_metadata.keywords
-            ? p.keywords_metadata.keywords
-                .split(',')
-                .map((k) => k.trim())
-                .filter(Boolean)
-            : [];
+    listEl.innerHTML = visible.map((p) => renderCardHtml(p)).join('');
 
-        return `
-          <article class="reading-card" data-id="${escapeHtml(p.paper_id)}">
-            <div class="reading-card-header" role="button" tabindex="0" aria-expanded="false">
-              <div class="reading-card-meta">
-                <span class="reading-date">${escapeHtml(date)}</span>
-                ${p.category ? `<span class="reading-category">${escapeHtml(p.category)}</span>` : ''}
-                ${p.total_likes || p.total_read ? `<span class="reading-stats">${p.total_likes ? `<span title="Community likes"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> ${p.total_likes}</span>` : ''}${p.total_read ? `<span title="Community reads"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> ${p.total_read}</span>` : ''}</span>` : ''}
-                ${localStorage.getItem('thoughts-github-token') ? `<button class="paper-slack-btn" data-id="${escapeHtml(p.paper_id)}" title="Push to Slack" onclick="event.stopPropagation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2a2.5 2.5 0 0 0 0 5H17V4.5A2.5 2.5 0 0 0 14.5 2z"/><path d="M7 5h3.5"/><path d="M2 9.5A2.5 2.5 0 0 0 4.5 12H7V9.5A2.5 2.5 0 0 0 2 9.5z"/><path d="M7 12v3.5"/><path d="M9.5 22a2.5 2.5 0 0 0 0-5H7v2.5A2.5 2.5 0 0 0 9.5 22z"/><path d="M17 19h-3.5"/><path d="M22 14.5a2.5 2.5 0 0 0-2.5-2.5H17v2.5a2.5 2.5 0 0 0 5 0z"/><path d="M17 12v-3.5"/></svg></button>` : ''}
-              </div>
-              <h3 class="reading-card-title">${escapeHtml(p.title)}</h3>
-              <p class="reading-card-authors">${escapeHtml(authors)}</p>
-              <div class="reading-card-bottom">
-                <div class="reading-card-tags">${collections}</div>
-                <div class="reading-card-links" onclick="event.stopPropagation()">
-                  ${arxivUrl ? `<a class="pub-link" href="${escapeHtml(arxivUrl)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>arXiv</a>` : ''}
-                  ${p.url ? `<a class="pub-link" href="${escapeHtml(p.url)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>PDF</a>` : ''}
-                  ${p.project_link && !p.project_link.includes('}{') ? `<a class="pub-link" href="${escapeHtml(p.project_link)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</a>` : ''}
-                </div>
-              </div>
-              <svg class="reading-expand-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </div>
-            <div class="reading-card-details"><div>
-              ${contributions ? `<div class="reading-summary"><h4>Key Contributions</h4><div class="reading-summary-content">${renderMarkdown(contributions)}</div></div>` : ''}
-              ${problem ? `<div class="reading-summary"><h4>Problem</h4><div class="reading-summary-content">${renderMarkdown(problem)}</div></div>` : ''}
-              ${abstract ? `<details class="reading-abstract-toggle"><summary>Abstract</summary><p class="reading-abstract">${abstract}</p></details>` : ''}
-              ${keywords.length ? `<div class="reading-keywords">${keywords.map((k) => `<span class="reading-keyword">${escapeHtml(k)}</span>`).join('')}</div>` : ''}
-            </div></div>
-          </article>`;
-      })
-      .join('');
-
-    if (hasMore) {
-      listEl.insertAdjacentHTML(
-        'beforeend',
-        `<button class="thoughts-load-more" id="reading-load-more">Load more (${filtered.length - visibleCount} remaining)</button>`
-      );
-      document.getElementById('reading-load-more').addEventListener('click', () => {
-        visibleCount += PAGE_SIZE;
-        renderPapers(false);
-      });
-    }
-
-    // Attach Slack push handlers
+    // Attach Slack push handlers on newly rendered cards
     listEl.querySelectorAll('.paper-slack-btn').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -270,8 +308,58 @@
       });
     });
 
-    if (window.revealElements) window.revealElements('.reading-card');
+    if (window.revealElements && !window.__skipReveal) window.revealElements('.reading-card');
     window.initTagColors();
+
+    // Infinite scroll: observe sentinel to auto-load next batch
+    if (hasMore) {
+      appendSentinel(filtered);
+    }
+  }
+
+  // ── Infinite Scroll ─────────────────────────────────────────
+  let loadObserver = null;
+
+  function appendSentinel(filtered) {
+    const sentinel = document.createElement('div');
+    sentinel.className = 'reading-sentinel';
+    listEl.appendChild(sentinel);
+
+    if (loadObserver) loadObserver.disconnect();
+    loadObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadObserver.disconnect();
+        sentinel.remove();
+        appendNextBatch(filtered);
+      }
+    }, { rootMargin: '200px' });
+    loadObserver.observe(sentinel);
+  }
+
+  function appendNextBatch(filtered) {
+    const start = visibleCount;
+    visibleCount += PAGE_SIZE;
+    const batch = filtered.slice(start, visibleCount);
+    if (!batch.length) return;
+
+    const html = batch.map((p) => renderCardHtml(p)).join('');
+    listEl.insertAdjacentHTML('beforeend', html);
+
+    // Attach Slack handlers on new cards
+    listEl.querySelectorAll('.paper-slack-btn:not([data-bound])').forEach((btn) => {
+      btn.setAttribute('data-bound', '1');
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        handlePaperSlackPush(btn);
+      });
+    });
+
+    if (window.revealElements && !window.__skipReveal) window.revealElements('.reading-card');
+    window.initTagColors();
+
+    if (visibleCount < filtered.length) {
+      appendSentinel(filtered);
+    }
   }
 
   // ── Card Tag Clicks ───────────────────────────────────────
@@ -280,6 +368,48 @@
     if (!tagEl) return;
     e.stopPropagation();
     handleTagClick(e, tagEl.dataset.tag, activeTags, tagFiltersEl, renderPapers);
+  });
+
+  // ── Copy Permalink ─────────────────────────────────────────
+  listEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.paper-copy-btn');
+    if (!btn) return;
+    e.stopPropagation();
+    const url = `${location.origin}${location.pathname}#paper-${btn.dataset.id}`;
+    navigator.clipboard.writeText(url).then(() => {
+      btn.classList.add('copied');
+      setTimeout(() => btn.classList.remove('copied'), 1500);
+    }).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+      btn.classList.add('copied');
+      setTimeout(() => btn.classList.remove('copied'), 1500);
+    });
+  });
+
+  // ── Expand / Collapse All ──────────────────────────────────
+  expandAllBtn.addEventListener('click', () => {
+    const cards = listEl.querySelectorAll('.reading-card');
+    const allExpanded = [...cards].every(c => c.classList.contains('expanded'));
+    cards.forEach(card => {
+      const header = card.querySelector('.reading-card-header');
+      card.classList.toggle('expanded', !allExpanded);
+      if (header) header.setAttribute('aria-expanded', String(!allExpanded));
+      if (!allExpanded) {
+        // Auto-open abstract if only detail content
+        const details = card.querySelector('.reading-card-details');
+        if (details && !details.querySelector('.reading-summary')) {
+          const abstractToggle = details.querySelector('.reading-abstract-toggle');
+          if (abstractToggle) abstractToggle.open = true;
+        }
+      }
+    });
+    expandAllBtn.textContent = allExpanded ? 'Expand all' : 'Collapse all';
   });
 
   // ── Slack Push ──────────────────────────────────────────────
