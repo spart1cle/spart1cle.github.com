@@ -82,8 +82,16 @@
         if (hashState && hashState.month) activeMonth = hashState.month;
       }
       renderArchive();
-      renderThoughts();
+      if (isPermalinkHash()) {
+        window.__skipReveal = true;
+        visibleCount = thoughts.length;
+        renderThoughts(false);
+      } else {
+        renderThoughts();
+      }
+      if (window.__skipReveal) delete window.__skipReveal;
       scrollToPermalink();
+      window.addEventListener('hashchange', scrollToPermalink);
     })
     .catch(() => {
       listEl.innerHTML =
@@ -275,8 +283,10 @@
   // ── Render Thoughts ────────────────────────────────────────
   const PAGE_SIZE = 20;
   let visibleCount = PAGE_SIZE;
+  let loadObserver = null;
 
   function renderThoughts(resetPage) {
+    if (loadObserver) loadObserver.disconnect();
     if (resetPage !== false) visibleCount = PAGE_SIZE;
     if (hasRendered && resetPage !== false) {
       countEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -403,14 +413,7 @@
     listEl.innerHTML = html;
 
     if (hasMore) {
-      listEl.insertAdjacentHTML(
-        'beforeend',
-        `<button class="thoughts-load-more" id="thoughts-load-more">Load more (${filtered.length - visibleCount} remaining)</button>`
-      );
-      document.getElementById('thoughts-load-more').addEventListener('click', () => {
-        visibleCount += PAGE_SIZE;
-        renderThoughts(false);
-      });
+      appendSentinel(filtered);
     }
 
     // Attach copy permalink handlers
@@ -466,8 +469,103 @@
         throwOnError: false,
       });
     }
-    if (window.revealElements) window.revealElements('.thought-card');
+    if (window.revealElements && !window.__skipReveal) window.revealElements('.thought-card');
     window.initTagColors();
+  }
+
+  // ── Infinite Scroll ─────────────────────────────────────────
+  function appendSentinel(filtered) {
+    const sentinel = document.createElement('div');
+    sentinel.className = 'thoughts-sentinel';
+    listEl.appendChild(sentinel);
+
+    if (loadObserver) loadObserver.disconnect();
+    loadObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadObserver.disconnect();
+        sentinel.remove();
+        appendNextBatch(filtered);
+      }
+    }, { rootMargin: '200px' });
+    loadObserver.observe(sentinel);
+  }
+
+  function appendNextBatch(filtered) {
+    const start = visibleCount;
+    visibleCount += PAGE_SIZE;
+    const batch = filtered.slice(start, visibleCount);
+    if (!batch.length) return;
+
+    let html = '';
+    const lastCard = listEl.querySelector('.thought-card:last-of-type');
+    let lastMonth = lastCard ? (lastCard.querySelector('.reading-date')?.textContent || '').slice(0, 7) : '';
+
+    batch.forEach((t) => {
+      const month = t.date ? t.date.slice(0, 7) : '';
+      if (month && month !== lastMonth) {
+        const d = new Date(t.date + 'T00:00:00');
+        const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        html += `<h3 class="thought-date-group">${label}</h3>`;
+        lastMonth = month;
+      }
+
+      const tagsHtml = (t.tags || [])
+        .slice()
+        .sort((a, b) => a.localeCompare(b))
+        .map(
+          (tag) =>
+            `<span class="reading-tag${activeTags.has(tag) ? ' active' : ''}" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</span>`
+        )
+        .join('');
+
+      let previewHtml = '';
+      if (t.url && t.preview) {
+        const p = t.preview;
+        previewHtml =
+          `<div class="thought-link-preview" id="preview-${t.id}">` +
+          `<a href="${escapeHtml(t.url)}" target="_blank" rel="noopener" class="thought-preview-card">` +
+          (p.image ? `<img class="thought-preview-img" src="${escapeHtml(p.image)}" alt="">` : '') +
+          `<div class="thought-preview-body">` +
+          `<span class="thought-preview-domain">${escapeHtml(p.domain || '')}</span>` +
+          `<span class="thought-preview-title">${escapeHtml(p.title || '')}</span>` +
+          `<span class="thought-preview-desc">${escapeHtml(p.description || '')}</span>` +
+          `</div></a></div>`;
+      } else if (t.url) {
+        previewHtml = `<div class="thought-link-preview" data-url="${escapeHtml(t.url)}" id="preview-${t.id}"><div class="thought-preview-loading">Loading preview...</div></div>`;
+      }
+
+      const editBtn = isAuthenticated()
+        ? `<button class="thought-edit-btn" data-id="${t.id}" title="Edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>`
+        : '';
+      const slackBtn = isAuthenticated()
+        ? `<button class="thought-slack-btn" data-id="${t.id}" title="Push to Slack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2a2.5 2.5 0 0 0 0 5H17V4.5A2.5 2.5 0 0 0 14.5 2z"/><path d="M7 5h3.5"/><path d="M2 9.5A2.5 2.5 0 0 0 4.5 12H7V9.5A2.5 2.5 0 0 0 2 9.5z"/><path d="M7 12v3.5"/><path d="M9.5 22a2.5 2.5 0 0 0 0-5H7v2.5A2.5 2.5 0 0 0 9.5 22z"/><path d="M17 19h-3.5"/><path d="M22 14.5a2.5 2.5 0 0 0-2.5-2.5H17v2.5a2.5 2.5 0 0 0 5 0z"/><path d="M17 12v-3.5"/></svg></button>`
+        : '';
+      const deleteBtn = isAuthenticated()
+        ? `<button class="thought-delete-btn" data-id="${t.id}" title="Delete"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>`
+        : '';
+      const deleteOverlay = isAuthenticated()
+        ? `<div class="thought-delete-overlay"><span>Delete this thought?</span><div class="thought-delete-actions"><button class="thought-delete-confirm-btn" data-id="${t.id}">Delete</button><button class="thought-delete-cancel-btn" data-id="${t.id}">Cancel</button></div></div>`
+        : '';
+      const copyBtn = `<button class="thought-copy-btn" data-id="${t.id}" title="Copy permalink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></button>`;
+
+      html +=
+        `<article class="thought-card" id="t-${t.id}">` +
+        deleteOverlay +
+        `<div class="thought-card-meta"><a href="#t-${t.id}" class="reading-date thought-permalink">${escapeHtml(t.date)}</a>${copyBtn}${editBtn}${slackBtn}${deleteBtn}</div>` +
+        `<div class="thought-text">${formatText(t.text)}</div>` +
+        previewHtml +
+        `<div class="thought-card-tags">${tagsHtml}</div>` +
+        `</article>`;
+    });
+
+    listEl.insertAdjacentHTML('beforeend', html);
+
+    if (window.revealElements && !window.__skipReveal) window.revealElements('.thought-card');
+    window.initTagColors();
+
+    if (visibleCount < filtered.length) {
+      appendSentinel(filtered);
+    }
   }
 
   // ── Card Tag Clicks ───────────────────────────────────────
