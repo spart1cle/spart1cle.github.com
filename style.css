@@ -2117,7 +2117,7 @@ ul { list-style: none; }
 .thought-text blockquote {
   border-left: 3px solid var(--color-accent);
   padding-left: var(--space-md);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   margin: 0.5em 0;
 }
 .thought-text img { max-width: 100%; border-radius: var(--border-radius-sm); }
