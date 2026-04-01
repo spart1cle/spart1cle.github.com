@@ -635,6 +635,54 @@
     return escapeHtml(str);
   }
 
+  // ── HTML Fallback Scraper ─────────────────────────────────
+  function fetchHtmlFallback(url) {
+    return fetch(`https://corsproxy.io/?${encodeURIComponent(url)}`)
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then((html) => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const base = new URL(url);
+        function abs(src) {
+          if (!src) return null;
+          try { return new URL(src, base).href; } catch { return null; }
+        }
+        // Title: og:title > JSON-LD headline > <title>
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        let title = ogTitle ? ogTitle.content : '';
+        if (!title) {
+          const ld = doc.querySelector('script[type="application/ld+json"]');
+          if (ld) { try { const j = JSON.parse(ld.textContent); title = j.headline || j.name || ''; } catch {} }
+        }
+        if (!title) title = (doc.querySelector('title') || {}).textContent || '';
+        // Description: og:description > meta description
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        let description = ogDesc ? ogDesc.content : '';
+        if (!description) { const md = doc.querySelector('meta[name="description"]'); description = md ? md.content : ''; }
+        // Image: og:image > JSON-LD image > first large <img>
+        const ogImg = doc.querySelector('meta[property="og:image"]');
+        let image = ogImg ? abs(ogImg.content) : null;
+        if (!image) {
+          const ld = doc.querySelector('script[type="application/ld+json"]');
+          if (ld) { try { const j = JSON.parse(ld.textContent); image = abs(typeof j.image === 'string' ? j.image : (j.image && j.image.url) || ''); } catch {} }
+        }
+        if (!image) {
+          const imgs = doc.querySelectorAll('img[src]');
+          for (const img of imgs) {
+            const src = abs(img.getAttribute('src'));
+            if (!src) continue;
+            const w = parseInt(img.getAttribute('width'), 10) || 999;
+            const h = parseInt(img.getAttribute('height'), 10) || 999;
+            if (w < 50 || h < 50) continue;
+            if (/icon|favicon|logo|badge|avatar|emoji/i.test(src)) continue;
+            image = src;
+            break;
+          }
+        }
+        return { title: title.trim(), description: description.trim(), image, domain: base.hostname.replace('www.', '') };
+      })
+      .catch(() => null);
+  }
+
   // ── Link Previews ──────────────────────────────────────────
   const previewQueue = [];
   let previewFetching = false;
@@ -648,7 +696,7 @@
     fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
       .then((r) => r.json())
       .then((res) => {
-        if (res.status === 'success') {
+        if (res.status === 'success' && res.data.title) {
           const data = {
             title: res.data.title || '',
             description: res.data.description || '',
@@ -656,13 +704,39 @@
             logo: res.data.logo ? res.data.logo.url : null,
             domain: new URL(url).hostname.replace('www.', ''),
           };
+          if (!data.image) {
+            return fetchHtmlFallback(url).then((fb) => {
+              if (fb && fb.image) data.image = fb.image;
+              sessionStorage.setItem(`og_${url}`, JSON.stringify(data));
+              if (document.contains(el)) renderPreview(el, data);
+            }).catch(() => {
+              sessionStorage.setItem(`og_${url}`, JSON.stringify(data));
+              if (document.contains(el)) renderPreview(el, data);
+            });
+          }
           sessionStorage.setItem(`og_${url}`, JSON.stringify(data));
           if (document.contains(el)) renderPreview(el, data);
         } else {
-          if (document.contains(el)) renderPreviewFallback(el, url);
+          return fetchHtmlFallback(url).then((fb) => {
+            if (fb && fb.title) {
+              sessionStorage.setItem(`og_${url}`, JSON.stringify(fb));
+              if (document.contains(el)) renderPreview(el, fb);
+            } else {
+              if (document.contains(el)) renderPreviewFallback(el, url);
+            }
+          });
         }
       })
-      .catch(() => { if (document.contains(el)) renderPreviewFallback(el, url); })
+      .catch(() => {
+        return fetchHtmlFallback(url).then((fb) => {
+          if (fb && fb.title) {
+            sessionStorage.setItem(`og_${url}`, JSON.stringify(fb));
+            if (document.contains(el)) renderPreview(el, fb);
+          } else {
+            if (document.contains(el)) renderPreviewFallback(el, url);
+          }
+        }).catch(() => { if (document.contains(el)) renderPreviewFallback(el, url); });
+      })
       .finally(() => { previewFetching = false; setTimeout(processPreviewQueue, 150); });
   }
 
@@ -1582,17 +1656,28 @@
       ? fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
           .then((r) => r.json())
           .then((res) => {
-            if (res.status === 'success') {
-              return {
+            if (res.status === 'success' && res.data.title) {
+              const result = {
                 title: res.data.title || '',
                 description: res.data.description || '',
                 image: res.data.image && !/licdn\.com|linkedin\.com/.test(res.data.image.url) ? res.data.image.url : null,
                 domain: new URL(url).hostname.replace('www.', ''),
               };
+              if (!result.image && !isYouTube) {
+                return fetchHtmlFallback(url).then((fb) => {
+                  if (fb && fb.image) result.image = fb.image;
+                  return result;
+                }).catch(() => result);
+              }
+              return result;
             }
-            return isYouTube ? fetchYouTubeOEmbed(url).then((r) => r || domainOnly) : domainOnly;
+            if (isYouTube) return fetchYouTubeOEmbed(url).then((r) => r || domainOnly);
+            return fetchHtmlFallback(url).then((fb) => (fb && fb.title) ? fb : domainOnly);
           })
-          .catch(() => isYouTube ? fetchYouTubeOEmbed(url).then((r) => r || domainOnly) : domainOnly)
+          .catch(() => {
+            if (isYouTube) return fetchYouTubeOEmbed(url).then((r) => r || domainOnly);
+            return fetchHtmlFallback(url).then((fb) => (fb && fb.title) ? fb : domainOnly).catch(() => domainOnly);
+          })
       : Promise.resolve(null);
 
     previewPromise.then((preview) => {
