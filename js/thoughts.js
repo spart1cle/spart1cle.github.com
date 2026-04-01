@@ -255,14 +255,22 @@
   function updateSortArrows() {
     sortEl.querySelectorAll('.sort-btn').forEach((btn) => {
       const label = btn.dataset.label || (btn.dataset.label = btn.textContent);
-      btn.textContent = btn.classList.contains('active') ? label + (sortAsc ? ' \u25B2' : ' \u25BC') : label;
+      if (btn.dataset.sort === 'shuffle') {
+        btn.textContent = label;
+      } else {
+        btn.textContent = btn.classList.contains('active') ? label + (sortAsc ? ' \u25B2' : ' \u25BC') : label;
+      }
     });
   }
 
   function initSort() {
     sortEl.querySelectorAll('.sort-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        if (btn.dataset.sort === activeSort) {
+        if (btn.dataset.sort === 'shuffle') {
+          sortEl.querySelector('.active').classList.remove('active');
+          btn.classList.add('active');
+          activeSort = 'shuffle';
+        } else if (btn.dataset.sort === activeSort) {
           sortAsc = !sortAsc;
         } else {
           sortEl.querySelector('.active').classList.remove('active');
@@ -333,11 +341,11 @@
         var cmp = (b.date || '').localeCompare(a.date || '');
         return sortAsc ? -cmp : cmp;
       });
-    } else if (activeSort === 'length') {
-      filtered.sort((a, b) => {
-        var cmp = (b.text || '').length - (a.text || '').length;
-        return sortAsc ? -cmp : cmp;
-      });
+    } else if (activeSort === 'shuffle') {
+      for (let i = filtered.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+      }
     }
 
     const hasFilters = activeTags.size > 0 || query || activeMonth;
