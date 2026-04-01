@@ -1,5 +1,23 @@
 [
   {
+    "id": "1775041928334",
+    "type": "link",
+    "date": "2026-04-01",
+    "text": "Today HuggingFace is releasing v1.0 of their TRL (Transformers Reinforcement Learning) post training library.\n\n> 75+ methods. SFT, DPO, GRPO, async RL to take advantage of the latest and greatest open-source. 6 years from first commit to the library that post-trains most open models in the world. Built to be future proof.",
+    "url": "https://huggingface.co/blog/trl-v1",
+    "tags": [
+      "blog",
+      "code",
+      "rl"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "huggingface.co"
+    }
+  },
+  {
     "id": "1775036530222",
     "type": "link",
     "date": "2026-04-01",
