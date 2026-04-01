@@ -24,6 +24,14 @@
   let sortAsc = false;
   let hasRendered = false;
 
+  const KATEX_OPTIONS = {
+    delimiters: [
+      { left: '$$', right: '$$', display: true },
+      { left: '$', right: '$', display: false },
+    ],
+    throwOnError: false,
+  };
+
   // ── Emoji Map ─────────────────────────────────────────────
   const EMOJI_MAP = {
     smile: '\u{1F604}', grinning: '\u{1F600}', laughing: '\u{1F606}',
@@ -308,6 +316,61 @@
   let visibleCount = PAGE_SIZE;
   let loadObserver = null;
 
+  function buildPreviewHtml(t) {
+    if (t.url && t.preview) {
+      const p = t.preview;
+      return (
+        `<div class="thought-link-preview" id="preview-${t.id}">` +
+        `<a href="${escapeHtml(t.url)}" target="_blank" rel="noopener" class="thought-preview-card">` +
+        (p.image ? `<img class="thought-preview-img" src="${escapeHtml(p.image)}" alt="">` : '') +
+        `<div class="thought-preview-body">` +
+        `<span class="thought-preview-domain">${escapeHtml(p.domain || '')}</span>` +
+        `<span class="thought-preview-title">${escapeHtml(p.title || '')}</span>` +
+        `<span class="thought-preview-desc">${escapeHtml(p.description || '')}</span>` +
+        `</div></a></div>`
+      );
+    }
+    if (t.url) {
+      return `<div class="thought-link-preview" data-url="${escapeHtml(t.url)}" id="preview-${t.id}"><div class="thought-preview-loading">Loading preview...</div></div>`;
+    }
+    return '';
+  }
+
+  function buildCardHtml(t) {
+    const tagsHtml = (t.tags || [])
+      .slice()
+      .sort((a, b) => a.localeCompare(b))
+      .map(
+        (tag) =>
+          `<span class="reading-tag${activeTags.has(tag) ? ' active' : ''}" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</span>`
+      )
+      .join('');
+
+    const editBtn = isAuthenticated()
+      ? `<button class="thought-edit-btn" data-id="${t.id}" title="Edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>`
+      : '';
+    const slackBtn = isAuthenticated()
+      ? `<button class="thought-slack-btn" data-id="${t.id}" title="Push to Slack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2a2.5 2.5 0 0 0 0 5H17V4.5A2.5 2.5 0 0 0 14.5 2z"/><path d="M7 5h3.5"/><path d="M2 9.5A2.5 2.5 0 0 0 4.5 12H7V9.5A2.5 2.5 0 0 0 2 9.5z"/><path d="M7 12v3.5"/><path d="M9.5 22a2.5 2.5 0 0 0 0-5H7v2.5A2.5 2.5 0 0 0 9.5 22z"/><path d="M17 19h-3.5"/><path d="M22 14.5a2.5 2.5 0 0 0-2.5-2.5H17v2.5a2.5 2.5 0 0 0 5 0z"/><path d="M17 12v-3.5"/></svg></button>`
+      : '';
+    const deleteBtn = isAuthenticated()
+      ? `<button class="thought-delete-btn" data-id="${t.id}" title="Delete"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>`
+      : '';
+    const deleteOverlay = isAuthenticated()
+      ? `<div class="thought-delete-overlay"><span>Delete this thought?</span><div class="thought-delete-actions"><button class="thought-delete-confirm-btn" data-id="${t.id}">Delete</button><button class="thought-delete-cancel-btn" data-id="${t.id}">Cancel</button></div></div>`
+      : '';
+    const copyBtn = `<button class="thought-copy-btn" data-id="${t.id}" title="Copy permalink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></button>`;
+
+    return (
+      `<article class="thought-card" id="t-${t.id}">` +
+      deleteOverlay +
+      `<div class="thought-card-meta"><a href="#t-${t.id}" class="reading-date thought-permalink">${escapeHtml(t.date)}</a>${copyBtn}${editBtn}${slackBtn}${deleteBtn}</div>` +
+      `<div class="thought-text">${formatText(t.text)}</div>` +
+      buildPreviewHtml(t) +
+      `<div class="thought-card-tags">${tagsHtml}</div>` +
+      `</article>`
+    );
+  }
+
   function renderThoughts(resetPage) {
     if (loadObserver) loadObserver.disconnect();
     if (resetPage !== false) visibleCount = PAGE_SIZE;
@@ -380,59 +443,7 @@
           lastMonth = month;
         }
       }
-
-      const tagsHtml = (t.tags || [])
-        .slice()
-        .sort((a, b) => a.localeCompare(b))
-        .map(
-          (tag) =>
-            `<span class="reading-tag${activeTags.has(tag) ? ' active' : ''}" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</span>`
-        )
-        .join('');
-
-      let previewHtml = '';
-      if (t.url && t.preview) {
-        // Embedded preview data — render inline, no API call needed
-        const p = t.preview;
-        previewHtml =
-          `<div class="thought-link-preview" id="preview-${t.id}">` +
-          `<a href="${escapeHtml(t.url)}" target="_blank" rel="noopener" class="thought-preview-card">` +
-          (p.image ? `<img class="thought-preview-img" src="${escapeHtml(p.image)}" alt="">` : '') +
-          `<div class="thought-preview-body">` +
-          `<span class="thought-preview-domain">${escapeHtml(p.domain || '')}</span>` +
-          `<span class="thought-preview-title">${escapeHtml(p.title || '')}</span>` +
-          `<span class="thought-preview-desc">${escapeHtml(p.description || '')}</span>` +
-          `</div></a></div>`;
-      } else if (t.url) {
-        previewHtml = `<div class="thought-link-preview" data-url="${escapeHtml(t.url)}" id="preview-${t.id}"><div class="thought-preview-loading">Loading preview...</div></div>`;
-      }
-
-      const editBtn = isAuthenticated()
-        ? `<button class="thought-edit-btn" data-id="${t.id}" title="Edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>`
-        : '';
-
-      const slackBtn = isAuthenticated()
-        ? `<button class="thought-slack-btn" data-id="${t.id}" title="Push to Slack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2a2.5 2.5 0 0 0 0 5H17V4.5A2.5 2.5 0 0 0 14.5 2z"/><path d="M7 5h3.5"/><path d="M2 9.5A2.5 2.5 0 0 0 4.5 12H7V9.5A2.5 2.5 0 0 0 2 9.5z"/><path d="M7 12v3.5"/><path d="M9.5 22a2.5 2.5 0 0 0 0-5H7v2.5A2.5 2.5 0 0 0 9.5 22z"/><path d="M17 19h-3.5"/><path d="M22 14.5a2.5 2.5 0 0 0-2.5-2.5H17v2.5a2.5 2.5 0 0 0 5 0z"/><path d="M17 12v-3.5"/></svg></button>`
-        : '';
-
-      const deleteBtn = isAuthenticated()
-        ? `<button class="thought-delete-btn" data-id="${t.id}" title="Delete"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>`
-        : '';
-
-      const deleteOverlay = isAuthenticated()
-        ? `<div class="thought-delete-overlay"><span>Delete this thought?</span><div class="thought-delete-actions"><button class="thought-delete-confirm-btn" data-id="${t.id}">Delete</button><button class="thought-delete-cancel-btn" data-id="${t.id}">Cancel</button></div></div>`
-        : '';
-
-      const copyBtn = `<button class="thought-copy-btn" data-id="${t.id}" title="Copy permalink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></button>`;
-
-      html +=
-        `<article class="thought-card" id="t-${t.id}">` +
-        deleteOverlay +
-        `<div class="thought-card-meta"><a href="#t-${t.id}" class="reading-date thought-permalink">${escapeHtml(t.date)}</a>${copyBtn}${editBtn}${slackBtn}${deleteBtn}</div>` +
-        `<div class="thought-text">${formatText(t.text)}</div>` +
-        previewHtml +
-        `<div class="thought-card-tags">${tagsHtml}</div>` +
-        `</article>`;
+      html += buildCardHtml(t);
     });
 
     listEl.innerHTML = html;
@@ -486,15 +497,7 @@
     });
 
     fetchLinkPreviews();
-    if (window.renderMathInElement) {
-      renderMathInElement(listEl, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false },
-        ],
-        throwOnError: false,
-      });
-    }
+    if (window.renderMathInElement) renderMathInElement(listEl, KATEX_OPTIONS);
     if (window.revealElements && !window.__skipReveal) window.revealElements('.thought-card');
     window.initTagColors();
   }
@@ -539,54 +542,7 @@
           lastMonth = month;
         }
       }
-
-      const tagsHtml = (t.tags || [])
-        .slice()
-        .sort((a, b) => a.localeCompare(b))
-        .map(
-          (tag) =>
-            `<span class="reading-tag${activeTags.has(tag) ? ' active' : ''}" data-tag="${escapeHtml(tag)}">${escapeHtml(tag)}</span>`
-        )
-        .join('');
-
-      let previewHtml = '';
-      if (t.url && t.preview) {
-        const p = t.preview;
-        previewHtml =
-          `<div class="thought-link-preview" id="preview-${t.id}">` +
-          `<a href="${escapeHtml(t.url)}" target="_blank" rel="noopener" class="thought-preview-card">` +
-          (p.image ? `<img class="thought-preview-img" src="${escapeHtml(p.image)}" alt="">` : '') +
-          `<div class="thought-preview-body">` +
-          `<span class="thought-preview-domain">${escapeHtml(p.domain || '')}</span>` +
-          `<span class="thought-preview-title">${escapeHtml(p.title || '')}</span>` +
-          `<span class="thought-preview-desc">${escapeHtml(p.description || '')}</span>` +
-          `</div></a></div>`;
-      } else if (t.url) {
-        previewHtml = `<div class="thought-link-preview" data-url="${escapeHtml(t.url)}" id="preview-${t.id}"><div class="thought-preview-loading">Loading preview...</div></div>`;
-      }
-
-      const editBtn = isAuthenticated()
-        ? `<button class="thought-edit-btn" data-id="${t.id}" title="Edit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button>`
-        : '';
-      const slackBtn = isAuthenticated()
-        ? `<button class="thought-slack-btn" data-id="${t.id}" title="Push to Slack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2a2.5 2.5 0 0 0 0 5H17V4.5A2.5 2.5 0 0 0 14.5 2z"/><path d="M7 5h3.5"/><path d="M2 9.5A2.5 2.5 0 0 0 4.5 12H7V9.5A2.5 2.5 0 0 0 2 9.5z"/><path d="M7 12v3.5"/><path d="M9.5 22a2.5 2.5 0 0 0 0-5H7v2.5A2.5 2.5 0 0 0 9.5 22z"/><path d="M17 19h-3.5"/><path d="M22 14.5a2.5 2.5 0 0 0-2.5-2.5H17v2.5a2.5 2.5 0 0 0 5 0z"/><path d="M17 12v-3.5"/></svg></button>`
-        : '';
-      const deleteBtn = isAuthenticated()
-        ? `<button class="thought-delete-btn" data-id="${t.id}" title="Delete"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></button>`
-        : '';
-      const deleteOverlay = isAuthenticated()
-        ? `<div class="thought-delete-overlay"><span>Delete this thought?</span><div class="thought-delete-actions"><button class="thought-delete-confirm-btn" data-id="${t.id}">Delete</button><button class="thought-delete-cancel-btn" data-id="${t.id}">Cancel</button></div></div>`
-        : '';
-      const copyBtn = `<button class="thought-copy-btn" data-id="${t.id}" title="Copy permalink"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></button>`;
-
-      html +=
-        `<article class="thought-card" id="t-${t.id}">` +
-        deleteOverlay +
-        `<div class="thought-card-meta"><a href="#t-${t.id}" class="reading-date thought-permalink">${escapeHtml(t.date)}</a>${copyBtn}${editBtn}${slackBtn}${deleteBtn}</div>` +
-        `<div class="thought-text">${formatText(t.text)}</div>` +
-        previewHtml +
-        `<div class="thought-card-tags">${tagsHtml}</div>` +
-        `</article>`;
+      html += buildCardHtml(t);
     });
 
     listEl.insertAdjacentHTML('beforeend', html);
@@ -683,6 +639,50 @@
       .catch(() => null);
   }
 
+  // ── Preview Fetching Pipeline ─────────────────────────────
+  function fetchYouTubeOEmbed(videoUrl) {
+    return fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(videoUrl)}&format=json`)
+      .then((r) => r.json())
+      .then((res) => ({
+        title: res.title || '',
+        description: '',
+        image: res.thumbnail_url || null,
+        domain: new URL(videoUrl).hostname.replace('www.', ''),
+      }))
+      .catch(() => null);
+  }
+
+  function fetchPreviewData(url) {
+    const isYouTube = /(?:youtube\.com|youtu\.be)/.test(url);
+    const domainOnly = { title: '', description: '', image: null, domain: new URL(url).hostname.replace('www.', '') };
+
+    return fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
+      .then((r) => r.json())
+      .then((res) => {
+        if (res.status === 'success' && res.data.title) {
+          const result = {
+            title: res.data.title || '',
+            description: res.data.description || '',
+            image: res.data.image && !/licdn\.com|linkedin\.com/.test(res.data.image.url) ? res.data.image.url : null,
+            domain: new URL(url).hostname.replace('www.', ''),
+          };
+          if (!result.image && !isYouTube) {
+            return fetchHtmlFallback(url).then((fb) => {
+              if (fb && fb.image) result.image = fb.image;
+              return result;
+            }).catch(() => result);
+          }
+          return result;
+        }
+        if (isYouTube) return fetchYouTubeOEmbed(url).then((r) => r || domainOnly);
+        return fetchHtmlFallback(url).then((fb) => (fb && fb.title) ? fb : domainOnly);
+      })
+      .catch(() => {
+        if (isYouTube) return fetchYouTubeOEmbed(url).then((r) => r || domainOnly);
+        return fetchHtmlFallback(url).then((fb) => (fb && fb.title) ? fb : domainOnly).catch(() => domainOnly);
+      });
+  }
+
   // ── Link Previews ──────────────────────────────────────────
   const previewQueue = [];
   let previewFetching = false;
@@ -691,52 +691,18 @@
     if (previewFetching || previewQueue.length === 0) return;
     previewFetching = true;
     const { el, url } = previewQueue.shift();
-    // Element may have been removed by a re-render
     if (!document.contains(el)) { previewFetching = false; processPreviewQueue(); return; }
-    fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
-      .then((r) => r.json())
-      .then((res) => {
-        if (res.status === 'success' && res.data.title) {
-          const data = {
-            title: res.data.title || '',
-            description: res.data.description || '',
-            image: res.data.image ? res.data.image.url : null,
-            logo: res.data.logo ? res.data.logo.url : null,
-            domain: new URL(url).hostname.replace('www.', ''),
-          };
-          if (!data.image) {
-            return fetchHtmlFallback(url).then((fb) => {
-              if (fb && fb.image) data.image = fb.image;
-              sessionStorage.setItem(`og_${url}`, JSON.stringify(data));
-              if (document.contains(el)) renderPreview(el, data);
-            }).catch(() => {
-              sessionStorage.setItem(`og_${url}`, JSON.stringify(data));
-              if (document.contains(el)) renderPreview(el, data);
-            });
-          }
+
+    fetchPreviewData(url)
+      .then((data) => {
+        if (data && data.title) {
           sessionStorage.setItem(`og_${url}`, JSON.stringify(data));
           if (document.contains(el)) renderPreview(el, data);
         } else {
-          return fetchHtmlFallback(url).then((fb) => {
-            if (fb && fb.title) {
-              sessionStorage.setItem(`og_${url}`, JSON.stringify(fb));
-              if (document.contains(el)) renderPreview(el, fb);
-            } else {
-              if (document.contains(el)) renderPreviewFallback(el, url);
-            }
-          });
+          if (document.contains(el)) renderPreviewFallback(el, url);
         }
       })
-      .catch(() => {
-        return fetchHtmlFallback(url).then((fb) => {
-          if (fb && fb.title) {
-            sessionStorage.setItem(`og_${url}`, JSON.stringify(fb));
-            if (document.contains(el)) renderPreview(el, fb);
-          } else {
-            if (document.contains(el)) renderPreviewFallback(el, url);
-          }
-        }).catch(() => { if (document.contains(el)) renderPreviewFallback(el, url); });
-      })
+      .catch(() => { if (document.contains(el)) renderPreviewFallback(el, url); })
       .finally(() => { previewFetching = false; setTimeout(processPreviewQueue, 150); });
   }
 
@@ -1179,23 +1145,14 @@
   let previewTimeout = null;
 
   function renderComposeLinkPreview(el, url) {
-    const cacheKey = `og_${url}`;
-    const cached = sessionStorage.getItem(cacheKey);
+    const cached = sessionStorage.getItem(`og_${url}`);
     if (cached) {
       renderPreview(el, JSON.parse(cached));
     } else {
-      fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
-        .then((r) => r.json())
-        .then((res) => {
-          if (res.status === 'success') {
-            const data = {
-              title: res.data.title || '',
-              description: res.data.description || '',
-              image: res.data.image ? res.data.image.url : null,
-              logo: res.data.logo ? res.data.logo.url : null,
-              domain: new URL(url).hostname.replace('www.', ''),
-            };
-            sessionStorage.setItem(cacheKey, JSON.stringify(data));
+      fetchPreviewData(url)
+        .then((data) => {
+          if (data && data.title) {
+            sessionStorage.setItem(`og_${url}`, JSON.stringify(data));
             renderPreview(el, data);
           } else {
             renderPreviewFallback(el, url);
@@ -1220,15 +1177,7 @@
       html += `<div class="thought-link-preview" data-url="${escapeHtml(url)}" id="compose-preview-link"><div class="thought-preview-loading">Loading preview...</div></div>`;
     previewContentEl.innerHTML = html;
 
-    if (window.renderMathInElement) {
-      renderMathInElement(previewContentEl, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false },
-        ],
-        throwOnError: false,
-      });
-    }
+    if (window.renderMathInElement) renderMathInElement(previewContentEl, KATEX_OPTIONS);
 
     if (url) {
       const el = document.getElementById('compose-preview-link');
@@ -1572,15 +1521,7 @@
       if (el) renderComposeLinkPreview(el, url);
     }
 
-    if (window.renderMathInElement) {
-      renderMathInElement(confirmCardEl, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false },
-        ],
-        throwOnError: false,
-      });
-    }
+    if (window.renderMathInElement) renderMathInElement(confirmCardEl, KATEX_OPTIONS);
     window.initTagColors();
   }
 
@@ -1636,49 +1577,7 @@
 
     const isEdit = !!editingId;
 
-    // Fetch OG preview data for link thoughts before saving
-    function fetchYouTubeOEmbed(videoUrl) {
-      return fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(videoUrl)}&format=json`)
-        .then((r) => r.json())
-        .then((res) => ({
-          title: res.title || '',
-          description: '',
-          image: res.thumbnail_url || null,
-          domain: new URL(videoUrl).hostname.replace('www.', ''),
-        }))
-        .catch(() => null);
-    }
-
-    const isYouTube = url && /(?:youtube\.com|youtu\.be)/.test(url);
-    const domainOnly = url ? { title: '', description: '', image: null, domain: new URL(url).hostname.replace('www.', '') } : null;
-
-    const previewPromise = url
-      ? fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}`)
-          .then((r) => r.json())
-          .then((res) => {
-            if (res.status === 'success' && res.data.title) {
-              const result = {
-                title: res.data.title || '',
-                description: res.data.description || '',
-                image: res.data.image && !/licdn\.com|linkedin\.com/.test(res.data.image.url) ? res.data.image.url : null,
-                domain: new URL(url).hostname.replace('www.', ''),
-              };
-              if (!result.image && !isYouTube) {
-                return fetchHtmlFallback(url).then((fb) => {
-                  if (fb && fb.image) result.image = fb.image;
-                  return result;
-                }).catch(() => result);
-              }
-              return result;
-            }
-            if (isYouTube) return fetchYouTubeOEmbed(url).then((r) => r || domainOnly);
-            return fetchHtmlFallback(url).then((fb) => (fb && fb.title) ? fb : domainOnly);
-          })
-          .catch(() => {
-            if (isYouTube) return fetchYouTubeOEmbed(url).then((r) => r || domainOnly);
-            return fetchHtmlFallback(url).then((fb) => (fb && fb.title) ? fb : domainOnly).catch(() => domainOnly);
-          })
-      : Promise.resolve(null);
+    const previewPromise = url ? fetchPreviewData(url) : Promise.resolve(null);
 
     previewPromise.then((preview) => {
 
