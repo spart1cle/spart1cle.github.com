@@ -1,5 +1,24 @@
 [
   {
+    "id": "1775054871211",
+    "type": "link",
+    "date": "2026-04-01",
+    "text": "A new effort to create a comprehensive and up-to-date repository of open-source assets for robot manipulation.",
+    "url": "https://www.robot-manipulation.org/",
+    "tags": [
+      "robotics",
+      "code",
+      "data",
+      "hardware"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "robot-manipulation.org"
+    }
+  },
+  {
     "id": "1775041928334",
     "type": "link",
     "date": "2026-04-01",
