@@ -3,7 +3,7 @@
     "id": "1775069618510",
     "type": "link",
     "date": "2026-04-01",
-    "text": "In this episode of Automated, Ranjay Krishna explains why robots struggle with real-world tasks, from learning by watching humans to adapting to unpredictable environments.\n\nRanjay breaks down the core challenges in robotics today, including the sim-to-real gap, the lack of diverse training data, and why errors compound over time when robots interact with the physical world.",
+    "text": "In this episode of Automated, [Ranjay Krishna](https://www.ranjaykrishna.com/index.html) explains why robots struggle with real-world tasks, from learning by watching humans to adapting to unpredictable environments.\n\nRanjay breaks down the core challenges in robotics today, including the sim-to-real gap, the lack of diverse training data, and why errors compound over time when robots interact with the physical world.",
     "url": "https://youtu.be/-zrxIL2-vRc",
     "tags": [
       "video",
