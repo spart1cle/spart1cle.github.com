@@ -16,6 +16,8 @@
   const sidebarEl = document.querySelector('.reading-section .reading-sidebar');
   const mainEl = document.querySelector('.reading-section .reading-main');
 
+  const LIKED_TAG = '__liked__';
+
   let papers = [];
   let activeTags = new Set();
   let activeSort = 'published';
@@ -58,11 +60,7 @@
           const header = target.querySelector('.reading-card-header');
           target.classList.add('expanded');
           if (header) header.setAttribute('aria-expanded', 'true');
-          const details = target.querySelector('.reading-card-details');
-          if (details && !details.querySelector('.reading-summary')) {
-            const abstractToggle = details.querySelector('.reading-abstract-toggle');
-            if (abstractToggle) abstractToggle.open = true;
-          }
+          autoOpenAbstract(target);
 
           // Scroll — use native scrollIntoView which respects CSS scroll-padding-top
           document.documentElement.style.scrollBehavior = 'auto';
@@ -83,18 +81,19 @@
 
       window.addEventListener('hashchange', () => jumpToPaper());
 
+      function autoOpenAbstract(card) {
+        const details = card.querySelector('.reading-card-details');
+        if (details && !details.querySelector('.reading-summary')) {
+          const abstractToggle = details.querySelector('.reading-abstract-toggle');
+          if (abstractToggle) abstractToggle.open = true;
+        }
+      }
+
       function toggleReadingCard(header) {
         const card = header.parentElement;
         const expanded = card.classList.toggle('expanded');
         header.setAttribute('aria-expanded', String(expanded));
-        // Auto-open abstract if it's the only detail content
-        if (expanded) {
-          const details = card.querySelector('.reading-card-details');
-          if (details && !details.querySelector('.reading-summary')) {
-            const abstractToggle = details.querySelector('.reading-abstract-toggle');
-            if (abstractToggle) abstractToggle.open = true;
-          }
-        }
+        if (expanded) autoOpenAbstract(card);
       }
 
       listEl.addEventListener('click', function(e) {
@@ -125,7 +124,7 @@
     })
     .catch(() => {
       listEl.innerHTML =
-        '<p style="text-align:center;color:var(--color-text-secondary)">Could not load papers.</p>';
+        '<p style="text-align:center;color:var(--color-text-secondary);padding:var(--space-xl) 0">Could not load papers.</p>';
     });
 
   // ── Sidebar Alignment ──────────────────────────────────────
@@ -260,7 +259,7 @@
     const sorted = Object.entries(tagMap).sort((a, b) => a[0].localeCompare(b[0]));
     tagFiltersEl.innerHTML =
       (likedCount
-        ? `<button class="filter-btn tag-filter-btn" data-tag="__liked__">&#x1F44D; Liked <span class="tag-count">${likedCount}</span></button>`
+        ? `<button class="filter-btn tag-filter-btn" data-tag="${LIKED_TAG}">&#x1F44D; Liked <span class="tag-count">${likedCount}</span></button>`
         : '') +
       sorted
         .map(
@@ -333,7 +332,7 @@
               `<span class="reading-tag${activeTags.has(c.name) ? ' active' : ''}" data-tag="${escapeHtml(c.name)}">${escapeHtml(c.name)}</span>`
           )
           .join('')
-      : `<span class="reading-tag reading-tag-liked${activeTags.has('__liked__') ? ' active' : ''}" data-tag="__liked__">&#x1F44D; Liked</span>`;
+      : `<span class="reading-tag reading-tag-liked${activeTags.has(LIKED_TAG) ? ' active' : ''}" data-tag="${LIKED_TAG}">&#x1F44D; Liked</span>`;
     const arxivUrl = p.arxiv_id ? `https://arxiv.org/abs/${p.arxiv_id}` : p.url;
     const abstract = p.abstract ? cleanAbstract(p.abstract) : '';
     const summaries = p.summaries || {};
@@ -378,6 +377,37 @@
       </article>`;
   }
 
+  // ── Card List Building ─────────────────────────────────────
+  function buildCardList(items, startMonth) {
+    let html = '';
+    let lastMonth = startMonth || '';
+    if (activeSort === 'published') {
+      items.forEach((p) => {
+        const month = p.publication_date ? p.publication_date.slice(0, 7) : '';
+        if (month && month !== lastMonth) {
+          const d = new Date(p.publication_date + 'T00:00:00');
+          const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+          html += `<h3 class="thought-date-group">${label}</h3>`;
+          lastMonth = month;
+        }
+        html += renderCardHtml(p);
+      });
+    } else {
+      html = items.map((p) => renderCardHtml(p)).join('');
+    }
+    return html;
+  }
+
+  function bindSlackHandlers() {
+    listEl.querySelectorAll('.paper-slack-btn:not([data-bound])').forEach((btn) => {
+      btn.setAttribute('data-bound', '1');
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        handlePaperSlackPush(btn);
+      });
+    });
+  }
+
   // ── Render Papers ──────────────────────────────────────────
   const PAGE_SIZE = 20;
   let visibleCount = PAGE_SIZE;
@@ -397,9 +427,9 @@
       if (activeTags.size > 0) {
         const colls = p.user_paper_collections || [];
         const paperTags = new Set(colls.map((c) => c.name));
-        if (activeTags.has('__liked__') && colls.length > 0) return false;
+        if (activeTags.has(LIKED_TAG) && colls.length > 0) return false;
         for (const t of activeTags) {
-          if (t === '__liked__') continue;
+          if (t === LIKED_TAG) continue;
           if (!paperTags.has(t)) return false;
         }
       }
@@ -436,32 +466,8 @@
     const visible = filtered.slice(0, visibleCount);
     const hasMore = filtered.length > visibleCount;
 
-    let cardsHtml = '';
-    let lastMonth = '';
-    if (activeSort === 'published') {
-      visible.forEach((p) => {
-        const month = p.publication_date ? p.publication_date.slice(0, 7) : '';
-        if (month && month !== lastMonth) {
-          const d = new Date(p.publication_date + 'T00:00:00');
-          const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-          cardsHtml += `<h3 class="thought-date-group">${label}</h3>`;
-          lastMonth = month;
-        }
-        cardsHtml += renderCardHtml(p);
-      });
-    } else {
-      cardsHtml = visible.map((p) => renderCardHtml(p)).join('');
-    }
-    listEl.innerHTML = cardsHtml;
-
-    // Attach Slack push handlers on newly rendered cards
-    listEl.querySelectorAll('.paper-slack-btn').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        handlePaperSlackPush(btn);
-      });
-    });
-
+    listEl.innerHTML = buildCardList(visible);
+    bindSlackHandlers();
     if (window.revealElements && !window.__skipReveal) window.revealElements('.reading-card');
     window.initTagColors();
     alignSidebar();
@@ -497,34 +503,10 @@
     const batch = filtered.slice(start, visibleCount);
     if (!batch.length) return;
 
-    let html = '';
-    if (activeSort === 'published') {
-      const prev = filtered[start - 1];
-      let lastMonth = prev && prev.publication_date ? prev.publication_date.slice(0, 7) : '';
-      batch.forEach((p) => {
-        const month = p.publication_date ? p.publication_date.slice(0, 7) : '';
-        if (month && month !== lastMonth) {
-          const d = new Date(p.publication_date + 'T00:00:00');
-          const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-          html += `<h3 class="thought-date-group">${label}</h3>`;
-          lastMonth = month;
-        }
-        html += renderCardHtml(p);
-      });
-    } else {
-      html = batch.map((p) => renderCardHtml(p)).join('');
-    }
-    listEl.insertAdjacentHTML('beforeend', html);
-
-    // Attach Slack handlers on new cards
-    listEl.querySelectorAll('.paper-slack-btn:not([data-bound])').forEach((btn) => {
-      btn.setAttribute('data-bound', '1');
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        handlePaperSlackPush(btn);
-      });
-    });
-
+    const prev = filtered[start - 1];
+    const startMonth = prev && prev.publication_date ? prev.publication_date.slice(0, 7) : '';
+    listEl.insertAdjacentHTML('beforeend', buildCardList(batch, startMonth));
+    bindSlackHandlers();
     if (window.revealElements && !window.__skipReveal) window.revealElements('.reading-card');
     window.initTagColors();
 
@@ -571,14 +553,7 @@
       const header = card.querySelector('.reading-card-header');
       card.classList.toggle('expanded', !allExpanded);
       if (header) header.setAttribute('aria-expanded', String(!allExpanded));
-      if (!allExpanded) {
-        // Auto-open abstract if only detail content
-        const details = card.querySelector('.reading-card-details');
-        if (details && !details.querySelector('.reading-summary')) {
-          const abstractToggle = details.querySelector('.reading-abstract-toggle');
-          if (abstractToggle) abstractToggle.open = true;
-        }
-      }
+      if (!allExpanded) autoOpenAbstract(card);
     });
     expandAllBtn.textContent = allExpanded ? 'Expand all' : 'Collapse all';
   });
