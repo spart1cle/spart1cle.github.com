@@ -56,7 +56,7 @@
     "id": "1774940531188",
     "type": "link",
     "date": "2026-03-31",
-    "text": "Version 3 has been released of **[RoboManipBaselines](https://isri-aist.github.io/RoboManipBaselines-ProjectPage/)**: Build, train, and deploy robot manipulation policies across real and simulated environments. [[Code](https://github.com/isri-aist/RoboManipBaselines)] [[Paper](https://arxiv.org/abs/2509.17057)] [[Datasets](https://huggingface.co/RoboManipBaselines)].\n\n---\n![alt](https://isri-aist.github.io/RoboManipBaselines-ProjectPage/media/images/logo.png)",
+    "text": "Version 3 has been released of **[RoboManipBaselines](https://isri-aist.github.io/RoboManipBaselines-ProjectPage/)**: Build, train, and deploy robot manipulation policies across real and simulated environments. [[Code](https://github.com/isri-aist/RoboManipBaselines)] [[Paper](https://arxiv.org/abs/2509.17057)] [[Datasets](https://huggingface.co/RoboManipBaselines)].",
     "url": "https://isri-aist.github.io/RoboManipBaselines-ProjectPage/",
     "tags": [
       "code",
@@ -66,9 +66,9 @@
       "news"
     ],
     "preview": {
-      "title": "RoboManipBaselines",
-      "description": "Build, train, and deploy robot manipulation policies across real and simulated environments.",
-      "image": "https://isri-aist.github.io/RoboManipBaselines-ProjectPage/media/images/logo.png",
+      "title": "",
+      "description": "",
+      "image": null,
       "domain": "isri-aist.github.io"
     }
   },
