@@ -151,12 +151,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166541,
-        "name": "Survey",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
@@ -167,6 +161,12 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166541,
+        "name": "Survey",
+        "readonly": false,
+        "color": "#ffad46"
       }
     ],
     "total_read": 61,
@@ -276,7 +276,7 @@
     "authors": "Junbang Liang, Pavel Tokmakov, Ruoshi Liu, Sruthi Sudhakar, Paarth Shah, Rares Andrei Ambrus, Carl Vondrick",
     "url": "https://openreview.net/pdf/cdf5affcaceddafbd0c7100e9ca873e764edfd23.pdf",
     "abstract": "Despite tremendous progress in dexterous manipulation, current visuomotor policies remain fundamentally limited by two challenges: they struggle to generalize under perceptual or behavioral distribution shifts, and their performance is constrained by the size of human demonstration data. In this paper, we use video generation as a proxy for robot policy learning to address both limitations simultaneously.\nWe propose Video Policy, a modular framework that combines video and action generation that can be trained end-to-end. Our results demonstrate that learning to generate videos of robot behavior allows for the extraction of policies with minimal demonstration data, significantly improving robustness and sample efficiency. Our method shows strong generalization to unseen objects, backgrounds, and tasks, both in simulation and the real world. We further highlight that task success is closely tied to the generated video, with action-free video data providing critical benefits for generalizing to novel tasks. By leveraging large-scale video generative models, we achieve superior performance compared to recent VLAs and video-action models, paving the way for more scalable and data-efficient robot policy learning.",
-    "publication_date": "2026-01-01",
+    "publication_date": "2025-08-01",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2508.00795",
@@ -299,12 +299,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166824,
         "name": "Policy",
         "readonly": false,
@@ -315,6 +309,12 @@
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 245,
@@ -418,16 +418,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166541,
-        "name": "Survey",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166541,
+        "name": "Survey",
+        "readonly": false,
+        "color": "#ffad46"
       }
     ],
     "total_read": 51,
@@ -615,7 +615,7 @@
     "authors": "Haoyu Zhen ,  Qiao Sun ,  Hongxin Zhang ,  Junyan Li ,  Siyuan Zhou ,  Yilun Du ,  Chuang Gan",
     "url": "https://openaccess.thecvf.com//content/ICCV2025/papers/Zhen_Learning_4D_Embodied_World_Models_ICCV_2025_paper.pdf",
     "abstract": "This paper presents an effective approach for learning novel 4D embodied world models, which predict the dynamic evolution of 3D scenes over time in response to an embodied agent's actions, providing both spatial and temporal consistency. We propose to learn a 4D world model by training on RGB-DN (RGB, Depth, and Normal) videos.This not only surpasses traditional 2D models by incorporating detailed shape, configuration, and temporal changes into their predictions, but also allows us to effectively learn accurate inverse dynamic models for an embodied agent. Specifically, we first extend existing robotic manipulation video datasets with depth and normal information leveraging off-the-shelf models. Next, we fine-tune a video generation model on this annotated dataset, which jointly predicts RGB-DN (RGB, Depth, and Normal) for each frame. We then present an algorithm to directly convert generated RGB, Depth, and Normal videos into a high-quality 4D scene of the world. Our method ensures temporal and spatial coherence in 4D scene predictions from embodied scenarios, enables novel view synthesis for embodied environments, and facilitates policy learning that significantly outperforms those derived from prior video-based world models.",
-    "publication_date": "2025-10-15",
+    "publication_date": "2025-04-29",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2504.20995",
@@ -802,6 +802,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166824,
         "name": "Policy",
         "readonly": false,
@@ -812,12 +818,6 @@
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "total_read": 165,
@@ -885,18 +885,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
@@ -907,6 +895,18 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 138,
@@ -1017,16 +1017,16 @@
         "color": "#4986e7"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 89,
@@ -1084,7 +1084,7 @@
     "authors": "Robert McCarthy, Daniel C.H. Tan, Dominik Schmidt, Fernando Acero, Nathan Herr, Yilun Du, Thomas G. Thuruthel, Zhibin Li",
     "url": "https://arxiv.org/pdf/2404.19664",
     "abstract": "Scaling deep learning to massive and diverse internet data has driven remarkable breakthroughs in domains such as video generation and natural language processing.\nRobot learning, however, has thus far failed to replicate this success and remains constrained by a scarcity of available data.\nLearning from Videos (LfV) methods aim to address this data bottleneck by augmenting traditional robot data with large-scale internet video.\nThis video data provides foundational information regarding physical dynamics, behaviours, and tasks, and can be highly informative for general-purpose robots.\n\nThis survey systematically examines the emerging field of LfV.\nWe first outline essential concepts, including detailing fundamental LfV challenges such as distribution shift and missing action labels in video data.\nNext, we comprehensively review current methods for extracting knowledge from large-scale internet video, overcoming LfV challenges, and improving robot learning through video-informed training.\nThe survey concludes with a critical discussion of future opportunities.\nHere, we emphasize the need for scalable foundation model approaches that can leverage the full range of available internet video and enhance the learning of robot policies and dynamics models.\nOverall, the survey aims to inform and catalyse future LfV research, driving progress towards general-purpose robots.",
-    "publication_date": "2025-07-23",
+    "publication_date": "2024-04-30",
     "pdf_download_success": true,
     "citations": 10.0,
     "arxiv_id": "2404.19664",
@@ -1113,16 +1113,16 @@
         "color": "#ffad46"
       },
       {
-        "id": 166824,
-        "name": "Policy",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
       }
     ],
     "total_read": 22,
@@ -1235,12 +1235,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -1251,6 +1245,12 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 80,
@@ -1505,12 +1505,12 @@
       0.4901396872,
       0.3
     ],
-    "is_cached": true,
+    "is_cached": false,
     "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2601.21998.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
     "html_link": "https://arxiv.org/html/2601.21998",
     "shortened_authors": "Lin Li, Qihang Zhang, Yiming Luo, Shuai Yang, Ruilin Wang, Fei Han, Mingrui Yu, Zelin Gao, Nan Xue, ..., Yinghao Xu",
     "display_venue": "ArXiv 2026 (January 29)",
-    "is_cached_filename": "Li2026ARXIV_Causal_World_Modeling_for.pdf"
+    "is_cached_filename": null
   },
   {
     "paper_id": 4613600,
@@ -1547,12 +1547,6 @@
         "color": "#f691b2"
       },
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
@@ -1563,6 +1557,12 @@
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 90,
@@ -1683,16 +1683,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
         "color": "#b99aff"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -1701,16 +1695,22 @@
         "color": "#f691b2"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#ff7537"
       },
       {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 80,
@@ -1837,10 +1837,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -1849,16 +1849,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 70,
@@ -2092,16 +2092,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       },
       {
         "id": 166546,
@@ -2364,7 +2364,7 @@
     "authors": "Thadd\u00e4us Wiedemer, Yuxuan Li, Paul Vicol, Shixiang Shane Gu, Nick Matarese, Kevin Swersky, Been Kim, Priyank Jaini, Robert Geirhos",
     "url": "https://arxiv.org/pdf/2509.20328",
     "abstract": "The remarkable zero-shot capabilities of Large Language Models (LLMs) have propelled natural language processing from task-specific models to unified, generalist foundation models. This transformation emerged from simple primitives: large, generative models trained on web-scale data. Curiously, the same primitives apply to today's generative video models. Could video models be on a trajectory towards general-purpose vision understanding, much like LLMs developed general-purpose language understanding? We demonstrate that Veo 3 can solve a broad variety of tasks it wasn't explicitly trained for: segmenting objects, detecting edges, editing images, understanding physical properties, recognizing object affordances, simulating tool use, and more. These abilities to perceive, model, and manipulate the visual world enable early forms of visual reasoning like maze and symmetry solving. Veo's emergent zero-shot capabilities indicate that video models are on a path to becoming unified, generalist vision foundation models.",
-    "publication_date": "2025-09-29",
+    "publication_date": "2025-09-24",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2509.20328",
@@ -2519,6 +2519,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166824,
         "name": "Policy",
         "readonly": false,
@@ -2529,12 +2535,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 91,
@@ -2640,12 +2640,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
@@ -2656,6 +2650,12 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 37,
@@ -2764,7 +2764,7 @@
     "authors": "Weifan Guan, Qinghao Hu, Aosheng Li, Jian Cheng",
     "url": "https://arxiv.org/pdf/2510.17111",
     "abstract": "Vision-Language-Action (VLA) models extend vision-language models to embodied control by mapping natural-language instructions and visual observations to robot actions. Despite their capabilities, VLA systems face significant challenges due to their massive computational and memory demands, which conflict with the constraints of edge platforms such as on-board mobile manipulators that require real-time performance. Addressing this tension has become a central focus of recent research. In light of the growing efforts toward more efficient and scalable VLA systems, this survey provides a systematic review of approaches for improving VLA efficiency, with an emphasis on reducing latency, memory footprint, and training and inference costs. We categorize existing solutions into four dimensions: model architecture, perception feature, action generation, and training/inference strategies, summarizing representative techniques within each category. Finally, we discuss future trends and open challenges, highlighting directions for advancing efficient embodied intelligence.",
-    "publication_date": "2025-10-23",
+    "publication_date": "2025-10-20",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2510.17111",
@@ -2787,10 +2787,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166541,
+        "name": "Survey",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ffad46"
       },
       {
         "id": 166545,
@@ -2799,16 +2799,16 @@
         "color": "#4986e7"
       },
       {
-        "id": 166541,
-        "name": "Survey",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 31,
@@ -2924,6 +2924,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
@@ -2934,12 +2940,6 @@
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 54,
@@ -3176,14 +3176,20 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
       },
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
       },
@@ -3192,12 +3198,6 @@
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "total_read": 60,
@@ -3344,16 +3344,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166546,
-        "name": "Diffusion",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
       }
     ],
     "total_read": 30,
@@ -3490,16 +3490,16 @@
         "color": "#16a765"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 52,
@@ -3872,28 +3872,28 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166824,
-        "name": "Policy",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
       },
       {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 59,
@@ -3996,7 +3996,7 @@
     "authors": "Moo Jin Kim, Yihuai Gao, Tsung-Yi Lin, Yen-Chen Lin, Yunhao Ge, Grace Lam, Percy Liang, Shuran Song, Ming-Yu Liu, Chelsea Finn, Jinwei Gu",
     "url": "https://openreview.net/pdf/2ed054bb4e6122ecbc757ad979ada03813e0dc2b.pdf",
     "abstract": "Recent video generation models demonstrate remarkable ability to capture complex physical interactions and scene evolution over time. To leverage their spatiotemporal priors, robotics works have adapted video models for policy learning but introduce complexity by requiring multiple stages of post-training and new architectural components for action generation. In this work, we introduce Cosmos Policy, a simple approach for adapting a large pretrained video model (Cosmos-Predict2) into an effective robot policy through a single stage of post-training on the robot demonstration data collected on the target platform, with no architectural modifications. Cosmos Policy learns to directly generate robot actions encoded as latent frames within the video model's latent diffusion process, harnessing the model's pretrained priors and core learning algorithm to capture complex action distributions. Additionally, Cosmos Policy generates future state images and values (expected cumulative rewards), which are similarly encoded as latent frames, enabling test-time planning of action trajectories with higher likelihood of success. In our evaluations, Cosmos Policy achieves state-of-the-art performance on the LIBERO and RoboCasa simulation benchmarks (98.5\\% and 67.1\\% average success rates, respectively) and the highest average score in challenging real-world bimanual manipulation tasks, outperforming strong diffusion policies trained from scratch, video model-based policies, and state-of-the-art vision-language-action models fine-tuned on the same robot demonstrations. Furthermore, given policy rollout data, Cosmos Policy can learn from experience to refine its world model and value function and leverage model-based planning to achieve even higher success rates in challenging tasks. We release code, models, and training data at <a href='https://research.nvidia.com/labs/dir/cosmos-policy/' target='_blank'>https://research.nvidia.com/labs/dir/cosmos-policy/</a>.",
-    "publication_date": "2026-03-30",
+    "publication_date": "2026-01-22",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2601.16163",
@@ -4019,12 +4019,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166824,
         "name": "Policy",
         "readonly": false,
@@ -4035,6 +4029,12 @@
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 219,
@@ -4153,16 +4153,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166544,
         "name": "Reasoning",
         "readonly": false,
         "color": "#b6cff5"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 47,
@@ -4230,10 +4230,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       },
       {
         "id": 168532,
@@ -4242,10 +4242,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       }
     ],
     "total_read": 56,
@@ -4342,7 +4342,7 @@
     "authors": "Tal Daniel, Carl Qi, Dan Haramati, Amir Zadeh, Chuan Li, Aviv Tamar, Deepak Pathak, David Held",
     "url": "https://openreview.net/pdf/bf43c2f4cc1544b5b4e24bfe3795d5514ca25ef6.pdf",
     "abstract": "We introduce Latent Particle World Model (LPWM), a self-supervised object-centric world model scaled to real-world multi-object datasets and applicable in decision-making. LPWM autonomously discovers keypoints, bounding boxes, and object masks directly from video data, enabling it to learn rich scene decompositions without supervision. Our architecture is trained end-to-end purely from videos and supports flexible conditioning on actions, language, and image goals. LPWM models stochastic particle dynamics via a novel latent action module and achieves state-of-the-art results on diverse real-world and synthetic datasets. Beyond stochastic video modeling, LPWM is readily applicable to decision-making, including goal-conditioned imitation learning, as we demonstrate in the paper. Code, data, pre-trained models and video rollouts are available: <a href='https://taldatech.github.io/lpwm-web' target='_blank'>https://taldatech.github.io/lpwm-web</a>",
-    "publication_date": "2026-03-30",
+    "publication_date": "2026-03-04",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2603.04553",
@@ -4365,16 +4365,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 132,
@@ -4631,16 +4631,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166819,
-        "name": "CL",
-        "readonly": false,
-        "color": "#42d692"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166819,
+        "name": "CL",
+        "readonly": false,
+        "color": "#42d692"
       }
     ],
     "total_read": 89,
@@ -4977,7 +4977,7 @@
     "authors": "Luke Rowe, Rodrigue de Schaetzen, Roger Girgis, Christopher Pal, Liam Paull",
     "url": "https://arxiv.org/pdf/2506.11234",
     "abstract": "Maintaining good driving behavior in out-of-distribution scenarios remains a critical challenge in autonomous driving. A promising direction is to leverage the generalist knowledge and reasoning capabilities of large-language models by treating unusual driving scenarios as a logical reasoning task. In this work, we present Poutine, a method that uses an off-the-shelf 3B-parameter vision-language model (VLM) - without any additional components - to achieve robust end-to-end autonomous driving via a simple and scalable training recipe. To learn strong base driving capabilities, we first train Poutine-Base using self-supervised next-token prediction over vision, language, and trajectory (VLT) tokens, leveraging both nominal and long-tail driving data. In the second stage, we fine-tune Poutine-Base using Group Relative Policy Optimization (GRPO) with a small set of human preference-labeled examples. We evaluated our approach on the Waymo end-to-end driving benchmark curated for long-tail scenarios. The final Poutine model achieves an RFS of 7.99 on the test set, placing 1st in the 2025 Waymo Vision-Based End-to-End Driving Challenge by a significant margin. Our results suggest that handcrafted tokenizers or custom architectural components added to base VLMs in prior work are not necessary to achieve strong driving performance. Instead, this work highlights the potential of scalable VLT pretraining combined with lightweight RL fine-tuning to enable robust and generalizable autonomous driving.",
-    "publication_date": "2025-11-06",
+    "publication_date": "2025-06-12",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2506.11234",
@@ -5006,10 +5006,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166540,
+        "name": "AD",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#2da2bb"
       },
       {
         "id": 166544,
@@ -5018,16 +5018,16 @@
         "color": "#b6cff5"
       },
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 58,
@@ -5435,7 +5435,7 @@
     "authors": "Yi Xu, Yuxin Hu, Zaiwei Zhang, Gregory P. Meyer, Siva Karthik Mustikovela, Siddhartha Srinivasa, Eric M. Wolff, Xin Huang",
     "url": "https://arxiv.org/pdf/2412.14446",
     "abstract": "Human drivers rely on commonsense reasoning to navigate diverse and dynamic real-world scenarios. Existing end-to-end (E2E) autonomous driving (AD) models are typically optimized to mimic driving patterns observed in data, without capturing the underlying reasoning processes. This limitation constrains their ability to handle challenging driving scenarios. To close this gap, we propose VLM-AD, a method that leverages vision-language models (VLMs) as teachers to enhance training by providing additional supervision that incorporates unstructured reasoning information and structured action labels. Such supervision enhances the model's ability to learn richer feature representations that capture the rationale behind driving patterns. Importantly, our method does not require a VLM during inference, making it practical for real-time deployment. When integrated with state-of-the-art methods, VLM-AD achieves significant improvements in planning accuracy and reduced collision rates on the nuScenes dataset. It further improves route completion and driving scores under closed-loop evaluation, demonstrating its effectiveness in long-horizon, interactive driving scenarios and its potential for safe and reliable real-world deployment.",
-    "publication_date": "2025-08-29",
+    "publication_date": "2024-12-19",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2412.14446",
@@ -5458,16 +5458,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166572,
-        "name": "Distillation",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
+      },
+      {
+        "id": 166572,
+        "name": "Distillation",
+        "readonly": false,
+        "color": "#ffad46"
       },
       {
         "id": 166540,
@@ -5560,16 +5560,16 @@
         "color": "#b99aff"
       },
       {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
       }
     ],
     "total_read": 23,
@@ -5741,10 +5741,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166544,
-        "name": "Reasoning",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
-        "color": "#b6cff5"
+        "color": "#b99aff"
       },
       {
         "id": 166539,
@@ -5753,10 +5753,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166544,
+        "name": "Reasoning",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#b6cff5"
       },
       {
         "id": 166537,
@@ -6188,7 +6188,7 @@
     "conf_id": null,
     "conference_submission_type": null,
     "source": "arxiv",
-    "semantic_scholar_id": null,
+    "semantic_scholar_id": "5554407b7bfd03db757ead480f520135d3df933f",
     "cache_file_name": "Schroeder2026ARXIV_SOLE_R1_Video_Language.pdf",
     "ngt_id": 4235081,
     "read": true,
@@ -6239,7 +6239,7 @@
     "authors": "Zewei Zhou, Tianhui Cai, Seth Z. Zhao, Yun Zhang, Zhiyu Huang, Bolei Zhou, Jiaqi Ma",
     "url": "https://openreview.net/pdf/ac3e0d2216d650bf65be2b1559d68dc79c32c6ed.pdf",
     "abstract": "Recent advancements in Vision-Language-Action (VLA) models have shown promise for end-to-end autonomous driving by leveraging world knowledge and reasoning capabilities. However, current VLA models often struggle with physically infeasible action outputs, complex model structures, or unnecessarily long reasoning. In this paper, we propose AutoVLA, a novel VLA model that unifies reasoning and action generation within a single autoregressive generation model for end-to-end autonomous driving. AutoVLA performs semantic reasoning and trajectory planning directly from raw visual inputs and language instructions. We tokenize continuous trajectories into discrete, feasible actions, enabling direct integration into the language model. For training, we employ supervised fine-tuning to equip the model with dual thinking modes: fast thinking (trajectory-only) and slow thinking (enhanced with chain-of-thought reasoning). To further enhance planning performance and efficiency, we introduce a reinforcement fine-tuning method based on Group Relative Policy Optimization (GRPO), reducing unnecessary reasoning in straightforward scenarios. Extensive experiments across real-world and simulated datasets and benchmarks, including nuPlan, nuScenes, Waymo, and CARLA, demonstrate the competitive performance of AutoVLA in both open-loop and closed-loop settings. Qualitative results showcase the adaptive reasoning and accurate planning capabilities of AutoVLA in diverse scenarios.",
-    "publication_date": "2025-10-30",
+    "publication_date": "2025-06-16",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2506.13757",
@@ -6274,12 +6274,6 @@
         "color": "#ff7537"
       },
       {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
-      },
-      {
         "id": 166821,
         "name": "\ud83d\udc40",
         "readonly": false,
@@ -6290,6 +6284,12 @@
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
+      },
+      {
+        "id": 166544,
+        "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
       }
     ],
     "total_read": 69,
@@ -6529,10 +6529,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#ff7537"
       },
       {
         "id": 166545,
@@ -6541,10 +6541,10 @@
         "color": "#4986e7"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166546,
+        "name": "Diffusion",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#16a765"
       },
       {
         "id": 166539,
@@ -6665,6 +6665,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -6675,12 +6681,6 @@
         "name": "RL",
         "readonly": false,
         "color": "#b99aff"
-      },
-      {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
       },
       {
         "id": 166539,
@@ -6794,16 +6794,16 @@
         "color": "#b99aff"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       },
       {
         "id": 166546,
@@ -7585,28 +7585,28 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
-        "id": 166572,
-        "name": "Distillation",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
         "color": "#16a765"
       },
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166572,
+        "name": "Distillation",
+        "readonly": false,
+        "color": "#ffad46"
       }
     ],
     "total_read": 61,
@@ -7728,10 +7728,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#f691b2"
       },
       {
         "id": 166538,
@@ -7740,10 +7740,10 @@
         "color": "#b99aff"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b99aff"
       }
     ],
     "total_read": 40,
@@ -7840,10 +7840,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166820,
-        "name": "MoE",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b6cff5"
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -7852,10 +7852,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166820,
+        "name": "MoE",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b6cff5"
       }
     ],
     "total_read": 10,
@@ -8266,16 +8266,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 82,
@@ -8415,16 +8415,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166544,
+        "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
       },
       {
         "id": 166539,
@@ -8568,7 +8568,7 @@
     "authors": "NVIDIA, :, Johan Bjorck, Fernando Casta\u00f1eda, Nikita Cherniadev, Xingye Da, Runyu Ding, Linxi \"Jim\" Fan, Yu Fang, Dieter Fox, Fengyuan Hu, Spencer Huang, Joel Jang, Zhenyu Jiang, Jan Kautz, Kaushil Kundalia, Lawrence Lao, Zhiqi Li, Zongyu Lin, Kevin Lin, Guilin Liu, Edith Llontop, Loic Magne, Ajay Mandlekar, Avnish Narayan, Soroush Nasiriany, Scott Reed, You Liang Tan, Guanzhi Wang, Zu Wang, Jing Wang, Qi Wang, Jiannan Xiang, Yuqi Xie, Yinzhen Xu, Zhenjia Xu, Seonghyeon Ye, Zhiding Yu, Ao Zhang, Hao Zhang, Yizhou Zhao, Ruijie Zheng, Yuke Zhu",
     "url": "https://arxiv.org/pdf/2503.14734",
     "abstract": "General-purpose robots need a versatile body and an intelligent mind. Recent advancements in humanoid robots have shown great promise as a hardware platform for building generalist autonomy in the human world. A robot foundation model, trained on massive and diverse data sources, is essential for enabling the robots to reason about novel situations, robustly handle real-world variability, and rapidly learn new tasks. To this end, we introduce GR00T N1, an open foundation model for humanoid robots. GR00T N1 is a Vision-Language-Action (VLA) model with a dual-system architecture. The vision-language module (System 2) interprets the environment through vision and language instructions. The subsequent diffusion transformer module (System 1) generates fluid motor actions in real time. Both modules are tightly coupled and jointly trained end-to-end. We train GR00T N1 with a heterogeneous mixture of real-robot trajectories, human videos, and synthetically generated datasets. We show that our generalist robot model GR00T N1 outperforms the state-of-the-art imitation learning baselines on standard simulation benchmarks across multiple robot embodiments. Furthermore, we deploy our model on the Fourier GR-1 humanoid robot for language-conditioned bimanual manipulation tasks, achieving strong performance with high data efficiency.",
-    "publication_date": "2025-03-27",
+    "publication_date": "2025-03-18",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2503.14734",
@@ -8591,10 +8591,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       },
       {
         "id": 166546,
@@ -8603,10 +8603,10 @@
         "color": "#16a765"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       }
     ],
     "total_read": 229,
@@ -8681,7 +8681,7 @@
     "authors": "Lingdong Kong, Wesley Yang, Jianbiao Mei, Youquan Liu, Ao Liang, Dekai Zhu, Dongyue Lu, Wei Yin, Xiaotao Hu, Mingkai Jia, Junyuan Deng, Kaiwen Zhang, Yang Wu, Tianyi Yan, Shenyuan Gao, Song Wang, Linfeng Li, Liang Pan, Yong Liu, Jianke Zhu, Wei Tsang Ooi, Steven C. H. Hoi, Ziwei Liu",
     "url": "https://arxiv.org/pdf/2509.07996",
     "abstract": "World modeling has become a cornerstone in AI research, enabling agents to understand, represent, and predict the dynamic environments they inhabit. While prior work largely emphasizes generative methods for 2D image and video data, they overlook the rapidly growing body of work that leverages native 3D and 4D representations such as RGB-D imagery, occupancy grids, and LiDAR point clouds for large-scale scene modeling. At the same time, the absence of a standardized definition and taxonomy for ``world models'' has led to fragmented and sometimes inconsistent claims in the literature. This survey addresses these gaps by presenting the first comprehensive review explicitly dedicated to 3D and 4D world modeling and generation. We establish precise definitions, introduce a structured taxonomy spanning video-based (VideoGen), occupancy-based (OccGen), and LiDAR-based (LiDARGen) approaches, and systematically summarize datasets and evaluation metrics tailored to 3D/4D settings. We further discuss practical applications, identify open challenges, and highlight promising research directions, aiming to provide a coherent and foundational reference for advancing the field. A systematic summary of existing literature is available at <a href='https://github.com/worldbench/awesome-3d-4d-world-models' target='_blank'>https://github.com/worldbench/awesome-3d-4d-world-models</a>",
-    "publication_date": "2025-12-03",
+    "publication_date": "2025-09-04",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2509.07996",
@@ -8807,7 +8807,7 @@
     "authors": "Jianyuan Wang ,  Minghao Chen ,  Nikita Karaev ,  Andrea Vedaldi ,  Christian Rupprecht ,  David Novotny",
     "url": "https://openaccess.thecvf.com//content/CVPR2025/papers/Wang_VGGT_Visual_Geometry_Grounded_Transformer_CVPR_2025_paper.pdf",
     "abstract": "We present VGGT, a feed-forward neural network that directly infers all key 3D attributes of a scene, including camera parameters, point maps, depth maps, and 3D point tracks, from one, a few, or hundreds of its views. This approach is a step forward in 3D computer vision, where models have typically been constrained to and specialized for single tasks. It is also simple and efficient, reconstructing images in under one second, and still outperforming alternatives that require post-processing with visual geometry optimization techniques. The network achieves state-of-the-art results in multiple 3D tasks, including camera parameter estimation, multi-view depth estimation, dense point cloud reconstruction, and 3D point tracking. We also show that using pretrained VGGT as a feature backbone significantly enhances downstream tasks, such as non-rigid point tracking and feed-forward novel view synthesis. Code and models are publicly available at <a href='https://github.com/facebookresearch/vggt' target='_blank'>https://github.com/facebookresearch/vggt</a>.",
-    "publication_date": "2025-06-03",
+    "publication_date": "2025-03-14",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2503.11651",
@@ -8965,7 +8965,7 @@
     "authors": "Pierre Fernandez, Piotr Bojanowski, Gabriel Synnaeve, Marc Szafraniec, Maxime Oquab, Armand Joulin, Hu Xu, Wojciech Galuba, Vasu Sharma, Timoth\u00e9e Darcet, Michael Rabbat, Russell Howes, Ishan Misra, Shang-Wen Li, Mahmoud Assran, Alaaeldin Ali, Herve Jegou, Po-Yao Huang, Nicolas Ballas, Th\u00e9o Moutakanni, Huy Vo, Vasil Khalidov, Daniel HAZIZA, Francisco Massa, Patrick Labatut, Julien Mairal",
     "url": "https://arxiv.org/pdf/2304.07193",
     "abstract": "The recent breakthroughs in natural language processing for model pretraining on large quantities of data have opened the way for similar foundation models in computer vision. These models could greatly simplify the use of images in any system by producing all-purpose visual features, i.e., features that work across image distributions and tasks without finetuning. This work shows that existing pretraining methods, especially self-supervised methods, can produce such features if trained on enough curated data from diverse sources. We revisit existing approaches and combine different techniques to scale our pretraining in terms of data and model size. Most of the technical contributions aim at accelerating and stabilizing the training at scale. In terms of data, we propose an automatic pipeline to build a dedicated, diverse, and curated image dataset instead of uncurated data, as typically done in the self-supervised literature. In terms of models, we train a ViT model with 1B parameters and distill it into a series of smaller models that surpass the best available all-purpose features, OpenCLIP on most of the benchmarks at image and pixel levels.",
-    "publication_date": "2024-02-02",
+    "publication_date": "2023-04-14",
     "pdf_download_success": true,
     "citations": 2359.0,
     "arxiv_id": "2304.07193",
@@ -9151,12 +9151,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166549,
-        "name": "GSplat",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
@@ -9167,6 +9161,12 @@
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
+      },
+      {
+        "id": 166549,
+        "name": "GSplat",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 77,
@@ -9469,16 +9469,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 17,
@@ -9932,16 +9932,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166546,
+        "name": "Diffusion",
         "readonly": false,
-        "color": "#f691b2"
-      },
-      {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
+        "color": "#16a765"
       },
       {
         "id": 166537,
@@ -9950,10 +9944,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#4986e7"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 17,
@@ -10077,10 +10077,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -10089,10 +10089,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#4986e7"
       }
     ],
     "total_read": 44,
@@ -10168,7 +10168,7 @@
     "authors": "Deepti Hegde ,  Rajeev Yasarla ,  Hong Cai ,  Shizhong Han ,  Apratim Bhattacharyya ,  Shweta Mahajan ,  Litian Liu ,  Risheek Garrepalli ,  Vishal M. Patel ,  Fatih Porikli",
     "url": "https://openaccess.thecvf.com//content/CVPR2025/papers/Hegde_Distilling_Multi-modal_Large_Language_Models_for_Autonomous_Driving_CVPR_2025_paper.pdf",
     "abstract": "Autonomous driving demands safe motion planning, especially in critical \"long-tail\" scenarios. Recent end-to-end autonomous driving systems leverage large language models (LLMs) as planners to improve generalizability to rare events. However, using LLMs at test time introduces high computational costs. To address this, we propose DiMA, an end-to-end autonomous driving system that maintains the efficiency of an LLM-free (or vision-based) planner while leveraging the world knowledge of an LLM. DiMA distills the information from a multi-modal LLM to a vision-based end-to-end planner through a set of specially designed surrogate tasks. Under a joint training strategy, a scene encoder common to both networks produces structured representations that are semantically grounded as well as aligned to the final planning objective. Notably, the LLM is optional at inference, enabling robust planning without compromising on efficiency. Training with DiMA results in a 37% reduction in the L2 trajectory error and an 80% reduction in the collision rate of the vision-based planner, as well as a 44% trajectory error reduction in long-tail scenarios. \\ours also achieves state-of-the-art performance on the nuScenes planning benchmark.",
-    "publication_date": "2025-06-03",
+    "publication_date": "2025-01-16",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2501.09757",
@@ -10191,6 +10191,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166572,
+        "name": "Distillation",
+        "readonly": false,
+        "color": "#ffad46"
+      },
+      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
@@ -10201,12 +10207,6 @@
         "name": "MLLM",
         "readonly": false,
         "color": "#2da2bb"
-      },
-      {
-        "id": 166572,
-        "name": "Distillation",
-        "readonly": false,
-        "color": "#ffad46"
       }
     ],
     "total_read": 76,
@@ -10305,6 +10305,12 @@
         "color": "#ff7537"
       },
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
@@ -10315,12 +10321,6 @@
         "name": "Diffusion",
         "readonly": false,
         "color": "#16a765"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "total_read": 10,
@@ -10592,16 +10592,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 360,
@@ -10681,7 +10681,7 @@
     "authors": "Zhijie Qiao, Haowei Li, Zhong Cao, Henry X. Liu",
     "url": "https://arxiv.org/pdf/2505.00284",
     "abstract": "Vision-Language Models (VLMs) have demonstrated significant potential for end-to-end autonomous driving. However, the field still lacks a practical platform that enables dynamic model updates, rapid validation, fair comparison, and intuitive performance assessment. To that end, we introduce LightEMMA, a Lightweight End-to-End Multimodal Model for Autonomous driving. LightEMMA provides a unified, VLM-based autonomous driving framework without ad hoc customizations, enabling easy integration with evolving state-of-the-art commercial and open-source models. We construct twelve autonomous driving agents using various VLMs and evaluate their performance on the challenging nuScenes prediction task, comprehensively assessing computational metrics and providing critical insights. Illustrative examples show that, although VLMs exhibit strong scenario interpretation capabilities, their practical performance in autonomous driving tasks remains a concern. Additionally, increased model complexity and extended reasoning do not necessarily lead to better performance, emphasizing the need for further improvements and task-specific designs. The code is available at <a href='https://github.com/michigan-traffic-lab/LightEMMA' target='_blank'>https://github.com/michigan-traffic-lab/LightEMMA</a>.",
-    "publication_date": "2025-09-13",
+    "publication_date": "2025-05-01",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2505.00284",
@@ -10704,10 +10704,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166543,
-        "name": "VLM",
+        "id": 166540,
+        "name": "AD",
         "readonly": false,
-        "color": "#42d692"
+        "color": "#2da2bb"
       },
       {
         "id": 166545,
@@ -10716,10 +10716,10 @@
         "color": "#4986e7"
       },
       {
-        "id": 166540,
-        "name": "AD",
+        "id": 166543,
+        "name": "VLM",
         "readonly": false,
-        "color": "#2da2bb"
+        "color": "#42d692"
       }
     ],
     "total_read": 48,
@@ -10794,7 +10794,7 @@
     "authors": "Suneel Belkhale, Yuchen Cui, Dorsa Sadigh",
     "url": "https://papers.nips.cc/paper_files/paper/2023/file/fe692980c5d9732cf153ce27947653a7-Paper-Conference.pdf",
     "abstract": "In supervised learning, the question of data quality and curation has been sidelined in recent years in favor of increasingly more powerful and expressive models that can ingest internet-scale data. However, in offline learning for robotics, we simply lack internet scale data, and so high quality datasets are a necessity. This is especially true in imitation learning (IL), a sample efficient paradigm for robot learning using expert demonstrations. Policies learned through IL suffer from state distribution shift at test time due to compounding errors in action prediction, which leads to unseen states that the policy cannot recover from.Instead of designing new algorithms to address distribution shift, an alternative perspective is to develop new ways of assessing and curating datasets. There is growing evidence that the same IL algorithms can have substantially different performance across different datasets. This calls for a formalism for defining metrics of \"data quality\" that can further be leveraged for data curation.In this work, we take the first step toward formalizing data quality for imitation learning through the lens of distribution shift: a high quality dataset encourages the policy to stay in distribution at test time. We propose two fundamental properties that are necessary for a high quality datasets: i) action divergence: the mismatch between the expert and learned policy at certain states; and ii) transition diversity: the noise present in the system for a given state and action. We investigate the combined effect of these two key properties in imitation learning theoretically, and we empirically analyze models trained on a variety of different data sources. We show that state diversity is not always beneficial, and we demonstrate how action divergence and transition diversity interact in practice.",
-    "publication_date": "2024-02-15",
+    "publication_date": "2023-06-04",
     "pdf_download_success": true,
     "citations": 39.0,
     "arxiv_id": "2306.02437",
@@ -10817,16 +10817,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 168532,
         "name": "Data",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 6,
@@ -10907,16 +10907,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
-      },
-      {
         "id": 166821,
         "name": "\ud83d\udc40",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166544,
+        "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
       }
     ],
     "total_read": 47,
@@ -11005,12 +11005,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -11021,6 +11015,12 @@
         "name": "Reasoning",
         "readonly": false,
         "color": "#b6cff5"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 10,
@@ -11143,6 +11143,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
@@ -11159,12 +11165,6 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166546,
-        "name": "Diffusion",
-        "readonly": false,
-        "color": "#16a765"
       }
     ],
     "total_read": 14,
@@ -11276,7 +11276,7 @@
     "authors": "HunyuanWorld Team, Zhenwei Wang, Yuhao Liu, Junta Wu, Zixiao Gu, Haoyuan Wang, Xuhui Zuo, Tianyu Huang, Wenhuan Li, Sheng Zhang, Yihang Lian, Yulin Tsai, Lifu Wang, Sicong Liu, Puhua Jiang, Xianghui Yang, Dongyuan Guo, Yixuan Tang, Xinyue Mao, Jiaao Yu, Junlin Yu, Jihong Zhang, Meng Chen, Liang Dong, Yiwen Jia, Chao Zhang, Yonghao Tan, Hao Zhang, Zheng Ye, Peng He, Runzhou Wu, Minghui Chen, Zhan Li, Wangchen Qin, Lei Wang, Yifu Sun, Lin Niu, Xiang Yuan, Xiaofeng Yang, Yingping He, Jie Xiao, Yangyu Tao, Jianchen Zhu, Jinbao Xue, Kai Liu, Chongqing Zhao, Xinming Wu, Tian Liu, Peng Chen, Di Wang, Yuhong Liu, Linus, Jie Jiang, Tengfei Wang, Chunchao Guo",
     "url": "https://arxiv.org/pdf/2507.21809",
     "abstract": "Creating immersive and playable 3D worlds from texts or images remains a fundamental challenge in computer vision and graphics. Existing world generation approaches typically fall into two categories: video-based methods that offer rich diversity but lack 3D consistency and rendering efficiency, and 3D-based methods that provide geometric consistency but struggle with limited training data and memory-inefficient representations. To address these limitations, we present HunyuanWorld 1.0, a novel framework that combines the best of both worlds for generating immersive, explorable, and interactive 3D scenes from text and image conditions. Our approach features three key advantages: 1) 360{\\deg} immersive experiences via panoramic world proxies; 2) mesh export capabilities for seamless compatibility with existing computer graphics pipelines; 3) disentangled object representations for augmented interactivity. The core of our framework is a semantically layered 3D mesh representation that leverages panoramic images as 360{\\deg} world proxies for semantic-aware world decomposition and reconstruction, enabling the generation of diverse 3D worlds. Extensive experiments demonstrate that our method achieves state-of-the-art performance in generating coherent, explorable, and interactive 3D worlds while enabling versatile applications in virtual reality, physical simulation, game development, and interactive content creation.",
-    "publication_date": "2025-08-13",
+    "publication_date": "2025-07-29",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2507.21809",
@@ -11435,7 +11435,7 @@
     "authors": "Shuzhe Wang, Vincent Leroy, Yohann Cabon, Boris Chidlovskii, Jerome Revaud",
     "url": "https://openaccess.thecvf.com//content/CVPR2024/papers/Wang_DUSt3R_Geometric_3D_Vision_Made_Easy_CVPR_2024_paper.pdf",
     "abstract": "\n    Multi-view stereo reconstruction (MVS) in the wild requires to first estimate the camera intrinsic and extrinsic parameters. These are usually tedious and cumbersome to obtain yet they are mandatory to triangulate corresponding pixels in 3D space which is at the core of all best performing MVS algorithms. In this work we take an opposite stance and introduce DUSt3R a radically novel paradigm for Dense and Unconstrained Stereo 3D Reconstruction of arbitrary image collections operating without prior information about camera calibration nor viewpoint poses. We cast the pairwise reconstruction problem as a regression of pointmaps relaxing the hard constraints of usual projective camera models. We show that this formulation smoothly unifies the monocular and binocular reconstruction cases. In the case where more than two images are provided we further propose a simple yet effective global alignment strategy that expresses all pairwise pointmaps in a common reference frame. We base our network architecture on standard Transformer encoders and decoders allowing us to leverage powerful pretrained models. Our formulation directly provides a 3D model of the scene as well as depth information but interestingly we can seamlessly recover from it pixel matches focal lengths relative and absolute cameras. Extensive experiments on all these tasks showcase how DUSt3R effectively unifies various 3D vision tasks setting new performance records on monocular & multi-view depth estimation as well as relative pose estimation. In summary DUSt3R makes many geometric 3D vision tasks easy. Code and models at <a href='https://github.com/naver/dust3r' target='_blank'>https://github.com/naver/dust3r</a>\n    ",
-    "publication_date": "2024-06-11",
+    "publication_date": "2023-12-21",
     "pdf_download_success": true,
     "citations": 154.0,
     "arxiv_id": "2312.14132",
@@ -11527,7 +11527,7 @@
     "authors": "Edgar Sucar ,  Zihang Lai ,  Eldar Insafutdinov ,  Andrea Vedaldi",
     "url": "https://openaccess.thecvf.com//content/ICCV2025/papers/Sucar_Dynamic_Point_Maps_A_Versatile_Representation_for_Dynamic_3D_Reconstruction_ICCV_2025_paper.pdf",
     "abstract": "DUSt3R has recently demonstrated that many tasks in multi-view geometry, including estimating camera intrinsics and extrinsics, reconstructing 3D scenes, and establishing image correspondences, can be reduced to predicting a pair of viewpoint-invariant point maps, i.e., pixel-aligned point clouds defined in a common reference frame. While this formulation is elegant and powerful, it is limited to static scenes. To overcome this limitation, we introduce the concept of Dynamic Point Maps (DPM), which extends standard point maps to support 4D tasks such as motion segmentation, scene flow estimation, 3D object tracking, and 2D correspondence. Our key insight is that, when time is introduced, several possible spatial and temporal references can be used to define the point maps. We identify a minimal subset of these combinations that can be regressed by a network to solve the aforementioned tasks. We train a DPM predictor on a mixture of synthetic and real data and evaluate it across diverse benchmarks, including video depth prediction, dynamic point cloud reconstruction, 3D scene flow, and object pose tracking, achieving state-of-the-art performance.",
-    "publication_date": "2025-10-15",
+    "publication_date": "2025-03-20",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2503.16318",
@@ -11634,7 +11634,7 @@
     "authors": "Chen Geng ,  Yunzhi Zhang ,  Shangzhe Wu ,  Jiajun Wu",
     "url": "https://openaccess.thecvf.com//content/CVPR2025/papers/Geng_Birth_and_Death_of_a_Rose_CVPR_2025_paper.pdf",
     "abstract": "We study the problem of generating temporal object intrinsics--temporally evolving sequences of object geometry, reflectance, and texture, such as a blooming rose--from pre-trained 2D foundation models. Unlike conventional 3D modeling and animation techniques that require extensive manual effort and expertise, we introduce a method that generates such assets with signals distilled from pretrained 2D diffusion models. To ensure the temporal consistency of object intrinsics, we propose Neural Templates for temporal-state-guided distillation, derived automatically from image features from self-supervised learning. Our method can generate high-quality temporal object intrinsics for several natural phenomena and enable the sampling and controllable rendering of these dynamic objects from any viewpoint, under any environmental lighting conditions, at any time of their lifespan. Project website: <a href='https://chen-geng.com/rose4d' target='_blank'>https://chen-geng.com/rose4d</a>.",
-    "publication_date": "2025-06-03",
+    "publication_date": "2024-12-06",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2412.05278",
@@ -11729,7 +11729,7 @@
     "authors": "Haoquan Fang, Markus Grotz, Wilbert Pumacay, Yi Ru Wang, Dieter Fox, Ranjay Krishna, Jiafei Duan",
     "url": "https://raw.githubusercontent.com/mlresearch/v267/main/assets/fang25c/fang25c.pdf",
     "abstract": "Robotic manipulation systems operating in diverse, dynamic environments must exhibit three critical abilities: multitask interaction, generalization to unseen scenarios, and spatial memory. While significant progress has been made in robotic manipulation, existing approaches often fall short in generalization to complex environmental variations and addressing memory-dependent tasks. To bridge this gap, we introduce SAM2Act, a multi-view robotic transformer-based policy that leverages multi-resolution upsampling with visual representations from large-scale foundation model. SAM2Act achieves a state-of-the-art average success rate of 86.8% across 18 tasks in the RLBench benchmark, and demonstrates robust generalization on The Colosseum benchmark, with only a 4.3% performance gap under diverse environmental perturbations. Building on this foundation, we propose SAM2Act+, a memory-based architecture inspired by SAM2, which incorporates a memory bank, an encoder, and an attention mechanism to enhance spatial memory. To address the need for evaluating memory-dependent tasks, we introduce MemoryBench, a novel benchmark designed to assess spatial memory and action recall in robotic manipulation. SAM2Act+ achieves an average success rate of 94.3% on memory-based tasks in MemoryBench, significantly outperforming existing approaches and pushing the boundaries of memory-based robotic systems. Project page: sam2act.github.io.",
-    "publication_date": "2025-10-09",
+    "publication_date": "2025-01-30",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2501.18564",
@@ -11758,16 +11758,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 168685,
-        "name": "Memory",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 168685,
+        "name": "Memory",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 83,
@@ -11860,16 +11860,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 16,
@@ -11937,16 +11937,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 50,
@@ -12347,10 +12347,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -12359,10 +12359,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#4986e7"
       }
     ],
     "total_read": 6,
@@ -12430,16 +12430,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 168532,
-        "name": "Data",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 168532,
+        "name": "Data",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 7,
