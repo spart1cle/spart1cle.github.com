@@ -1,5 +1,23 @@
 [
   {
+    "id": "1775036530222",
+    "type": "link",
+    "date": "2026-04-01",
+    "text": "Ted Xiao: **Three Eras of Robot Learning**, guest lecture in Oier Mees robot learning [course](https://cvg.ethz.ch/lectures/Robot-Learning/) at ETHZ.\n> Drawing from his experience leading robotics and Gemini teams at Google DeepMind, Ted shared deep insights into scaling physical AGI and leveraging internet-scale foundation models.",
+    "url": "https://youtu.be/VS7Ulaugevg",
+    "tags": [
+      "video",
+      "robotics",
+      "course"
+    ],
+    "preview": {
+      "title": "watch?v=VS7Ulaugevg&app=desktop",
+      "description": "",
+      "image": "https://img.youtube.com/vi/VS7Ulaugevg/maxresdefault.jpg",
+      "domain": "youtu.be"
+    }
+  },
+  {
     "id": "1774991917937",
     "type": "link",
     "date": "2026-03-31",
