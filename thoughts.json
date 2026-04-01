@@ -1,5 +1,23 @@
 [
   {
+    "id": "1775056876523",
+    "type": "link",
+    "date": "2026-04-01",
+    "text": "New work out of Jim Fan's group at NVIDIA: **CaP-X**: A Framework for Benchmarking and Improving Coding Agents for Robot Manipulation. [[Code](https://github.com/capgym/cap-x)] [[Paper](https://arxiv.org/abs/2603.22435)]",
+    "url": "https://capgym.github.io/",
+    "tags": [
+      "robotics",
+      "code",
+      "research"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "capgym.github.io"
+    }
+  },
+  {
     "id": "1775054871211",
     "type": "link",
     "date": "2026-04-01",
