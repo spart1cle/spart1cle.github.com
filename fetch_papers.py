@@ -13,10 +13,16 @@ Install: pip install requests
 import argparse
 import json
 import sys
+import time
+import xml.etree.ElementTree as ET
 
 import requests
 
 API_BASE = "https://api.scholar-inbox.com/api"
+ARXIV_API_URL = "https://export.arxiv.org/api/query"
+ARXIV_BATCH_SIZE = 50
+ARXIV_REQUEST_DELAY = 3  # seconds between batches, per arXiv policy
+ATOM_NS = "{http://www.w3.org/2005/Atom}"
 
 
 def fetch_interactions(session: requests.Session, interaction_type: str = "positive", page: int = 0):
@@ -30,6 +36,69 @@ def fetch_interactions(session: requests.Session, interaction_type: str = "posit
     resp = session.get(f"{API_BASE}/interactions", params=params)
     resp.raise_for_status()
     return resp.json()
+
+
+def fetch_arxiv_dates(arxiv_ids: list[str]) -> dict[str, str]:
+    """Query arXiv API for original v1 publication dates."""
+    dates = {}
+    for i in range(0, len(arxiv_ids), ARXIV_BATCH_SIZE):
+        batch = arxiv_ids[i:i + ARXIV_BATCH_SIZE]
+        if i > 0:
+            time.sleep(ARXIV_REQUEST_DELAY)
+
+        params = {"id_list": ",".join(batch), "max_results": len(batch)}
+        print(f"Querying arXiv API for {len(batch)} papers...", file=sys.stderr)
+
+        try:
+            resp = requests.get(ARXIV_API_URL, params=params, timeout=30)
+            resp.raise_for_status()
+        except requests.RequestException as e:
+            print(f"arXiv API request failed: {e}", file=sys.stderr)
+            continue
+
+        try:
+            root = ET.fromstring(resp.text)
+        except ET.ParseError as e:
+            print(f"Failed to parse arXiv API response: {e}", file=sys.stderr)
+            continue
+
+        for entry in root.findall(f"{ATOM_NS}entry"):
+            id_elem = entry.find(f"{ATOM_NS}id")
+            if id_elem is None or id_elem.text is None:
+                continue
+            entry_id = id_elem.text.split("/abs/")[-1]
+            if "v" in entry_id:
+                entry_id = entry_id[: entry_id.rindex("v")]
+
+            published_elem = entry.find(f"{ATOM_NS}published")
+            if published_elem is None or published_elem.text is None:
+                continue
+
+            dates[entry_id] = published_elem.text[:10]
+
+    return dates
+
+
+def correct_arxiv_dates(papers: list[dict]) -> None:
+    """Override publication_date with arXiv v1 date for papers with an arxiv_id."""
+    arxiv_ids = [p["arxiv_id"] for p in papers if p.get("arxiv_id")]
+    if not arxiv_ids:
+        return
+
+    print(f"Correcting dates for {len(arxiv_ids)} papers via arXiv API...", file=sys.stderr)
+    date_map = fetch_arxiv_dates(arxiv_ids)
+
+    corrected = 0
+    for paper in papers:
+        aid = paper.get("arxiv_id")
+        if aid and aid in date_map:
+            old_date = paper.get("publication_date")
+            new_date = date_map[aid]
+            if old_date != new_date:
+                paper["publication_date"] = new_date
+                corrected += 1
+
+    print(f"Corrected {corrected} publication dates ({len(date_map)} found in arXiv API)", file=sys.stderr)
 
 
 def main():
@@ -79,6 +148,8 @@ def main():
             break
 
     all_papers = all_papers[:args.limit]
+
+    correct_arxiv_dates(all_papers)
 
     with open(args.output, "w") as f:
         json.dump(all_papers, f, indent=2)
