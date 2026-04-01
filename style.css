@@ -1535,7 +1535,10 @@ ul { list-style: none; }
 .reading-count {
   font-size: var(--font-size-xs);
   color: var(--color-text-muted);
-  margin: 0 0 var(--space-sm);
+  margin: 0;
+}
+#thoughts-count {
+  margin-bottom: var(--space-sm);
 }
 .reading-expand-all-btn {
   background: none;
