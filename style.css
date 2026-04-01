@@ -1433,9 +1433,6 @@ ul { list-style: none; }
   margin-bottom: var(--space-sm);
 }
 
-#thoughts-sidebar {
-  padding-top: calc(var(--font-size-xs) * 1.5 + var(--space-sm) + 2px);
-}
 
 .reading-tag-list {
   display: flex;
@@ -1538,7 +1535,7 @@ ul { list-style: none; }
 .reading-count {
   font-size: var(--font-size-xs);
   color: var(--color-text-muted);
-  margin: 0;
+  margin: 0 0 var(--space-sm);
 }
 .reading-expand-all-btn {
   background: none;
@@ -2150,6 +2147,11 @@ ul { list-style: none; }
   padding: 0;
   background: none;
   font-size: inherit;
+}
+
+#thoughts-list, #reading-list {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Date group headers */

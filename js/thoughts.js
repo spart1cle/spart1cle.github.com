@@ -13,6 +13,7 @@
   const clearBtnMonth = clearBtns[1];
   const searchClearBtn = document.getElementById('thoughts-search-clear');
   const sortEl = document.getElementById('thoughts-sort');
+  const sidebarEl = document.getElementById('thoughts-sidebar');
 
   let thoughts = [];
   const activeTags = new Set();
@@ -100,6 +101,17 @@
       listEl.innerHTML =
         '<p style="text-align:center;color:var(--color-text-secondary)">Could not load thoughts.</p>';
     });
+
+  // ── Sidebar Alignment ──────────────────────────────────────
+  function alignSidebar() {
+    if (!sidebarEl) return;
+    const dateHeader = listEl.querySelector('.thought-date-group');
+    if (!dateHeader) { sidebarEl.style.paddingTop = ''; return; }
+    const h = dateHeader.offsetHeight;
+    const style = getComputedStyle(dateHeader);
+    const mb = parseFloat(style.marginBottom) || 0;
+    sidebarEl.style.paddingTop = (h + mb) + 'px';
+  }
 
   // ── Archive Widget ─────────────────────────────────────────
   const MONTH_LABELS = ['J','F','M','A','M','J','J','A','S','O','N','D'];
@@ -351,12 +363,14 @@
     let html = '';
     let lastMonth = '';
     visible.forEach((t) => {
-      const month = t.date ? t.date.slice(0, 7) : '';
-      if (month && month !== lastMonth) {
-        const d = new Date(t.date + 'T00:00:00');
-        const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-        html += `<h3 class="thought-date-group">${label}</h3>`;
-        lastMonth = month;
+      if (activeSort === 'date') {
+        const month = t.date ? t.date.slice(0, 7) : '';
+        if (month && month !== lastMonth) {
+          const d = new Date(t.date + 'T00:00:00');
+          const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+          html += `<h3 class="thought-date-group">${label}</h3>`;
+          lastMonth = month;
+        }
       }
 
       const tagsHtml = (t.tags || [])
@@ -414,6 +428,7 @@
     });
 
     listEl.innerHTML = html;
+    alignSidebar();
 
     if (hasMore) {
       appendSentinel(filtered);
@@ -500,16 +515,21 @@
     if (!batch.length) return;
 
     let html = '';
-    const lastCard = listEl.querySelector('.thought-card:last-of-type');
-    let lastMonth = lastCard ? (lastCard.querySelector('.reading-date')?.textContent || '').slice(0, 7) : '';
+    let lastMonth = '';
+    if (activeSort === 'date') {
+      const prev = filtered[start - 1];
+      lastMonth = prev && prev.date ? prev.date.slice(0, 7) : '';
+    }
 
     batch.forEach((t) => {
-      const month = t.date ? t.date.slice(0, 7) : '';
-      if (month && month !== lastMonth) {
-        const d = new Date(t.date + 'T00:00:00');
-        const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-        html += `<h3 class="thought-date-group">${label}</h3>`;
-        lastMonth = month;
+      if (activeSort === 'date') {
+        const month = t.date ? t.date.slice(0, 7) : '';
+        if (month && month !== lastMonth) {
+          const d = new Date(t.date + 'T00:00:00');
+          const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+          html += `<h3 class="thought-date-group">${label}</h3>`;
+          lastMonth = month;
+        }
       }
 
       const tagsHtml = (t.tags || [])

@@ -12,6 +12,9 @@
   const clearBtn = document.getElementById('reading-clear');
   const searchClearBtn = document.getElementById('reading-search-clear');
   const expandAllBtn = document.getElementById('reading-expand-all');
+  const clearMonthBtn = document.getElementById('reading-clear-month');
+  const sidebarEl = document.querySelector('.reading-section .reading-sidebar');
+  const mainEl = document.querySelector('.reading-section .reading-main');
 
   let papers = [];
   let activeTags = new Set();
@@ -19,6 +22,9 @@
   let sortAsc = false;
   let searchTimeout = null;
   let hasRendered = false;
+  let activeMonth = null;
+  let monthDensityMap = {};
+  let archiveExpanded = false;
 
   // ── Data Loading ───────────────────────────────────────────
   const skeletonCard = '<div class="skeleton-card"><div class="skeleton-line skeleton-line-short"></div><div class="skeleton-line skeleton-line-title"></div><div class="skeleton-line skeleton-line-medium"></div><div class="skeleton-line skeleton-line-long"></div><div style="display:flex;gap:0.5rem;margin-top:0.25rem"><span class="skeleton-tag"></span><span class="skeleton-tag"></span></div></div>';
@@ -30,7 +36,9 @@
       papers = data;
       window.__searchData = window.__searchData || {};
       window.__searchData.papers = papers;
+      buildMonthDensity();
       renderTagFilters();
+      renderArchive();
       initSort();
       initClear();
       function jumpToPaper() {
@@ -65,7 +73,11 @@
       }
 
       if (!jumpToPaper()) {
-        readHash(activeTags, tagFiltersEl, searchEl, searchClearBtn);
+        const hashState = readHash(activeTags, tagFiltersEl, searchEl, searchClearBtn);
+        if (hashState && hashState.month) {
+          activeMonth = hashState.month;
+          renderArchive();
+        }
         renderPapers();
       }
 
@@ -115,6 +127,125 @@
       listEl.innerHTML =
         '<p style="text-align:center;color:var(--color-text-secondary)">Could not load papers.</p>';
     });
+
+  // ── Sidebar Alignment ──────────────────────────────────────
+  function alignSidebar() {
+    if (!sidebarEl) return;
+    const dateHeader = listEl.querySelector('.thought-date-group');
+    if (!dateHeader) { sidebarEl.style.paddingTop = ''; return; }
+    const h = dateHeader.offsetHeight;
+    const style = getComputedStyle(dateHeader);
+    const mb = parseFloat(style.marginBottom) || 0;
+    sidebarEl.style.paddingTop = (h + mb) + 'px';
+  }
+
+  // ── Archive Widget ─────────────────────────────────────────
+  const MONTH_LABELS = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+  const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const MAX_BAR_HEIGHT = 40;
+  const ARCHIVE_YEAR_LIMIT = 1;
+
+  function buildMonthDensity() {
+    monthDensityMap = {};
+    papers.forEach((p) => {
+      if (!p.publication_date) return;
+      const key = p.publication_date.slice(0, 7);
+      monthDensityMap[key] = (monthDensityMap[key] || 0) + 1;
+    });
+  }
+
+  function renderArchive() {
+    const container = document.getElementById('reading-archive-years');
+    if (!container) return;
+
+    const years = {};
+    Object.keys(monthDensityMap).forEach((key) => {
+      const y = key.slice(0, 4);
+      if (!years[y]) years[y] = true;
+    });
+    const sortedYears = Object.keys(years).sort((a, b) => b - a);
+
+    if (!sortedYears.length) {
+      container.innerHTML = '';
+      return;
+    }
+
+    const hasHidden = !archiveExpanded && sortedYears.length > ARCHIVE_YEAR_LIMIT;
+    const visibleYears = hasHidden ? sortedYears.slice(0, ARCHIVE_YEAR_LIMIT) : sortedYears;
+
+    let html = '<div class="archive-years-row">';
+    visibleYears.forEach((year) => {
+      let yearMax = 0;
+      for (let m = 0; m < 12; m++) {
+        const key = `${year}-${String(m + 1).padStart(2, '0')}`;
+        yearMax = Math.max(yearMax, monthDensityMap[key] || 0);
+      }
+      html += `<div class="archive-year">`;
+      html += `<span class="archive-year-label">${year}</span>`;
+      html += `<div class="archive-bars">`;
+      for (let m = 0; m < 12; m++) {
+        const key = `${year}-${String(m + 1).padStart(2, '0')}`;
+        const count = monthDensityMap[key] || 0;
+        const height = count > 0 && yearMax > 0
+          ? Math.max(4, Math.round((count / yearMax) * MAX_BAR_HEIGHT))
+          : 2;
+        const density = count === 0 || yearMax === 0 ? 'empty'
+          : count <= yearMax * 0.25 ? 'L1'
+          : count <= yearMax * 0.5 ? 'L2'
+          : count <= yearMax * 0.75 ? 'L3'
+          : 'L4';
+        const isActive = activeMonth === key;
+        const tooltip = `${MONTH_NAMES[m]} ${year} (${count} ${count === 1 ? 'paper' : 'papers'})`;
+        html += `<button class="archive-bar archive-bar-${density}${isActive ? ' active' : ''}" data-month="${key}" style="height:${height}px" title="${tooltip}"></button>`;
+      }
+      html += `</div>`;
+      html += `<div class="archive-months">${MONTH_LABELS.map((l) => `<span>${l}</span>`).join('')}</div>`;
+      html += `</div>`;
+    });
+    html += '</div>';
+
+    if (sortedYears.length > ARCHIVE_YEAR_LIMIT) {
+      const hiddenCount = sortedYears.length - ARCHIVE_YEAR_LIMIT;
+      html += `<button class="tag-toggle-btn" id="reading-archive-toggle">${archiveExpanded ? 'Show less' : `Show ${hiddenCount} older`}</button>`;
+    }
+
+    container.innerHTML = html;
+
+    const toggle = document.getElementById('reading-archive-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        if (archiveExpanded) {
+          const row = container.querySelector('.archive-years-row');
+          if (row && row.scrollLeft > 0) {
+            row.scrollTo({ left: 0, behavior: 'smooth' });
+            setTimeout(() => { archiveExpanded = false; renderArchive(); }, 700);
+          } else {
+            archiveExpanded = false;
+            renderArchive();
+          }
+        } else {
+          archiveExpanded = true;
+          renderArchive();
+          const row = container.querySelector('.archive-years-row');
+          const newYear = row && row.children[ARCHIVE_YEAR_LIMIT];
+          if (newYear) newYear.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        }
+      });
+    }
+
+    container.querySelectorAll('.archive-bar').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.month;
+        if (activeMonth === key) {
+          activeMonth = null;
+        } else {
+          activeMonth = key;
+        }
+        renderArchive();
+        renderPapers();
+      });
+    });
+  }
 
   // ── Tag Filters ────────────────────────────────────────────
   function renderTagFilters() {
@@ -179,6 +310,11 @@
       tagFiltersEl
         .querySelectorAll('.tag-filter-btn.active')
         .forEach((b) => b.classList.remove('active'));
+      renderPapers();
+    });
+    clearMonthBtn.addEventListener('click', () => {
+      activeMonth = null;
+      renderArchive();
       renderPapers();
     });
   }
@@ -253,10 +389,11 @@
       countEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
     hasRendered = true;
-    updateHash(activeTags, searchEl.value);
+    updateHash(activeTags, searchEl.value, { month: activeMonth });
 
     const query = searchEl.value.toLowerCase();
     const filtered = papers.filter((p) => {
+      if (activeMonth && (!p.publication_date || p.publication_date.slice(0, 7) !== activeMonth)) return false;
       if (activeTags.size > 0) {
         const colls = p.user_paper_collections || [];
         const paperTags = new Set(colls.map((c) => c.name));
@@ -282,8 +419,9 @@
       filtered.reverse();
     }
 
-    const hasFilters = activeTags.size > 0 || query;
-    clearBtn.style.display = hasFilters ? '' : 'none';
+    const hasFilters = activeTags.size > 0 || query || activeMonth;
+    clearBtn.style.display = (activeTags.size > 0 || query) ? '' : 'none';
+    clearMonthBtn.style.display = activeMonth ? '' : 'none';
     countEl.textContent =
       filtered.length === papers.length
         ? `${papers.length} papers`
@@ -298,7 +436,23 @@
     const visible = filtered.slice(0, visibleCount);
     const hasMore = filtered.length > visibleCount;
 
-    listEl.innerHTML = visible.map((p) => renderCardHtml(p)).join('');
+    let cardsHtml = '';
+    let lastMonth = '';
+    if (activeSort === 'published') {
+      visible.forEach((p) => {
+        const month = p.publication_date ? p.publication_date.slice(0, 7) : '';
+        if (month && month !== lastMonth) {
+          const d = new Date(p.publication_date + 'T00:00:00');
+          const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+          cardsHtml += `<h3 class="thought-date-group">${label}</h3>`;
+          lastMonth = month;
+        }
+        cardsHtml += renderCardHtml(p);
+      });
+    } else {
+      cardsHtml = visible.map((p) => renderCardHtml(p)).join('');
+    }
+    listEl.innerHTML = cardsHtml;
 
     // Attach Slack push handlers on newly rendered cards
     listEl.querySelectorAll('.paper-slack-btn').forEach((btn) => {
@@ -310,6 +464,7 @@
 
     if (window.revealElements && !window.__skipReveal) window.revealElements('.reading-card');
     window.initTagColors();
+    alignSidebar();
 
     // Infinite scroll: observe sentinel to auto-load next batch
     if (hasMore) {
@@ -342,7 +497,23 @@
     const batch = filtered.slice(start, visibleCount);
     if (!batch.length) return;
 
-    const html = batch.map((p) => renderCardHtml(p)).join('');
+    let html = '';
+    if (activeSort === 'published') {
+      const prev = filtered[start - 1];
+      let lastMonth = prev && prev.publication_date ? prev.publication_date.slice(0, 7) : '';
+      batch.forEach((p) => {
+        const month = p.publication_date ? p.publication_date.slice(0, 7) : '';
+        if (month && month !== lastMonth) {
+          const d = new Date(p.publication_date + 'T00:00:00');
+          const label = d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+          html += `<h3 class="thought-date-group">${label}</h3>`;
+          lastMonth = month;
+        }
+        html += renderCardHtml(p);
+      });
+    } else {
+      html = batch.map((p) => renderCardHtml(p)).join('');
+    }
     listEl.insertAdjacentHTML('beforeend', html);
 
     // Attach Slack handlers on new cards
