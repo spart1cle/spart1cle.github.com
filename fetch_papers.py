@@ -124,6 +124,9 @@ def main():
             data = fetch_interactions(session, "positive", page)
         except requests.HTTPError as e:
             print(f"Request failed: {e}", file=sys.stderr)
+            if e.response is not None and e.response.status_code == 400:
+                print("Ran out of pages to retrieve.", file=sys.stderr)
+                break
             if e.response is not None and e.response.status_code in (401, 403):
                 print("Session cookie may be expired. Log in again and get a fresh cookie.", file=sys.stderr)
             sys.exit(1)
