@@ -3,7 +3,7 @@
     "id": "1775142016461",
     "type": "link",
     "date": "2026-04-02",
-    "text": "Generalist's latest milestone in scaling robot learning: **GEN-1**. [[Blog](https://generalistai.com/blog/apr-02-2026-GEN-1)]\n> GEN-1 can begin to master simple tasks - on several tasks the model now exceeds 99% success rates (reliability), can complete tasks up to ~3x faster than the prior SOTA (speed), and exhibits a broad range of emergent behaviors to recover in unexpected scenarios (improvisation). In each case, these results require only approximately 1 hr of robot data.",
+    "text": "Generalist's latest milestone in scaling robot learning: **GEN-1**: Scaling Embodied Foundation Models to Mastery. [[Blog](https://generalistai.com/blog/apr-02-2026-GEN-1)]\n> GEN-1 can begin to master simple tasks - on several tasks the model now exceeds 99% success rates (reliability), can complete tasks up to ~3x faster than the prior SOTA (speed), and exhibits a broad range of emergent behaviors to recover in unexpected scenarios (improvisation). In each case, these results require only approximately 1 hr of robot data.",
     "url": "https://youtu.be/SY2xyrmV44Y",
     "tags": [
       "video",
