@@ -1,5 +1,23 @@
 [
   {
+    "id": "1775222901357",
+    "type": "link",
+    "date": "2026-04-03",
+    "text": "A whole bunch of good world models coverage out of latent.space",
+    "url": "https://www.latent.space/p/moonlake",
+    "tags": [
+      "world models",
+      "video",
+      "research"
+    ],
+    "preview": {
+      "title": "Moonlake: Causal World Models should be Multimodal, Interactive, and Efficient — with Chris Manning and Fan-yun Sun",
+      "description": "We cap out our World Models coverage with one of the most exciting new approaches - long running, multiplayer, interactive world models built with agents bootstrapped from game engines!",
+      "image": "https://substackcdn.com/image/fetch/$s_!hIXC!,w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-video.s3.amazonaws.com%2Fvideo_upload%2Fpost%2F192967759%2F11249de6-d9db-4b15-8219-44750548a026%2Ftranscoded-1775151119.png",
+      "domain": "latent.space"
+    }
+  },
+  {
     "id": "1775217816884",
     "type": "link",
     "date": "2026-04-03",
