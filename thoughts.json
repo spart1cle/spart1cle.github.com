@@ -1,5 +1,24 @@
 [
   {
+    "id": "1775327894919",
+    "type": "link",
+    "date": "2026-04-04",
+    "text": "Great video out of [Welch Labs](https://www.welchlabs.com/) on VLAs: **The Moment that Reset Robotics**. Also check out their recent book the [Illustrated Guide to AI](https://www.welchlabs.com/ai-book).",
+    "url": "https://youtu.be/2mrGMMmrVNE",
+    "tags": [
+      "video",
+      "vla",
+      "robotics",
+      "book"
+    ],
+    "preview": {
+      "title": "watch?v=2mrGMMmrVNE&app=desktop",
+      "description": "",
+      "image": "https://img.youtube.com/vi/2mrGMMmrVNE/maxresdefault.jpg",
+      "domain": "youtu.be"
+    }
+  },
+  {
     "id": "1775222901357",
     "type": "link",
     "date": "2026-04-03",
