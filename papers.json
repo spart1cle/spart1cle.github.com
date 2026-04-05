@@ -28,10 +28,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166541,
-        "name": "Survey",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#ffad46"
+        "color": "#4986e7"
       },
       {
         "id": 166537,
@@ -40,10 +40,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166541,
+        "name": "Survey",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#ffad46"
       }
     ],
     "total_read": 61,
@@ -176,16 +176,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 85,
@@ -299,16 +299,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166541,
-        "name": "Survey",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166541,
+        "name": "Survey",
+        "readonly": false,
+        "color": "#ffad46"
       }
     ],
     "total_read": 52,
@@ -402,7 +402,7 @@
     "authors": "Junbang Liang, Pavel Tokmakov, Ruoshi Liu, Sruthi Sudhakar, Paarth Shah, Rares Andrei Ambrus, Carl Vondrick",
     "url": "https://openreview.net/pdf/cdf5affcaceddafbd0c7100e9ca873e764edfd23.pdf",
     "abstract": "Despite tremendous progress in dexterous manipulation, current visuomotor policies remain fundamentally limited by two challenges: they struggle to generalize under perceptual or behavioral distribution shifts, and their performance is constrained by the size of human demonstration data. In this paper, we use video generation as a proxy for robot policy learning to address both limitations simultaneously.\nWe propose Video Policy, a modular framework that combines video and action generation that can be trained end-to-end. Our results demonstrate that learning to generate videos of robot behavior allows for the extraction of policies with minimal demonstration data, significantly improving robustness and sample efficiency. Our method shows strong generalization to unseen objects, backgrounds, and tasks, both in simulation and the real world. We further highlight that task success is closely tied to the generated video, with action-free video data providing critical benefits for generalizing to novel tasks. By leveraging large-scale video generative models, we achieve superior performance compared to recent VLAs and video-action models, paving the way for more scalable and data-efficient robot policy learning.",
-    "publication_date": "2026-01-01",
+    "publication_date": "2025-08-01",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2508.00795",
@@ -425,16 +425,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       },
       {
         "id": 166824,
@@ -544,6 +544,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
@@ -554,12 +560,6 @@
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
       },
       {
         "id": 166539,
@@ -638,16 +638,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       },
       {
         "id": 166545,
@@ -711,7 +711,7 @@
     "authors": "Haoyu Zhen ,  Qiao Sun ,  Hongxin Zhang ,  Junyan Li ,  Siyuan Zhou ,  Yilun Du ,  Chuang Gan",
     "url": "https://openaccess.thecvf.com//content/ICCV2025/papers/Zhen_Learning_4D_Embodied_World_Models_ICCV_2025_paper.pdf",
     "abstract": "This paper presents an effective approach for learning novel 4D embodied world models, which predict the dynamic evolution of 3D scenes over time in response to an embodied agent's actions, providing both spatial and temporal consistency. We propose to learn a 4D world model by training on RGB-DN (RGB, Depth, and Normal) videos.This not only surpasses traditional 2D models by incorporating detailed shape, configuration, and temporal changes into their predictions, but also allows us to effectively learn accurate inverse dynamic models for an embodied agent. Specifically, we first extend existing robotic manipulation video datasets with depth and normal information leveraging off-the-shelf models. Next, we fine-tune a video generation model on this annotated dataset, which jointly predicts RGB-DN (RGB, Depth, and Normal) for each frame. We then present an algorithm to directly convert generated RGB, Depth, and Normal videos into a high-quality 4D scene of the world. Our method ensures temporal and spatial coherence in 4D scene predictions from embodied scenarios, enables novel view synthesis for embodied environments, and facilitates policy learning that significantly outperforms those derived from prior video-based world models.",
-    "publication_date": "2025-10-15",
+    "publication_date": "2025-04-29",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2504.20995",
@@ -898,28 +898,28 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
-        "id": 166546,
-        "name": "Diffusion",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
       },
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
       }
     ],
     "total_read": 138,
@@ -1024,12 +1024,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166824,
-        "name": "Policy",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
@@ -1040,6 +1034,12 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
       }
     ],
     "total_read": 165,
@@ -1107,12 +1107,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
@@ -1123,6 +1117,12 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 80,
@@ -1195,18 +1195,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
@@ -1217,6 +1205,18 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 68,
@@ -1537,8 +1537,14 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
       },
@@ -1549,16 +1555,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
       }
     ],
     "total_read": 70,
@@ -1680,7 +1680,7 @@
     "authors": "Robert McCarthy, Daniel C.H. Tan, Dominik Schmidt, Fernando Acero, Nathan Herr, Yilun Du, Thomas G. Thuruthel, Zhibin Li",
     "url": "https://arxiv.org/pdf/2404.19664",
     "abstract": "Scaling deep learning to massive and diverse internet data has driven remarkable breakthroughs in domains such as video generation and natural language processing.\nRobot learning, however, has thus far failed to replicate this success and remains constrained by a scarcity of available data.\nLearning from Videos (LfV) methods aim to address this data bottleneck by augmenting traditional robot data with large-scale internet video.\nThis video data provides foundational information regarding physical dynamics, behaviours, and tasks, and can be highly informative for general-purpose robots.\n\nThis survey systematically examines the emerging field of LfV.\nWe first outline essential concepts, including detailing fundamental LfV challenges such as distribution shift and missing action labels in video data.\nNext, we comprehensively review current methods for extracting knowledge from large-scale internet video, overcoming LfV challenges, and improving robot learning through video-informed training.\nThe survey concludes with a critical discussion of future opportunities.\nHere, we emphasize the need for scalable foundation model approaches that can leverage the full range of available internet video and enhance the learning of robot policies and dynamics models.\nOverall, the survey aims to inform and catalyse future LfV research, driving progress towards general-purpose robots.",
-    "publication_date": "2025-07-23",
+    "publication_date": "2024-04-30",
     "pdf_download_success": true,
     "citations": 10.0,
     "arxiv_id": "2404.19664",
@@ -1703,16 +1703,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166824,
-        "name": "Policy",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
       },
       {
         "id": 166541,
@@ -1920,16 +1920,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 38,
@@ -2153,16 +2153,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -2305,12 +2305,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
@@ -2321,6 +2315,12 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 48,
@@ -2450,7 +2450,7 @@
     "authors": "Weifan Guan, Qinghao Hu, Aosheng Li, Jian Cheng",
     "url": "https://arxiv.org/pdf/2510.17111",
     "abstract": "Vision-Language-Action (VLA) models extend vision-language models to embodied control by mapping natural-language instructions and visual observations to robot actions. Despite their capabilities, VLA systems face significant challenges due to their massive computational and memory demands, which conflict with the constraints of edge platforms such as on-board mobile manipulators that require real-time performance. Addressing this tension has become a central focus of recent research. In light of the growing efforts toward more efficient and scalable VLA systems, this survey provides a systematic review of approaches for improving VLA efficiency, with an emphasis on reducing latency, memory footprint, and training and inference costs. We categorize existing solutions into four dimensions: model architecture, perception feature, action generation, and training/inference strategies, summarizing representative techniques within each category. Finally, we discuss future trends and open challenges, highlighting directions for advancing efficient embodied intelligence.",
-    "publication_date": "2025-10-23",
+    "publication_date": "2025-10-20",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2510.17111",
@@ -2473,16 +2473,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#f691b2"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
+        "color": "#4986e7"
       },
       {
         "id": 166541,
@@ -2491,10 +2485,16 @@
         "color": "#ffad46"
       },
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 31,
@@ -2610,10 +2610,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#f691b2"
       },
       {
         "id": 166548,
@@ -2622,16 +2622,16 @@
         "color": "#b99aff"
       },
       {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "total_read": 90,
@@ -2752,20 +2752,14 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166548,
         "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
         "color": "#b99aff"
       },
@@ -2776,10 +2770,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#ff7537"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
       }
     ],
     "total_read": 81,
@@ -3157,7 +3157,7 @@
     "authors": "Thadd\u00e4us Wiedemer, Yuxuan Li, Paul Vicol, Shixiang Shane Gu, Nick Matarese, Kevin Swersky, Been Kim, Priyank Jaini, Robert Geirhos",
     "url": "https://arxiv.org/pdf/2509.20328",
     "abstract": "The remarkable zero-shot capabilities of Large Language Models (LLMs) have propelled natural language processing from task-specific models to unified, generalist foundation models. This transformation emerged from simple primitives: large, generative models trained on web-scale data. Curiously, the same primitives apply to today's generative video models. Could video models be on a trajectory towards general-purpose vision understanding, much like LLMs developed general-purpose language understanding? We demonstrate that Veo 3 can solve a broad variety of tasks it wasn't explicitly trained for: segmenting objects, detecting edges, editing images, understanding physical properties, recognizing object affordances, simulating tool use, and more. These abilities to perceive, model, and manipulate the visual world enable early forms of visual reasoning like maze and symmetry solving. Veo's emergent zero-shot capabilities indicate that video models are on a path to becoming unified, generalist vision foundation models.",
-    "publication_date": "2025-09-29",
+    "publication_date": "2025-09-24",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2509.20328",
@@ -3481,14 +3481,8 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
-        "id": 166538,
-        "name": "RL",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
         "color": "#b99aff"
       },
@@ -3499,8 +3493,14 @@
         "color": "#16a765"
       },
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
         "color": "#b99aff"
       }
@@ -3640,16 +3640,16 @@
         "color": "#16a765"
       },
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 91,
@@ -3755,16 +3755,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 168532,
         "name": "Data",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 18,
@@ -3918,16 +3918,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166541,
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       },
       {
         "id": 166540,
@@ -4149,16 +4149,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166824,
-        "name": "Policy",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
+      },
+      {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
       },
       {
         "id": 166539,
@@ -4383,10 +4383,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       },
       {
         "id": 166824,
@@ -4395,16 +4395,16 @@
         "color": "#16a765"
       },
       {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "total_read": 60,
@@ -4530,16 +4530,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 128,
@@ -4716,10 +4716,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#b99aff"
       },
       {
         "id": 166537,
@@ -4728,10 +4728,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -4855,7 +4855,7 @@
     "authors": "Moo Jin Kim, Yihuai Gao, Tsung-Yi Lin, Yen-Chen Lin, Yunhao Ge, Grace Lam, Percy Liang, Shuran Song, Ming-Yu Liu, Chelsea Finn, Jinwei Gu",
     "url": "https://openreview.net/pdf/2ed054bb4e6122ecbc757ad979ada03813e0dc2b.pdf",
     "abstract": "Recent video generation models demonstrate remarkable ability to capture complex physical interactions and scene evolution over time. To leverage their spatiotemporal priors, robotics works have adapted video models for policy learning but introduce complexity by requiring multiple stages of post-training and new architectural components for action generation. In this work, we introduce Cosmos Policy, a simple approach for adapting a large pretrained video model (Cosmos-Predict2) into an effective robot policy through a single stage of post-training on the robot demonstration data collected on the target platform, with no architectural modifications. Cosmos Policy learns to directly generate robot actions encoded as latent frames within the video model's latent diffusion process, harnessing the model's pretrained priors and core learning algorithm to capture complex action distributions. Additionally, Cosmos Policy generates future state images and values (expected cumulative rewards), which are similarly encoded as latent frames, enabling test-time planning of action trajectories with higher likelihood of success. In our evaluations, Cosmos Policy achieves state-of-the-art performance on the LIBERO and RoboCasa simulation benchmarks (98.5\\% and 67.1\\% average success rates, respectively) and the highest average score in challenging real-world bimanual manipulation tasks, outperforming strong diffusion policies trained from scratch, video model-based policies, and state-of-the-art vision-language-action models fine-tuned on the same robot demonstrations. Furthermore, given policy rollout data, Cosmos Policy can learn from experience to refine its world model and value function and leverage model-based planning to achieve even higher success rates in challenging tasks. We release code, models, and training data at <a href='https://research.nvidia.com/labs/dir/cosmos-policy/' target='_blank'>https://research.nvidia.com/labs/dir/cosmos-policy/</a>.",
-    "publication_date": "2026-03-30",
+    "publication_date": "2026-01-22",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2601.16163",
@@ -4878,12 +4878,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
@@ -4894,6 +4888,12 @@
         "name": "Policy",
         "readonly": false,
         "color": "#16a765"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 219,
@@ -5006,16 +5006,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 36,
@@ -5124,12 +5124,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166544,
         "name": "Reasoning",
         "readonly": false,
@@ -5140,9 +5134,15 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
-    "total_read": 59,
+    "total_read": 60,
     "total_likes": 8,
     "category": "Machine Learning",
     "arxives_doi": null,
@@ -5207,6 +5207,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -5217,12 +5223,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
       }
     ],
     "total_read": 34,
@@ -5365,16 +5365,16 @@
         "color": "#4986e7"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 16,
@@ -5447,6 +5447,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 168532,
+        "name": "Data",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -5457,12 +5463,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 168532,
-        "name": "Data",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 56,
@@ -5623,7 +5623,7 @@
     "authors": "Tal Daniel, Carl Qi, Dan Haramati, Amir Zadeh, Chuan Li, Aviv Tamar, Deepak Pathak, David Held",
     "url": "https://openreview.net/pdf/bf43c2f4cc1544b5b4e24bfe3795d5514ca25ef6.pdf",
     "abstract": "We introduce Latent Particle World Model (LPWM), a self-supervised object-centric world model scaled to real-world multi-object datasets and applicable in decision-making. LPWM autonomously discovers keypoints, bounding boxes, and object masks directly from video data, enabling it to learn rich scene decompositions without supervision. Our architecture is trained end-to-end purely from videos and supports flexible conditioning on actions, language, and image goals. LPWM models stochastic particle dynamics via a novel latent action module and achieves state-of-the-art results on diverse real-world and synthetic datasets. Beyond stochastic video modeling, LPWM is readily applicable to decision-making, including goal-conditioned imitation learning, as we demonstrate in the paper. Code, data, pre-trained models and video rollouts are available: <a href='https://taldatech.github.io/lpwm-web' target='_blank'>https://taldatech.github.io/lpwm-web</a>",
-    "publication_date": "2026-03-30",
+    "publication_date": "2026-03-04",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2603.04553",
@@ -5985,12 +5985,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -6001,6 +5995,12 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 51,
@@ -6574,7 +6574,7 @@
     "authors": "Luke Rowe, Rodrigue de Schaetzen, Roger Girgis, Christopher Pal, Liam Paull",
     "url": "https://arxiv.org/pdf/2506.11234",
     "abstract": "Maintaining good driving behavior in out-of-distribution scenarios remains a critical challenge in autonomous driving. A promising direction is to leverage the generalist knowledge and reasoning capabilities of large-language models by treating unusual driving scenarios as a logical reasoning task. In this work, we present Poutine, a method that uses an off-the-shelf 3B-parameter vision-language model (VLM) - without any additional components - to achieve robust end-to-end autonomous driving via a simple and scalable training recipe. To learn strong base driving capabilities, we first train Poutine-Base using self-supervised next-token prediction over vision, language, and trajectory (VLT) tokens, leveraging both nominal and long-tail driving data. In the second stage, we fine-tune Poutine-Base using Group Relative Policy Optimization (GRPO) with a small set of human preference-labeled examples. We evaluated our approach on the Waymo end-to-end driving benchmark curated for long-tail scenarios. The final Poutine model achieves an RFS of 7.99 on the test set, placing 1st in the 2025 Waymo Vision-Based End-to-End Driving Challenge by a significant margin. Our results suggest that handcrafted tokenizers or custom architectural components added to base VLMs in prior work are not necessary to achieve strong driving performance. Instead, this work highlights the potential of scalable VLT pretraining combined with lightweight RL fine-tuning to enable robust and generalizable autonomous driving.",
-    "publication_date": "2025-11-06",
+    "publication_date": "2025-06-12",
     "pdf_download_success": true,
     "citations": null,
     "arxiv_id": "2506.11234",
@@ -6597,10 +6597,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#ff7537"
       },
       {
         "id": 166540,
@@ -6621,10 +6621,10 @@
         "color": "#b6cff5"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#b99aff"
       }
     ],
     "total_read": 58,
@@ -6857,16 +6857,16 @@
         "color": "#b99aff"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 51,
@@ -6940,16 +6940,16 @@
         "color": "#cca6ac"
       },
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 24,
@@ -7121,16 +7121,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 106,
@@ -7394,12 +7394,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -7410,6 +7404,12 @@
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 46,
@@ -7537,6 +7537,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -7547,12 +7553,6 @@
         "name": "Prediction",
         "readonly": false,
         "color": "#cca6ac"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "total_read": 26,
@@ -7785,10 +7785,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
-        "color": "#2da2bb"
+        "color": "#b99aff"
       },
       {
         "id": 166821,
@@ -7797,22 +7797,22 @@
         "color": "#4986e7"
       },
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166544,
         "name": "Reasoning",
         "readonly": false,
         "color": "#b6cff5"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166540,
+        "name": "AD",
         "readonly": false,
-        "color": "#b99aff"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
+        "color": "#2da2bb"
       }
     ],
     "total_read": 69,
@@ -7910,10 +7910,10 @@
         "color": "#4986e7"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       },
       {
         "id": 166538,
@@ -7922,10 +7922,10 @@
         "color": "#b99aff"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       }
     ],
     "total_read": 24,
@@ -8033,16 +8033,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 20,
@@ -8323,28 +8323,28 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
         "color": "#16a765"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 16,
@@ -8700,16 +8700,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
       },
       {
         "id": 166569,
@@ -8875,16 +8875,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166546,
+        "name": "Diffusion",
         "readonly": false,
-        "color": "#f691b2"
-      },
-      {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
+        "color": "#16a765"
       },
       {
         "id": 166572,
@@ -8893,10 +8887,16 @@
         "color": "#ffad46"
       },
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#4986e7"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 61,
@@ -9018,6 +9018,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -9028,12 +9034,6 @@
         "name": "MoE",
         "readonly": false,
         "color": "#b6cff5"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 10,
@@ -9101,10 +9101,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       },
       {
         "id": 166546,
@@ -9113,16 +9113,16 @@
         "color": "#16a765"
       },
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
-      },
-      {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 52,
@@ -9314,16 +9314,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166544,
         "name": "Reasoning",
         "readonly": false,
         "color": "#b6cff5"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -9490,12 +9490,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -9506,6 +9500,12 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 8,
@@ -9643,6 +9643,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -9653,12 +9659,6 @@
         "name": "Policy",
         "readonly": false,
         "color": "#16a765"
-      },
-      {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
       }
     ],
     "total_read": 65,
@@ -9780,14 +9780,14 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
         "color": "#b99aff"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
         "color": "#b99aff"
       },
@@ -10006,16 +10006,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 82,
@@ -10155,12 +10155,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166549,
         "name": "GSplat",
         "readonly": false,
@@ -10171,6 +10165,12 @@
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "total_read": 72,
@@ -10559,16 +10559,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 169181,
         "name": "Sim",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 55,
@@ -10684,16 +10684,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166541,
-        "name": "Survey",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166541,
+        "name": "Survey",
+        "readonly": false,
+        "color": "#ffad46"
       }
     ],
     "total_read": 264,
@@ -10994,12 +10994,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166820,
-        "name": "MoE",
-        "readonly": false,
-        "color": "#b6cff5"
-      },
-      {
         "id": 166569,
         "name": "MLLM",
         "readonly": false,
@@ -11010,6 +11004,12 @@
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166820,
+        "name": "MoE",
+        "readonly": false,
+        "color": "#b6cff5"
       }
     ],
     "total_read": 77,
@@ -11306,12 +11306,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
@@ -11322,6 +11316,12 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
       },
       {
         "id": 166539,
@@ -11605,10 +11605,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
+        "id": 166543,
+        "name": "VLM",
         "readonly": false,
-        "color": "#2da2bb"
+        "color": "#42d692"
       },
       {
         "id": 166542,
@@ -11617,10 +11617,10 @@
         "color": "#cca6ac"
       },
       {
-        "id": 166543,
-        "name": "VLM",
+        "id": 166540,
+        "name": "AD",
         "readonly": false,
-        "color": "#42d692"
+        "color": "#2da2bb"
       }
     ],
     "total_read": 45,
@@ -11952,12 +11952,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -11968,6 +11962,12 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 44,
@@ -12066,10 +12066,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166549,
-        "name": "GSplat",
+        "id": 166540,
+        "name": "AD",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#2da2bb"
       },
       {
         "id": 166542,
@@ -12078,10 +12078,10 @@
         "color": "#cca6ac"
       },
       {
-        "id": 166540,
-        "name": "AD",
+        "id": 166549,
+        "name": "GSplat",
         "readonly": false,
-        "color": "#2da2bb"
+        "color": "#f691b2"
       }
     ],
     "total_read": 78,
@@ -12318,18 +12318,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -12340,6 +12328,18 @@
         "name": "Diffusion",
         "readonly": false,
         "color": "#16a765"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "total_read": 10,
@@ -12473,16 +12473,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       },
       {
         "id": 166538,
@@ -12646,7 +12646,7 @@
         "color": "#b99aff"
       }
     ],
-    "total_read": 18,
+    "total_read": 19,
     "total_likes": 4,
     "category": "Machine Learning",
     "arxives_doi": null,
@@ -12867,12 +12867,6 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166569,
-        "name": "MLLM",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
@@ -12883,6 +12877,12 @@
         "name": "Distillation",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166569,
+        "name": "MLLM",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "total_read": 76,
@@ -12975,28 +12975,28 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
       },
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166540,
+        "name": "AD",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#2da2bb"
       },
       {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
       }
     ],
     "total_read": 14,
@@ -13131,6 +13131,12 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -13141,12 +13147,6 @@
         "name": "Reasoning",
         "readonly": false,
         "color": "#b6cff5"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "total_read": 10,
@@ -13269,10 +13269,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166543,
-        "name": "VLM",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#42d692"
+        "color": "#4986e7"
       },
       {
         "id": 166540,
@@ -13281,10 +13281,10 @@
         "color": "#2da2bb"
       },
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166543,
+        "name": "VLM",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#42d692"
       }
     ],
     "total_read": 48,
@@ -13486,10 +13486,10 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 168685,
+        "name": "Memory",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#b99aff"
       },
       {
         "id": 166539,
@@ -13498,10 +13498,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 168685,
-        "name": "Memory",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#ff7537"
       }
     ],
     "total_read": 83,
@@ -13917,16 +13917,16 @@
         "color": "#b6cff5"
       },
       {
-        "id": 166543,
-        "name": "VLM",
-        "readonly": false,
-        "color": "#42d692"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166543,
+        "name": "VLM",
+        "readonly": false,
+        "color": "#42d692"
       }
     ],
     "total_read": 38,
@@ -14497,16 +14497,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 16,
@@ -15191,16 +15191,16 @@
         "color": "#4986e7"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "total_read": 6,
@@ -15412,16 +15412,16 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166578,
         "name": "Prediction",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       },
       {
         "id": 166569,
@@ -15533,19 +15533,19 @@
     "bookmarked": 0,
     "user_paper_collections": [
       {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166549,
         "name": "GSplat",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
       }
     ],
-    "total_read": 212,
+    "total_read": 213,
     "total_likes": 49,
     "category": "Computer Vision and Graphics",
     "arxives_doi": null,
@@ -15727,16 +15727,16 @@
         "color": "#b6cff5"
       },
       {
-        "id": 166538,
-        "name": "RL",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
+      },
+      {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "total_read": 1,
