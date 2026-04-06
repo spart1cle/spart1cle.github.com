@@ -1,5 +1,22 @@
 [
   {
+    "id": "1775447665375",
+    "type": "link",
+    "date": "2026-04-06",
+    "text": "**Embodied AI Visuals**\nInteractive animations explaining core concepts in robotics and embodied intelligence.",
+    "url": "https://arpitg1304.github.io/embodied-ai-visuals/",
+    "tags": [
+      "robotics",
+      "vla"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "arpitg1304.github.io"
+    }
+  },
+  {
     "id": "1775327894919",
     "type": "link",
     "date": "2026-04-04",
