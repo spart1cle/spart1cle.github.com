@@ -1,5 +1,22 @@
 [
   {
+    "id": "1775508515353",
+    "type": "link",
+    "date": "2026-04-06",
+    "text": "A curated list of world models papers",
+    "url": "https://www.alphaxiv.org/shared/folder/019d1d1e-10b4-7400-85c0-ad3df50a5671",
+    "tags": [
+      "research",
+      "world models"
+    ],
+    "preview": {
+      "title": "World Models | alphaXiv",
+      "description": "Discuss, discover, and read arXiv papers.",
+      "image": "https://static.alphaxiv.org/logos/alphaxiv_logo.png",
+      "domain": "alphaxiv.org"
+    }
+  },
+  {
     "id": "1775447665375",
     "type": "link",
     "date": "2026-04-06",
