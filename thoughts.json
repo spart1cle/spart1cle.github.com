@@ -3,7 +3,7 @@
     "id": "1775447665375",
     "type": "link",
     "date": "2026-04-06",
-    "text": "**Embodied AI Visuals**\nInteractive animations explaining core concepts in robotics and embodied intelligence.",
+    "text": "**Embodied AI Visuals**\nInteractive animations explaining core concepts in robotics and embodied intelligence.\n> Pick a topic, click through the steps, see what's happening under the hood:\n> → How VLA models turn camera frames into robot actions\n> → Why sim-trained robots fail in the real world\n> → How diffusion policy turns noise into smooth trajectories\n> → Flow matching -- the faster alternative powering π0\n> → Reward shaping tradeoffs that make or break RL\n> → How video prediction drives robot planning\n> \n> There's also an interactive timeline of every major robot foundation model from CLIPort (2021) to π0.6 (2026).",
     "url": "https://arpitg1304.github.io/embodied-ai-visuals/",
     "tags": [
       "robotics",
