@@ -1,5 +1,22 @@
 [
   {
+    "id": "1775570804567",
+    "type": "link",
+    "date": "2026-04-07",
+    "text": "[Sergey Levine](https://scholar.google.com/citations?user=8R35rCwAAAAJ&hl=en), co-founder of [Physical Intelligence](https://www.pi.website/), joins the [ILTB](https://www.youtube.com/@ILTB_Podcast) show to discuss the frontier of general-purpose robotics.\n> Unlike traditional robots designed for specific tasks, Levine is building foundation models that enable robots to understand and interact with the physical world generally.",
+    "url": "https://youtu.be/qAEuCfgU6-I",
+    "tags": [
+      "video",
+      "startup"
+    ],
+    "preview": {
+      "title": "watch?v=qAEuCfgU6-I&app=desktop",
+      "description": "",
+      "image": "https://img.youtube.com/vi/qAEuCfgU6-I/maxresdefault.jpg",
+      "domain": "youtu.be"
+    }
+  },
+  {
     "id": "1775523946426",
     "type": "link",
     "date": "2026-04-07",
