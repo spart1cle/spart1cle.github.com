@@ -1,5 +1,23 @@
 [
   {
+    "id": "1775579415875",
+    "type": "link",
+    "date": "2026-04-07",
+    "text": "Pete Florence and the rest of the Generalist AI team explain more about the philosophy behind their GEN-1 model. \n> GEN-1 is not a fine-tuned vision-language model with robot actions bolted on, nor is it just a world model. It is a first-class-citizen, native foundation model for physical interaction. And there is growing evidence that if you have enough data and compute, training from scratch always wins.",
+    "url": "https://generalistai.com/blog/apr-07-2026-beyond-world-models",
+    "tags": [
+      "blog",
+      "research",
+      "vla"
+    ],
+    "preview": {
+      "title": "Going Beyond World Models & VLAs - Generalist AI",
+      "description": "Goals are more powerful than methods. We share our perspective on why GEN-1 is trained from scratch — and what lies beyond VLAs and world models.",
+      "image": "https://generalistai.com/blog/apr-07-2026-beyond-world-models/assets/generalist-whats-beyond-world-models.png",
+      "domain": "generalistai.com"
+    }
+  },
+  {
     "id": "1775572777504",
     "type": "link",
     "date": "2026-04-07",
