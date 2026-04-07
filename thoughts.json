@@ -1,5 +1,23 @@
 [
   {
+    "id": "1775572777504",
+    "type": "link",
+    "date": "2026-04-07",
+    "text": "**The flavor of the bitter lesson for computer vision**, by [Vincent Sitzmann](https://www.vincentsitzmann.com/), MIT professor and lead of the  [Scene Representation Group](https://www.scenerepresentations.org/) at MIT CSAIL. His take is completely spot on here.",
+    "url": "https://www.vincentsitzmann.com/blog/bitter_lesson_of_cv/",
+    "tags": [
+      "blog",
+      "research",
+      "world models"
+    ],
+    "preview": {
+      "title": "The flavor of the bitter lesson for computer vision - Vincent Sitzmann",
+      "description": "Personal website",
+      "image": "https://www.vincentsitzmann.com/_astro/vincent.Dvoy81k6.jpg",
+      "domain": "vincentsitzmann.com"
+    }
+  },
+  {
     "id": "1775570804567",
     "type": "link",
     "date": "2026-04-07",
