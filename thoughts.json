@@ -1,5 +1,23 @@
 [
   {
+    "id": "1775523946426",
+    "type": "link",
+    "date": "2026-04-07",
+    "text": "Nice blog post about testing out $\\pi_0$ that somehow I missed seeing last year.",
+    "url": "https://penn-pal-lab.github.io/Pi0-Experiment-in-the-Wild/",
+    "tags": [
+      "blog",
+      "vla",
+      "research"
+    ],
+    "preview": {
+      "title": "Evaluating \\( \\pi_0 \\) in the Wild: Strengths, Problems, and the Future of Generalist Robot Policies",
+      "description": "Evaluating pi0 in the Wild @ GRASP Lab: Strengths, Problems, and the Future of Generalist Robot Policies",
+      "image": "https://penn-pal-lab.github.io/Pi0-Experiment-in-the-Wild/static/images/lab_setup.jpg",
+      "domain": "penn-pal-lab.github.io"
+    }
+  },
+  {
     "id": "1775508515353",
     "type": "link",
     "date": "2026-04-06",
