@@ -1,5 +1,23 @@
 [
   {
+    "id": "1775582370680",
+    "type": "link",
+    "date": "2026-04-07",
+    "text": "**Unfolding Robotics**:\nThe Open-Source Recipe for Teaching a Robot to Fold Your Clothes\n> Time to unfold robotics: we trained a robot to fold clothes using 8 bimanual setups, 100+ hours of demonstrations, and 5k+ GPU hours.\n\n> Flashy robot demos are everywhere. But you rarely see the real story: the data, the failures, the engineering.\n\n> The blog walks through the entire process:\n> → Which robot, cameras, and teleoperation setup we used\n> → How to gather high-quality demonstrations\n> → Which model architecture and training recipe performed best\n> → What we learned, and what we'd do differently\n\n> Everything is open-source and ready to use in LeRobot v0.5.1.",
+    "url": "https://huggingface.co/spaces/lerobot/robot-folding",
+    "tags": [
+      "blog",
+      "code",
+      "robotics"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "huggingface.co"
+    }
+  },
+  {
     "id": "1775579415875",
     "type": "link",
     "date": "2026-04-07",
