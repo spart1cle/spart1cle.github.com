@@ -1,5 +1,22 @@
 [
   {
+    "id": "1775652926547",
+    "type": "link",
+    "date": "2026-04-08",
+    "text": "The Bitter Lesson is coming for optimizers, too. We are currently stuck in the \"feature engineering\" era of optimization.",
+    "url": "https://sifal.social/posts/Towards-a-Bitter-Lesson-of-Optimization-When-Neural-Networks-Write-Their-Own-Update-Rules/",
+    "tags": [
+      "blog",
+      "research"
+    ],
+    "preview": {
+      "title": "Towards a Bitter Lesson of Optimization: When Neural Networks Write Their Own Update Rules",
+      "description": "We explore what can be the future of neural network parameter optimization",
+      "image": "https://mosthumble.github.io/assets/img/posts/2026-04-07-towards-a-bitter-lesson-of-optimization/thumb.png",
+      "domain": "sifal.social"
+    }
+  },
+  {
     "id": "1775583373051",
     "type": "link",
     "date": "2026-04-07",
