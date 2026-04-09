@@ -1,5 +1,24 @@
 [
   {
+    "id": "1775757521043",
+    "type": "link",
+    "date": "2026-04-09",
+    "text": "[Mac Schwager](https://scholar.google.com/citations?hl=en&user=-EqbTXoAAAAJ) presented **\"How General are Generalist Robot Policies?\"** at the MIT Robotics Seminar this past week. His lab recently published a [paper](https://arxiv.org/abs/2603.25038) showing how to adapt $\\pi_0$ to fly UAVs for aerial manipulation.",
+    "url": "https://youtu.be/C4NQNeSO2vs",
+    "tags": [
+      "video",
+      "vla",
+      "robotics",
+      "research"
+    ],
+    "preview": {
+      "title": "Mac Schwager: How General are Generalist Robot Policies?",
+      "description": "",
+      "image": "https://i.ytimg.com/vi/C4NQNeSO2vs/hqdefault.jpg",
+      "domain": "youtu.be"
+    }
+  },
+  {
     "id": "1775652926547",
     "type": "link",
     "date": "2026-04-08",
