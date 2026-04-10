@@ -1,5 +1,23 @@
 [
   {
+    "id": "1775789293552",
+    "type": "link",
+    "date": "2026-04-10",
+    "text": "NVIDIA just dropped **[RoboLab](https://blogs.nvidia.com/blog/national-robotics-week-2026/?ncid=so-face-322818-vt48&linkId=100000416855292#robolab)**: Benchmarking the Next Generation of Generalist Robots\n> Generalist robot policies need a benchmark that works across any robot and any policy.\n> \n> Introducing RoboLab, a high‑fidelity simulation benchmark built on NVIDIA Isaac and Omniverse to evaluate generalist robot policies in diverse, photoreal, physics‑based environments.\n> \n> Coming soon to the NVIDIA Isaac Lab‑Arena roadmap for large‑scale, robotic policy evaluation.",
+    "url": "https://blogs.nvidia.com/blog/national-robotics-week-2026/?ncid=so-face-322818-vt48&linkId=100000416855292#robolab",
+    "tags": [
+      "robotics",
+      "news",
+      "research"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "blogs.nvidia.com"
+    }
+  },
+  {
     "id": "1775769423917",
     "type": "link",
     "date": "2026-04-09",
