@@ -1,5 +1,22 @@
 [
   {
+    "id": "1776120036788",
+    "type": "link",
+    "date": "2026-04-13",
+    "text": "A bit of philosophy from the venerable Terence Tao on mathematics and human thought in the age of AI.",
+    "url": "https://arxiv.org/abs/2603.26524",
+    "tags": [
+      "mathematics",
+      "paper"
+    ],
+    "preview": {
+      "title": "Mathematical methods and human thought in the age of AI",
+      "description": "Artificial intelligence (AI) is the name popularly given to a broad spectrum of computer tools designed to perform increasingly complex cognitive tasks, including many that used to solely be the province of humans. As these tools become exponentially sophisticated and pervasive, the justifications for their rapid development and integration into society are frequently called into question, particularly as they consume finite resources and pose existential risks to the livelihoods of those skilled individuals they appear to replace. In this paper, we consider the rapidly evolving impact of AI to the traditional questions of philosophy with an emphasis on its application in mathematics and on the broader real-world outcomes of its more general use. We assert that artificial intelligence is a natural evolution of human tools developed throughout history to facilitate the creation, organization, and dissemination of ideas, and argue that it is paramount that the development and application of AI remain fundamentally human-centered. With an eye toward innovating solutions to meet human needs, enhancing the human quality of life and expanding the capacity for human thought and understanding, we propose a pathway to integrating AI into our most challenging and intellectually rigorous fields to the benefit of all humankind.",
+      "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
+      "domain": "arxiv.org"
+    }
+  },
+  {
     "id": "1776093507989",
     "type": "link",
     "date": "2026-04-13",
