@@ -1,5 +1,22 @@
 [
   {
+    "id": "1776093507989",
+    "type": "link",
+    "date": "2026-04-13",
+    "text": "A new Stanford class \"**CME 296: Diffusion & Large Vision Models**\" is now available!\n\nTwin brothers Shervine and Afshine Amidi are teaching the class this Spring, which is being recorded.\n\nTopics of the class include:\n• Generation paradigms (diffusion, score matching, flow matching)\n• Multimodal guided generation (latent diffusion with VAEs, contrastive learning, CFG)\n• Architectures (U-Net, Diffusion Transformer, Multimodal Diffusion Transformer)\n• Training (pre-training, post-training, tuning, distillation, optimizations)\n• Common tricks (RoPE-based emebddings, noise schedule, curriculum learning)\n• Evaluation (FID, IS, LPIPS and feature-based metrics, Multimodal LLMs)",
+    "url": "https://cme296.stanford.edu/",
+    "tags": [
+      "course",
+      "video"
+    ],
+    "preview": {
+      "title": "CME 296 - Diffusion & Large Vision Models",
+      "description": "This course explores diffusion-based generative models for vision. You will study the foundations of diffusion, score matching and flow matching, modern architectures such as U-Nets and Diffusion Transformers, and methods for controllable image generation and evaluation. The course combines theory with practical insights into state-of-the-art generative models. Ideal for students with a background in linear algebra, probability, calculus and machine learning.",
+      "image": "https://cme296.stanford.edu/doks-theme/assets/images/layout/logo.png?ca9598a67330bee10ff699bfb2078d7d",
+      "domain": "cme296.stanford.edu"
+    }
+  },
+  {
     "id": "1775789293552",
     "type": "link",
     "date": "2026-04-10",
