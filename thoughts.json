@@ -165,12 +165,14 @@
     "id": "1775769423917",
     "type": "link",
     "date": "2026-04-09",
-    "text": "Nathan Lambert's book on Reinforcement Learning from Human Feedback is finished!",
+    "text": "Nathan Lambert's book on Reinforcement Learning from Human Feedback is finished! He also released a free companion [course](https://rlhfbook.com/course#lectures).",
     "url": "https://arxiv.org/abs/2504.12501",
     "tags": [
       "book",
       "news",
-      "rl"
+      "rl",
+      "course",
+      "video"
     ],
     "preview": {
       "title": "Reinforcement Learning from Human Feedback",
