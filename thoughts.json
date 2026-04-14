@@ -1,5 +1,22 @@
 [
   {
+    "id": "1776171935103",
+    "type": "link",
+    "date": "2026-04-14",
+    "text": "The latest AI Index report out of [Stanford HAI](https://hai.stanford.edu/)\n\n> AI's influence on society has never been more pronounced.\n> \n> At Stanford HAI, we believe AI is poised to be the most transformative technology of the 21st century. But its benefits won't be evenly distributed unless we guide its development thoughtfully. The AI Index offers one of the most comprehensive, data-driven views of artificial intelligence.",
+    "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+    "tags": [
+      "news",
+      "paper"
+    ],
+    "preview": {
+      "title": "The 2026 AI Index Report | Stanford HAI",
+      "description": "Your browser does not support the video tag.",
+      "image": "https://hai.stanford.edu/assets/images/aiindex2026_2-x-3_1.jpg",
+      "domain": "hai.stanford.edu"
+    }
+  },
+  {
     "id": "1776168504085",
     "type": "link",
     "date": "2026-04-14",
