@@ -1,5 +1,23 @@
 [
   {
+    "id": "1776180816171",
+    "type": "link",
+    "date": "2026-04-14",
+    "text": "Boston Dynamics collaboration with Google DeepMind is already paying off. Here they show the Gemini Robotics Embodied Reasoning model running on Spot.",
+    "url": "https://bostondynamics.com/blog/tools-for-your-to-do-list-with-spot-and-gemini-robotics/",
+    "tags": [
+      "blog",
+      "news",
+      "robotics"
+    ],
+    "preview": {
+      "title": "Tools for Your To Do List with Spot and Gemini Robotics | Boston Dynamics",
+      "description": "A recent demo shows Boston Dynamics Spot in a residential home, using Google’s visual-language model (VLM) Gemini Robotics-ER 1.5 for embodied reasoning.",
+      "image": "https://bostondynamics.com/wp-content/uploads/2026/03/spot-to-do-list.webp",
+      "domain": "bostondynamics.com"
+    }
+  },
+  {
     "id": "1776180053583",
     "type": "link",
     "date": "2026-04-14",
