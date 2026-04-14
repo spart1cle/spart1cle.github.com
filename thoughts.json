@@ -1,5 +1,23 @@
 [
   {
+    "id": "1776181253837",
+    "type": "link",
+    "date": "2026-04-14",
+    "text": "Naturally Google has their own update simultaneously announcing Gemini Robotics-ER 1.6.",
+    "url": "https://deepmind.google/blog/gemini-robotics-er-1-6/",
+    "tags": [
+      "blog",
+      "news",
+      "robotics"
+    ],
+    "preview": {
+      "title": "Gemini Robotics ER 1.6: Enhanced Embodied Reasoning",
+      "description": "Gemini Robotics ER 1.6 upgrades spatial reasoning and multi-view understanding, unlocking new capabilities like instrument reading for autonomous robots.",
+      "image": "https://lh3.googleusercontent.com/bQ5TgF2iHJq48mxL5ZVxz3KGmIhOj7c62H7WEWrHqIWGrMexTYoqtrAhF8z12ESUeAj4miWZrHKF-SpMkXG3VVqNtzfJDBULlkMZZw06k05QLuHCww=w1200-h630-n-nu-rw",
+      "domain": "deepmind.google"
+    }
+  },
+  {
     "id": "1776180816171",
     "type": "link",
     "date": "2026-04-14",
