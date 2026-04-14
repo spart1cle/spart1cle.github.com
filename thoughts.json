@@ -1,5 +1,23 @@
 [
   {
+    "id": "1776183370153",
+    "type": "link",
+    "date": "2026-04-14",
+    "text": "Scott Reed's April 13th guest lecture in Oier Mees' ETHZ Robot Learning course on \"**What is the right backbone for embodied agents?**\"",
+    "url": "https://youtu.be/fqkp_wkov6M",
+    "tags": [
+      "course",
+      "vla",
+      "video"
+    ],
+    "preview": {
+      "title": "Scott Reed: What Is The Right Backbone For Embodied Agents? [ETHZ Robot Learning 2026]",
+      "description": "",
+      "image": "https://i.ytimg.com/vi/fqkp_wkov6M/hqdefault.jpg",
+      "domain": "youtu.be"
+    }
+  },
+  {
     "id": "1776181253837",
     "type": "link",
     "date": "2026-04-14",
