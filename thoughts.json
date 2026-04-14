@@ -1,5 +1,25 @@
 [
   {
+    "id": "1776180053583",
+    "type": "link",
+    "date": "2026-04-14",
+    "text": "An exciting grassroots reading club on robotics and world models has sprung up in the Bay Area. They call themselves \"**Saturday Robotics**\". Recordings are being shared starting with the third meetup on robotic policy adaptation.",
+    "url": "https://youtu.be/JigXQg365lg",
+    "tags": [
+      "video",
+      "world models",
+      "robotics",
+      "research",
+      "paper"
+    ],
+    "preview": {
+      "title": "Saturday Robotics & World Model Reading Club 03: Robotic Policy Adaptation",
+      "description": "",
+      "image": "https://i.ytimg.com/vi/JigXQg365lg/hqdefault.jpg",
+      "domain": "youtu.be"
+    }
+  },
+  {
     "id": "1776171935103",
     "type": "link",
     "date": "2026-04-14",
