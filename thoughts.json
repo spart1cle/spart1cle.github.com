@@ -1,5 +1,24 @@
 [
   {
+    "id": "1776168504085",
+    "type": "link",
+    "date": "2026-04-14",
+    "text": "[mimic robotics](https://www.mimicrobotics.com/) just open sourced their **mimic-video** Video-Action Model (VAM) pipeline",
+    "url": "https://github.com/mimic-video/mimic-video",
+    "tags": [
+      "code",
+      "news",
+      "research",
+      "robotics"
+    ],
+    "preview": {
+      "title": "GitHub - mimic-video/mimic-video: Video-Action Models for Generalizable Robot Control Beyond VLAs",
+      "description": "Video-Action Models for Generalizable Robot Control Beyond VLAs - mimic-video/mimic-video",
+      "image": "https://opengraph.githubassets.com/f5eb36cad2da36f797ee4098348ce7d46b8e320405ae7a625d44ae6b6fad5064/mimic-video/mimic-video",
+      "domain": "github.com"
+    }
+  },
+  {
     "id": "1776120036788",
     "type": "link",
     "date": "2026-04-13",
