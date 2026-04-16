@@ -1,5 +1,22 @@
 [
   {
+    "id": "1776351171289",
+    "type": "link",
+    "date": "2026-04-16",
+    "text": "Claude Opus 4.7 has officially been announced",
+    "url": "https://www.anthropic.com/news/claude-opus-4-7",
+    "tags": [
+      "llm",
+      "news"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "anthropic.com"
+    }
+  },
+  {
     "id": "1776183370153",
     "type": "link",
     "date": "2026-04-14",
