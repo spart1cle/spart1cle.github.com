@@ -1,5 +1,29 @@
 [
   {
+    "id": "1776370849336",
+    "type": "link",
+    "date": "2026-04-16",
+    "text": "It's time for $\\pi_{0.7}$",
+    "url": "https://www.pi.website/blog/pi07",
+    "tags": [
+      "blog",
+      "news",
+      "paper",
+      "research",
+      "robotics",
+      "startup",
+      "vla",
+      "world models",
+      "video"
+    ],
+    "preview": {
+      "title": "A Steerable Model with Emergent Capabilities",
+      "description": "A steerable robotic foundation model that exhibits a step-change in generalization.",
+      "image": "https://physicalintelligence.company/images/pi07/pi07-og.png",
+      "domain": "pi.website"
+    }
+  },
+  {
     "id": "1776351171289",
     "type": "link",
     "date": "2026-04-16",
