@@ -1,5 +1,23 @@
 [
   {
+    "id": "1776448184641",
+    "type": "link",
+    "date": "2026-04-17",
+    "text": "NVIDIA Gr00t N1.7 early access release, now with their Cosmos Reason 2 model as the VLM backbone.",
+    "url": "https://huggingface.co/blog/nvidia/gr00t-n1-7",
+    "tags": [
+      "vla",
+      "news",
+      "robotics"
+    ],
+    "preview": {
+      "title": "",
+      "description": "",
+      "image": null,
+      "domain": "huggingface.co"
+    }
+  },
+  {
     "id": "1776370849336",
     "type": "link",
     "date": "2026-04-16",
