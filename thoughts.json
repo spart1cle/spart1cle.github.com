@@ -1,5 +1,24 @@
 [
   {
+    "id": "1776564795686",
+    "type": "link",
+    "date": "2026-04-19",
+    "text": "Another banger from LingBot and Robbyant Brain. **LingBot-Map**: Streaming 3D Reconstruction with Geometric Context Transformer.",
+    "url": "https://technology.robbyant.com/lingbot-map",
+    "tags": [
+      "paper",
+      "research",
+      "code",
+      "3dfm"
+    ],
+    "preview": {
+      "title": "Robbyant - Exploring the Frontiers of Embodied Intelligence | 蚂蚁灵波科技 - 探索具身智能的上限，打造物理世界的 AGI 平台",
+      "description": "Technology-driven and application-oriented. We build foundational large models for embodied AI: spatial perception (LingBot-Depth), VLA (LingBot-VLA), world models (LingBot-World), video action (LingBot-VA). Jointly embrace the new era of embodied intelligence. 技术驱动、场景导向，自研具身智能基础大模型，共迎具身智能新时代，共创幸福生活新场景。",
+      "image": null,
+      "domain": "technology.robbyant.com"
+    }
+  },
+  {
     "id": "1776483325809",
     "type": "link",
     "date": "2026-04-18",
