@@ -1,5 +1,23 @@
 [
   {
+    "id": "1776735128491",
+    "type": "link",
+    "date": "2026-04-21",
+    "text": "TRI released their VLM + VLA training framework called VLA Foundry",
+    "url": "https://tri-ml.github.io/vla_foundry/",
+    "tags": [
+      "code",
+      "robotics",
+      "vla"
+    ],
+    "preview": {
+      "title": "VLA Foundry - Vision-Language-Action Model Training Framework",
+      "description": "Jean Mercat*†, Sedrick Keh*†, Kushal Arora†, Isabella Huang†, Paarth Shah†, Haruki Nishimura, Shun Iwase, Katherine Liu†",
+      "image": "https://tri-ml.github.io/vla_foundry/assets/tri-logo-dark.png",
+      "domain": "tri-ml.github.io"
+    }
+  },
+  {
     "id": "1776564795686",
     "type": "link",
     "date": "2026-04-19",
