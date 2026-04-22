@@ -161,7 +161,7 @@
     "semantic_scholar_id": "31089f91d1351c5e3172802ccb1efa4ddabd706e",
     "category": "Computer Vision and Graphics",
     "citations": 0,
-    "total_read": 90,
+    "total_read": 91,
     "total_likes": 8,
     "total_dislikes": 0,
     "rating": 1,
@@ -176,6 +176,12 @@
         "color": "#cca6ac"
       },
       {
+        "id": 166572,
+        "name": "Distillation",
+        "readonly": false,
+        "color": "#ffad46"
+      },
+      {
         "id": 166824,
         "name": "Policy",
         "readonly": false,
@@ -186,12 +192,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166572,
-        "name": "Distillation",
-        "readonly": false,
-        "color": "#ffad46"
       }
     ],
     "display_venue": "ArXiv 2026 (April 16)",
@@ -325,16 +325,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166541,
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2025 (December 12)",
@@ -564,10 +564,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       },
       {
         "id": 166824,
@@ -576,10 +576,10 @@
         "color": "#16a765"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (January 1)",
@@ -684,8 +684,8 @@
         "color": "#f691b2"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
         "color": "#b99aff"
       },
@@ -696,8 +696,8 @@
         "color": "#ff7537"
       },
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
         "color": "#b99aff"
       }
@@ -797,6 +797,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -807,12 +813,6 @@
         "name": "Policy",
         "readonly": false,
         "color": "#16a765"
-      },
-      {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2025 (December 17)",
@@ -875,16 +875,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
       },
       {
         "id": 166547,
@@ -893,10 +893,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (February 17)",
@@ -964,10 +964,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -976,10 +976,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#4986e7"
       }
     ],
     "display_venue": "ArXiv 2026 (April 7)",
@@ -1255,10 +1255,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b99aff"
       },
       {
         "id": 166537,
@@ -1267,10 +1267,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2025 (October 8)",
@@ -1383,16 +1383,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
       }
     ],
     "display_venue": "ArXiv 2025 (June 2)",
@@ -1468,16 +1468,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#16a765"
-      },
-      {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -1486,10 +1480,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
       }
     ],
     "display_venue": "ArXiv 2026 (March 11)",
@@ -1589,6 +1589,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -1599,12 +1605,6 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (February 26)",
@@ -1765,16 +1765,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (April 13)",
@@ -2191,14 +2191,14 @@
         "color": "#f691b2"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166547,
+        "name": "VGen",
         "readonly": false,
         "color": "#ff7537"
       },
       {
-        "id": 166547,
-        "name": "VGen",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
       }
@@ -2340,14 +2340,20 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       },
       {
         "id": 166538,
         "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
         "color": "#b99aff"
       },
@@ -2358,16 +2364,10 @@
         "color": "#cca6ac"
       },
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (March 19)",
@@ -2489,6 +2489,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -2499,12 +2505,6 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
       }
     ],
     "display_venue": "ArXiv 2026 (March 26)",
@@ -2607,6 +2607,89 @@
     "first_page_image": {
       "imageUrl": "/first_pages/4634337.jpeg"
     }
+  },
+  {
+    "paper_id": 4665875,
+    "title": "VLA Foundry: A Unified Framework for Training Vision-Language-Action Models",
+    "authors": "Jean Mercat, Sedrick Keh, Kushal Arora, Isabella Huang, Paarth Shah, Haruki Nishimura, Shun Iwase, Katherine Liu",
+    "cache_file_name": "Mercat2026ARXIV_VLA_Foundry_A_Unified.pdf",
+    "publication_date": "2026-04-21",
+    "arxiv_id": "2604.19728",
+    "read": true,
+    "abstract": "We present VLA Foundry, an open-source framework that unifies LLM, VLM, and VLA training in a single codebase. Most open-source VLA efforts specialize on the action training stage, often stitching together incompatible pretraining pipelines. VLA Foundry instead provides a shared training stack with end-to-end control, from language pretraining to action-expert fine-tuning. VLA Foundry supports both from-scratch training and pretrained backbones from Hugging Face. To demonstrate the utility of our framework, we train and release two types of models: the first trained fully from scratch through our LLM-->VLM-->VLA pipeline and the second built on the pretrained Qwen3-VL backbone. We evaluate closed-loop policy performance of both models on LBM Eval, an open-data, open-source simulator. We also contribute usability improvements to the simulator and the STEP analysis tools for easier public use. In the nominal evaluation setting, our fully-open from-scratch model is on par with our prior closed-source work and substituting in the Qwen3-VL backbone leads to a strong multi-task table top manipulation policy outperforming our baseline by a wide margin. The VLA Foundry codebase is available at <a href='https://github.com/TRI-ML/vla_foundry' target='_blank'>https://github.com/TRI-ML/vla_foundry</a> and all multi-task model weights are released on <a href='https://huggingface.co/collections/TRI-ML/vla-foundry' target='_blank'>https://huggingface.co/collections/TRI-ML/vla-foundry</a>. Additional qualitative videos are available on the project website <a href='https://tri-ml.github.io/vla_foundry' target='_blank'>https://tri-ml.github.io/vla_foundry</a>.",
+    "url": "https://arxiv.org/pdf/2604.19728",
+    "source": "arxiv",
+    "conference": null,
+    "conference_url": null,
+    "conference_year": null,
+    "abbreviation": null,
+    "conf_id": null,
+    "semantic_scholar_id": null,
+    "category": "Robotics and Control",
+    "citations": 0,
+    "total_read": 15,
+    "total_likes": 2,
+    "total_dislikes": 0,
+    "rating": 1,
+    "n_positive_ratings": 1,
+    "n_negative_ratings": 0,
+    "bookmarked": false,
+    "user_paper_collections": [
+      {
+        "id": 166543,
+        "name": "VLM",
+        "readonly": false,
+        "color": "#42d692"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      }
+    ],
+    "display_venue": "ArXiv 2026 (April 21)",
+    "html_link": "https://arxiv.org/html/2604.19728",
+    "url_for_twitter": "https://twitter.com/intent/tweet?text=Check+out+this+paper%3A+https%3A%2F%2Farxiv.org%2Fabs%2F2604.19728.%0AShared+by%3A&url=https%3A%2F%2Fwww.scholar-inbox.com",
+    "shortened_authors": "Jean Mercat, Sedrick Keh, Kushal Arora, Isabella Huang, Paarth Shah, Haruki Nishimura, Shun Iwase, Katherine Liu",
+    "color": [
+      0.8234038948,
+      0.409333696,
+      0.4901396872,
+      0.3
+    ],
+    "ranking_score": 0.9837446955998355,
+    "has_ranking": true,
+    "is_cached": true,
+    "is_cached_filename": "Mercat2026ARXIV_VLA_Foundry_A_Unified.pdf",
+    "digest_date": "2026-04-22 00:00:00",
+    "paper_source_id": "2604.19728",
+    "inferredHighlights": [
+      {
+        "startIndex": 376,
+        "endIndex": 466,
+        "highlightClass": "secondary-highlight"
+      },
+      {
+        "startIndex": 468,
+        "endIndex": 685,
+        "highlightClass": "primary-highlight"
+      }
+    ],
+    "author_details": [],
+    "summaries": {},
+    "affiliations": [],
+    "keywords_metadata": {},
+    "project_url": null,
+    "github_url": null,
+    "teaser_figures": [],
+    "first_page_image": null
   },
   {
     "paper_id": 4581555,
@@ -2864,6 +2947,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166538,
+        "name": "RL",
+        "readonly": false,
+        "color": "#b99aff"
+      },
+      {
         "id": 166547,
         "name": "VGen",
         "readonly": false,
@@ -2878,12 +2967,6 @@
       {
         "id": 166548,
         "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
-        "id": 166538,
-        "name": "RL",
         "readonly": false,
         "color": "#b99aff"
       }
@@ -3029,7 +3112,7 @@
       0.4901396872,
       0.3
     ],
-    "ranking_score": 0.9826730637313505,
+    "ranking_score": 0.9826730637313503,
     "has_ranking": true,
     "is_cached": false,
     "is_cached_filename": "",
@@ -3124,12 +3207,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -3140,6 +3217,12 @@
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       },
       {
         "id": 166545,
@@ -3467,12 +3550,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
@@ -3483,6 +3560,12 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       },
       {
         "id": 166539,
@@ -3608,16 +3691,16 @@
         "color": "#b99aff"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (January 1)",
@@ -3674,12 +3757,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
@@ -3696,6 +3773,12 @@
         "name": "Policy",
         "readonly": false,
         "color": "#16a765"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (April 7)",
@@ -3925,8 +4008,8 @@
         "color": "#f691b2"
       },
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
         "color": "#b99aff"
       },
@@ -3937,8 +4020,8 @@
         "color": "#16a765"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
         "color": "#b99aff"
       }
@@ -4073,16 +4156,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166824,
         "name": "Policy",
         "readonly": false,
         "color": "#16a765"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       },
       {
         "id": 166547,
@@ -4209,12 +4292,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166824,
         "name": "Policy",
         "readonly": false,
@@ -4225,6 +4302,12 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (March 17)",
@@ -4489,16 +4572,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (February 20)",
@@ -4756,16 +4839,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166546,
-        "name": "Diffusion",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
       }
     ],
     "display_venue": "ArXiv 2026 (March 26)",
@@ -4990,12 +5073,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166541,
         "name": "Survey",
         "readonly": false,
@@ -5006,6 +5083,12 @@
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2025 (December 18)",
@@ -5309,16 +5392,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (February 13)",
@@ -5445,16 +5528,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       },
       {
         "id": 166547,
@@ -5608,16 +5691,16 @@
         "color": "#16a765"
       },
       {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ICLR 2026",
@@ -5725,16 +5808,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166824,
-        "name": "Policy",
-        "readonly": false,
-        "color": "#16a765"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
       },
       {
         "id": 166543,
@@ -5808,12 +5891,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
@@ -5824,6 +5901,12 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2025 (October 30)",
@@ -5955,16 +6038,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       },
       {
         "id": 166824,
@@ -6109,16 +6192,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       },
       {
         "id": 166542,
@@ -6374,6 +6457,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166544,
+        "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
+      },
+      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -6384,12 +6473,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
       }
     ],
     "display_venue": "ICLR 2026",
@@ -6452,16 +6535,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (April 4)",
@@ -6589,12 +6672,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
@@ -6605,6 +6682,12 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ICLR 2026",
@@ -6879,10 +6962,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b99aff"
       },
       {
         "id": 166547,
@@ -6891,10 +6974,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (April 9)",
@@ -7177,10 +7260,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#ff7537"
       },
       {
         "id": 168532,
@@ -7189,10 +7272,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (February 1)",
@@ -7371,16 +7454,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ICLR 2026",
@@ -7499,16 +7582,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (March 12)",
@@ -7784,10 +7867,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 168685,
+        "name": "Memory",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b99aff"
       },
       {
         "id": 166537,
@@ -7796,10 +7879,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 168685,
-        "name": "Memory",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ICLR 2026",
@@ -7990,7 +8073,7 @@
       0.4901396872,
       0.3
     ],
-    "ranking_score": 0.9553029658139209,
+    "ranking_score": 0.9553029658139207,
     "has_ranking": true,
     "is_cached": false,
     "is_cached_filename": "",
@@ -8118,10 +8201,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#f691b2"
       },
       {
         "id": 169181,
@@ -8130,10 +8213,10 @@
         "color": "#ffad46"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b99aff"
       }
     ],
     "display_venue": "ArXiv 2026 (February 13)",
@@ -8408,16 +8491,16 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (March 31)",
@@ -8779,22 +8862,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
-      },
-      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       },
       {
         "id": 166538,
@@ -8803,10 +8874,22 @@
         "color": "#b99aff"
       },
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
+      },
+      {
+        "id": 166544,
+        "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
       }
     ],
     "display_venue": "ArXiv 2025 (November 6)",
@@ -9289,7 +9372,7 @@
     "semantic_scholar_id": "8a1f5e48922093f6fb4093d5632cb6980421bad2",
     "category": "Computer Vision and Graphics",
     "citations": 0,
-    "total_read": 38,
+    "total_read": 39,
     "total_likes": 8,
     "total_dislikes": 0,
     "rating": 1,
@@ -9298,16 +9381,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
         "color": "#16a765"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "display_venue": "ArXiv 2026 (April 13)",
@@ -9455,10 +9538,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166824,
-        "name": "Policy",
+        "id": 166541,
+        "name": "Survey",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#ffad46"
       },
       {
         "id": 166539,
@@ -9467,10 +9550,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 166541,
-        "name": "Survey",
+        "id": 166824,
+        "name": "Policy",
         "readonly": false,
-        "color": "#ffad46"
+        "color": "#16a765"
       }
     ],
     "display_venue": "ArXiv 2026 (April 4)",
@@ -9697,12 +9780,6 @@
         "color": "#4986e7"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166820,
         "name": "MoE",
         "readonly": false,
@@ -9719,6 +9796,12 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (April 8)",
@@ -9731,7 +9814,7 @@
       0.4901396872,
       0.3
     ],
-    "ranking_score": 0.942484372712731,
+    "ranking_score": 0.9424843727127312,
     "has_ranking": true,
     "is_cached": true,
     "is_cached_filename": "X2026ARXIV_HY_Embodied_0_5.pdf",
@@ -9983,10 +10066,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166544,
-        "name": "Reasoning",
+        "id": 166821,
+        "name": "\ud83d\udc40",
         "readonly": false,
-        "color": "#b6cff5"
+        "color": "#4986e7"
       },
       {
         "id": 166537,
@@ -10001,16 +10084,16 @@
         "color": "#b99aff"
       },
       {
+        "id": 166544,
+        "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
+      },
+      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
-      },
-      {
-        "id": 166821,
-        "name": "\ud83d\udc40",
-        "readonly": false,
-        "color": "#4986e7"
       }
     ],
     "display_venue": "NeurIPS 2025",
@@ -10103,16 +10186,16 @@
         "color": "#4986e7"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (March 27)",
@@ -10383,28 +10466,28 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
         "color": "#b99aff"
       },
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
       }
     ],
     "display_venue": "ArXiv 2026 (March 27)",
@@ -10566,16 +10649,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 166578,
-        "name": "Prediction",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166578,
+        "name": "Prediction",
+        "readonly": false,
+        "color": "#cca6ac"
       }
     ],
     "display_venue": "ICLR 2026",
@@ -10643,16 +10726,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
         "id": 166572,
         "name": "Distillation",
         "readonly": false,
         "color": "#ffad46"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       },
       {
         "id": 166545,
@@ -10661,10 +10744,10 @@
         "color": "#4986e7"
       },
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (March 12)",
@@ -10781,6 +10864,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166824,
+        "name": "Policy",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
@@ -10791,12 +10880,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166824,
-        "name": "Policy",
-        "readonly": false,
-        "color": "#16a765"
       }
     ],
     "display_venue": "ICLR 2026",
@@ -10913,6 +10996,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
@@ -10923,12 +11012,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (April 5)",
@@ -11079,10 +11162,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#f691b2"
       },
       {
         "id": 166547,
@@ -11091,10 +11174,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b99aff"
       },
       {
         "id": 166546,
@@ -11205,10 +11288,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166538,
-        "name": "RL",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#f691b2"
       },
       {
         "id": 166548,
@@ -11217,10 +11300,10 @@
         "color": "#b99aff"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166538,
+        "name": "RL",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b99aff"
       }
     ],
     "display_venue": "ArXiv 2026 (March 26)",
@@ -11312,12 +11395,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
@@ -11328,6 +11405,12 @@
         "name": "Distillation",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -11548,16 +11631,16 @@
         "color": "#cca6ac"
       },
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166549,
         "name": "GSplat",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "display_venue": "ArXiv 2026 (March 9)",
@@ -11712,16 +11795,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 166569,
-        "name": "MLLM",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 168949,
         "name": "Agents",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166569,
+        "name": "MLLM",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "display_venue": "ArXiv 2026 (March 23)",
@@ -11993,10 +12076,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#4986e7"
       },
       {
         "id": 166539,
@@ -12005,10 +12088,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (March 26)",
@@ -12454,16 +12537,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 169181,
         "name": "Sim",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (April 1)",
@@ -12574,16 +12657,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (March 12)",
@@ -12718,6 +12801,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
+      },
+      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
@@ -12728,12 +12817,6 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
       }
     ],
     "display_venue": "ICLR 2026",
@@ -12796,16 +12879,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (April 6)",
@@ -12941,16 +13024,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166541,
-        "name": "Survey",
-        "readonly": false,
-        "color": "#ffad46"
-      },
-      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166541,
+        "name": "Survey",
+        "readonly": false,
+        "color": "#ffad46"
       }
     ],
     "display_venue": "ArXiv 2026 (March 25)",
@@ -13190,7 +13273,7 @@
     "semantic_scholar_id": "98351aaff886c2004a44eaf652f7b6e78f41f797",
     "category": "Machine Learning",
     "citations": 0,
-    "total_read": 122,
+    "total_read": 125,
     "total_likes": 58,
     "total_dislikes": 0,
     "rating": 1,
@@ -13199,16 +13282,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (April 16)",
@@ -13448,12 +13531,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166569,
-        "name": "MLLM",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
@@ -13464,6 +13541,12 @@
         "name": "MoE",
         "readonly": false,
         "color": "#b6cff5"
+      },
+      {
+        "id": 166569,
+        "name": "MLLM",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "display_venue": "ArXiv 2026 (March 3)",
@@ -13597,10 +13680,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166542,
+        "name": "3DFM",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#cca6ac"
       },
       {
         "id": 166548,
@@ -13609,10 +13692,10 @@
         "color": "#b99aff"
       },
       {
-        "id": 166542,
-        "name": "3DFM",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#cca6ac"
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2025 (August 25)",
@@ -13694,16 +13777,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       },
       {
         "id": 166542,
@@ -13873,10 +13956,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -13885,10 +13968,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166546,
+        "name": "Diffusion",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#16a765"
       }
     ],
     "display_venue": "ArXiv 2025 (March 27)",
@@ -13987,16 +14070,16 @@
         "color": "#16a765"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (April 6)",
@@ -14108,16 +14191,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 169090,
         "name": "Perception",
         "readonly": false,
         "color": "#2da2bb"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -14293,16 +14376,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166569,
-        "name": "MLLM",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166572,
         "name": "Distillation",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166569,
+        "name": "MLLM",
+        "readonly": false,
+        "color": "#2da2bb"
       },
       {
         "id": 166540,
@@ -14387,7 +14470,7 @@
     "semantic_scholar_id": "86f417e989783fc6e9ab1996451a7cd6a9200cdc",
     "category": "Computer Vision and Graphics",
     "citations": 0,
-    "total_read": 264,
+    "total_read": 265,
     "total_likes": 58,
     "total_dislikes": 0,
     "rating": 1,
@@ -14492,10 +14575,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#f691b2"
       },
       {
         "id": 166545,
@@ -14510,10 +14593,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166546,
+        "name": "Diffusion",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#16a765"
       }
     ],
     "display_venue": "ArXiv 2026 (March 2)",
@@ -14526,7 +14609,7 @@
       0.4901396872,
       0.3
     ],
-    "ranking_score": 0.8810343856491525,
+    "ranking_score": 0.8810343856491526,
     "has_ranking": true,
     "is_cached": true,
     "is_cached_filename": "Chen2026ARXIV_Mean_Flow_based_One.pdf",
@@ -14642,16 +14725,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166542,
-        "name": "3DFM",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166542,
+        "name": "3DFM",
+        "readonly": false,
+        "color": "#cca6ac"
       }
     ],
     "display_venue": "ArXiv 2026 (March 13)",
@@ -14749,8 +14832,20 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
+      },
+      {
         "id": 166544,
         "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
+      },
+      {
+        "id": 166820,
+        "name": "MoE",
         "readonly": false,
         "color": "#b6cff5"
       },
@@ -14759,18 +14854,6 @@
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
-        "id": 166820,
-        "name": "MoE",
-        "readonly": false,
-        "color": "#b6cff5"
       }
     ],
     "display_venue": "ArXiv 2026 (January 8)",
@@ -14838,10 +14921,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166545,
-        "name": "Efficient",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#4986e7"
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -14856,10 +14939,10 @@
         "color": "#16a765"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166545,
+        "name": "Efficient",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#4986e7"
       }
     ],
     "display_venue": "ArXiv 2026 (March 27)",
@@ -15099,10 +15182,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#b99aff"
+        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -15111,10 +15194,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 166537,
-        "name": "VLA",
+        "id": 166548,
+        "name": "WM",
         "readonly": false,
-        "color": "#ff7537"
+        "color": "#b99aff"
       }
     ],
     "display_venue": "ArXiv 2026 (April 16)",
@@ -15382,16 +15465,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (April 2)",
@@ -15489,7 +15572,7 @@
     "semantic_scholar_id": "4356b46e5dd1a4ebd579b1cd6eb3eeedddd5a65c",
     "category": "Computer Vision and Graphics",
     "citations": 0,
-    "total_read": 793,
+    "total_read": 794,
     "total_likes": 551,
     "total_dislikes": 0,
     "rating": 1,
@@ -15588,16 +15671,16 @@
         "color": "#f691b2"
       },
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166542,
         "name": "3DFM",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "display_venue": "ArXiv 2026 (March 8)",
@@ -15711,16 +15794,16 @@
         "color": "#4986e7"
       },
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166537,
+        "name": "VLA",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2025 (June 9)",
@@ -15814,16 +15897,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166546,
+        "name": "Diffusion",
+        "readonly": false,
+        "color": "#16a765"
+      },
+      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
-      },
-      {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
       },
       {
         "id": 166539,
@@ -15832,10 +15915,10 @@
         "color": "#f691b2"
       },
       {
-        "id": 166546,
-        "name": "Diffusion",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#16a765"
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (April 2)",
@@ -15933,16 +16016,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166541,
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (April 7)",
@@ -16047,28 +16130,28 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166537,
-        "name": "VLA",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
       },
       {
-        "id": 166540,
-        "name": "AD",
+        "id": 166537,
+        "name": "VLA",
         "readonly": false,
-        "color": "#2da2bb"
+        "color": "#ff7537"
       },
       {
         "id": 166546,
         "name": "Diffusion",
         "readonly": false,
         "color": "#16a765"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "display_venue": "ArXiv 2026 (February 24)",
@@ -16301,6 +16384,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
+      },
+      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
@@ -16311,12 +16400,6 @@
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
-      },
-      {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
       }
     ],
     "display_venue": "ArXiv 2026 (March 6)",
@@ -16457,12 +16540,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166540,
-        "name": "AD",
-        "readonly": false,
-        "color": "#2da2bb"
-      },
-      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
@@ -16473,6 +16550,12 @@
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166540,
+        "name": "AD",
+        "readonly": false,
+        "color": "#2da2bb"
       }
     ],
     "display_venue": "ArXiv 2025 (September 13)",
@@ -16881,10 +16964,10 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166544,
-        "name": "Reasoning",
+        "id": 166539,
+        "name": "Robotics",
         "readonly": false,
-        "color": "#b6cff5"
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -16893,10 +16976,10 @@
         "color": "#ff7537"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166544,
+        "name": "Reasoning",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b6cff5"
       }
     ],
     "display_venue": "ArXiv 2026 (February 24)",
@@ -17580,28 +17663,28 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
-      },
-      {
         "id": 166543,
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
       },
       {
-        "id": 166539,
-        "name": "Robotics",
+        "id": 166544,
+        "name": "Reasoning",
         "readonly": false,
-        "color": "#f691b2"
+        "color": "#b6cff5"
       },
       {
         "id": 166537,
         "name": "VLA",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2025 (November 28)",
@@ -17995,16 +18078,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166548,
-        "name": "WM",
-        "readonly": false,
-        "color": "#b99aff"
-      },
-      {
         "id": 166539,
         "name": "Robotics",
         "readonly": false,
         "color": "#f691b2"
+      },
+      {
+        "id": 166548,
+        "name": "WM",
+        "readonly": false,
+        "color": "#b99aff"
       }
     ],
     "display_venue": "ArXiv 2026 (March 13)",
@@ -18017,7 +18100,7 @@
       0.4901396872,
       0.3
     ],
-    "ranking_score": 0.7546317392641999,
+    "ranking_score": 0.7546317392641989,
     "has_ranking": true,
     "is_cached": true,
     "is_cached_filename": "Maes2026ARXIV_LeWorldModel_Stable_End_to.pdf",
@@ -18123,16 +18206,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (April 6)",
@@ -18243,16 +18326,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166547,
-        "name": "VGen",
-        "readonly": false,
-        "color": "#ff7537"
-      },
-      {
         "id": 166548,
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166547,
+        "name": "VGen",
+        "readonly": false,
+        "color": "#ff7537"
       }
     ],
     "display_venue": "ArXiv 2026 (April 8)",
@@ -18369,16 +18452,16 @@
         "color": "#2da2bb"
       },
       {
-        "id": 166545,
-        "name": "Efficient",
-        "readonly": false,
-        "color": "#4986e7"
-      },
-      {
         "id": 166541,
         "name": "Survey",
         "readonly": false,
         "color": "#ffad46"
+      },
+      {
+        "id": 166545,
+        "name": "Efficient",
+        "readonly": false,
+        "color": "#4986e7"
       }
     ],
     "display_venue": "ArXiv 2026 (April 7)",
@@ -18489,16 +18572,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166549,
-        "name": "GSplat",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 170370,
         "name": "Physics",
         "readonly": false,
         "color": "#cca6ac"
+      },
+      {
+        "id": 166549,
+        "name": "GSplat",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (April 9)",
@@ -18604,16 +18687,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 166545,
         "name": "Efficient",
         "readonly": false,
         "color": "#4986e7"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       },
       {
         "id": 166537,
@@ -18632,7 +18715,7 @@
       0.5105547455741177,
       0.3
     ],
-    "ranking_score": 0.7331278413386079,
+    "ranking_score": 0.733127841338608,
     "has_ranking": true,
     "is_cached": false,
     "is_cached_filename": "",
@@ -18704,7 +18787,7 @@
       0.5132962423458823,
       0.3
     ],
-    "ranking_score": 0.7314105010098796,
+    "ranking_score": 0.7314105010098793,
     "has_ranking": true,
     "is_cached": true,
     "is_cached_filename": "Liang2026ARXIV_Robometer_Scaling_General_Purpose.pdf",
@@ -18907,12 +18990,6 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 170370,
         "name": "Physics",
         "readonly": false,
@@ -18923,6 +19000,12 @@
         "name": "WM",
         "readonly": false,
         "color": "#b99aff"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2026 (March 18)",
@@ -19074,16 +19157,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166539,
-        "name": "Robotics",
-        "readonly": false,
-        "color": "#f691b2"
-      },
-      {
         "id": 168532,
         "name": "Data",
         "readonly": false,
         "color": "#ff7537"
+      },
+      {
+        "id": 166539,
+        "name": "Robotics",
+        "readonly": false,
+        "color": "#f691b2"
       }
     ],
     "display_venue": "ArXiv 2025 (March 10)",
@@ -19466,16 +19549,16 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
-        "id": 166578,
-        "name": "Prediction",
-        "readonly": false,
-        "color": "#cca6ac"
-      },
-      {
         "id": 166540,
         "name": "AD",
         "readonly": false,
         "color": "#2da2bb"
+      },
+      {
+        "id": 166578,
+        "name": "Prediction",
+        "readonly": false,
+        "color": "#cca6ac"
       },
       {
         "id": 166569,
@@ -20023,6 +20106,12 @@
     "bookmarked": false,
     "user_paper_collections": [
       {
+        "id": 166544,
+        "name": "Reasoning",
+        "readonly": false,
+        "color": "#b6cff5"
+      },
+      {
         "id": 166538,
         "name": "RL",
         "readonly": false,
@@ -20033,12 +20122,6 @@
         "name": "VLM",
         "readonly": false,
         "color": "#42d692"
-      },
-      {
-        "id": 166544,
-        "name": "Reasoning",
-        "readonly": false,
-        "color": "#b6cff5"
       }
     ],
     "display_venue": "ArXiv 2026 (February 11)",
@@ -20051,7 +20134,7 @@
       0.9528240898494117,
       0.3
     ],
-    "ranking_score": 0.4260730294052552,
+    "ranking_score": 0.4260730294052555,
     "has_ranking": true,
     "is_cached": false,
     "is_cached_filename": "",
@@ -20152,7 +20235,7 @@
       0.8522098918000001,
       0.3
     ],
-    "ranking_score": 0.3306633578293469,
+    "ranking_score": 0.3306633578293467,
     "has_ranking": true,
     "is_cached": true,
     "is_cached_filename": "Feng2026ICLR_In_Place_Test_Time.pdf",
