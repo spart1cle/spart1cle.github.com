@@ -1,5 +1,23 @@
 [
   {
+    "id": "1776938007418",
+    "type": "link",
+    "date": "2026-04-23",
+    "text": "Posted by [Shuyang Sung](https://scholar.google.com/citations?hl=en&user=PoAvGRMAAAAJ) of DeepMind a few hours ago\n\n> Are we finally witnessing the GPT-3 moment for computer vision? We just dropped Vision Banana 🍌 , a vision foundation model that seamlessly unifies generation and perception by treating all vision tasks as just another image generation problem.\n> \n> Vision Banana achieves state-of-the-art performance under the zero-shot transfer setting across both 2D and 3D vision tasks, proving that generative vision models are the ultimate generalist foundation.",
+    "url": "https://vision-banana.github.io/",
+    "tags": [
+      "research",
+      "paper",
+      "vision"
+    ],
+    "preview": {
+      "title": "Vision Banana | Google DeepMind",
+      "description": "A generalist model achieving state-of-the-art on segmentation, depth, and surface normal tasks.",
+      "image": "https://vision-banana.github.io/files/images/logo.png",
+      "domain": "vision-banana.github.io"
+    }
+  },
+  {
     "id": "1776735128491",
     "type": "link",
     "date": "2026-04-21",
