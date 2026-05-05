@@ -3,7 +3,7 @@
     "id": "1778018682224",
     "type": "link",
     "date": "2026-05-05",
-    "text": "RSS 2026 workshop on robot world models coming this July",
+    "text": "RSS 2026 workshop on robot world models coming this July\n\nTopics\n\n- How should actions and embodiment be represented in world models?\n- Why do world models fail over long imagined horizons?\n- How should perception, language, and control be integrated?\n- What abstractions or hierarchies are needed for long-horizon planning?\n- When does learning or planning inside a world model work in practice?\n- How can world models generalize across tasks, environments, and robots?\n- How should world models be evaluated beyond prediction accuracy?\n- How can uncertainty in imagined rollouts be detected before deployment?",
     "url": "https://robot-worldmodels.github.io/",
     "tags": [
       "workshop",
