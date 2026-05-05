@@ -1,5 +1,24 @@
 [
   {
+    "id": "1778018682224",
+    "type": "link",
+    "date": "2026-05-05",
+    "text": "RSS 2026 workshop on robot world models coming this July",
+    "url": "https://robot-worldmodels.github.io/",
+    "tags": [
+      "workshop",
+      "world models",
+      "robotics",
+      "research"
+    ],
+    "preview": {
+      "title": "Robot World Models",
+      "description": "Join the Robot World Models workshop.",
+      "image": null,
+      "domain": "robot-worldmodels.github.io"
+    }
+  },
+  {
     "id": "1776938007418",
     "type": "link",
     "date": "2026-04-23",
