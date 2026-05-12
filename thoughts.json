@@ -1,5 +1,25 @@
 [
   {
+    "id": "1778549677006",
+    "type": "link",
+    "date": "2026-05-12",
+    "text": "Learned simulators for evaluating general robot policies",
+    "url": "https://www.fern.bot/whitepaper",
+    "tags": [
+      "world models",
+      "robotics",
+      "rl",
+      "startup",
+      "blog"
+    ],
+    "preview": {
+      "title": "Whitepaper · Fern",
+      "description": "Scalable evaluation and RL environments for general robot policies, learned end-to-end from real robot data.",
+      "image": "https://www.fern.bot/fern-logo-bw.svg?dpl=dpl_Eee3HvyF86EkE6cKteQxfKi2vgbP",
+      "domain": "fern.bot"
+    }
+  },
+  {
     "id": "1778018682224",
     "type": "link",
     "date": "2026-05-05",
