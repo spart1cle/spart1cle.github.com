@@ -1,5 +1,19 @@
 [
   {
+    "id": "1778677374925",
+    "type": "link",
+    "date": "2026-05-13",
+    "text": "Visualize Any Hugging Face Model.\nPaste a Hugging Face URL or repo name and jump straight into a clear interactive model view.",
+    "url": "https://hfviewer.com/",
+    "tags": [],
+    "preview": {
+      "title": "HF Viewer - view any Hugging Face model",
+      "description": "We believe good understanding of AI models unlocks innovative ideas.",
+      "image": "https://hfviewer.com/assets/hf_landing_og.png?v=20260505k",
+      "domain": "hfviewer.com"
+    }
+  },
+  {
     "id": "1778549677006",
     "type": "link",
     "date": "2026-05-12",
